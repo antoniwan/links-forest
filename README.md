@@ -15,17 +15,17 @@ Built to express your full self — in all your evolving forms.
 2. **Choose Your Theme**
 
    - In `src/config/user.config.ts`, find the `theme.active` property
-   - Set it to one of these themes:
-     - `wolf`: Cool grays and blues
-     - `fox`: Warm oranges and browns
-     - `owl`: Deep purples and dark blues
-     - `raven`: Dark blacks and grays
-     - `deer`: Earthy browns and greens
-     - `bear`: Rich browns and golds
-     - `eagle`: Majestic golds and browns
-     - `salmon`: Vibrant pinks and oranges
-     - `otter`: Playful blues and teals
-     - `lynx`: Mysterious grays and silvers
+   - Set it to one of these archetypal themes:
+     - `wolf`: Cool grays and blues - Instinct, loyalty, protection
+     - `fox`: Warm oranges and browns - Warmth, cunning, adaptability
+     - `owl`: Deep purples and dark blues - Wisdom, mystery, vision
+     - `raven`: Dark blacks and grays - Mystery, transformation, magic
+     - `deer`: Earthy browns and greens - Gentleness, grace, nature
+     - `bear`: Rich browns and golds - Strength, protection, healing
+     - `eagle`: Majestic golds and browns - Vision, freedom, power
+     - `salmon`: Vibrant pinks and oranges - Determination, journey, rebirth
+     - `otter`: Playful blues and teals - Joy, playfulness, adaptability
+     - `lynx`: Mysterious grays and silvers - Stealth, perception, independence
 
 3. **Add Your Links**
 
@@ -79,18 +79,18 @@ Each archetype in LinkForest is intentionally:
 
 ## 🧠 Archetypes (Themes)
 
-| Archetype      | Energetic Mode | Description                     |
-| -------------- | -------------- | ------------------------------- |
-| The Builder    | Creation       | Manifestation, systems, form    |
-| The Wolf       | Instinct       | Loyalty, protection, raw truth  |
-| The Mystic     | Spirituality   | Vision, silence, cosmic threads |
-| The Dragon     | Power          | Force, will, heat               |
-| The Artist     | Expression     | Creativity, chaos, truth        |
-| The Warrior    | Action         | Discipline, focus, grit         |
-| The Healer     | Regeneration   | Soothing, tending, connection   |
-| The Alchemist  | Transformation | Change, elements, ritual        |
-| The Strategist | Mind           | Planning, clarity, framing      |
-| The Steward    | Legacy         | Care, love, generational vision |
+| Archetype  | Energetic Mode | Description                     | Colors & Characteristics     |
+| ---------- | -------------- | ------------------------------- | ---------------------------- |
+| The Wolf   | Instinct       | Loyalty, protection, raw truth  | Cool grays and blues         |
+| The Fox    | Cunning        | Warmth, adaptability, wit       | Warm oranges and browns      |
+| The Owl    | Wisdom         | Vision, silence, cosmic threads | Deep purples and dark blues  |
+| The Raven  | Mystery        | Transformation, magic, depth    | Dark blacks and grays        |
+| The Deer   | Gentleness     | Grace, nature, sensitivity      | Earthy browns and greens     |
+| The Bear   | Strength       | Protection, healing, power      | Rich browns and golds        |
+| The Eagle  | Vision         | Freedom, power, perspective     | Majestic golds and browns    |
+| The Salmon | Determination  | Journey, rebirth, persistence   | Vibrant pinks and oranges    |
+| The Otter  | Joy            | Playfulness, adaptability       | Playful blues and teals      |
+| The Lynx   | Stealth        | Perception, independence        | Mysterious grays and silvers |
 
 ## 🚀 Features
 
@@ -102,6 +102,7 @@ Each archetype in LinkForest is intentionally:
 - [x] Easy-to-edit configuration
 - [x] Fast static builds with no server cost
 - [x] TypeScript support
+- [x] Development theme cycling for testing
 - [ ] Theme selector UI
 - [ ] Optional: live theme switching
 - [ ] Configurable via `theme.config.ts`
@@ -127,9 +128,10 @@ Each archetype in LinkForest is intentionally:
 ```txt
 /
 ├── src/
-│   ├── components/        # LinkCard.tsx, SocialIcons.astro
+│   ├── components/        # LinkCard.tsx, SocialIcons.astro, ThemeCycler.tsx
 │   ├── layouts/           # Layout.astro
 │   ├── pages/             # index.astro
+│   ├── config/            # user.config.ts, dev.config.ts
 │   └── data/              # theme.config.ts, links.json
 ├── public/                # Favicon, images, assets
 ├── astro.config.mjs       # Astro configuration
@@ -151,6 +153,14 @@ All commands are run from the root of the project, from a terminal:
 ## 🔍 Debugging and Logging
 
 LinkForest includes a comprehensive logging system to help with development and debugging. Logs are automatically enabled in development mode.
+
+### Development Theme Cycling
+
+In development mode, themes automatically cycle every 30 seconds to help with testing and development. You'll see detailed logs in the console showing:
+
+- The current theme name
+- The theme's color scheme
+- The theme's archetypal characteristics
 
 ### Available Log Namespaces
 
