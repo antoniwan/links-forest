@@ -79,18 +79,18 @@ Each archetype in LinkForest is intentionally:
 
 ## 🧠 Archetypes (Themes)
 
-| Archetype  | Energetic Mode | Description                     | Colors & Characteristics     |
-| ---------- | -------------- | ------------------------------- | ---------------------------- |
-| The Wolf   | Instinct       | Loyalty, protection, raw truth  | Cool grays and blues         |
-| The Fox    | Cunning        | Warmth, adaptability, wit       | Warm oranges and browns      |
-| The Owl    | Wisdom         | Vision, silence, cosmic threads | Deep purples and dark blues  |
-| The Raven  | Mystery        | Transformation, magic, depth    | Dark blacks and grays        |
-| The Deer   | Gentleness     | Grace, nature, sensitivity      | Earthy browns and greens     |
-| The Bear   | Strength       | Protection, healing, power      | Rich browns and golds        |
-| The Eagle  | Vision         | Freedom, power, perspective     | Majestic golds and browns    |
-| The Salmon | Determination  | Journey, rebirth, persistence   | Vibrant pinks and oranges    |
-| The Otter  | Joy            | Playfulness, adaptability       | Playful blues and teals      |
-| The Lynx   | Stealth        | Perception, independence        | Mysterious grays and silvers |
+| Archetype      | Energetic Mode | Description                    | Colors & Characteristics |
+| -------------- | -------------- | ------------------------------ | ------------------------ |
+| The Builder    | Creation       | Systems, form, structure       | Stone and amber tones    |
+| The Wolf       | Instinct       | Loyalty, protection, raw truth | Cool grays and blues     |
+| The Mystic     | Spirituality   | Vision, cosmic threads         | Deep purples and indigos |
+| The Dragon     | Power          | Force, will, transformation    | Rich reds and oranges    |
+| The Artist     | Expression     | Creativity, truth, beauty      | Pink and rose tones      |
+| The Warrior    | Action         | Discipline, focus, strength    | Slate and gray tones     |
+| The Healer     | Regeneration   | Soothing, connection, care     | Emerald and teal tones   |
+| The Alchemist  | Transformation | Elements, ritual, change       | Violet and purple tones  |
+| The Strategist | Mind           | Planning, clarity, vision      | Blue and cyan tones      |
+| The Steward    | Legacy         | Care, generational vision      | Green and lime tones     |
 
 ## 🚀 Features
 
@@ -103,9 +103,10 @@ Each archetype in LinkForest is intentionally:
 - [x] Fast static builds with no server cost
 - [x] TypeScript support
 - [x] Development theme cycling for testing
+- [x] Configurable via `theme.config.ts`
+- [x] Comprehensive logging system
 - [ ] Theme selector UI
 - [ ] Optional: live theme switching
-- [ ] Configurable via `theme.config.ts`
 - [ ] Optional: embed music, blog posts, videos
 - [ ] Optional: dark mode toggle
 - [ ] Optional: dynamic link metrics
