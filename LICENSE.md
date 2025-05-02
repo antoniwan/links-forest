@@ -20,8 +20,12 @@ You are _encouraged_ to:
 
 The only request is this:
 
-> Don’t resell or gatekeep this project behind paywalls without credit.  
+> Don't resell or gatekeep this project behind paywalls without credit.  
 > Make it better — and keep it free.
 
 LinkForest is a gift for digital sovereignty, for the collective.  
 Join the forest 🌲
+
+---
+
+[← Go back to README](../README.md)

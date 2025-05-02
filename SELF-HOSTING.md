@@ -1,6 +1,6 @@
 # 🌐 How to Self-Host LinkForest
 
-Ditch Linktree. Own your links. Here’s how to self-host your **LinkForest** page on Vercel or Netlify in 5 minutes.
+Ditch Linktree. Own your links. Here's how to self-host your **LinkForest** page on Vercel or Netlify in 5 minutes.
 
 ---
 
@@ -28,7 +28,7 @@ Click "Fork" on [GitHub](https://github.com/YOUR_REPO) to create your copy.
 
 - Go to your project dashboard
 - Settings → Domains → Add `yourdomain.com`
-- Update your DNS provider with Vercel’s nameservers
+- Update your DNS provider with Vercel's nameservers
 
 ---
 
@@ -64,7 +64,11 @@ Open `src/data/theme.config.ts` and `src/data/links.json` to personalize:
 
 ## 🤝 Support Sovereignty
 
-This project is intentionally open-source. Please don’t hoard it.  
+This project is intentionally open-source. Please don't hoard it.  
 **Teach others. Fork it. Theme it. Share it.**
 
 > Let the forest grow 🌱
+
+---
+
+[← Go back to README](../README.md)
