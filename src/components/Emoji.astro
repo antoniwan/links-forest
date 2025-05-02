@@ -1,0 +1,23 @@
+---
+interface Props {
+  name: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { name, size = 'md' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'text-xl',
+  md: 'text-2xl',
+  lg: 'text-3xl',
+};
+
+const emojiMap: Record<string, string> = {
+  twitter: '𝕏',
+  github: '⌨️',
+  linkedin: '🔗',
+  // Add more emojis as needed
+};
+---
+
+<span class={sizeClasses[size]}>{emojiMap[name] || name}</span> 

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import linksData from '../data/links.json';
+import Emoji from '../components/Emoji.astro';
 
 const { profile, links, social } = linksData;
 
@@ -60,11 +61,7 @@ const { profile, links, social } = linksData;
 						aria-label={`Visit ${item.platform}`}
 					>
 						<span class="sr-only">{item.platform}</span>
-						<span class="text-2xl">
-							{item.icon === 'twitter' && '𝕏'}
-							{item.icon === 'github' && '⌨️'}
-							{item.icon === 'linkedin' && '🔗'}
-						</span>
+						<Emoji name={item.icon} />
 					</a>
 				))}
 			</div>
