@@ -7,6 +7,7 @@ import { ProfilePicture } from '../components/ProfilePicture';
 import { LinkCard } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
 import { ThemeTransitionWrapper } from '../components/ThemeTransitionWrapper';
+import { AuraLayers } from '../components/AuraLayers';
 import { dataLogger } from '../utils/logger';
 
 const { profile, theme, links, social } = userConfig;
@@ -30,6 +31,7 @@ dataLogger('Layout initialized with theme:', theme.active);
 	<body class={`${currentTheme.colors.background} ${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen`}>
 		<!-- ThemeCycler will only be active in development mode -->
 		<ThemeCycler client:load />
+		<AuraLayers client:load theme={theme.active} />
 		<ThemeTransitionWrapper client:load>
 			<div class="max-w-xl mx-auto px-4 pt-16 pb-12">
 				<header class="flex justify-between items-center mb-8">
