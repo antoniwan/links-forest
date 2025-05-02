@@ -5,9 +5,17 @@ import { sizeClasses, type Size } from '../config/ui';
 interface Props {
   name: EmojiName;
   size?: Size;
+  label?: string;
 }
 
-const { name, size = 'md' } = Astro.props;
+const { name, size = 'md', label } = Astro.props;
+const emoji = emojiMap[name];
 ---
 
-<span class={sizeClasses[size]}>{emojiMap[name]}</span> 
+<span 
+  class={sizeClasses[size]} 
+  role="img" 
+  aria-label={label || name}
+>
+  {emoji}
+</span> 

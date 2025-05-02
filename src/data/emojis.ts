@@ -1,3 +1,19 @@
+/**
+ * Categories of emojis available in the system
+ */
+export type EmojiCategory =
+  | "social"
+  | "media"
+  | "business"
+  | "navigation"
+  | "status"
+  | "weather"
+  | "communication"
+  | "organization";
+
+/**
+ * All available emoji names in the system
+ */
 export type EmojiName =
   // Social & Communication
   | "twitter"
@@ -55,6 +71,9 @@ export type EmojiName =
   | "document"
   | "folder";
 
+/**
+ * Mapping of emoji names to their corresponding Unicode characters
+ */
 export const emojiMap: Record<EmojiName, string> = {
   // Social & Communication
   twitter: "𝕏",
@@ -111,4 +130,11 @@ export const emojiMap: Record<EmojiName, string> = {
   calendar: "📅",
   document: "📄",
   folder: "📁",
-};
+} as const;
+
+/**
+ * Type guard to check if a string is a valid EmojiName
+ */
+export function isValidEmojiName(name: string): name is EmojiName {
+  return name in emojiMap;
+}

@@ -1,58 +1,52 @@
-import { profileConfig } from '../config/profile';
-import { themeConfig, ACTIVE_THEME } from '../data/theme.config';
+---
+import type { Theme } from '../data/theme.config';
+import { themeConfig } from '../data/theme.config';
+import type { Size } from '../config/ui';
 
 interface Props {
   name: string;
   image?: string;
-  themeId?: string;
-  size?: 'sm' | 'md' | 'lg';
+  themeId?: Theme;
+  size?: Size;
 }
 
-const { name, image, themeId = ACTIVE_THEME, size = 'md' } = Astro.props;
-const theme = themeConfig[themeId as keyof typeof themeConfig] || themeConfig[ACTIVE_THEME];
+const { name, image, themeId = 'wolf', size = 'md' } = Astro.props;
+const theme = themeConfig[themeId];
 
 const sizeClasses = {
   sm: 'w-16 h-16 text-lg',
   md: 'w-32 h-32 text-2xl',
   lg: 'w-48 h-48 text-4xl',
-};
+} as const;
 
-const getInitials = (name: string) => {
-  return name
-    .split(' ')
-    .map(word => word[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
-};
+const initials = name
+  .split(' ')
+  .map(word => word[0])
+  .join('')
+  .toUpperCase()
+  .slice(0, 2);
 
-const getAvatarUrl = (name: string) => {
-  const seed = profileConfig.avatarSeed || name;
-  return `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`;
-};
+const width = size === 'sm' ? 64 : size === 'md' ? 128 : 192;
+const height = size === 'sm' ? 64 : size === 'md' ? 128 : 192;
+const baseClass = `${sizeClasses[size]} rounded-full`;
+---
 
-<div class="flex items-center justify-center">
+<div class="flex items-center justify-center" role="img" aria-label={`Profile picture of ${name}`}>
   {image ? (
     <img
       src={image}
-      alt={name}
-      class={`${sizeClasses[size]} rounded-full object-cover`}
-      width={size === 'sm' ? 64 : size === 'md' ? 128 : 192}
-      height={size === 'sm' ? 64 : size === 'md' ? 128 : 192}
+      alt={`Profile picture of ${name}`}
+      class={`${baseClass} object-cover`}
+      width={width}
+      height={height}
+      loading="lazy"
     />
-  ) : profileConfig.pictureFallback === 'initials' ? (
-    <div
-      class={`${sizeClasses[size]} rounded-full flex items-center justify-center ${theme.accent} border-2`}
-    >
-      <span class="font-bold">{getInitials(name)}</span>
-    </div>
   ) : (
-    <img
-      src={getAvatarUrl(name)}
-      alt={name}
-      class={`${sizeClasses[size]} rounded-full`}
-      width={size === 'sm' ? 64 : size === 'md' ? 128 : 192}
-      height={size === 'sm' ? 64 : size === 'md' ? 128 : 192}
-    />
+    <div
+      class={`${baseClass} flex items-center justify-center ${theme.accent} border-2`}
+      aria-hidden="true"
+    >
+      <span class="font-bold">{initials}</span>
+    </div>
   )}
 </div> 
