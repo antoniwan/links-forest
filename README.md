@@ -1,16 +1,39 @@
-# Astro Starter Kit: Basics
+# 🌲 LinkForest
 
-```sh
-npm create astro@latest -- --template basics
-```
+**Your sovereign digital grove.**  
+A minimalist, stylish personal Linktree alternative built with ⚡ Astro and deployed on free, fast edge platforms like Vercel or Netlify.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🔧 Tech Stack
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+| Tool                           | Purpose                                       |
+| ------------------------------ | --------------------------------------------- |
+| [Astro](https://astro.build)   | Lightweight static site generator             |
+| Tailwind CSS                   | Utility-first styling                         |
+| Markdown / JSON                | Link data config (easy to edit)               |
+| Vercel / Netlify               | Free, fast global deployment                  |
+| Custom Domains (via Namecheap) | Point `antonio.online` & `antoniwan.com` here |
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+---
+
+## 🧠 Why LinkForest?
+
+- No third-party ads, trackers, or branding
+- Own your aesthetic, your links, your analytics
+- Simple to update, flexible to scale
+- Beautiful across devices
+- Powered by nature-coded metaphors 🌿
+
+---
+
+## 🚀 Features
+
+- [x] Responsive link layout (mobile-first)
+- [x] Custom branding (logo, colors, bio)
+- [x] Easy-to-edit config file for links
+- [x] Fast static builds with no server cost
+- [ ] Optional: embed music, blog posts, videos
+- [ ] Optional: dark mode toggle
+- [ ] Optional: dynamic link metrics (click count, etc.)
 
 ## 🚀 Project Structure
 
@@ -27,8 +50,6 @@ Inside of your Astro project, you'll see the following folders and files:
 │       └── index.astro
 └── package.json
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
