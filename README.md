@@ -16,16 +16,16 @@ Built to express your full self — in all your evolving forms.
 
    - In `src/config/user.config.ts`, find the `theme.active` property
    - Set it to one of these archetypal themes:
-     - `wolf`: Cool grays and blues - Instinct, loyalty, protection
-     - `fox`: Warm oranges and browns - Warmth, cunning, adaptability
-     - `owl`: Deep purples and dark blues - Wisdom, mystery, vision
-     - `raven`: Dark blacks and grays - Mystery, transformation, magic
-     - `deer`: Earthy browns and greens - Gentleness, grace, nature
-     - `bear`: Rich browns and golds - Strength, protection, healing
-     - `eagle`: Majestic golds and browns - Vision, freedom, power
-     - `salmon`: Vibrant pinks and oranges - Determination, journey, rebirth
-     - `otter`: Playful blues and teals - Joy, playfulness, adaptability
-     - `lynx`: Mysterious grays and silvers - Stealth, perception, independence
+     - `builder`: 🏗️ - Creation, systems, form
+     - `wolf`: 🐺 - Instinct, loyalty, protection
+     - `mystic`: 🔮 - Spirituality, vision, cosmic threads
+     - `dragon`: 🐉 - Power, force, will
+     - `artist`: 🎨 - Expression, creativity, truth
+     - `warrior`: ⚔️ - Action, discipline, focus
+     - `healer`: 💫 - Regeneration, soothing, connection
+     - `alchemist`: 🧪 - Transformation, elements, ritual
+     - `strategist`: 🧠 - Mind, planning, clarity
+     - `steward`: 🌱 - Legacy, care, generational vision
 
 3. **Add Your Links**
 
