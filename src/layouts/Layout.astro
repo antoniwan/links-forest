@@ -10,11 +10,23 @@ const currentTheme = themeConfig[theme.active];
 const url = new URL(Astro.url);
 const showThemePreview = url.searchParams.get('theme-preview') === 'true';
 
+// Log route and GET parameters
+layoutLogger(`Route: ${Astro.url.pathname}`);
+layoutLogger('GET Parameters:');
+for (const [key, value] of url.searchParams.entries()) {
+	layoutLogger(`  ${key}: ${value}`);
+}
+
 layoutLogger('Layout component mounted');
 
 // Log theme information
 layoutLogger(`Current theme: ${theme.active}`);
 layoutLogger(`Theme preview mode: ${showThemePreview}`);
+if (showThemePreview) {
+	layoutLogger('Theme Preview UI is visible');
+} else {
+	layoutLogger('Theme Preview UI is hidden');
+}
 ---
 
 <!DOCTYPE html>
@@ -99,5 +111,8 @@ layoutLogger(`Theme preview mode: ${showThemePreview}`);
 </style>
 
 <script>
+	const layoutLogger = (message: string) => {
+		console.log(`[Layout] ${message}`);
+	};
 	layoutLogger('Layout script executed');
 </script>

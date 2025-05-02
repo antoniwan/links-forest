@@ -53,19 +53,25 @@ export default function ThemeSelector({
   const cleanup = logComponentLifecycle("ThemeSelector");
 
   const handleThemeChange = (theme: Theme) => {
-    componentLogger(`Theme changed to: ${theme.id}`);
-    onThemeChange(theme.id);
+    componentLogger(`Theme changed to: ${theme}`);
+    onThemeChange(theme);
     setIsOpen(false);
   };
 
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+    componentLogger(`Theme Preview dropdown ${isOpen ? "closed" : "opened"}`);
+  };
+
   useEffect(() => {
+    componentLogger("Theme Preview UI initialized");
     return cleanup;
   }, []);
 
   return (
     <div className="relative">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleDropdown}
         className="flex items-center gap-2 px-4 py-2 rounded-lg bg-opacity-10 bg-white hover:bg-opacity-20 transition-all"
       >
         <span>Theme: {themes.find((t) => t.id === currentTheme)?.name}</span>
@@ -92,7 +98,7 @@ export default function ThemeSelector({
             {themes.map((theme) => (
               <button
                 key={theme.id}
-                onClick={() => handleThemeChange(theme)}
+                onClick={() => handleThemeChange(theme.id)}
                 className={`w-full px-4 py-2 text-left hover:bg-opacity-20 transition-all ${
                   currentTheme === theme.id ? "bg-opacity-20" : ""
                 }`}

@@ -7,6 +7,13 @@ import ProfilePicture from '../components/ProfilePicture.astro';
 
 const { profile, links, social } = userConfig;
 
+// Log route information
+pageLogger(`Route: ${Astro.url.pathname}`);
+pageLogger('GET Parameters:');
+for (const [key, value] of new URL(Astro.url).searchParams.entries()) {
+	pageLogger(`  ${key}: ${value}`);
+}
+
 pageLogger('Index page mounted');
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -68,5 +75,8 @@ pageLogger('Index page mounted');
 </Layout>
 
 <script>
+	const pageLogger = (message: string) => {
+		console.log(`[Page] ${message}`);
+	};
 	pageLogger('Index page script executed');
 </script>
