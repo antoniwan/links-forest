@@ -1,6 +1,6 @@
 ---
-import type { Theme } from '../data/theme.config';
-import { themeConfig } from '../data/theme.config';
+import type { Theme } from '../data/types';
+import { userConfig } from '../config/user.config';
 import type { Size } from '../config/ui';
 
 interface Props {
@@ -10,8 +10,8 @@ interface Props {
   size?: Size;
 }
 
-const { name, image, themeId = 'wolf', size = 'md' } = Astro.props;
-const theme = themeConfig[themeId];
+const { name, image, themeId = userConfig.theme.active, size = 'md' } = Astro.props;
+const theme = userConfig.theme;
 
 const sizeClasses = {
   sm: 'w-16 h-16 text-lg',

@@ -1,25 +1,31 @@
-export type Theme =
-  | "wolf" // Cool grays and blues
-  | "fox" // Warm oranges and browns
-  | "owl" // Deep purples and dark blues
-  | "raven" // Dark blacks and grays
-  | "deer" // Earthy browns and greens
-  | "bear" // Rich browns and golds
-  | "eagle" // Majestic golds and browns
-  | "salmon" // Vibrant pinks and oranges
-  | "otter" // Playful blues and teals
-  | "lynx"; // Mysterious grays and silvers
+/**
+ * Theme Configuration
+ *
+ * This file defines the available themes and their visual styles.
+ *
+ * To change your theme:
+ * 1. Go to src/config/user.config.ts
+ * 2. Find the theme.active property
+ * 3. Set it to one of the theme names below
+ *
+ * Available themes:
+ * - wolf: Cool grays and blues
+ * - fox: Warm oranges and browns
+ * - owl: Deep purples and dark blues
+ * - raven: Dark blacks and grays
+ * - deer: Earthy browns and greens
+ * - bear: Rich browns and golds
+ * - eagle: Majestic golds and browns
+ * - salmon: Vibrant pinks and oranges
+ * - otter: Playful blues and teals
+ * - lynx: Mysterious grays and silvers
+ */
+
+import type { Theme, ThemeConfig } from "./types";
 
 export const ACTIVE_THEME: Theme = "wolf";
 
-export const themeConfig: Record<
-  Theme,
-  {
-    bg: string;
-    text: string;
-    accent: string;
-  }
-> = {
+export const themeConfig: Record<Theme, ThemeConfig> = {
   wolf: {
     bg: "bg-gray-100 dark:bg-gray-900",
     text: "text-gray-900 dark:text-gray-100",

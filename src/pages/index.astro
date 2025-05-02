@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { linksData } from '../data/links';
+import { userConfig } from '../config/user.config';
 import Emoji from '../components/Emoji.astro';
 import ProfilePicture from '../components/ProfilePicture.astro';
 
-const { profile, links, social } = linksData;
+const { profile, links, social } = userConfig;
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.

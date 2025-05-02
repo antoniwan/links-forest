@@ -1,26 +1,60 @@
+/**
+ * Links Configuration
+ *
+ * This file contains your main links and social media connections.
+ *
+ * To add or modify links:
+ * 1. Go to src/config/user.config.ts
+ * 2. Find the links and social arrays
+ * 3. Add or modify entries following the examples below
+ *
+ * For social links, use the platform names from the SocialPlatform type:
+ * - twitter
+ * - github
+ * - linkedin
+ * - instagram
+ * - youtube
+ * - facebook
+ * - tiktok
+ * - discord
+ * - twitch
+ * - reddit
+ * - pinterest
+ * - snapchat
+ * - telegram
+ * - whatsapp
+ * - medium
+ * - devto
+ * - hashnode
+ * - producthunt
+ * - behance
+ * - dribbble
+ * - figma
+ * - notion
+ * - substack
+ * - patreon
+ * - buymeacoffee
+ * - kofi
+ */
+
 import type { LinksData } from "./types";
 
 export const linksData: LinksData = {
-  profile: {
-    name: "Antonio Rodriguez Martinez",
-    subtitle: "Builder, Writer, Healer",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Antonio",
-  },
   links: [
     {
-      title: "My Blog",
+      title: "Blog",
       url: "https://blog.example.com",
-      description: "Thoughts on technology and healing",
+      description: "Read my latest articles and thoughts",
     },
     {
       title: "Portfolio",
       url: "https://portfolio.example.com",
-      description: "My latest projects and work",
+      description: "Check out my work and projects",
     },
     {
       title: "Book a Session",
       url: "https://calendly.com/example",
-      description: "Schedule a healing session",
+      description: "Schedule a 1:1 meeting with me",
     },
   ],
   social: [

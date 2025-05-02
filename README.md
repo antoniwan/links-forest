@@ -4,6 +4,59 @@
 A minimalist, themed link-sharing platform powered by Astro, Tailwind, and Framer Motion.  
 Built to express your full self — in all your evolving forms.
 
+## 🚀 Quick Start: Personalize Your Page
+
+1. **Edit Your Profile**
+
+   - Open `src/config/user.config.ts`
+   - Update your name, subtitle, and profile picture
+   - If no profile picture is set, your initials will be shown with a themed background
+
+2. **Choose Your Theme**
+
+   - In `src/config/user.config.ts`, find the `theme.active` property
+   - Set it to one of these themes:
+     - `wolf`: Cool grays and blues
+     - `fox`: Warm oranges and browns
+     - `owl`: Deep purples and dark blues
+     - `raven`: Dark blacks and grays
+     - `deer`: Earthy browns and greens
+     - `bear`: Rich browns and golds
+     - `eagle`: Majestic golds and browns
+     - `salmon`: Vibrant pinks and oranges
+     - `otter`: Playful blues and teals
+     - `lynx`: Mysterious grays and silvers
+
+3. **Add Your Links**
+
+   - In `src/config/user.config.ts`, edit the `links` array
+   - Each link needs:
+     - `title`: The name of your link
+     - `url`: The destination URL
+     - `description`: A short description
+
+4. **Add Social Media**
+
+   - In `src/config/user.config.ts`, edit the `social` array
+   - Each social link needs:
+     - `platform`: The name of the platform
+     - `url`: Your profile URL
+     - `icon`: The icon to use (see `src/data/emojis.ts` for available icons)
+
+5. **Preview Your Changes**
+
+   ```bash
+   npm run dev
+   ```
+
+   Visit `http://localhost:4321` to see your changes
+
+6. **Deploy**
+   ```bash
+   npm run build
+   ```
+   Deploy the `dist` folder to your hosting provider
+
 ## 🔥 The Vision
 
 LinkForest isn't just a tool. It's a **living, personal interface** that shifts with your energy.  
