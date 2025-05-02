@@ -62,7 +62,7 @@ Built to express your full self — in all your evolving forms.
 LinkForest isn't just a tool. It's a **living, personal interface** that shifts with your energy.  
 Choose from 10 unique archetypes that reflect different modes of being — from builder to mystic to steward.
 
-Each archetype comes with its own **themed UI**, micro-interactions, and aura.
+Each archetype comes with its own **themed UI** and micro-interactions.
 
 ## ✊ Inclusivity Statement
 

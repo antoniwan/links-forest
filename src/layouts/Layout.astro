@@ -7,7 +7,6 @@ import { ProfilePicture } from '../components/ProfilePicture';
 import { LinkCard } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
 import { ThemeTransitionWrapper } from '../components/ThemeTransitionWrapper';
-import { AuraLayers } from '../components/AuraLayers';
 import { dataLogger } from '../utils/logger';
 
 const { profile, theme, links, social } = userConfig;
@@ -29,7 +28,6 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative`}>
-		<AuraLayers client:load theme={theme.active} />
 		<div class={`${currentTheme.colors.background} min-h-screen relative z-10`}>
 			<!-- ThemeCycler will only be active in development mode -->
 			<ThemeCycler client:load />
