@@ -28,47 +28,49 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body class={`${currentTheme.colors.background} ${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen`}>
-		<!-- ThemeCycler will only be active in development mode -->
-		<ThemeCycler client:load />
+	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative`}>
 		<AuraLayers client:load theme={theme.active} />
-		<ThemeTransitionWrapper client:load>
-			<div class="max-w-xl mx-auto px-4 pt-16 pb-12">
-				<header class="flex justify-between items-center mb-8">
-					<div class="flex items-center gap-4">
-						<ProfilePicture 
-							client:load
-							name={profile.name}
-							image={profile.image}
-							themeId={theme.active}
-						/>
-						<div>
-							<h1 class="text-2xl font-bold">{profile.name}</h1>
-							<p class="text-gray-400">{profile.subtitle}</p>
+		<div class={`${currentTheme.colors.background} min-h-screen relative z-10`}>
+			<!-- ThemeCycler will only be active in development mode -->
+			<ThemeCycler client:load />
+			<ThemeTransitionWrapper client:load>
+				<div class="max-w-xl mx-auto px-4 pt-16 pb-12">
+					<header class="flex justify-between items-center mb-8">
+						<div class="flex items-center gap-4">
+							<ProfilePicture 
+								client:load
+								name={profile.name}
+								image={profile.image}
+								themeId={theme.active}
+							/>
+							<div>
+								<h1 class="text-2xl font-bold">{profile.name}</h1>
+								<p class="text-gray-400">{profile.subtitle}</p>
+							</div>
 						</div>
-					</div>
-				</header>
+					</header>
 
-				<main class="flex flex-col gap-8">
-					{links.map((link) => (
-						<LinkCard
+					<main class="flex flex-col gap-8">
+						{links.map((link) => (
+							<LinkCard
+								client:load
+								href={link.url}
+								title={link.title}
+								description={link.description}
+								accentColor={currentTheme.colors.accent}
+							/>
+						))}
+					</main>
+
+					<footer class="mt-8">
+						<SocialIcons 
 							client:load
-							href={link.url}
-							title={link.title}
-							description={link.description}
-							accentColor={currentTheme.colors.accent}
+							socialLinks={social}
 						/>
-					))}
-				</main>
-
-				<footer class="mt-8">
-					<SocialIcons 
-						client:load
-						socialLinks={social}
-					/>
-				</footer>
-			</div>
-		</ThemeTransitionWrapper>
+					</footer>
+				</div>
+			</ThemeTransitionWrapper>
+		</div>
 
 		<script>
 			/** @type {import('../data/theme.types').ThemeName} */
