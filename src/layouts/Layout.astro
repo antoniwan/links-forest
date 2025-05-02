@@ -3,11 +3,18 @@ import { userConfig } from '../config/user.config';
 import { themeConfig } from '../config/theme.config';
 import ThemeSelector from '../components/ThemeSelector';
 import type { Theme } from '../data/types';
+import { layoutLogger } from '../utils/logger';
 
 const { profile, theme, links, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
 const url = new URL(Astro.url);
 const showThemePreview = url.searchParams.get('theme-preview') === 'true';
+
+layoutLogger('Layout component mounted');
+
+// Log theme information
+layoutLogger(`Current theme: ${theme.active}`);
+layoutLogger(`Theme preview mode: ${showThemePreview}`);
 ---
 
 <!DOCTYPE html>
@@ -90,3 +97,7 @@ const showThemePreview = url.searchParams.get('theme-preview') === 'true';
 		height: 100%;
 	}
 </style>
+
+<script>
+	layoutLogger('Layout script executed');
+</script>

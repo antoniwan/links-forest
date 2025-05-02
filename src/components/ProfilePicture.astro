@@ -2,6 +2,7 @@
 import type { Theme } from '../data/types';
 import { userConfig } from '../config/user.config';
 import type { Size } from '../config/ui';
+import { componentLogger } from '../utils/logger';
 
 interface Props {
   name: string;
@@ -29,6 +30,8 @@ const initials = name
 const width = size === 'sm' ? 64 : size === 'md' ? 128 : 192;
 const height = size === 'sm' ? 64 : size === 'md' ? 128 : 192;
 const baseClass = `${sizeClasses[size]} rounded-full`;
+
+componentLogger('ProfilePicture component rendered');
 ---
 
 <div class="flex items-center justify-center" role="img" aria-label={`Profile picture of ${name}`}>

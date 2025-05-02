@@ -148,6 +148,34 @@ All commands are run from the root of the project, from a terminal:
 | `npm run build`   | Build your production site to `./dist/`      |
 | `npm run preview` | Preview your build locally, before deploying |
 
+## 🔍 Debugging and Logging
+
+LinkForest includes a comprehensive logging system to help with development and debugging. Logs are automatically enabled in development mode.
+
+### Available Log Namespaces
+
+- `links-forest:config` - Configuration loading and changes
+- `links-forest:layout` - Layout rendering and updates
+- `links-forest:page` - Page loading and rendering
+- `links-forest:component` - Component lifecycle events
+- `links-forest:data` - Data loading and processing
+
+### Enabling Logs
+
+In development mode, all logs are enabled by default. To enable specific namespaces in production:
+
+```bash
+# Enable all logs
+DEBUG=links-forest:* npm run dev
+
+# Enable specific namespaces
+DEBUG=links-forest:config,links-forest:component npm run dev
+```
+
+### Viewing Logs
+
+Logs will appear in your browser's console and terminal when running the development server.
+
 ## 📚 Documentation
 
 - [Self-Hosting Guide](./SELF-HOSTING.md) — kill Linktree and go sovereign

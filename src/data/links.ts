@@ -38,6 +38,9 @@
  */
 
 import type { LinksData } from "./types";
+import { logDataLoading } from "../utils/logger";
+
+const logLinks = logDataLoading("links");
 
 export const linksData: LinksData = {
   links: [
@@ -75,3 +78,6 @@ export const linksData: LinksData = {
     },
   ],
 };
+
+// Log that links data has been loaded
+logLinks();

@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Theme } from "../data/types";
+import { componentLogger } from "../utils/logger";
+import { logComponentLifecycle } from "../utils/logger";
 
 interface ThemeSelectorProps {
   currentTheme: Theme;
@@ -48,6 +50,17 @@ export default function ThemeSelector({
   onThemeChange,
 }: ThemeSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const cleanup = logComponentLifecycle("ThemeSelector");
+
+  const handleThemeChange = (theme: Theme) => {
+    componentLogger(`Theme changed to: ${theme.id}`);
+    onThemeChange(theme.id);
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    return cleanup;
+  }, []);
 
   return (
     <div className="relative">
@@ -79,10 +92,7 @@ export default function ThemeSelector({
             {themes.map((theme) => (
               <button
                 key={theme.id}
-                onClick={() => {
-                  onThemeChange(theme.id);
-                  setIsOpen(false);
-                }}
+                onClick={() => handleThemeChange(theme)}
                 className={`w-full px-4 py-2 text-left hover:bg-opacity-20 transition-all ${
                   currentTheme === theme.id ? "bg-opacity-20" : ""
                 }`}

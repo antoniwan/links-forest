@@ -1,4 +1,8 @@
 import type { Theme } from "../data/types";
+import { configLogger } from "../utils/logger";
+import { logDataLoading } from "../utils/logger";
+
+const logThemeConfig = logDataLoading("theme.config");
 
 export interface ThemeConfig {
   colors: {
@@ -167,3 +171,7 @@ export const themeConfig: Record<Theme, ThemeConfig> = {
     },
   },
 };
+
+// Log that theme config has been loaded
+logThemeConfig();
+configLogger("Theme configuration loaded");

@@ -1,6 +1,7 @@
 ---
 import { emojiMap, type EmojiName } from '../data/emojis';
 import { sizeClasses, type Size } from '../config/ui';
+import { componentLogger } from '../utils/logger';
 
 interface Props {
   name: EmojiName;
@@ -10,6 +11,8 @@ interface Props {
 
 const { name, size = 'md', label } = Astro.props;
 const emoji = emojiMap[name];
+
+componentLogger('Emoji component rendered');
 ---
 
 <span 
