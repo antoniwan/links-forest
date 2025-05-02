@@ -1,74 +1,13 @@
 ---
+import { emojiMap, type EmojiName } from '../data/emojis';
+import { sizeClasses, type Size } from '../config/ui';
+
 interface Props {
-  name: string;
-  size?: 'sm' | 'md' | 'lg';
+  name: EmojiName;
+  size?: Size;
 }
 
 const { name, size = 'md' } = Astro.props;
-
-const sizeClasses = {
-  sm: 'text-xl',
-  md: 'text-2xl',
-  lg: 'text-3xl',
-};
-
-const emojiMap: Record<string, string> = {
-  // Social & Communication
-  twitter: '𝕏',
-  github: '⌨️',
-  linkedin: '🔗',
-  instagram: '📸',
-  facebook: '📱',
-  youtube: '▶️',
-  whatsapp: '💬',
-  telegram: '📨',
-  discord: '🎮',
-  slack: '💬',
-  reddit: '📱',
-  tiktok: '🎵',
-  // Media & Content
-  video: '🎥',
-  image: '🖼️',
-  music: '🎵',
-  podcast: '🎙️',
-  stream: '📺',
-  // Business & Work
-  briefcase: '💼',
-  meeting: '👥',
-  project: '📊',
-  task: '✅',
-  deadline: '⏰',
-  // Navigation & UI
-  home: '🏠',
-  back: '⬅️',
-  forward: '➡️',
-  up: '⬆️',
-  down: '⬇️',
-  menu: '☰',
-  website: '🌐',
-  search: '🔍',
-  settings: '⚙️',
-  // Status & Feedback
-  success: '✅',
-  error: '❌',
-  warning: '⚠️',
-  info: 'ℹ️',
-  loading: '⏳',
-  // Weather & Time
-  sun: '☀️',
-  cloud: '☁️',
-  rain: '🌧️',
-  snow: '❄️',
-  clock: '🕒',
-  // Communication
-  email: '📧',
-  phone: '📞',
-  location: '📍',
-  // Organization
-  calendar: '📅',
-  document: '📄',
-  folder: '📁',
-};
 ---
 
-<span class={sizeClasses[size]}>{emojiMap[name] || name}</span> 
+<span class={sizeClasses[size]}>{emojiMap[name]}</span> 
