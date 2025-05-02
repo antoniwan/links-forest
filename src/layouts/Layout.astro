@@ -1,9 +1,9 @@
 ---
 import { userConfig } from '../config/user.config';
 import { themeConfig } from '../config/theme.config';
-import type { Theme } from '../data/types';
+import type { ThemeName } from '../data/theme.types';
 import { ThemeCycler } from '../components/ThemeCycler';
-import { ProfilePicture } from '../components/ProfilePicture';
+import ProfilePicture from '../components/ProfilePicture.astro';
 import { LinkCard } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
 import { dataLogger } from '../utils/logger';
@@ -65,62 +65,60 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<script>
 			// Listen for theme changes
 			window.addEventListener('theme-change', (event) => {
-				const customEvent = event as CustomEvent<{ theme: string }>;
+				const customEvent = event as CustomEvent<{ theme: ThemeName }>;
 				const theme = customEvent.detail.theme;
-				
-				// Update the body classes
 				const themeConfig = {
+					builder: { 
+						background: 'bg-gradient-to-br from-stone-900 to-stone-700', 
+						text: 'text-white',
+						description: 'Creation, systems, form'
+					},
 					wolf: { 
 						background: 'bg-gradient-to-br from-gray-900 to-gray-700', 
 						text: 'text-white',
-						description: 'Cool grays and blues - Instinct, loyalty, protection'
+						description: 'Instinct, loyalty, protection'
 					},
-					fox: { 
-						background: 'bg-gradient-to-br from-orange-900 to-orange-700', 
+					mystic: { 
+						background: 'bg-gradient-to-br from-purple-900 to-purple-700', 
 						text: 'text-white',
-						description: 'Warm oranges and browns - Warmth, cunning, adaptability'
+						description: 'Spirituality, vision, cosmic threads'
 					},
-					owl: { 
-						background: 'bg-gradient-to-br from-purple-900 to-indigo-800', 
+					dragon: { 
+						background: 'bg-gradient-to-br from-red-900 to-red-700', 
 						text: 'text-white',
-						description: 'Deep purples and dark blues - Wisdom, mystery, vision'
+						description: 'Power, force, will'
 					},
-					raven: { 
-						background: 'bg-gradient-to-br from-gray-900 to-black', 
+					artist: { 
+						background: 'bg-gradient-to-br from-pink-900 to-pink-700', 
 						text: 'text-white',
-						description: 'Dark blacks and grays - Mystery, transformation, magic'
+						description: 'Expression, creativity, truth'
 					},
-					deer: { 
-						background: 'bg-gradient-to-br from-green-900 to-emerald-800', 
+					warrior: { 
+						background: 'bg-gradient-to-br from-slate-900 to-slate-700', 
 						text: 'text-white',
-						description: 'Earthy browns and greens - Gentleness, grace, nature'
+						description: 'Action, discipline, focus'
 					},
-					bear: { 
-						background: 'bg-gradient-to-br from-amber-900 to-yellow-800', 
+					healer: { 
+						background: 'bg-gradient-to-br from-emerald-900 to-emerald-700', 
 						text: 'text-white',
-						description: 'Rich browns and golds - Strength, protection, healing'
+						description: 'Regeneration, soothing, connection'
 					},
-					eagle: { 
-						background: 'bg-gradient-to-br from-yellow-900 to-amber-800', 
+					alchemist: { 
+						background: 'bg-gradient-to-br from-violet-900 to-violet-700', 
 						text: 'text-white',
-						description: 'Majestic golds and browns - Vision, freedom, power'
+						description: 'Transformation, elements, ritual'
 					},
-					salmon: { 
-						background: 'bg-gradient-to-br from-pink-900 to-rose-800', 
+					strategist: { 
+						background: 'bg-gradient-to-br from-blue-900 to-blue-700', 
 						text: 'text-white',
-						description: 'Vibrant pinks and oranges - Determination, journey, rebirth'
+						description: 'Mind, planning, clarity'
 					},
-					otter: { 
-						background: 'bg-gradient-to-br from-teal-900 to-cyan-800', 
+					steward: { 
+						background: 'bg-gradient-to-br from-green-900 to-green-700', 
 						text: 'text-white',
-						description: 'Playful blues and teals - Joy, playfulness, adaptability'
-					},
-					lynx: { 
-						background: 'bg-gradient-to-br from-slate-900 to-gray-800', 
-						text: 'text-white',
-						description: 'Mysterious grays and silvers - Stealth, perception, independence'
+						description: 'Legacy, care, generational vision'
 					}
-				} as Record<string, { background: string; text: string; description: string }>;
+				} as Record<ThemeName, { background: string; text: string; description: string }>;
 				
 				const newTheme = themeConfig[theme];
 				if (newTheme) {

@@ -1,24 +1,31 @@
-import type { Theme } from "../data/types";
+import type { ThemeName, ThemeConfig } from "../data/theme.types";
 import { logDataLoading } from "../utils/logger";
 
 const logThemeConfig = logDataLoading("theme.config");
 
-export interface ThemeConfig {
-  colors: {
-    primary: string;
-    secondary: string;
-    accent: string;
-    background: string;
-    text: string;
-  };
-  styles: {
-    button: string;
-    card: string;
-    link: string;
-  };
-}
-
-export const themeConfig: Record<Theme, ThemeConfig> = {
+export const themeConfig: Record<ThemeName, ThemeConfig> = {
+  builder: {
+    colors: {
+      primary: "from-stone-900 to-stone-700",
+      secondary: "from-stone-800 to-stone-600",
+      accent: "from-amber-500 to-amber-700",
+      background: "bg-stone-900",
+      text: "text-white",
+      hover: "hover:from-amber-600 hover:to-amber-800",
+    },
+    styles: {
+      button:
+        "bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-600 hover:to-amber-800",
+      card: "bg-stone-800 bg-opacity-50 backdrop-blur-sm",
+      link: "hover:text-amber-400",
+      border: "border-amber-500 hover:border-amber-600",
+    },
+    meta: {
+      name: "The Builder",
+      description: "Creation, systems, form",
+      icon: "🏗️",
+    },
+  },
   wolf: {
     colors: {
       primary: "from-gray-900 to-gray-700",
@@ -26,147 +33,195 @@ export const themeConfig: Record<Theme, ThemeConfig> = {
       accent: "from-blue-500 to-blue-700",
       background: "bg-gray-900",
       text: "text-white",
+      hover: "hover:from-blue-600 hover:to-blue-800",
     },
     styles: {
       button:
         "bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800",
       card: "bg-gray-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-blue-400",
+      border: "border-blue-500 hover:border-blue-600",
+    },
+    meta: {
+      name: "The Wolf",
+      description: "Instinct, loyalty, protection",
+      icon: "🐺",
     },
   },
-  fox: {
-    colors: {
-      primary: "from-orange-900 to-orange-700",
-      secondary: "from-orange-800 to-orange-600",
-      accent: "from-amber-500 to-amber-700",
-      background: "bg-orange-900",
-      text: "text-white",
-    },
-    styles: {
-      button:
-        "bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-600 hover:to-amber-800",
-      card: "bg-orange-800 bg-opacity-50 backdrop-blur-sm",
-      link: "hover:text-amber-400",
-    },
-  },
-  owl: {
+  mystic: {
     colors: {
       primary: "from-purple-900 to-purple-700",
       secondary: "from-purple-800 to-purple-600",
       accent: "from-indigo-500 to-indigo-700",
       background: "bg-purple-900",
       text: "text-white",
+      hover: "hover:from-indigo-600 hover:to-indigo-800",
     },
     styles: {
       button:
         "bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800",
       card: "bg-purple-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-indigo-400",
+      border: "border-indigo-500 hover:border-indigo-600",
+    },
+    meta: {
+      name: "The Mystic",
+      description: "Spirituality, vision, cosmic threads",
+      icon: "🔮",
     },
   },
-  raven: {
+  dragon: {
     colors: {
-      primary: "from-gray-900 to-gray-800",
-      secondary: "from-gray-800 to-gray-700",
-      accent: "from-gray-500 to-gray-700",
-      background: "bg-gray-900",
+      primary: "from-red-900 to-red-700",
+      secondary: "from-red-800 to-red-600",
+      accent: "from-orange-500 to-orange-700",
+      background: "bg-red-900",
       text: "text-white",
+      hover: "hover:from-orange-600 hover:to-orange-800",
     },
     styles: {
       button:
-        "bg-gradient-to-r from-gray-500 to-gray-700 hover:from-gray-600 hover:to-gray-800",
-      card: "bg-gray-800 bg-opacity-50 backdrop-blur-sm",
-      link: "hover:text-gray-400",
+        "bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800",
+      card: "bg-red-800 bg-opacity-50 backdrop-blur-sm",
+      link: "hover:text-orange-400",
+      border: "border-orange-500 hover:border-orange-600",
+    },
+    meta: {
+      name: "The Dragon",
+      description: "Power, force, will",
+      icon: "🐉",
     },
   },
-  deer: {
-    colors: {
-      primary: "from-green-900 to-green-700",
-      secondary: "from-green-800 to-green-600",
-      accent: "from-emerald-500 to-emerald-700",
-      background: "bg-green-900",
-      text: "text-white",
-    },
-    styles: {
-      button:
-        "bg-gradient-to-r from-emerald-500 to-emerald-700 hover:from-emerald-600 hover:to-emerald-800",
-      card: "bg-green-800 bg-opacity-50 backdrop-blur-sm",
-      link: "hover:text-emerald-400",
-    },
-  },
-  bear: {
-    colors: {
-      primary: "from-amber-900 to-amber-700",
-      secondary: "from-amber-800 to-amber-600",
-      accent: "from-yellow-500 to-yellow-700",
-      background: "bg-amber-900",
-      text: "text-white",
-    },
-    styles: {
-      button:
-        "bg-gradient-to-r from-yellow-500 to-yellow-700 hover:from-yellow-600 hover:to-yellow-800",
-      card: "bg-amber-800 bg-opacity-50 backdrop-blur-sm",
-      link: "hover:text-yellow-400",
-    },
-  },
-  eagle: {
-    colors: {
-      primary: "from-yellow-900 to-yellow-700",
-      secondary: "from-yellow-800 to-yellow-600",
-      accent: "from-gold-500 to-gold-700",
-      background: "bg-yellow-900",
-      text: "text-white",
-    },
-    styles: {
-      button:
-        "bg-gradient-to-r from-gold-500 to-gold-700 hover:from-gold-600 hover:to-gold-800",
-      card: "bg-yellow-800 bg-opacity-50 backdrop-blur-sm",
-      link: "hover:text-gold-400",
-    },
-  },
-  salmon: {
+  artist: {
     colors: {
       primary: "from-pink-900 to-pink-700",
       secondary: "from-pink-800 to-pink-600",
       accent: "from-rose-500 to-rose-700",
       background: "bg-pink-900",
       text: "text-white",
+      hover: "hover:from-rose-600 hover:to-rose-800",
     },
     styles: {
       button:
         "bg-gradient-to-r from-rose-500 to-rose-700 hover:from-rose-600 hover:to-rose-800",
       card: "bg-pink-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-rose-400",
+      border: "border-rose-500 hover:border-rose-600",
+    },
+    meta: {
+      name: "The Artist",
+      description: "Expression, creativity, truth",
+      icon: "🎨",
     },
   },
-  otter: {
+  warrior: {
     colors: {
-      primary: "from-teal-900 to-teal-700",
-      secondary: "from-teal-800 to-teal-600",
-      accent: "from-cyan-500 to-cyan-700",
-      background: "bg-teal-900",
+      primary: "from-slate-900 to-slate-700",
+      secondary: "from-slate-800 to-slate-600",
+      accent: "from-gray-500 to-gray-700",
+      background: "bg-slate-900",
       text: "text-white",
+      hover: "hover:from-gray-600 hover:to-gray-800",
+    },
+    styles: {
+      button:
+        "bg-gradient-to-r from-gray-500 to-gray-700 hover:from-gray-600 hover:to-gray-800",
+      card: "bg-slate-800 bg-opacity-50 backdrop-blur-sm",
+      link: "hover:text-gray-400",
+      border: "border-gray-500 hover:border-gray-600",
+    },
+    meta: {
+      name: "The Warrior",
+      description: "Action, discipline, focus",
+      icon: "⚔️",
+    },
+  },
+  healer: {
+    colors: {
+      primary: "from-emerald-900 to-emerald-700",
+      secondary: "from-emerald-800 to-emerald-600",
+      accent: "from-teal-500 to-teal-700",
+      background: "bg-emerald-900",
+      text: "text-white",
+      hover: "hover:from-teal-600 hover:to-teal-800",
+    },
+    styles: {
+      button:
+        "bg-gradient-to-r from-teal-500 to-teal-700 hover:from-teal-600 hover:to-teal-800",
+      card: "bg-emerald-800 bg-opacity-50 backdrop-blur-sm",
+      link: "hover:text-teal-400",
+      border: "border-teal-500 hover:border-teal-600",
+    },
+    meta: {
+      name: "The Healer",
+      description: "Regeneration, soothing, connection",
+      icon: "💫",
+    },
+  },
+  alchemist: {
+    colors: {
+      primary: "from-violet-900 to-violet-700",
+      secondary: "from-violet-800 to-violet-600",
+      accent: "from-purple-500 to-purple-700",
+      background: "bg-violet-900",
+      text: "text-white",
+      hover: "hover:from-purple-600 hover:to-purple-800",
+    },
+    styles: {
+      button:
+        "bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800",
+      card: "bg-violet-800 bg-opacity-50 backdrop-blur-sm",
+      link: "hover:text-purple-400",
+      border: "border-purple-500 hover:border-purple-600",
+    },
+    meta: {
+      name: "The Alchemist",
+      description: "Transformation, elements, ritual",
+      icon: "🧪",
+    },
+  },
+  strategist: {
+    colors: {
+      primary: "from-blue-900 to-blue-700",
+      secondary: "from-blue-800 to-blue-600",
+      accent: "from-cyan-500 to-cyan-700",
+      background: "bg-blue-900",
+      text: "text-white",
+      hover: "hover:from-cyan-600 hover:to-cyan-800",
     },
     styles: {
       button:
         "bg-gradient-to-r from-cyan-500 to-cyan-700 hover:from-cyan-600 hover:to-cyan-800",
-      card: "bg-teal-800 bg-opacity-50 backdrop-blur-sm",
+      card: "bg-blue-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-cyan-400",
+      border: "border-cyan-500 hover:border-cyan-600",
+    },
+    meta: {
+      name: "The Strategist",
+      description: "Mind, planning, clarity",
+      icon: "🧠",
     },
   },
-  lynx: {
+  steward: {
     colors: {
-      primary: "from-slate-900 to-slate-700",
-      secondary: "from-slate-800 to-slate-600",
-      accent: "from-slate-500 to-slate-700",
-      background: "bg-slate-900",
+      primary: "from-green-900 to-green-700",
+      secondary: "from-green-800 to-green-600",
+      accent: "from-lime-500 to-lime-700",
+      background: "bg-green-900",
       text: "text-white",
+      hover: "hover:from-lime-600 hover:to-lime-800",
     },
     styles: {
       button:
-        "bg-gradient-to-r from-slate-500 to-slate-700 hover:from-slate-600 hover:to-slate-800",
-      card: "bg-slate-800 bg-opacity-50 backdrop-blur-sm",
-      link: "hover:text-slate-400",
+        "bg-gradient-to-r from-lime-500 to-lime-700 hover:from-lime-600 hover:to-lime-800",
+      card: "bg-green-800 bg-opacity-50 backdrop-blur-sm",
+      link: "hover:text-lime-400",
+      border: "border-lime-500 hover:border-lime-600",
+    },
+    meta: {
+      name: "The Steward",
+      description: "Legacy, care, generational vision",
+      icon: "🌱",
     },
   },
 };

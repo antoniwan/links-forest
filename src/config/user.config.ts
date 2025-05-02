@@ -5,8 +5,10 @@
  * Edit the values below to customize your page.
  */
 
-import type { Theme, Profile, Link, SocialLink } from "../data/types";
+import type { ThemeName, ThemeConfig } from "../data/theme.types";
+import type { Profile, Link, SocialLink } from "../data/types";
 import { logDataLoading } from "../utils/logger";
+import { themeConfig } from "./theme.config";
 
 const logUserConfig = logDataLoading("user.config");
 
@@ -16,10 +18,10 @@ export interface UserConfig {
 
   /** Your active theme */
   theme: {
-    /** Choose from: wolf, fox, owl, raven, deer, bear, eagle, salmon, otter, lynx */
-    active: Theme;
-    /** Theme accent color */
-    accent: string;
+    /** Choose from: builder, wolf, mystic, dragon, artist, warrior, healer, alchemist, strategist, steward */
+    active: ThemeName;
+    /** Theme configuration */
+    config: ThemeConfig;
   };
 
   /** Your links */
@@ -36,8 +38,8 @@ export const userConfig: UserConfig = {
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Antonio",
   },
   theme: {
-    active: "wolf",
-    accent: "bg-gradient-to-br from-gray-900 to-gray-700 text-white",
+    active: "builder",
+    config: themeConfig.builder,
   },
   links: [
     {

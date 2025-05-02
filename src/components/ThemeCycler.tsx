@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import { devConfig } from "../config/dev.config";
 import { userConfig } from "../config/user.config";
-import type { Theme } from "../data/types";
+import type { ThemeName } from "../data/theme.types";
 import { dataLogger } from "../utils/logger";
-
-const themes: Theme[] = [
-  "wolf",
-  "fox",
-  "owl",
-  "raven",
-  "deer",
-  "bear",
-  "eagle",
-  "salmon",
-  "otter",
-  "lynx",
-];
 
 // Custom event for theme changes
 const THEME_CHANGE_EVENT = "theme-change";
 
 export function ThemeCycler() {
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
+  const themes: ThemeName[] = [
+    "builder",
+    "wolf",
+    "mystic",
+    "dragon",
+    "artist",
+    "warrior",
+    "healer",
+    "alchemist",
+    "strategist",
+    "steward",
+  ];
 
   useEffect(() => {
     dataLogger("ThemeCycler component mounted");

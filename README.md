@@ -128,11 +128,11 @@ Each archetype in LinkForest is intentionally:
 ```txt
 /
 ├── src/
-│   ├── components/        # LinkCard.tsx, SocialIcons.astro, ThemeCycler.tsx
+│   ├── components/        # ProfilePicture.astro, LinkCard.tsx, SocialIcons.tsx, ThemeCycler.tsx
 │   ├── layouts/           # Layout.astro
 │   ├── pages/             # index.astro
-│   ├── config/            # user.config.ts, dev.config.ts
-│   └── data/              # theme.config.ts, links.json
+│   ├── config/            # theme.config.ts, user.config.ts
+│   └── data/              # theme.types.ts, links.ts, types.ts, emojis.ts
 ├── public/                # Favicon, images, assets
 ├── astro.config.mjs       # Astro configuration
 ├── tailwind.config.cjs    # Tailwind configuration

@@ -1,17 +1,17 @@
 ---
-import type { Theme } from '../data/types';
+import type { ThemeName } from '../data/theme.types';
 import { userConfig } from '../config/user.config';
 import type { Size } from '../config/ui';
 
-interface Props {
+export interface Props {
   name: string;
   image?: string;
-  themeId?: Theme;
+  themeId?: ThemeName;
   size?: Size;
 }
 
 const { name, image, themeId = userConfig.theme.active, size = 'md' } = Astro.props;
-const theme = userConfig.theme;
+const theme = userConfig.theme.config;
 
 const sizeClasses = {
   sm: 'w-16 h-16 text-lg',
@@ -42,7 +42,7 @@ const baseClass = `${sizeClasses[size]} rounded-full`;
     />
   ) : (
     <div
-      class={`${baseClass} flex items-center justify-center ${theme.accent} border-2`}
+      class={`${baseClass} flex items-center justify-center ${theme.styles.border} border-2`}
       aria-hidden="true"
     >
       <span class="font-bold">{initials}</span>
