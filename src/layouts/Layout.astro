@@ -6,6 +6,8 @@ import type { Theme } from '../data/types';
 
 const { profile, theme, links, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
+const url = new URL(Astro.url);
+const showThemePreview = url.searchParams.get('theme-preview') === 'true';
 ---
 
 <!DOCTYPE html>
@@ -39,12 +41,14 @@ const currentTheme = themeConfig[theme.active];
 						<p class="text-gray-400">{profile.subtitle}</p>
 					</div>
 				</div>
-				<ThemeSelector client:load currentTheme={theme.active} onThemeChange={(newTheme: Theme) => {
-					// Update theme in localStorage
-					localStorage.setItem('theme', newTheme);
-					// Reload page to apply new theme
-					window.location.reload();
-				}} />
+				{showThemePreview && (
+					<ThemeSelector client:load currentTheme={theme.active} onThemeChange={(newTheme: Theme) => {
+						// Update theme in localStorage
+						localStorage.setItem('theme', newTheme);
+						// Reload page to apply new theme
+						window.location.reload();
+					}} />
+				)}
 			</header>
 
 			<main class="space-y-4">
