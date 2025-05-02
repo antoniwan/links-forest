@@ -1,9 +1,17 @@
 ---
 import '../styles/global.css';
+import { themeConfig, ACTIVE_THEME } from '../data/theme.config';
+
+interface Props {
+	themeId?: string;
+}
+
+const { themeId = ACTIVE_THEME } = Astro.props;
+const theme = themeConfig[themeId as keyof typeof themeConfig] || themeConfig[ACTIVE_THEME];
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class={theme.bg}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -11,7 +19,7 @@ import '../styles/global.css';
 		<meta name="generator" content={Astro.generator} />
 		<title>Links Forest</title>
 	</head>
-	<body class="min-h-screen bg-white dark:bg-gray-900">
+	<body class={`min-h-screen ${theme.text}`}>
 		<div class="mx-auto max-w-3xl px-4 py-8">
 			<slot />
 		</div>

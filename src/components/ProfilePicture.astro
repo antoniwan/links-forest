@@ -1,0 +1,58 @@
+import { profileConfig } from '../config/profile';
+import { themeConfig, ACTIVE_THEME } from '../data/theme.config';
+
+interface Props {
+  name: string;
+  image?: string;
+  themeId?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { name, image, themeId = ACTIVE_THEME, size = 'md' } = Astro.props;
+const theme = themeConfig[themeId as keyof typeof themeConfig] || themeConfig[ACTIVE_THEME];
+
+const sizeClasses = {
+  sm: 'w-16 h-16 text-lg',
+  md: 'w-32 h-32 text-2xl',
+  lg: 'w-48 h-48 text-4xl',
+};
+
+const getInitials = (name: string) => {
+  return name
+    .split(' ')
+    .map(word => word[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+};
+
+const getAvatarUrl = (name: string) => {
+  const seed = profileConfig.avatarSeed || name;
+  return `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`;
+};
+
+<div class="flex items-center justify-center">
+  {image ? (
+    <img
+      src={image}
+      alt={name}
+      class={`${sizeClasses[size]} rounded-full object-cover`}
+      width={size === 'sm' ? 64 : size === 'md' ? 128 : 192}
+      height={size === 'sm' ? 64 : size === 'md' ? 128 : 192}
+    />
+  ) : profileConfig.pictureFallback === 'initials' ? (
+    <div
+      class={`${sizeClasses[size]} rounded-full flex items-center justify-center ${theme.accent} border-2`}
+    >
+      <span class="font-bold">{getInitials(name)}</span>
+    </div>
+  ) : (
+    <img
+      src={getAvatarUrl(name)}
+      alt={name}
+      class={`${sizeClasses[size]} rounded-full`}
+      width={size === 'sm' ? 64 : size === 'md' ? 128 : 192}
+      height={size === 'sm' ? 64 : size === 'md' ? 128 : 192}
+    />
+  )}
+</div> 

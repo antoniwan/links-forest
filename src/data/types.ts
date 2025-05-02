@@ -3,7 +3,7 @@ import type { EmojiName } from "./emojis";
 export interface Profile {
   name: string;
   subtitle: string;
-  image: string;
+  image?: string;
 }
 
 export interface Link {
