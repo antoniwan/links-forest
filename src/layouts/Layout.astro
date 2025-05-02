@@ -1,27 +1,79 @@
 ---
-import '../styles/global.css';
-import { themeConfig, ACTIVE_THEME } from '../data/theme.config';
+import { userConfig } from '../config/user.config';
+import { themeConfig } from '../config/theme.config';
+import ThemeSelector from '../components/ThemeSelector';
+import type { Theme } from '../data/types';
 
-interface Props {
-	themeId?: string;
-}
-
-const { themeId = ACTIVE_THEME } = Astro.props;
-const theme = themeConfig[themeId as keyof typeof themeConfig] || themeConfig[ACTIVE_THEME];
+const { profile, theme, links, social } = userConfig;
+const currentTheme = themeConfig[theme.active];
 ---
 
 <!DOCTYPE html>
-<html lang="en" class={theme.bg}>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{profile.name} - LinkForest</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Links Forest</title>
 	</head>
-	<body class={`min-h-screen ${theme.text}`}>
-		<div class="mx-auto max-w-3xl px-4 py-8">
-			<slot />
+	<body class={`${currentTheme.colors.background} ${currentTheme.colors.text} min-h-screen`}>
+		<div class="container mx-auto px-4 py-8">
+			<header class="flex justify-between items-center mb-8">
+				<div class="flex items-center gap-4">
+					{profile.image ? (
+						<img
+							src={profile.image}
+							alt={profile.name}
+							class="w-16 h-16 rounded-full object-cover"
+						/>
+					) : (
+						<div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-700 flex items-center justify-center text-2xl font-bold">
+							{profile.name
+								.split(' ')
+								.map((n) => n[0])
+								.join('')}
+						</div>
+					)}
+					<div>
+						<h1 class="text-2xl font-bold">{profile.name}</h1>
+						<p class="text-gray-400">{profile.subtitle}</p>
+					</div>
+				</div>
+				<ThemeSelector client:load currentTheme={theme.active} onThemeChange={(newTheme: Theme) => {
+					// Update theme in localStorage
+					localStorage.setItem('theme', newTheme);
+					// Reload page to apply new theme
+					window.location.reload();
+				}} />
+			</header>
+
+			<main class="space-y-4">
+				{links.map((link) => (
+					<a
+						href={link.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class={`block p-4 rounded-lg ${currentTheme.styles.card} ${currentTheme.styles.link} transition-all`}
+					>
+						<h2 class="text-xl font-semibold">{link.title}</h2>
+						<p class="text-gray-400">{link.description}</p>
+					</a>
+				))}
+			</main>
+
+			<footer class="mt-8 flex justify-center gap-4">
+				{social.map((social) => (
+					<a
+						href={social.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class={`p-2 rounded-full ${currentTheme.styles.button} transition-all`}
+					>
+						<span class="sr-only">{social.platform}</span>
+						<span class="text-xl">{social.icon}</span>
+					</a>
+				))}
+			</footer>
 		</div>
 	</body>
 </html>

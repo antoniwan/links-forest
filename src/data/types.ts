@@ -4,16 +4,16 @@ import type { EmojiName } from "./emojis";
  * Theme types and configuration
  */
 export type Theme =
-  | "wolf" // Cool grays and blues
-  | "fox" // Warm oranges and browns
-  | "owl" // Deep purples and dark blues
-  | "raven" // Dark blacks and grays
-  | "deer" // Earthy browns and greens
-  | "bear" // Rich browns and golds
-  | "eagle" // Majestic golds and browns
-  | "salmon" // Vibrant pinks and oranges
-  | "otter" // Playful blues and teals
-  | "lynx"; // Mysterious grays and silvers
+  | "wolf"
+  | "fox"
+  | "owl"
+  | "raven"
+  | "deer"
+  | "bear"
+  | "eagle"
+  | "salmon"
+  | "otter"
+  | "lynx";
 
 /**
  * Profile types
@@ -38,7 +38,7 @@ export interface Link {
 export interface SocialLink {
   platform: string;
   url: string;
-  icon: EmojiName;
+  icon: string;
 }
 
 /**
