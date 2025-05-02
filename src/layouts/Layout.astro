@@ -2,13 +2,9 @@
 import { userConfig } from '../config/user.config';
 import { themeConfig } from '../config/theme.config';
 import type { Theme } from '../data/types';
-import { layoutLogger } from '../utils/logger';
 
 const { profile, theme, links, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
-
-layoutLogger('Layout component mounted');
-layoutLogger(`Current theme: ${theme.active}`);
 ---
 
 <!DOCTYPE html>
