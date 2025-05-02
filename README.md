@@ -55,6 +55,7 @@ Each archetype in LinkForest is intentionally:
 - [ ] Optional: embed music, blog posts, videos
 - [ ] Optional: dark mode toggle
 - [ ] Optional: dynamic link metrics
+- [x] Supports self-hosting via Netlify or Vercel (see [Self-Hosting Guide](./SELF-HOSTING.md))
 
 ## 🔧 Tech Stack
 
@@ -96,6 +97,8 @@ All commands are run from the root of the project, from a terminal:
 
 ## 📚 Documentation
 
+- [Self-Hosting Guide](./SELF-HOSTING.md) — kill Linktree and go sovereign
+- [License](./LICENSE.md) — open-source + open-intent
 - [Astro Documentation](https://docs.astro.build)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
@@ -104,6 +107,13 @@ All commands are run from the root of the project, from a terminal:
 
 Feel free to submit issues and enhancement requests!
 
+We especially welcome:
+
+- New themes and archetypes
+- Accessibility improvements
+- Guides and tutorials for non-technical creators
+
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.  
+See [`LICENSE.md`](./LICENSE.md) for more details and our community values.
