@@ -1,31 +1,14 @@
 ---
 import { userConfig } from '../config/user.config';
 import { themeConfig } from '../config/theme.config';
-import ThemeSelector from '../components/ThemeSelector';
 import type { Theme } from '../data/types';
 import { layoutLogger } from '../utils/logger';
 
 const { profile, theme, links, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
-const url = new URL(Astro.props.url);
-const showThemePreview = url.searchParams.get('theme-preview') === 'true';
-
-// Log only the layout load with pathname and search
-layoutLogger(`Layout loaded: ${url.pathname}${url.search}`);
-if (showThemePreview) {
-	layoutLogger('Theme preview mode: true');
-}
 
 layoutLogger('Layout component mounted');
-
-// Log theme information
 layoutLogger(`Current theme: ${theme.active}`);
-layoutLogger(`Theme preview mode: ${showThemePreview}`);
-if (showThemePreview) {
-	layoutLogger('Theme Preview UI is visible');
-} else {
-	layoutLogger('Theme Preview UI is hidden');
-}
 ---
 
 <!DOCTYPE html>
@@ -59,14 +42,6 @@ if (showThemePreview) {
 						<p class="text-gray-400">{profile.subtitle}</p>
 					</div>
 				</div>
-				{showThemePreview && (
-					<ThemeSelector client:load currentTheme={theme.active} onThemeChange={(newTheme: Theme) => {
-						// Update theme in localStorage
-						localStorage.setItem('theme', newTheme);
-						// Reload page to apply new theme
-						window.location.reload();
-					}} />
-				)}
 			</header>
 
 			<main class="space-y-4">
