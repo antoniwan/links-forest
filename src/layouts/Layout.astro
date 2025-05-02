@@ -1,14 +1,20 @@
-<!doctype html>
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Links Forest</title>
 	</head>
-	<body>
-		<slot />
+	<body class="min-h-screen bg-white dark:bg-gray-900">
+		<div class="mx-auto max-w-3xl px-4 py-8">
+			<slot />
+		</div>
 	</body>
 </html>
 
