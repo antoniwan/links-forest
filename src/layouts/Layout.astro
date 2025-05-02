@@ -3,6 +3,9 @@ import { userConfig } from '../config/user.config';
 import { themeConfig } from '../config/theme.config';
 import type { Theme } from '../data/types';
 import { ThemeCycler } from '../components/ThemeCycler';
+import { ProfilePicture } from '../components/ProfilePicture';
+import { LinkCard } from '../components/LinkCard';
+import { SocialIcons } from '../components/SocialIcons';
 import { dataLogger } from '../utils/logger';
 
 const { profile, theme, links, social } = userConfig;
@@ -26,20 +29,12 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<div class="container mx-auto px-4 py-8">
 			<header class="flex justify-between items-center mb-8">
 				<div class="flex items-center gap-4">
-					{profile.image ? (
-						<img
-							src={profile.image}
-							alt={profile.name}
-							class="w-16 h-16 rounded-full object-cover"
-						/>
-					) : (
-						<div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-700 flex items-center justify-center text-2xl font-bold">
-							{profile.name
-								.split(' ')
-								.map((n) => n[0])
-								.join('')}
-						</div>
-					)}
+					<ProfilePicture 
+						client:load
+						name={profile.name}
+						image={profile.image}
+						themeId={theme.active}
+					/>
 					<div>
 						<h1 class="text-2xl font-bold">{profile.name}</h1>
 						<p class="text-gray-400">{profile.subtitle}</p>
@@ -49,30 +44,21 @@ dataLogger('Layout initialized with theme:', theme.active);
 
 			<main class="space-y-4">
 				{links.map((link) => (
-					<a
+					<LinkCard
+						client:load
 						href={link.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						class={`block p-4 rounded-lg ${currentTheme.styles.card} ${currentTheme.styles.link} transition-all`}
-					>
-						<h2 class="text-xl font-semibold">{link.title}</h2>
-						<p class="text-gray-400">{link.description}</p>
-					</a>
+						title={link.title}
+						description={link.description}
+						accentColor={currentTheme.colors.accent}
+					/>
 				))}
 			</main>
 
-			<footer class="mt-8 flex justify-center gap-4">
-				{social.map((social) => (
-					<a
-						href={social.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						class={`p-2 rounded-full ${currentTheme.styles.button} transition-all`}
-					>
-						<span class="sr-only">{social.platform}</span>
-						<span class="text-xl">{social.icon}</span>
-					</a>
-				))}
+			<footer class="mt-8">
+				<SocialIcons 
+					client:load
+					socialLinks={social}
+				/>
 			</footer>
 		</div>
 
