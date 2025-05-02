@@ -7,20 +7,14 @@ import ProfilePicture from '../components/ProfilePicture.astro';
 
 const { profile, links, social } = userConfig;
 
-// Log route information
-pageLogger(`Route: ${Astro.url.pathname}`);
-pageLogger('GET Parameters:');
-for (const [key, value] of new URL(Astro.url).searchParams.entries()) {
-	pageLogger(`  ${key}: ${value}`);
-}
-
-pageLogger('Index page mounted');
+// Log only the page load with pathname and search
+pageLogger(`Page loaded: ${Astro.url.pathname}${Astro.url.search}`);
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
+<Layout url={Astro.url.href}>
 	<main class="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-3xl mx-auto">
 			{/* Profile Section */}
@@ -73,10 +67,3 @@ pageLogger('Index page mounted');
 		</div>
 	</main>
 </Layout>
-
-<script>
-	const pageLogger = (message: string) => {
-		console.log(`[Page] ${message}`);
-	};
-	pageLogger('Index page script executed');
-</script>

@@ -6,7 +6,6 @@
  */
 
 import type { Theme, Profile, Link, SocialLink } from "../data/types";
-import { configLogger } from "../utils/logger";
 import { logDataLoading } from "../utils/logger";
 
 const logUserConfig = logDataLoading("user.config");
@@ -78,4 +77,3 @@ export const userConfig: UserConfig = {
 
 // Log that user config has been loaded
 logUserConfig();
-configLogger("User configuration loaded");

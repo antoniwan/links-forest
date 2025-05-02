@@ -7,14 +7,13 @@ import { layoutLogger } from '../utils/logger';
 
 const { profile, theme, links, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
-const url = new URL(Astro.url);
+const url = new URL(Astro.props.url);
 const showThemePreview = url.searchParams.get('theme-preview') === 'true';
 
-// Log route and GET parameters
-layoutLogger(`Route: ${Astro.url.pathname}`);
-layoutLogger('GET Parameters:');
-for (const [key, value] of url.searchParams.entries()) {
-	layoutLogger(`  ${key}: ${value}`);
+// Log only the layout load with pathname and search
+layoutLogger(`Layout loaded: ${url.pathname}${url.search}`);
+if (showThemePreview) {
+	layoutLogger('Theme preview mode: true');
 }
 
 layoutLogger('Layout component mounted');
@@ -109,10 +108,3 @@ if (showThemePreview) {
 		height: 100%;
 	}
 </style>
-
-<script>
-	const layoutLogger = (message: string) => {
-		console.log(`[Layout] ${message}`);
-	};
-	layoutLogger('Layout script executed');
-</script>

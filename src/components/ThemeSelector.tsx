@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import type { Theme } from "../data/types";
-import { componentLogger } from "../utils/logger";
 import { logComponentLifecycle } from "../utils/logger";
 
 interface ThemeSelectorProps {
@@ -53,18 +52,15 @@ export default function ThemeSelector({
   const cleanup = logComponentLifecycle("ThemeSelector");
 
   const handleThemeChange = (theme: Theme) => {
-    componentLogger(`Theme changed to: ${theme}`);
     onThemeChange(theme);
     setIsOpen(false);
   };
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
-    componentLogger(`Theme Preview dropdown ${isOpen ? "closed" : "opened"}`);
   };
 
   useEffect(() => {
-    componentLogger("Theme Preview UI initialized");
     return cleanup;
   }, []);
 
