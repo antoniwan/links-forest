@@ -2,9 +2,14 @@
 import { userConfig } from '../config/user.config';
 import { themeConfig } from '../config/theme.config';
 import type { Theme } from '../data/types';
+import { ThemeCycler } from '../components/ThemeCycler';
+import { dataLogger } from '../utils/logger';
 
 const { profile, theme, links, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
+
+// Log the current theme
+dataLogger('Layout initialized with theme:', theme.active);
 ---
 
 <!DOCTYPE html>
@@ -16,6 +21,8 @@ const currentTheme = themeConfig[theme.active];
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	</head>
 	<body class={`${currentTheme.colors.background} ${currentTheme.colors.text} min-h-screen`}>
+		<!-- ThemeCycler will only be active in development mode -->
+		<ThemeCycler client:load />
 		<div class="container mx-auto px-4 py-8">
 			<header class="flex justify-between items-center mb-8">
 				<div class="flex items-center gap-4">
@@ -68,6 +75,75 @@ const currentTheme = themeConfig[theme.active];
 				))}
 			</footer>
 		</div>
+
+		<script>
+			// Listen for theme changes
+			window.addEventListener('theme-change', (event) => {
+				const customEvent = event as CustomEvent<{ theme: string }>;
+				const theme = customEvent.detail.theme;
+				
+				// Update the body classes
+				const themeConfig = {
+					wolf: { 
+						background: 'bg-gradient-to-br from-gray-900 to-gray-700', 
+						text: 'text-white',
+						description: 'Cool grays and blues - Instinct, loyalty, protection'
+					},
+					fox: { 
+						background: 'bg-gradient-to-br from-orange-900 to-orange-700', 
+						text: 'text-white',
+						description: 'Warm oranges and browns - Warmth, cunning, adaptability'
+					},
+					owl: { 
+						background: 'bg-gradient-to-br from-purple-900 to-indigo-800', 
+						text: 'text-white',
+						description: 'Deep purples and dark blues - Wisdom, mystery, vision'
+					},
+					raven: { 
+						background: 'bg-gradient-to-br from-gray-900 to-black', 
+						text: 'text-white',
+						description: 'Dark blacks and grays - Mystery, transformation, magic'
+					},
+					deer: { 
+						background: 'bg-gradient-to-br from-green-900 to-emerald-800', 
+						text: 'text-white',
+						description: 'Earthy browns and greens - Gentleness, grace, nature'
+					},
+					bear: { 
+						background: 'bg-gradient-to-br from-amber-900 to-yellow-800', 
+						text: 'text-white',
+						description: 'Rich browns and golds - Strength, protection, healing'
+					},
+					eagle: { 
+						background: 'bg-gradient-to-br from-yellow-900 to-amber-800', 
+						text: 'text-white',
+						description: 'Majestic golds and browns - Vision, freedom, power'
+					},
+					salmon: { 
+						background: 'bg-gradient-to-br from-pink-900 to-rose-800', 
+						text: 'text-white',
+						description: 'Vibrant pinks and oranges - Determination, journey, rebirth'
+					},
+					otter: { 
+						background: 'bg-gradient-to-br from-teal-900 to-cyan-800', 
+						text: 'text-white',
+						description: 'Playful blues and teals - Joy, playfulness, adaptability'
+					},
+					lynx: { 
+						background: 'bg-gradient-to-br from-slate-900 to-gray-800', 
+						text: 'text-white',
+						description: 'Mysterious grays and silvers - Stealth, perception, independence'
+					}
+				} as Record<string, { background: string; text: string; description: string }>;
+				
+				const newTheme = themeConfig[theme];
+				if (newTheme) {
+					document.body.className = `${newTheme.background} ${newTheme.text} min-h-screen`;
+					console.log(`%cTheme changed to: ${theme}`, 'color: #4CAF50; font-weight: bold;');
+					console.log(`%c${newTheme.description}`, 'color: #9E9E9E; font-style: italic;');
+				}
+			});
+		</script>
 	</body>
 </html>
 
