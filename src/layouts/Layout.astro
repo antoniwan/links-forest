@@ -6,6 +6,7 @@ import { ThemeCycler } from '../components/ThemeCycler';
 import { ProfilePicture } from '../components/ProfilePicture';
 import { LinkCard } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
+import { ThemeTransitionWrapper } from '../components/ThemeTransitionWrapper';
 import { dataLogger } from '../utils/logger';
 
 const { profile, theme, links, social } = userConfig;
@@ -29,46 +30,62 @@ dataLogger('Layout initialized with theme:', theme.active);
 	<body class={`${currentTheme.colors.background} ${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen`}>
 		<!-- ThemeCycler will only be active in development mode -->
 		<ThemeCycler client:load />
-		<div class="max-w-xl mx-auto px-4 pt-16 pb-12">
-			<header class="flex justify-between items-center mb-8">
-				<div class="flex items-center gap-4">
-					<ProfilePicture 
-						client:load
-						name={profile.name}
-						image={profile.image}
-						themeId={theme.active}
-					/>
-					<div>
-						<h1 class="text-2xl font-bold">{profile.name}</h1>
-						<p class="text-gray-400">{profile.subtitle}</p>
+		<ThemeTransitionWrapper client:load>
+			<div class="max-w-xl mx-auto px-4 pt-16 pb-12">
+				<header class="flex justify-between items-center mb-8">
+					<div class="flex items-center gap-4">
+						<ProfilePicture 
+							client:load
+							name={profile.name}
+							image={profile.image}
+							themeId={theme.active}
+						/>
+						<div>
+							<h1 class="text-2xl font-bold">{profile.name}</h1>
+							<p class="text-gray-400">{profile.subtitle}</p>
+						</div>
 					</div>
-				</div>
-			</header>
+				</header>
 
-			<main class="flex flex-col gap-8">
-				{links.map((link) => (
-					<LinkCard
+				<main class="flex flex-col gap-8">
+					{links.map((link) => (
+						<LinkCard
+							client:load
+							href={link.url}
+							title={link.title}
+							description={link.description}
+							accentColor={currentTheme.colors.accent}
+						/>
+					))}
+				</main>
+
+				<footer class="mt-8">
+					<SocialIcons 
 						client:load
-						href={link.url}
-						title={link.title}
-						description={link.description}
-						accentColor={currentTheme.colors.accent}
+						socialLinks={social}
 					/>
-				))}
-			</main>
-
-			<footer class="mt-8">
-				<SocialIcons 
-					client:load
-					socialLinks={social}
-				/>
-			</footer>
-		</div>
+				</footer>
+			</div>
+		</ThemeTransitionWrapper>
 
 		<script>
+			/** @type {import('../data/theme.types').ThemeName} */
+			const ThemeName = {
+				builder: 'builder',
+				wolf: 'wolf',
+				mystic: 'mystic',
+				dragon: 'dragon',
+				artist: 'artist',
+				warrior: 'warrior',
+				healer: 'healer',
+				alchemist: 'alchemist',
+				strategist: 'strategist',
+				steward: 'steward'
+			};
+
 			// Listen for theme changes
 			window.addEventListener('theme-change', (event) => {
-				const customEvent = event as CustomEvent<{ theme: ThemeName }>;
+				const customEvent = event as CustomEvent<{ theme: keyof typeof ThemeName }>;
 				const theme = customEvent.detail.theme;
 				const themeConfig = {
 					builder: { 
@@ -131,7 +148,7 @@ dataLogger('Layout initialized with theme:', theme.active);
 						font: 'font-steward',
 						description: 'Legacy, care, generational vision'
 					}
-				} as Record<ThemeName, { background: string; text: string; font: string; description: string }>;
+				} as Record<keyof typeof ThemeName, { background: string; text: string; font: string; description: string }>;
 				
 				const newTheme = themeConfig[theme];
 				if (newTheme) {
