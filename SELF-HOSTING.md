@@ -71,4 +71,4 @@ This project is intentionally open-source. Please don't hoard it.
 
 ---
 
-[← Go back to README](../README.md)
+[← Go back to README](./README.md)

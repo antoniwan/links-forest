@@ -28,4 +28,4 @@ Join the forest 🌲
 
 ---
 
-[← Go back to README](../README.md)
+[← Go back to README](./README.md)
