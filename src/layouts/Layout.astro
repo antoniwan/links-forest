@@ -22,8 +22,11 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{profile.name} - LinkForest</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body class={`${currentTheme.colors.background} ${currentTheme.colors.text} min-h-screen`}>
+	<body class={`${currentTheme.colors.background} ${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen`}>
 		<!-- ThemeCycler will only be active in development mode -->
 		<ThemeCycler client:load />
 		<div class="container mx-auto px-4 py-8">
@@ -69,60 +72,70 @@ dataLogger('Layout initialized with theme:', theme.active);
 				const theme = customEvent.detail.theme;
 				const themeConfig = {
 					builder: { 
-						background: 'bg-gradient-to-br from-stone-900 to-stone-700', 
+						background: 'bg-stone-900', 
 						text: 'text-white',
+						font: 'font-builder',
 						description: 'Creation, systems, form'
 					},
 					wolf: { 
-						background: 'bg-gradient-to-br from-gray-900 to-gray-700', 
+						background: 'bg-gray-900', 
 						text: 'text-white',
+						font: 'font-wolf',
 						description: 'Instinct, loyalty, protection'
 					},
 					mystic: { 
-						background: 'bg-gradient-to-br from-purple-900 to-purple-700', 
+						background: 'bg-purple-900', 
 						text: 'text-white',
+						font: 'font-mystic',
 						description: 'Spirituality, vision, cosmic threads'
 					},
 					dragon: { 
-						background: 'bg-gradient-to-br from-red-900 to-red-700', 
+						background: 'bg-red-900', 
 						text: 'text-white',
+						font: 'font-dragon',
 						description: 'Power, force, will'
 					},
 					artist: { 
-						background: 'bg-gradient-to-br from-pink-900 to-pink-700', 
+						background: 'bg-pink-900', 
 						text: 'text-white',
+						font: 'font-artist',
 						description: 'Expression, creativity, truth'
 					},
 					warrior: { 
-						background: 'bg-gradient-to-br from-slate-900 to-slate-700', 
+						background: 'bg-slate-900', 
 						text: 'text-white',
+						font: 'font-warrior',
 						description: 'Action, discipline, focus'
 					},
 					healer: { 
-						background: 'bg-gradient-to-br from-emerald-900 to-emerald-700', 
+						background: 'bg-emerald-900', 
 						text: 'text-white',
+						font: 'font-healer',
 						description: 'Regeneration, soothing, connection'
 					},
 					alchemist: { 
-						background: 'bg-gradient-to-br from-violet-900 to-violet-700', 
+						background: 'bg-violet-900', 
 						text: 'text-white',
+						font: 'font-alchemist',
 						description: 'Transformation, elements, ritual'
 					},
 					strategist: { 
-						background: 'bg-gradient-to-br from-blue-900 to-blue-700', 
+						background: 'bg-blue-900', 
 						text: 'text-white',
+						font: 'font-strategist',
 						description: 'Mind, planning, clarity'
 					},
 					steward: { 
-						background: 'bg-gradient-to-br from-green-900 to-green-700', 
+						background: 'bg-green-900', 
 						text: 'text-white',
+						font: 'font-steward',
 						description: 'Legacy, care, generational vision'
 					}
-				} as Record<ThemeName, { background: string; text: string; description: string }>;
+				} as Record<ThemeName, { background: string; text: string; font: string; description: string }>;
 				
 				const newTheme = themeConfig[theme];
 				if (newTheme) {
-					document.body.className = `${newTheme.background} ${newTheme.text} min-h-screen`;
+					document.body.className = `${newTheme.background} ${newTheme.text} ${newTheme.font} min-h-screen`;
 					console.log(`%cTheme changed to: ${theme}`, 'color: #4CAF50; font-weight: bold;');
 					console.log(`%c${newTheme.description}`, 'color: #9E9E9E; font-style: italic;');
 				}

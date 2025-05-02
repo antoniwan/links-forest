@@ -39,6 +39,7 @@ export interface ThemeStyles {
   card: string;
   link: string;
   border: string;
+  font: string;
 }
 
 /**

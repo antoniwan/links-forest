@@ -19,6 +19,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-stone-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-amber-400",
       border: "border-amber-500 hover:border-amber-600",
+      font: "font-builder",
     },
     meta: {
       name: "The Builder",
@@ -41,6 +42,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-gray-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-blue-400",
       border: "border-blue-500 hover:border-blue-600",
+      font: "font-wolf",
     },
     meta: {
       name: "The Wolf",
@@ -63,6 +65,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-purple-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-indigo-400",
       border: "border-indigo-500 hover:border-indigo-600",
+      font: "font-mystic",
     },
     meta: {
       name: "The Mystic",
@@ -85,6 +88,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-red-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-orange-400",
       border: "border-orange-500 hover:border-orange-600",
+      font: "font-dragon",
     },
     meta: {
       name: "The Dragon",
@@ -107,6 +111,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-pink-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-rose-400",
       border: "border-rose-500 hover:border-rose-600",
+      font: "font-artist",
     },
     meta: {
       name: "The Artist",
@@ -129,6 +134,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-slate-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-gray-400",
       border: "border-gray-500 hover:border-gray-600",
+      font: "font-warrior",
     },
     meta: {
       name: "The Warrior",
@@ -151,6 +157,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-emerald-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-teal-400",
       border: "border-teal-500 hover:border-teal-600",
+      font: "font-healer",
     },
     meta: {
       name: "The Healer",
@@ -173,6 +180,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-violet-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-purple-400",
       border: "border-purple-500 hover:border-purple-600",
+      font: "font-alchemist",
     },
     meta: {
       name: "The Alchemist",
@@ -195,6 +203,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-blue-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-cyan-400",
       border: "border-cyan-500 hover:border-cyan-600",
+      font: "font-strategist",
     },
     meta: {
       name: "The Strategist",
@@ -217,6 +226,7 @@ export const themeConfig: Record<ThemeName, ThemeConfig> = {
       card: "bg-green-800 bg-opacity-50 backdrop-blur-sm",
       link: "hover:text-lime-400",
       border: "border-lime-500 hover:border-lime-600",
+      font: "font-steward",
     },
     meta: {
       name: "The Steward",
