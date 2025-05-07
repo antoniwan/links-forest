@@ -1,6 +1,7 @@
 ---
 import { userConfig } from '../config/user.config';
 import { themeConfig } from '../config/theme.config';
+import { generateMetaConfig } from '../config/meta.config';
 import type { ThemeName } from '../data/theme.types';
 import { ProfilePicture } from '../components/ProfilePicture';
 import { LinkGrid } from '../components/LinkCard';
@@ -10,6 +11,7 @@ import { cssTransitions } from '../config/animations';
 
 const { profile, theme, links, secondaryLinks, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
+const meta = generateMetaConfig(profile, Astro.url.href);
 
 // Log the current theme
 dataLogger('Layout initialized with theme:', theme.active);
@@ -22,6 +24,41 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{profile.name} - LinkForest</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<!-- SEO Meta Tags -->
+		<meta name="description" content={meta.seo.description} />
+		<meta name="author" content={profile.name} />
+		<meta name="keywords" content={meta.seo.keywords.join(', ')} />
+		<meta name="robots" content={meta.seo.robots} />
+		<link rel="canonical" href={meta.seo.canonical} />
+		
+		<!-- OpenGraph Meta Tags -->
+		<meta property="og:title" content={meta.openGraph.title} />
+		<meta property="og:description" content={meta.openGraph.description} />
+		<meta property="og:type" content={meta.openGraph.type} />
+		<meta property="og:image" content={meta.openGraph.image} />
+		<meta property="og:url" content={meta.openGraph.url} />
+		<meta property="og:site_name" content={meta.openGraph.siteName} />
+		<meta property="og:locale" content={meta.openGraph.locale} />
+		{meta.openGraph.seeAlso.map(url => (
+			<meta property="og:see_also" content={url} />
+		))}
+		
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content={meta.twitter.card} />
+		<meta name="twitter:title" content={meta.twitter.title} />
+		<meta name="twitter:description" content={meta.twitter.description} />
+		<meta name="twitter:image" content={meta.twitter.image} />
+		<meta name="twitter:creator" content={meta.twitter.creator} />
+		<meta name="twitter:site" content={meta.twitter.site} />
+		
+		<!-- Mobile/App Meta Tags -->
+		<meta name="theme-color" content={meta.mobile.themeColor} />
+		<meta name="mobile-web-app-capable" content={meta.mobile.webAppCapable ? 'yes' : 'no'} />
+		<meta name="apple-mobile-web-app-capable" content={meta.mobile.appleWebAppCapable ? 'yes' : 'no'} />
+		<meta name="apple-mobile-web-app-status-bar-style" content={meta.mobile.appleWebAppStatusBarStyle} />
+		<meta name="apple-mobile-web-app-title" content={meta.mobile.appleWebAppTitle} />
+		
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
