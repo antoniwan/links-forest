@@ -29,6 +29,8 @@ export const LinkCard: FC<LinkCardProps> = ({
     >
       <motion.a
         href={href}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`block p-6 rounded-lg border border-gray-200 dark:border-gray-700 
           bg-white dark:bg-gray-800 shadow-sm ${className}`}
         style={
