@@ -133,7 +133,6 @@ Each archetype in LinksForest is intentionally:
 - [x] Easy-to-edit configuration
 - [x] Fast static builds with no server cost
 - [x] TypeScript support
-- [x] Development theme cycling for testing
 - [x] Configurable via `theme.config.ts`
 - [x] Comprehensive logging system
 - [x] Vercel Analytics integration
@@ -155,16 +154,16 @@ Each archetype in LinksForest is intentionally:
 
 ## 🔧 Tech Stack
 
-| Tool             | Purpose                          |
-| ---------------- | -------------------------------- |
-| Astro            | Static site generator (5.0)      |
-| Tailwind CSS     | Utility-first styling            |
-| React (optional) | Interactive components (islands) |
-| Framer Motion    | Animations + transitions         |
-| TypeScript       | Type-safe development            |
-| Vercel Analytics | Usage tracking and insights      |
-| Vercel / Netlify | Fast, free deployment            |
-| Namecheap        | DNS routing for custom domains   |
+| Tool             | Purpose                           |
+| ---------------- | --------------------------------- |
+| Astro            | Static site generator (5.7.10)    |
+| Tailwind CSS     | Utility-first styling (3.4.17)    |
+| React            | Interactive components (19.1.0)   |
+| Framer Motion    | Animations + transitions (12.9.4) |
+| TypeScript       | Type-safe development             |
+| Vercel Analytics | Usage tracking and insights       |
+| Vercel / Netlify | Fast, free deployment             |
+| Namecheap        | DNS routing for custom domains    |
 
 ## 🗺️ Project Structure
 
@@ -212,14 +211,6 @@ All commands are run from the root of the project, from a terminal:
 ## 🔍 Debugging and Logging
 
 LinksForest includes a comprehensive logging system to help with development and debugging. Logs are automatically enabled in development mode.
-
-### Development Theme Cycling
-
-In development mode, themes automatically cycle every 30 seconds to help with testing and development. You'll see detailed logs in the console showing:
-
-- The current theme name
-- The theme's color scheme
-- The theme's archetypal characteristics
 
 ### Available Log Namespaces
 
