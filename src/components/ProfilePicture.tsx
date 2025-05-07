@@ -12,8 +12,8 @@ interface ProfilePictureProps {
 
 const sizeClasses = {
   sm: "w-16 h-16 text-lg",
-  md: "w-32 h-32 text-2xl",
-  lg: "w-48 h-48 text-4xl",
+  md: "w-24 h-24 sm:w-32 sm:h-32 text-xl sm:text-2xl",
+  lg: "w-32 h-32 sm:w-48 sm:h-48 text-2xl sm:text-4xl",
 } as const;
 
 export const ProfilePicture = ({
@@ -33,7 +33,7 @@ export const ProfilePicture = ({
 
   const width = size === "sm" ? 64 : size === "md" ? 128 : 192;
   const height = size === "sm" ? 64 : size === "md" ? 128 : 192;
-  const baseClass = `${sizeClasses[size]} rounded-full`;
+  const baseClass = `${sizeClasses[size]} rounded-full transition-all duration-300`;
 
   return (
     <div
@@ -45,14 +45,14 @@ export const ProfilePicture = ({
         <img
           src={image}
           alt={`Profile picture of ${name}`}
-          className={`${baseClass} object-cover`}
+          className={`${baseClass} object-cover ${theme.styles.border} border-2`}
           width={width}
           height={height}
           loading="lazy"
         />
       ) : (
         <div
-          className={`${baseClass} flex items-center justify-center ${theme.styles.border} border-2`}
+          className={`${baseClass} flex items-center justify-center ${theme.styles.border} border-2 bg-white dark:bg-gray-800`}
           aria-hidden="true"
         >
           <span className="font-bold">{initials}</span>

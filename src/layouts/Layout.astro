@@ -34,17 +34,18 @@ dataLogger('Layout initialized with theme:', theme.active);
 			<ThemeCycler client:load />
 			<ThemeTransitionWrapper client:load>
 				<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-					<header class="flex justify-between items-center mb-12">
-						<div class="flex items-center gap-6">
+					<header class="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12">
+						<div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
 							<ProfilePicture 
 								client:load
 								name={profile.name}
 								image={profile.image}
 								themeId={theme.active}
+								size="md"
 							/>
-							<div>
-								<h1 class="text-3xl font-bold tracking-tight mb-2">{profile.name}</h1>
-								<p class="text-lg opacity-90">{profile.subtitle}</p>
+							<div class="space-y-2">
+								<h1 class="text-2xl sm:text-3xl font-bold tracking-tight">{profile.name}</h1>
+								<p class="text-base sm:text-lg opacity-90 max-w-xl">{profile.subtitle}</p>
 							</div>
 						</div>
 					</header>
