@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import type { FC } from "react";
+import React, { type FC } from "react";
 import type { Link } from "../data/types";
 import { variants, interactions, transitions } from "../config/animations";
+import { categoryIconMap, getCategoryIcon } from "../data/categoryIcons";
 
 interface LinkCardProps {
   link: Link;
@@ -33,9 +34,9 @@ export const LinkCard: FC<LinkCardProps> = ({
             {title}
           </h3>
           {category && (
-            <span className="text-xs uppercase tracking-wider opacity-75 whitespace-nowrap">
-              {category}
-            </span>
+            <div className="flex items-center justify-center w-8 h-8 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors duration-200">
+              {React.createElement(categoryIconMap[getCategoryIcon(category)])}
+            </div>
           )}
         </div>
         {description && (
