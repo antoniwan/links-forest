@@ -1,4 +1,5 @@
 ---
+import Analytics from '@vercel/analytics/astro'
 import { userConfig } from '../config/user.config';
 import { themeConfig } from '../config/theme.config';
 import { generateMetaConfig } from '../config/meta.config';
@@ -72,6 +73,7 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+			<Analytics />
 	</head>
 	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}>
 		<div class={`${currentTheme.colors.background} min-h-screen relative z-10 ${cssTransitions.smooth}`}>
