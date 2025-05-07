@@ -69,6 +69,8 @@ export interface Link {
   url: string;
   /** Short description of the link */
   description: string;
+  /** Category or group this link belongs to */
+  category?: string;
 }
 
 /**
@@ -107,12 +109,9 @@ export interface SocialLink {
  */
 
 /**
- * Secondary link structure
+ * Secondary link structure - now just an alias for Link
  */
-export interface SecondaryLink extends Link {
-  /** Category or group this link belongs to */
-  category?: string;
-}
+export type SecondaryLink = Link;
 
 /**
  * Complete links data structure

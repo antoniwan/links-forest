@@ -4,10 +4,9 @@ import { themeConfig } from '../config/theme.config';
 import type { ThemeName } from '../data/theme.types';
 import { ThemeCycler } from '../components/ThemeCycler';
 import { ProfilePicture } from '../components/ProfilePicture';
-import { LinkCard } from '../components/LinkCard';
+import { LinkGrid } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
 import { ThemeTransitionWrapper } from '../components/ThemeTransitionWrapper';
-import { SecondaryLinks } from '../components/SecondaryLinks';
 import { dataLogger } from '../utils/logger';
 
 const { profile, theme, links, secondaryLinks, social } = userConfig;
@@ -33,9 +32,9 @@ dataLogger('Layout initialized with theme:', theme.active);
 			<!-- ThemeCycler will only be active in development mode -->
 			<ThemeCycler client:load />
 			<ThemeTransitionWrapper client:load>
-				<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-					<header class="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12">
-						<div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+				<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+					<header class="flex flex-col sm:flex-row justify-between items-center gap-8 mb-16">
+						<div class="flex flex-col sm:flex-row items-center sm:items-start gap-8 text-center sm:text-left">
 							<ProfilePicture 
 								client:load
 								name={profile.name}
@@ -43,34 +42,32 @@ dataLogger('Layout initialized with theme:', theme.active);
 								themeId={theme.active}
 								size="md"
 							/>
-							<div class="space-y-2">
-								<h1 class="text-2xl sm:text-3xl font-bold tracking-tight">{profile.name}</h1>
-								<p class="text-base sm:text-lg opacity-90 max-w-xl">{profile.subtitle}</p>
+							<div class="space-y-3">
+								<h1 class="text-3xl sm:text-4xl font-bold tracking-tight">{profile.name}</h1>
+								<p class="text-lg sm:text-xl opacity-90 max-w-xl leading-relaxed">{profile.subtitle}</p>
 							</div>
 						</div>
 					</header>
 
-					<main class="flex flex-col gap-6">
-						{links.map((link) => (
-							<LinkCard
-								client:load
-								href={link.url}
-								title={link.title}
-								description={link.description}
-								accentColor={currentTheme.colors.accent}
-							/>
-						))}
+					<main class="flex flex-col gap-12">
+						<LinkGrid
+							client:load
+							links={links}
+							accentColor={currentTheme.colors.accent}
+							variant="primary"
+						/>
 
 						{secondaryLinks && secondaryLinks.length > 0 && (
-							<SecondaryLinks
+							<LinkGrid
 								client:load
 								links={secondaryLinks}
 								accentColor={currentTheme.colors.accent}
+								variant="secondary"
 							/>
 						)}
 					</main>
 
-					<footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+					<footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
 						<SocialIcons 
 							client:load
 							socialLinks={social}

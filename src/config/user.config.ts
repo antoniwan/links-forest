@@ -49,21 +49,25 @@ export const userConfig: UserConfig = {
       title: "BlueSky",
       url: "https://bsky.antoniwan.online",
       description: "Stream of consciousness and public identity",
+      category: "Social",
     },
     {
       title: "StrongVault Blog",
       url: "https://blog.antoniwan.online",
       description: "Core writing hub and personal thoughts",
+      category: "Writing",
     },
     {
       title: "Builds.Software",
       url: "https://builds.software",
       description: "Freelance, consulting, and development services",
+      category: "Business",
     },
     {
       title: "Strong Hands, Soft Heart",
       url: "https://www.stronghandssoftheart.com",
       description: "Core brand site and business presence",
+      category: "Brand",
     },
   ],
   secondaryLinks: [
