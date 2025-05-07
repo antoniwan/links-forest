@@ -4,63 +4,32 @@ import type { FC } from "react";
 interface LinkCardProps {
   href: string;
   title: string;
-  description?: string;
-  accentColor?: string;
-  className?: string;
+  description: string;
+  accentColor: string;
 }
 
 export const LinkCard: FC<LinkCardProps> = ({
   href,
   title,
   description,
-  accentColor = "rgb(59, 130, 246)", // default blue-500
-  className = "",
+  accentColor,
 }) => {
   return (
-    <motion.div
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`block p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-opacity-100 ${accentColor}`}
+      whileHover={{ scale: 1.01, y: -2 }}
+      whileTap={{ scale: 0.99 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.5,
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      }}
+      transition={{ duration: 0.3 }}
     >
-      <motion.a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`block p-6 rounded-lg border border-gray-200 dark:border-gray-700 
-          bg-white dark:bg-gray-800 shadow-sm ${className}`}
-        style={
-          {
-            "--accent-color": accentColor,
-          } as React.CSSProperties
-        }
-        whileHover={{
-          scale: 1.05,
-          boxShadow:
-            "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-        }}
-        whileTap={{ scale: 0.98 }}
-        transition={{
-          type: "spring",
-          stiffness: 400,
-          damping: 10,
-        }}
-      >
-        <div className="ring-1 ring-transparent hover:ring-[var(--accent-color)] transition-all duration-300 rounded-lg">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-            {title}
-          </h3>
-          {description && (
-            <p className="text-gray-600 dark:text-gray-200 text-sm">
-              {description}
-            </p>
-          )}
-        </div>
-      </motion.a>
-    </motion.div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
+        <p className="text-base opacity-90 leading-relaxed">{description}</p>
+      </div>
+    </motion.a>
   );
 };

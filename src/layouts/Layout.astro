@@ -28,14 +28,14 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative`}>
-		<div class={`${currentTheme.colors.background} min-h-screen relative z-10`}>
+	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}>
+		<div class={`${currentTheme.colors.background} min-h-screen relative z-10 transition-colors duration-300`}>
 			<!-- ThemeCycler will only be active in development mode -->
 			<ThemeCycler client:load />
 			<ThemeTransitionWrapper client:load>
-				<div class="max-w-xl mx-auto px-4 pt-16 pb-12">
-					<header class="flex justify-between items-center mb-8">
-						<div class="flex items-center gap-4">
+				<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+					<header class="flex justify-between items-center mb-12">
+						<div class="flex items-center gap-6">
 							<ProfilePicture 
 								client:load
 								name={profile.name}
@@ -43,13 +43,13 @@ dataLogger('Layout initialized with theme:', theme.active);
 								themeId={theme.active}
 							/>
 							<div>
-								<h1 class="text-2xl font-bold">{profile.name}</h1>
-								<p class="text-gray-600 dark:text-gray-200">{profile.subtitle}</p>
+								<h1 class="text-3xl font-bold tracking-tight mb-2">{profile.name}</h1>
+								<p class="text-lg opacity-90">{profile.subtitle}</p>
 							</div>
 						</div>
 					</header>
 
-					<main class="flex flex-col gap-8">
+					<main class="flex flex-col gap-6">
 						{links.map((link) => (
 							<LinkCard
 								client:load
@@ -69,7 +69,7 @@ dataLogger('Layout initialized with theme:', theme.active);
 						)}
 					</main>
 
-					<footer class="mt-8">
+					<footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
 						<SocialIcons 
 							client:load
 							socialLinks={social}
@@ -100,62 +100,62 @@ dataLogger('Layout initialized with theme:', theme.active);
 				const theme = customEvent.detail.theme;
 				const themeConfig = {
 					builder: { 
-						background: 'bg-stone-900', 
-						text: 'text-gray-100',
+						background: 'bg-stone-50 dark:bg-stone-900', 
+						text: 'text-stone-900 dark:text-stone-50',
 						font: 'font-builder',
 						description: 'Creation, systems, form'
 					},
 					wolf: { 
-						background: 'bg-gray-900', 
-						text: 'text-gray-100',
+						background: 'bg-gray-50 dark:bg-gray-900', 
+						text: 'text-gray-900 dark:text-gray-50',
 						font: 'font-wolf',
 						description: 'Instinct, loyalty, protection'
 					},
 					mystic: { 
-						background: 'bg-purple-900', 
-						text: 'text-gray-100',
+						background: 'bg-purple-50 dark:bg-purple-900', 
+						text: 'text-purple-900 dark:text-purple-50',
 						font: 'font-mystic',
 						description: 'Spirituality, vision, cosmic threads'
 					},
 					dragon: { 
-						background: 'bg-red-900', 
-						text: 'text-gray-100',
+						background: 'bg-red-50 dark:bg-red-900', 
+						text: 'text-red-900 dark:text-red-50',
 						font: 'font-dragon',
 						description: 'Power, force, will'
 					},
 					artist: { 
-						background: 'bg-pink-900', 
-						text: 'text-gray-100',
+						background: 'bg-pink-50 dark:bg-pink-900', 
+						text: 'text-pink-900 dark:text-pink-50',
 						font: 'font-artist',
 						description: 'Expression, creativity, truth'
 					},
 					warrior: { 
-						background: 'bg-slate-900', 
-						text: 'text-gray-100',
+						background: 'bg-slate-50 dark:bg-slate-900', 
+						text: 'text-slate-900 dark:text-slate-50',
 						font: 'font-warrior',
 						description: 'Action, discipline, focus'
 					},
 					healer: { 
-						background: 'bg-emerald-900', 
-						text: 'text-gray-100',
+						background: 'bg-emerald-50 dark:bg-emerald-900', 
+						text: 'text-emerald-900 dark:text-emerald-50',
 						font: 'font-healer',
 						description: 'Regeneration, soothing, connection'
 					},
 					alchemist: { 
-						background: 'bg-violet-900', 
-						text: 'text-gray-100',
+						background: 'bg-violet-50 dark:bg-violet-900', 
+						text: 'text-violet-900 dark:text-violet-50',
 						font: 'font-alchemist',
 						description: 'Transformation, elements, ritual'
 					},
 					strategist: { 
-						background: 'bg-blue-900', 
-						text: 'text-gray-100',
+						background: 'bg-blue-50 dark:bg-blue-900', 
+						text: 'text-blue-900 dark:text-blue-50',
 						font: 'font-strategist',
 						description: 'Mind, planning, clarity'
 					},
 					steward: { 
-						background: 'bg-green-900', 
-						text: 'text-gray-100',
+						background: 'bg-green-50 dark:bg-green-900', 
+						text: 'text-green-900 dark:text-green-50',
 						font: 'font-steward',
 						description: 'Legacy, care, generational vision'
 					}
@@ -163,7 +163,7 @@ dataLogger('Layout initialized with theme:', theme.active);
 				
 				const newTheme = themeConfig[theme];
 				if (newTheme) {
-					document.body.className = `${newTheme.background} ${newTheme.text} ${newTheme.font} min-h-screen`;
+					document.body.className = `${newTheme.background} ${newTheme.text} ${newTheme.font} min-h-screen relative antialiased`;
 					console.log(`%cTheme changed to: ${theme}`, 'color: #4CAF50; font-weight: bold;');
 					console.log(`%c${newTheme.description}`, 'color: #9E9E9E; font-style: italic;');
 				}
@@ -178,5 +178,32 @@ dataLogger('Layout initialized with theme:', theme.active);
 		margin: 0;
 		width: 100%;
 		height: 100%;
+	}
+
+	/* Smooth scrolling */
+	html {
+		scroll-behavior: smooth;
+	}
+
+	/* Better text rendering */
+	body {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+	}
+
+	/* Improved focus styles */
+	:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+	}
+
+	/* Improved selection styles */
+	::selection {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+
+	.dark ::selection {
+		background-color: rgba(255, 255, 255, 0.1);
 	}
 </style>
