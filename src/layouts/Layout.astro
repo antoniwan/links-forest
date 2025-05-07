@@ -9,6 +9,7 @@ import { LinkGrid } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
 import { dataLogger } from '../utils/logger';
 import { cssTransitions } from '../config/animations';
+import { Hero } from '../components/Hero';
 
 const { profile, theme, links, secondaryLinks, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
@@ -78,20 +79,8 @@ dataLogger('Layout initialized with theme:', theme.active);
 	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}>
 		<div class={`${currentTheme.colors.background} min-h-screen relative z-10 ${cssTransitions.smooth}`}>
 			<div class="page-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-				<header class="flex flex-col sm:flex-row justify-between items-center gap-8 mb-16">
-					<div class="flex flex-col sm:flex-row items-center sm:items-start gap-8 text-center sm:text-left">
-						<ProfilePicture 
-							client:load
-							name={profile.name}
-							image={profile.image}
-							themeId={theme.active}
-							size="md"
-						/>
-						<div class="space-y-3">
-							<h1 class="text-3xl sm:text-4xl font-bold tracking-tight">{profile.name}</h1>
-							<p class="text-lg sm:text-xl opacity-90 max-w-xl leading-relaxed">{profile.subtitle}</p>
-						</div>
-					</div>
+				<header class="mb-8 lg:mb-16">
+					<Hero name={profile.name} image={profile.image} subtitle={profile.subtitle} />
 				</header>
 
 				<main class="flex flex-col gap-12">

@@ -53,7 +53,7 @@ export const userConfig: UserConfig = {
     image: "profile-picture.avif",
   },
   theme: {
-    active: "strategist",
+    active: "wolf",
     config: themeConfig.builder,
   },
   links: [
