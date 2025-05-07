@@ -36,17 +36,17 @@ export interface UserConfig {
 
 export const userConfig: UserConfig = {
   profile: {
-    name: "Antonio Rodriguez Martinez",
+    name: "Antonio Rodríguez Martínez",
     subtitle: "Father — Builder — Systems Thinker",
     image: "profile-picture.avif",
   },
   theme: {
-    active: "builder",
+    active: "wolf",
     config: themeConfig.builder,
   },
   links: [
     {
-      title: "Bluesky",
+      title: "BlueSky",
       url: "https://bsky.antoniwan.online",
       description:
         "My only active social media— I'm not using Meta products ATM.",

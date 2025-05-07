@@ -41,7 +41,7 @@ export const devConfig: DevConfig = {
   isDev,
   themeCycling: {
     enabled: isDev,
-    interval: 30000, // 30 seconds
+    interval: 5000, // 5 seconds
   },
   logging: {
     enabled: isDev,
