@@ -10,7 +10,18 @@ export const siteConfig = {
   locale: "en_US",
   /** Default theme color */
   themeColor: "#ffffff",
+  /** Default image path */
+  defaultImage: "/default-share.jpg",
+  /** Default social media handles */
+  social: {
+    twitter: "@antoniwan",
+    linkedin: "antoniwan",
+    instagram: "antoniwan777",
+    facebook: "antoniwan777",
+  },
 } as const;
+
+export type SiteConfig = typeof siteConfig;
 
 export interface MetaConfig {
   /** Basic SEO meta tags */
@@ -81,14 +92,14 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       title: `${profile.name} - ${siteConfig.siteName}`,
       description: profile.subtitle,
       type: "website",
-      image: `${siteConfig.baseUrl}/default-share.jpg`,
+      image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       url: canonicalUrl,
       siteName: siteConfig.siteName,
       locale: siteConfig.locale,
       seeAlso: [
-        "https://www.linkedin.com/in/antoniwan",
-        "https://www.instagram.com/antoniwan777",
-        "https://www.facebook.com/antoniwan777",
+        `https://www.linkedin.com/in/${siteConfig.social.linkedin}`,
+        `https://www.instagram.com/${siteConfig.social.instagram}`,
+        `https://www.facebook.com/${siteConfig.social.facebook}`,
       ],
     },
 
@@ -96,9 +107,9 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       card: "summary_large_image",
       title: `${profile.name} - ${siteConfig.siteName}`,
       description: profile.subtitle,
-      image: `${siteConfig.baseUrl}/default-share.jpg`,
-      creator: "@antoniwan",
-      site: "@antoniwan",
+      image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
+      creator: siteConfig.social.twitter,
+      site: siteConfig.social.twitter,
     },
 
     mobile: {

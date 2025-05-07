@@ -1,4 +1,5 @@
 import type { EmojiName } from "./emojis";
+import type { ThemeName, ThemeConfig as ThemeConfigType } from "./theme.types";
 
 /**
  * Core Types
@@ -6,21 +7,6 @@ import type { EmojiName } from "./emojis";
  * This file contains the core type definitions for the LinkForest application.
  * These types define the structure of user data, links, and profiles.
  */
-
-/**
- * Theme types and configuration
- */
-export type Theme =
-  | "wolf"
-  | "fox"
-  | "owl"
-  | "raven"
-  | "deer"
-  | "bear"
-  | "eagle"
-  | "salmon"
-  | "otter"
-  | "lynx";
 
 /**
  * Profile Types
@@ -181,8 +167,4 @@ export function isValidSocialLink(link: unknown): link is SocialLink {
   );
 }
 
-export interface ThemeConfig {
-  bg: string;
-  text: string;
-  accent: string;
-}
+export interface ThemeConfig extends ThemeConfigType {}
