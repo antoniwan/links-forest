@@ -9,6 +9,7 @@ import type { ThemeName, ThemeConfig } from "../data/theme.types";
 import type { Profile, Link, SocialLink, SecondaryLink } from "../data/types";
 import { logDataLoading } from "../utils/logger";
 import { themeConfig } from "./theme.config";
+import { addUtmParams } from "../utils/url";
 
 const logUserConfig = logDataLoading("user.config");
 
@@ -59,25 +60,45 @@ export const userConfig: UserConfig = {
   links: [
     {
       title: "The Strong Vault",
-      url: "https://blog.antoniwan.online",
+      url: addUtmParams(
+        "https://blog.antoniwan.online",
+        "links-forest",
+        "link",
+        "main-blog"
+      ),
       description: "A blog— my core writing hub and personal thoughts",
       category: "book",
     },
     {
       title: "Builds.Software",
-      url: "https://builds.software",
+      url: addUtmParams(
+        "https://builds.software",
+        "links-forest",
+        "link",
+        "main-services"
+      ),
       description: "Freelance, consulting, and development services",
       category: "work",
     },
     {
       title: "BlueSky",
-      url: "https://bsky.antoniwan.online",
+      url: addUtmParams(
+        "https://bsky.antoniwan.online",
+        "links-forest",
+        "link",
+        "main-social"
+      ),
       description: "Stream of consciousness and public identity",
       category: "lifestyle",
     },
     {
       title: "Strong Hands, Soft Heart",
-      url: "https://www.stronghandssoftheart.com",
+      url: addUtmParams(
+        "https://www.stronghandssoftheart.com",
+        "links-forest",
+        "link",
+        "main-brand"
+      ),
       description: "Core brand site and business presence",
       category: "art",
     },
@@ -85,49 +106,89 @@ export const userConfig: UserConfig = {
   secondaryLinks: [
     {
       title: "Medium",
-      url: "https://medium.com/@wizards777",
+      url: addUtmParams(
+        "https://medium.com/@wizards777",
+        "links-forest",
+        "link",
+        "secondary-writing"
+      ),
       description: "Wizard essays and deeper thoughts",
       category: "book",
     },
     {
       title: "GitHub (Personal)",
-      url: "https://github.com/antoniwan",
+      url: addUtmParams(
+        "https://github.com/antoniwan",
+        "links-forest",
+        "link",
+        "secondary-code"
+      ),
       description: "Open source projects and tools",
       category: "code",
     },
     {
       title: "GitHub (SHSH Org)",
-      url: "https://github.com/Strong-Hands-Soft-Heart",
+      url: addUtmParams(
+        "https://github.com/Strong-Hands-Soft-Heart",
+        "links-forest",
+        "link",
+        "secondary-org"
+      ),
       description: "Strong Hands, Soft Heart brand repositories",
       category: "code",
     },
     {
       title: "CodePen",
-      url: "https://codepen.io/antoniwan",
+      url: addUtmParams(
+        "https://codepen.io/antoniwan",
+        "links-forest",
+        "link",
+        "secondary-demos"
+      ),
       description: "Creative experiments and UI demos",
       category: "code",
     },
     {
       title: "Mia Luna E-Book",
-      url: "https://mia-the-sun-and-the-moon.antoniorodriguez.us",
+      url: addUtmParams(
+        "https://mia-the-sun-and-the-moon.antoniorodriguez.us",
+        "links-forest",
+        "link",
+        "secondary-book"
+      ),
       description: "The Sun and the Moon - Legacy project",
       category: "book",
     },
     {
       title: "YouTube: StrongWizards",
-      url: "https://www.youtube.com/@Antoniwan777",
+      url: addUtmParams(
+        "https://www.youtube.com/@Antoniwan777",
+        "links-forest",
+        "link",
+        "secondary-video"
+      ),
       description: "Mythic, fun, and raw content",
       category: "video",
     },
     {
       title: "Goodreads",
-      url: "https://www.goodreads.com/antoniwan",
+      url: addUtmParams(
+        "https://www.goodreads.com/antoniwan",
+        "links-forest",
+        "link",
+        "secondary-reading"
+      ),
       description: "Reading bookshelf and recommendations",
       category: "book",
     },
     {
       title: "Patreon",
-      url: "https://patreon.com/antoniwan",
+      url: addUtmParams(
+        "https://patreon.com/antoniwan",
+        "links-forest",
+        "link",
+        "secondary-support"
+      ),
       description: "Support the mission and back the builder",
       category: "lifestyle",
     },
@@ -135,27 +196,52 @@ export const userConfig: UserConfig = {
   social: [
     {
       platform: "linkedin",
-      url: "https://www.linkedin.com/in/antoniwan",
+      url: addUtmParams(
+        "https://www.linkedin.com/in/antoniwan",
+        "links-forest",
+        "link",
+        "social-linkedin"
+      ),
       icon: "linkedin",
     },
     {
       platform: "instagram",
-      url: "https://www.instagram.com/antoniwan777",
+      url: addUtmParams(
+        "https://www.instagram.com/antoniwan777",
+        "links-forest",
+        "link",
+        "social-instagram"
+      ),
       icon: "instagram",
     },
     {
       platform: "facebook",
-      url: "https://www.facebook.com/antoniwan777",
+      url: addUtmParams(
+        "https://www.facebook.com/antoniwan777",
+        "links-forest",
+        "link",
+        "social-facebook"
+      ),
       icon: "facebook",
     },
     {
       platform: "discord",
-      url: "https://discord.gg/y63NbbYK",
+      url: addUtmParams(
+        "https://discord.gg/y63NbbYK",
+        "links-forest",
+        "link",
+        "social-discord"
+      ),
       icon: "discord",
     },
     {
       platform: "email",
-      url: "mailto:antonio@builds.software",
+      url: addUtmParams(
+        "mailto:antonio@builds.software",
+        "links-forest",
+        "link",
+        "social-email"
+      ),
       icon: "email",
     },
   ],
