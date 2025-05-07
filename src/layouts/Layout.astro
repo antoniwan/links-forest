@@ -7,9 +7,10 @@ import { ProfilePicture } from '../components/ProfilePicture';
 import { LinkCard } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
 import { ThemeTransitionWrapper } from '../components/ThemeTransitionWrapper';
+import { SecondaryLinks } from '../components/SecondaryLinks';
 import { dataLogger } from '../utils/logger';
 
-const { profile, theme, links, social } = userConfig;
+const { profile, theme, links, secondaryLinks, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
 
 // Log the current theme
@@ -58,6 +59,14 @@ dataLogger('Layout initialized with theme:', theme.active);
 								accentColor={currentTheme.colors.accent}
 							/>
 						))}
+
+						{secondaryLinks && secondaryLinks.length > 0 && (
+							<SecondaryLinks
+								client:load
+								links={secondaryLinks}
+								accentColor={currentTheme.colors.accent}
+							/>
+						)}
 					</main>
 
 					<footer class="mt-8">

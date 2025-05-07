@@ -6,7 +6,7 @@
  */
 
 import type { ThemeName, ThemeConfig } from "../data/theme.types";
-import type { Profile, Link, SocialLink } from "../data/types";
+import type { Profile, Link, SocialLink, SecondaryLink } from "../data/types";
 import { logDataLoading } from "../utils/logger";
 import { themeConfig } from "./theme.config";
 
@@ -24,8 +24,11 @@ export interface UserConfig {
     config: ThemeConfig;
   };
 
-  /** Your links */
+  /** Your main links */
   links: Link[];
+
+  /** Your secondary links */
+  secondaryLinks: SecondaryLink[];
 
   /** Your social media links */
   social: SocialLink[];
@@ -63,10 +66,37 @@ export const userConfig: UserConfig = {
       url: "https://www.stronghandssoftheart.com",
       description: "Schedule a 1:1 meeting with me",
     },
+  ],
+  secondaryLinks: [
     {
-      title: "Strong Hands, Soft Heart LLC",
-      url: "https://www.stronghandssoftheart.com",
-      description: "Schedule a 1:1 meeting with me",
+      title: "GitHub Profile",
+      url: "https://github.com/antoniwan",
+      description: "Check out my open source contributions",
+      category: "Development",
+    },
+    {
+      title: "LinkedIn Profile",
+      url: "https://linkedin.com/in/antoniwan",
+      description: "Connect with me professionally",
+      category: "Professional",
+    },
+    {
+      title: "Twitter Archive",
+      url: "https://twitter.com/antoniwan",
+      description: "My old tweets and thoughts",
+      category: "Social",
+    },
+    {
+      title: "Personal Blog",
+      url: "https://blog.antoniwan.online/personal",
+      description: "More personal thoughts and experiences",
+      category: "Writing",
+    },
+    {
+      title: "Reading List",
+      url: "https://blog.antoniwan.online/reading",
+      description: "Books and articles I recommend",
+      category: "Resources",
     },
   ],
   social: [

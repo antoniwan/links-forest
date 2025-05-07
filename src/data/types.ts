@@ -107,6 +107,14 @@ export interface SocialLink {
  */
 
 /**
+ * Secondary link structure
+ */
+export interface SecondaryLink extends Link {
+  /** Category or group this link belongs to */
+  category?: string;
+}
+
+/**
  * Complete links data structure
  */
 export interface LinksData {
@@ -114,6 +122,8 @@ export interface LinksData {
   profile?: Profile;
   /** Array of main links */
   links: Link[];
+  /** Array of secondary links */
+  secondaryLinks?: SecondaryLink[];
   /** Array of social media links */
   social: SocialLink[];
 }
