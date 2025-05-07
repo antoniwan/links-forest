@@ -34,8 +34,15 @@ Built to express your full self — in all your evolving forms.
      - `title`: The name of your link
      - `url`: The destination URL
      - `description`: A short description
+     - `category`: Optional category for grouping (e.g., "book", "work", "lifestyle")
 
-4. **Add Social Media**
+4. **Add Secondary Links**
+
+   - In `src/config/user.config.ts`, edit the `secondaryLinks` array
+   - These links appear in a separate section below your main links
+   - Same structure as main links
+
+5. **Add Social Media**
 
    - In `src/config/user.config.ts`, edit the `social` array
    - Each social link needs:
@@ -43,7 +50,14 @@ Built to express your full self — in all your evolving forms.
      - `url`: Your profile URL
      - `icon`: The icon to use (see `src/data/emojis.ts` for available icons)
 
-5. **Preview Your Changes**
+6. **Configure SEO and Meta Tags**
+
+   - The project automatically generates comprehensive meta tags
+   - OpenGraph, Twitter Cards, and structured data are included
+   - Mobile and app-specific meta tags are configured
+   - All meta tags are generated from your profile information
+
+7. **Preview Your Changes**
 
    ```bash
    npm run dev
@@ -51,7 +65,7 @@ Built to express your full self — in all your evolving forms.
 
    Visit `http://localhost:4321` to see your changes
 
-6. **Deploy**
+8. **Deploy**
    ```bash
    npm run build
    ```
@@ -105,6 +119,15 @@ Each archetype in LinkForest is intentionally:
 - [x] Development theme cycling for testing
 - [x] Configurable via `theme.config.ts`
 - [x] Comprehensive logging system
+- [x] Vercel Analytics integration
+- [x] Comprehensive SEO meta tags
+- [x] OpenGraph and Twitter Card support
+- [x] Structured data for better SEO
+- [x] Mobile and app-specific meta tags
+- [x] Secondary links section
+- [x] Link categorization
+- [x] Smooth page transitions
+- [x] Reduced motion support
 - [ ] Theme selector UI
 - [ ] Optional: live theme switching
 - [ ] Optional: embed music, blog posts, videos
@@ -121,6 +144,7 @@ Each archetype in LinkForest is intentionally:
 | React (optional) | Interactive components (islands) |
 | Framer Motion    | Animations + transitions         |
 | TypeScript       | Type-safe development            |
+| Vercel Analytics | Usage tracking and insights      |
 | Vercel / Netlify | Fast, free deployment            |
 | Namecheap        | DNS routing for custom domains   |
 
@@ -129,15 +153,31 @@ Each archetype in LinkForest is intentionally:
 ```txt
 /
 ├── src/
-│   ├── components/        # ProfilePicture.astro, LinkCard.tsx, SocialIcons.tsx, ThemeCycler.tsx
-│   ├── layouts/           # Layout.astro
-│   ├── pages/             # index.astro
-│   ├── config/            # theme.config.ts, user.config.ts
-│   └── data/              # theme.types.ts, links.ts, types.ts, emojis.ts
-├── public/                # Favicon, images, assets
-├── astro.config.mjs       # Astro configuration
-├── tailwind.config.cjs    # Tailwind configuration
-└── tsconfig.json          # TypeScript configuration
+│   ├── components/        # React and Astro components
+│   │   ├── ProfilePicture.astro
+│   │   ├── LinkCard.tsx
+│   │   ├── SocialIcons.tsx
+│   │   └── ThemeCycler.tsx
+│   ├── layouts/          # Page layouts
+│   │   └── Layout.astro  # Main layout with meta tags
+│   ├── pages/            # Astro pages
+│   │   └── index.astro   # Main page
+│   ├── config/           # Configuration files
+│   │   ├── theme.config.ts
+│   │   ├── user.config.ts
+│   │   └── meta.config.ts
+│   ├── data/             # Type definitions and data
+│   │   ├── theme.types.ts
+│   │   ├── types.ts
+│   │   └── emojis.ts
+│   └── utils/            # Utility functions
+│       └── logger.ts
+├── public/               # Static assets
+│   ├── favicon.svg
+│   └── images/
+├── astro.config.mjs      # Astro configuration
+├── tailwind.config.cjs   # Tailwind configuration
+└── tsconfig.json         # TypeScript configuration
 ```
 
 ## 🧞 Commands
