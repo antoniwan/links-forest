@@ -44,22 +44,28 @@ export const userConfig: UserConfig = {
   links: [
     {
       title: "Bluesky",
-      url: "https://bsky.app/profile/antoniwan.bsky.social",
-      description: "Thoughts on technology and healing",
+      url: "https://bsky.antoniwan.online",
+      description:
+        "My only active social media— I'm not using Meta products ATM.",
     },
     {
-      title: "Portfolio",
+      title: "< > Builds.Software",
       url: "https://builds.software",
       description: "My latest projects and work",
     },
     {
       title: "Blog",
-      url: "https://blog.example.com",
+      url: "https://blog.antoniwan.online",
       description: "Read my latest articles and thoughts",
     },
     {
-      title: "Book a Session",
-      url: "https://calendly.com/example",
+      title: "Strong Hands, Soft Heart LLC",
+      url: "https://www.stronghandssoftheart.com",
+      description: "Schedule a 1:1 meeting with me",
+    },
+    {
+      title: "Strong Hands, Soft Heart LLC",
+      url: "https://www.stronghandssoftheart.com",
       description: "Schedule a 1:1 meeting with me",
     },
   ],
