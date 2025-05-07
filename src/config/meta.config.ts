@@ -19,6 +19,37 @@ export const siteConfig = {
     instagram: "antoniwan777",
     facebook: "antoniwan777",
   },
+  /** SEO Configuration */
+  seo: {
+    /** Default meta description */
+    defaultDescription:
+      "Personal digital garden and link hub by Antonio Rodríguez Martínez - Systems Thinker, Builder, and Father",
+    /** Default meta keywords */
+    defaultKeywords: [
+      "Antonio Rodríguez Martínez",
+      "Systems Thinker",
+      "Builder",
+      "Father",
+      "Software Development",
+      "Consulting",
+      "Digital Garden",
+      "Link Hub",
+      "Personal Brand",
+      "Professional Profile",
+    ],
+    /** Default robots meta */
+    robots:
+      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    /** Default language */
+    language: "en",
+    /** Default content type */
+    contentType: "website",
+    /** Default image dimensions */
+    imageDimensions: {
+      width: 1200,
+      height: 630,
+    },
+  },
 } as const;
 
 export type SiteConfig = typeof siteConfig;
@@ -30,6 +61,12 @@ export interface MetaConfig {
     keywords: string[];
     robots: string;
     canonical: string;
+    language: string;
+    contentType: string;
+    author: string;
+    generator: string;
+    viewport: string;
+    charset: string;
   };
 
   /** OpenGraph meta tags */
@@ -42,6 +79,8 @@ export interface MetaConfig {
     siteName: string;
     locale: string;
     seeAlso: string[];
+    imageWidth: number;
+    imageHeight: number;
   };
 
   /** Twitter Card meta tags */
@@ -52,6 +91,7 @@ export interface MetaConfig {
     image: string;
     creator: string;
     site: string;
+    imageAlt: string;
   };
 
   /** Mobile/App meta tags */
@@ -61,6 +101,19 @@ export interface MetaConfig {
     appleWebAppCapable: boolean;
     appleWebAppStatusBarStyle: string;
     appleWebAppTitle: string;
+    formatDetection: string;
+    viewport: string;
+  };
+
+  /** Structured Data */
+  structuredData: {
+    "@context": string;
+    "@type": string;
+    name: string;
+    description: string;
+    url: string;
+    image: string;
+    sameAs: string[];
   };
 }
 
@@ -72,44 +125,48 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
   const canonicalUrl = url.startsWith("http")
     ? url
     : `${siteConfig.baseUrl}${url}`;
+  const socialLinks = [
+    `https://www.linkedin.com/in/${siteConfig.social.linkedin}`,
+    `https://www.instagram.com/${siteConfig.social.instagram}`,
+    `https://www.facebook.com/${siteConfig.social.facebook}`,
+    `https://twitter.com/${siteConfig.social.twitter.replace("@", "")}`,
+  ];
 
   return {
     seo: {
-      description: profile.subtitle,
-      keywords: [
-        profile.name,
-        "Systems Thinker",
-        "Builder",
-        "Father",
-        "Software Development",
-        "Consulting",
-      ],
-      robots: "index, follow",
+      description: profile.subtitle || siteConfig.seo.defaultDescription,
+      keywords: [...siteConfig.seo.defaultKeywords],
+      robots: siteConfig.seo.robots,
       canonical: canonicalUrl,
+      language: siteConfig.seo.language,
+      contentType: siteConfig.seo.contentType,
+      author: profile.name,
+      generator: "LinkForest",
+      viewport: "width=device-width, initial-scale=1.0",
+      charset: "UTF-8",
     },
 
     openGraph: {
       title: `${profile.name} - ${siteConfig.siteName}`,
-      description: profile.subtitle,
-      type: "website",
+      description: profile.subtitle || siteConfig.seo.defaultDescription,
+      type: siteConfig.seo.contentType,
       image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       url: canonicalUrl,
       siteName: siteConfig.siteName,
       locale: siteConfig.locale,
-      seeAlso: [
-        `https://www.linkedin.com/in/${siteConfig.social.linkedin}`,
-        `https://www.instagram.com/${siteConfig.social.instagram}`,
-        `https://www.facebook.com/${siteConfig.social.facebook}`,
-      ],
+      seeAlso: socialLinks,
+      imageWidth: siteConfig.seo.imageDimensions.width,
+      imageHeight: siteConfig.seo.imageDimensions.height,
     },
 
     twitter: {
       card: "summary_large_image",
       title: `${profile.name} - ${siteConfig.siteName}`,
-      description: profile.subtitle,
+      description: profile.subtitle || siteConfig.seo.defaultDescription,
       image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       creator: siteConfig.social.twitter,
       site: siteConfig.social.twitter,
+      imageAlt: `${profile.name}'s profile image`,
     },
 
     mobile: {
@@ -118,6 +175,18 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       appleWebAppCapable: true,
       appleWebAppStatusBarStyle: "default",
       appleWebAppTitle: profile.name,
+      formatDetection: "telephone=no",
+      viewport: "width=device-width, initial-scale=1.0, viewport-fit=cover",
+    },
+
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: profile.name,
+      description: profile.subtitle || siteConfig.seo.defaultDescription,
+      url: canonicalUrl,
+      image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
+      sameAs: socialLinks,
     },
   };
 }
