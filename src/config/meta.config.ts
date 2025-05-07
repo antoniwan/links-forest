@@ -1,5 +1,17 @@
 import type { Profile } from "../data/types";
 
+/** Base URL configuration for the site */
+export const siteConfig = {
+  /** The canonical base URL of the site */
+  baseUrl: "https://antoniwan.online",
+  /** The site name */
+  siteName: "LinkForest",
+  /** Default locale */
+  locale: "en_US",
+  /** Default theme color */
+  themeColor: "#ffffff",
+} as const;
+
 export interface MetaConfig {
   /** Basic SEO meta tags */
   seo: {
@@ -45,6 +57,11 @@ export interface MetaConfig {
  * Generate meta configuration based on user profile
  */
 export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
+  // Ensure the URL is absolute by using the base URL if it's relative
+  const canonicalUrl = url.startsWith("http")
+    ? url
+    : `${siteConfig.baseUrl}${url}`;
+
   return {
     seo: {
       description: profile.subtitle,
@@ -57,17 +74,17 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
         "Consulting",
       ],
       robots: "index, follow",
-      canonical: url,
+      canonical: canonicalUrl,
     },
 
     openGraph: {
-      title: `${profile.name} - LinkForest`,
+      title: `${profile.name} - ${siteConfig.siteName}`,
       description: profile.subtitle,
       type: "website",
-      image: "/default-share.jpg",
-      url: url,
-      siteName: "LinkForest",
-      locale: "en_US",
+      image: `${siteConfig.baseUrl}/default-share.jpg`,
+      url: canonicalUrl,
+      siteName: siteConfig.siteName,
+      locale: siteConfig.locale,
       seeAlso: [
         "https://www.linkedin.com/in/antoniwan",
         "https://www.instagram.com/antoniwan777",
@@ -77,15 +94,15 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
 
     twitter: {
       card: "summary_large_image",
-      title: `${profile.name} - LinkForest`,
+      title: `${profile.name} - ${siteConfig.siteName}`,
       description: profile.subtitle,
-      image: "/default-share.jpg",
+      image: `${siteConfig.baseUrl}/default-share.jpg`,
       creator: "@antoniwan",
       site: "@antoniwan",
     },
 
     mobile: {
-      themeColor: "#ffffff",
+      themeColor: siteConfig.themeColor,
       webAppCapable: true,
       appleWebAppCapable: true,
       appleWebAppStatusBarStyle: "default",
