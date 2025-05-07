@@ -154,16 +154,16 @@ Each archetype in LinksForest is intentionally:
 
 ## 🔧 Tech Stack
 
-| Tool             | Purpose                           |
-| ---------------- | --------------------------------- |
-| Astro            | Static site generator (5.7.10)    |
-| Tailwind CSS     | Utility-first styling (3.4.17)    |
-| React            | Interactive components (19.1.0)   |
-| Framer Motion    | Animations + transitions (12.9.4) |
-| TypeScript       | Type-safe development             |
-| Vercel Analytics | Usage tracking and insights       |
-| Vercel / Netlify | Fast, free deployment             |
-| Namecheap        | DNS routing for custom domains    |
+| Tool             | Purpose                        |
+| ---------------- | ------------------------------ |
+| Astro            | Static site generator          |
+| Tailwind CSS     | Utility-first styling          |
+| React            | Interactive components         |
+| Framer Motion    | Animations + transitions       |
+| TypeScript       | Type-safe development          |
+| Vercel Analytics | Usage tracking and insights    |
+| Vercel / Netlify | Fast, free deployment          |
+| Namecheap        | DNS routing for custom domains |
 
 ## 🗺️ Project Structure
 
@@ -193,7 +193,7 @@ Each archetype in LinksForest is intentionally:
 │   ├── favicon.svg
 │   └── images/
 ├── astro.config.mjs      # Astro configuration
-├── tailwind.config.cjs   # Tailwind configuration
+├── tailwind.config.mjs   # Tailwind configuration
 └── tsconfig.json         # TypeScript configuration
 ```
 
