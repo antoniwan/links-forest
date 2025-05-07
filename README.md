@@ -36,13 +36,30 @@ Built to express your full self — in all your evolving forms.
      - `description`: A short description
      - `category`: Optional category for grouping (e.g., "book", "work", "lifestyle")
 
-4. **Add Secondary Links**
+4. **Add UTM Parameters (Optional)**
+
+   - In `src/config/user.config.ts`, you can add UTM parameters to your links
+   - Add a `utm` object to your link configuration:
+     ```typescript
+     {
+       title: "My Link",
+       url: "https://example.com",
+       utm: {
+         source: "linksforest",
+         medium: "profile",
+         campaign: "my-campaign"
+       }
+     }
+     ```
+   - These parameters will be automatically appended to your URLs for tracking
+
+5. **Add Secondary Links**
 
    - In `src/config/user.config.ts`, edit the `secondaryLinks` array
    - These links appear in a separate section below your main links
    - Same structure as main links
 
-5. **Add Social Media**
+6. **Add Social Media**
 
    - In `src/config/user.config.ts`, edit the `social` array
    - Each social link needs:
@@ -50,14 +67,14 @@ Built to express your full self — in all your evolving forms.
      - `url`: Your profile URL
      - `icon`: The icon to use (see `src/data/emojis.ts` for available icons)
 
-6. **Configure SEO and Meta Tags**
+7. **Configure SEO and Meta Tags**
 
    - The project automatically generates comprehensive meta tags
    - OpenGraph, Twitter Cards, and structured data are included
    - Mobile and app-specific meta tags are configured
    - All meta tags are generated from your profile information
 
-7. **Preview Your Changes**
+8. **Preview Your Changes**
 
    ```bash
    npm run dev
@@ -65,7 +82,7 @@ Built to express your full self — in all your evolving forms.
 
    Visit `http://localhost:4321` to see your changes
 
-8. **Deploy**
+9. **Deploy**
    ```bash
    npm run build
    ```
@@ -128,6 +145,7 @@ Each archetype in LinksForest is intentionally:
 - [x] Link categorization
 - [x] Smooth page transitions
 - [x] Reduced motion support
+- [x] UTM parameter support for link tracking
 - [ ] Theme selector UI
 - [ ] Optional: live theme switching
 - [ ] Optional: embed music, blog posts, videos
