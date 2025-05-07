@@ -34,8 +34,8 @@ export interface UserConfig {
 export const userConfig: UserConfig = {
   profile: {
     name: "Antonio Rodriguez Martinez",
-    subtitle: "Builder, Writer, Healer",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Antonio",
+    subtitle: "Father — Builder — Systems Thinker",
+    image: "profile-picture.avif",
   },
   theme: {
     active: "builder",
@@ -43,8 +43,8 @@ export const userConfig: UserConfig = {
   },
   links: [
     {
-      title: "My Blog",
-      url: "https://blog.example.com",
+      title: "BluSky",
+      url: "https://bsky.app/profile/antoniwan.online",
       description: "Thoughts on technology and healing",
     },
     {
