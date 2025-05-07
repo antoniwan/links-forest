@@ -1,6 +1,6 @@
-# 🌐 How to Self-Host LinkForest
+# 🌐 How to Self-Host LinksForest
 
-Ditch Linktree. Own your links. Here's how to self-host your **LinkForest** page on Vercel or Netlify in 5 minutes.
+Ditch Linktree. Own your links. Here's how to self-host your **LinksForest** page on Vercel or Netlify in 5 minutes.
 
 ---
 
@@ -41,7 +41,7 @@ Same as Vercel — fork it on GitHub.
 ### 2. Deploy on Netlify
 
 - Go to [app.netlify.com/start](https://app.netlify.com/start)
-- Connect GitHub and select your LinkForest repo
+- Connect GitHub and select your LinksForest repo
 - Build command: `npm run build`
 - Publish directory: `dist`
 

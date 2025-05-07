@@ -18,7 +18,19 @@ export interface UserConfig {
 
   /** Your active theme */
   theme: {
-    /** Choose from: builder, wolf, mystic, dragon, artist, warrior, healer, alchemist, strategist, steward */
+    /**
+     * Available theme options:
+     * - builder: 🏗️ Creation, systems, form (Stone and amber tones)
+     * - wolf: 🐺 Instinct, loyalty, protection (Cool grays and blues)
+     * - mystic: 🔮 Spirituality, vision, cosmic threads (Deep purples and indigos)
+     * - dragon: 🐉 Power, force, will (Rich reds and oranges)
+     * - artist: 🎨 Expression, creativity, truth (Pink and rose tones)
+     * - warrior: ⚔️ Action, discipline, focus (Slate and gray tones)
+     * - healer: 💫 Regeneration, soothing, connection (Emerald and teal tones)
+     * - alchemist: 🧪 Transformation, elements, ritual (Violet and purple tones)
+     * - strategist: 🧠 Mind, planning, clarity (Blue and cyan tones)
+     * - steward: 🌱 Legacy, care, generational vision (Green and lime tones)
+     */
     active: ThemeName;
     /** Theme configuration */
     config: ThemeConfig;
@@ -41,7 +53,7 @@ export const userConfig: UserConfig = {
     image: "profile-picture.avif",
   },
   theme: {
-    active: "wolf",
+    active: "strategist",
     config: themeConfig.builder,
   },
   links: [

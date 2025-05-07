@@ -1,4 +1,4 @@
-# 🌲 LinkForest
+# 🌲 LinksForest
 
 **A sovereign, archetypal digital interface**  
 A minimalist, themed link-sharing platform powered by Astro, Tailwind, and Framer Motion.  
@@ -73,7 +73,7 @@ Built to express your full self — in all your evolving forms.
 
 ## 🔥 The Vision
 
-LinkForest isn't just a tool. It's a **living, personal interface** that shifts with your energy.  
+LinksForest isn't just a tool. It's a **living, personal interface** that shifts with your energy.  
 Choose from 10 unique archetypes that reflect different modes of being — from builder to mystic to steward.
 
 Each archetype comes with its own **themed UI** and micro-interactions.
@@ -82,13 +82,13 @@ Each archetype comes with its own **themed UI** and micro-interactions.
 
 We believe in building technology that reflects the **whole spectrum of humanity**.
 
-Each archetype in LinkForest is intentionally:
+Each archetype in LinksForest is intentionally:
 
 - **Gender-neutral** (these are energies, not identities)
 - **Culturally flexible** (symbols, not stereotypes)
 - **Accessible to all** (through design, code, and intention)
 
-> LinkForest is a sacred space for authentic expression.  
+> LinksForest is a sacred space for authentic expression.  
 > Everyone is welcome in this forest.
 
 ## 🧠 Archetypes (Themes)
@@ -193,7 +193,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## 🔍 Debugging and Logging
 
-LinkForest includes a comprehensive logging system to help with development and debugging. Logs are automatically enabled in development mode.
+LinksForest includes a comprehensive logging system to help with development and debugging. Logs are automatically enabled in development mode.
 
 ### Development Theme Cycling
 

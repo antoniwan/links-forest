@@ -8,7 +8,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 
 ---
 
-## 🌿 LinkForest Licensing Intent
+## 🌿 LinksForest Licensing Intent
 
 This project is not just open-source — it's open-soul.
 
@@ -23,7 +23,7 @@ The only request is this:
 > Don't resell or gatekeep this project behind paywalls without credit.  
 > Make it better — and keep it free.
 
-LinkForest is a gift for digital sovereignty, for the collective.  
+LinksForest is a gift for digital sovereignty, for the collective.  
 Join the forest 🌲
 
 ---
