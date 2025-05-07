@@ -37,7 +37,7 @@ export interface UserConfig {
 export const userConfig: UserConfig = {
   profile: {
     name: "Antonio Rodríguez Martínez",
-    subtitle: "Father — Builder — Systems Thinker",
+    subtitle: "Father ✨ Builder 🧠 Systems Thinker",
     image: "profile-picture.avif",
   },
   theme: {
