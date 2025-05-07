@@ -46,15 +46,9 @@ export const userConfig: UserConfig = {
   },
   links: [
     {
-      title: "BlueSky",
-      url: "https://bsky.antoniwan.online",
-      description: "Stream of consciousness and public identity",
-      category: "Social",
-    },
-    {
-      title: "StrongVault Blog",
+      title: "The Strong Vault",
       url: "https://blog.antoniwan.online",
-      description: "Core writing hub and personal thoughts",
+      description: "A blog— my core writing hub and personal thoughts",
       category: "Writing",
     },
     {
@@ -62,6 +56,12 @@ export const userConfig: UserConfig = {
       url: "https://builds.software",
       description: "Freelance, consulting, and development services",
       category: "Business",
+    },
+    {
+      title: "BlueSky",
+      url: "https://bsky.antoniwan.online",
+      description: "Stream of consciousness and public identity",
+      category: "Social",
     },
     {
       title: "Strong Hands, Soft Heart",
@@ -75,7 +75,7 @@ export const userConfig: UserConfig = {
       title: "Medium",
       url: "https://medium.com/@wizards777",
       description: "Wizard essays and deeper thoughts",
-      category: "Writing",
+      category: "Legacy Writing",
     },
     {
       title: "GitHub (Personal)",
@@ -127,23 +127,13 @@ export const userConfig: UserConfig = {
       icon: "linkedin",
     },
     {
-      platform: "github",
-      url: "https://github.com/antoniwan",
-      icon: "github",
-    },
-    {
-      platform: "youtube",
-      url: "https://www.youtube.com/@Antoniwan777",
-      icon: "youtube",
-    },
-    {
       platform: "instagram",
       url: "https://www.instagram.com/antoniwan777",
       icon: "instagram",
     },
     {
       platform: "facebook",
-      url: "https://www.facebook.com/profile.php?id=61575930235272",
+      url: "https://www.facebook.com/antoniwan777",
       icon: "facebook",
     },
     {
@@ -153,7 +143,7 @@ export const userConfig: UserConfig = {
     },
     {
       platform: "email",
-      url: "mailto:hello@antoniwan.com",
+      url: "mailto:antonio@builds.software",
       icon: "email",
     },
   ],
