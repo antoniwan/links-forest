@@ -2,7 +2,6 @@
 import { userConfig } from '../config/user.config';
 import { themeConfig } from '../config/theme.config';
 import type { ThemeName } from '../data/theme.types';
-import { ThemeCycler } from '../components/ThemeCycler';
 import { ProfilePicture } from '../components/ProfilePicture';
 import { LinkGrid } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
@@ -29,8 +28,6 @@ dataLogger('Layout initialized with theme:', theme.active);
 	</head>
 	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}>
 		<div class={`${currentTheme.colors.background} min-h-screen relative z-10 transition-colors duration-300`}>
-			<!-- ThemeCycler will only be active in development mode -->
-			<ThemeCycler client:load />
 			<ThemeTransitionWrapper client:load>
 				<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
 					<header class="flex flex-col sm:flex-row justify-between items-center gap-8 mb-16">
@@ -76,97 +73,6 @@ dataLogger('Layout initialized with theme:', theme.active);
 				</div>
 			</ThemeTransitionWrapper>
 		</div>
-
-		<script>
-			/** @type {import('../data/theme.types').ThemeName} */
-			const ThemeName = {
-				builder: 'builder',
-				wolf: 'wolf',
-				mystic: 'mystic',
-				dragon: 'dragon',
-				artist: 'artist',
-				warrior: 'warrior',
-				healer: 'healer',
-				alchemist: 'alchemist',
-				strategist: 'strategist',
-				steward: 'steward'
-			};
-
-			// Listen for theme changes
-			window.addEventListener('theme-change', (event) => {
-				const customEvent = event as CustomEvent<{ theme: keyof typeof ThemeName }>;
-				const theme = customEvent.detail.theme;
-				const themeConfig = {
-					builder: { 
-						background: 'bg-stone-50 dark:bg-stone-900', 
-						text: 'text-stone-900 dark:text-stone-50',
-						font: 'font-builder',
-						description: 'Creation, systems, form'
-					},
-					wolf: { 
-						background: 'bg-gray-50 dark:bg-gray-900', 
-						text: 'text-gray-900 dark:text-gray-50',
-						font: 'font-wolf',
-						description: 'Instinct, loyalty, protection'
-					},
-					mystic: { 
-						background: 'bg-purple-50 dark:bg-purple-900', 
-						text: 'text-purple-900 dark:text-purple-50',
-						font: 'font-mystic',
-						description: 'Spirituality, vision, cosmic threads'
-					},
-					dragon: { 
-						background: 'bg-red-50 dark:bg-red-900', 
-						text: 'text-red-900 dark:text-red-50',
-						font: 'font-dragon',
-						description: 'Power, force, will'
-					},
-					artist: { 
-						background: 'bg-pink-50 dark:bg-pink-900', 
-						text: 'text-pink-900 dark:text-pink-50',
-						font: 'font-artist',
-						description: 'Expression, creativity, truth'
-					},
-					warrior: { 
-						background: 'bg-slate-50 dark:bg-slate-900', 
-						text: 'text-slate-900 dark:text-slate-50',
-						font: 'font-warrior',
-						description: 'Action, discipline, focus'
-					},
-					healer: { 
-						background: 'bg-emerald-50 dark:bg-emerald-900', 
-						text: 'text-emerald-900 dark:text-emerald-50',
-						font: 'font-healer',
-						description: 'Regeneration, soothing, connection'
-					},
-					alchemist: { 
-						background: 'bg-violet-50 dark:bg-violet-900', 
-						text: 'text-violet-900 dark:text-violet-50',
-						font: 'font-alchemist',
-						description: 'Transformation, elements, ritual'
-					},
-					strategist: { 
-						background: 'bg-blue-50 dark:bg-blue-900', 
-						text: 'text-blue-900 dark:text-blue-50',
-						font: 'font-strategist',
-						description: 'Mind, planning, clarity'
-					},
-					steward: { 
-						background: 'bg-green-50 dark:bg-green-900', 
-						text: 'text-green-900 dark:text-green-50',
-						font: 'font-steward',
-						description: 'Legacy, care, generational vision'
-					}
-				} as Record<keyof typeof ThemeName, { background: string; text: string; font: string; description: string }>;
-				
-				const newTheme = themeConfig[theme];
-				if (newTheme) {
-					document.body.className = `${newTheme.background} ${newTheme.text} ${newTheme.font} min-h-screen relative antialiased`;
-					console.log(`%cTheme changed to: ${theme}`, 'color: #4CAF50; font-weight: bold;');
-					console.log(`%c${newTheme.description}`, 'color: #9E9E9E; font-style: italic;');
-				}
-			});
-		</script>
 	</body>
 </html>
 
