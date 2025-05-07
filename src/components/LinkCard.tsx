@@ -51,11 +51,11 @@ export const LinkCard: FC<LinkCardProps> = ({
         }}
       >
         <div className="ring-1 ring-transparent hover:ring-[var(--accent-color)] transition-all duration-300 rounded-lg">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
             {title}
           </h3>
           {description && (
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
+            <p className="text-gray-600 dark:text-gray-200 text-sm">
               {description}
             </p>
           )}

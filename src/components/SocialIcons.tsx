@@ -18,7 +18,7 @@ export const SocialIcons: FC<SocialIconsProps> = ({
         <motion.a
           key={item.platform}
           href={item.url}
-          className="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
+          className="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Visit ${item.platform}`}

@@ -31,7 +31,7 @@ export const SecondaryLinks: FC<SecondaryLinksProps> = ({
     <div className={`space-y-4 ${className}`}>
       <motion.button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-4 text-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+        className="w-full p-4 text-center text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
@@ -50,7 +50,7 @@ export const SecondaryLinks: FC<SecondaryLinksProps> = ({
             {Object.entries(groupedLinks).map(([category, categoryLinks]) => (
               <div key={category} className="space-y-4">
                 {category !== "Other" && (
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                     {category}
                   </h3>
                 )}
