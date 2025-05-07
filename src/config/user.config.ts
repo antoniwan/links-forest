@@ -43,36 +43,51 @@ export const userConfig: UserConfig = {
   },
   links: [
     {
-      title: "BluSky",
-      url: "https://bsky.app/profile/antoniwan.online",
+      title: "Bluesky",
+      url: "https://bsky.app/profile/antoniwan.bsky.social",
       description: "Thoughts on technology and healing",
     },
     {
       title: "Portfolio",
-      url: "https://portfolio.example.com",
+      url: "https://builds.software",
       description: "My latest projects and work",
+    },
+    {
+      title: "Blog",
+      url: "https://blog.example.com",
+      description: "Read my latest articles and thoughts",
     },
     {
       title: "Book a Session",
       url: "https://calendly.com/example",
-      description: "Schedule a healing session",
+      description: "Schedule a 1:1 meeting with me",
     },
   ],
   social: [
     {
       platform: "twitter",
-      url: "https://twitter.com/example",
+      url: "https://twitter.com/antoniwan",
       icon: "twitter",
     },
     {
       platform: "github",
-      url: "https://github.com/example",
+      url: "https://github.com/antoniwan",
       icon: "github",
     },
     {
       platform: "linkedin",
-      url: "https://linkedin.com/in/example",
+      url: "https://linkedin.com/in/antoniwan",
       icon: "linkedin",
+    },
+    {
+      platform: "email",
+      url: "mailto:hello@antoniwan.com",
+      icon: "email",
+    },
+    {
+      platform: "website",
+      url: "https://antoniwan.com",
+      icon: "website",
     },
   ],
 };
