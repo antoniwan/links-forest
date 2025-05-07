@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { FC } from "react";
 import type { Link } from "../data/types";
+import { variants, interactions, transitions } from "../config/animations";
 
 interface LinkCardProps {
   link: Link;
@@ -21,11 +22,10 @@ export const LinkCard: FC<LinkCardProps> = ({
       target="_blank"
       rel="noopener noreferrer"
       className={`block p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-opacity-100 ${accentColor}`}
-      whileHover={{ scale: 1.01, y: -2 }}
-      whileTap={{ scale: 0.99 }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      variants={variants.fadeInUp}
+      whileHover={interactions.subtleHover}
+      whileTap={interactions.active}
+      transition={transitions.smooth}
     >
       <div className="flex flex-col gap-3">
         <div className="flex items-start justify-between gap-4">
@@ -38,9 +38,11 @@ export const LinkCard: FC<LinkCardProps> = ({
             </span>
           )}
         </div>
-        <p className="text-base sm:text-lg opacity-90 leading-relaxed font-sans">
-          {description}
-        </p>
+        {description && (
+          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+            {description}
+          </p>
+        )}
       </div>
     </motion.a>
   );

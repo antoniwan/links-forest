@@ -5,8 +5,8 @@ import type { ThemeName } from '../data/theme.types';
 import { ProfilePicture } from '../components/ProfilePicture';
 import { LinkGrid } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
-import { ThemeTransitionWrapper } from '../components/ThemeTransitionWrapper';
 import { dataLogger } from '../utils/logger';
+import { cssTransitions } from '../config/animations';
 
 const { profile, theme, links, secondaryLinks, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
@@ -27,51 +27,49 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}>
-		<div class={`${currentTheme.colors.background} min-h-screen relative z-10 transition-colors duration-300`}>
-			<ThemeTransitionWrapper client:load>
-				<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-					<header class="flex flex-col sm:flex-row justify-between items-center gap-8 mb-16">
-						<div class="flex flex-col sm:flex-row items-center sm:items-start gap-8 text-center sm:text-left">
-							<ProfilePicture 
-								client:load
-								name={profile.name}
-								image={profile.image}
-								themeId={theme.active}
-								size="md"
-							/>
-							<div class="space-y-3">
-								<h1 class="text-3xl sm:text-4xl font-bold tracking-tight">{profile.name}</h1>
-								<p class="text-lg sm:text-xl opacity-90 max-w-xl leading-relaxed">{profile.subtitle}</p>
-							</div>
+		<div class={`${currentTheme.colors.background} min-h-screen relative z-10 ${cssTransitions.smooth}`}>
+			<div class="page-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+				<header class="flex flex-col sm:flex-row justify-between items-center gap-8 mb-16">
+					<div class="flex flex-col sm:flex-row items-center sm:items-start gap-8 text-center sm:text-left">
+						<ProfilePicture 
+							client:load
+							name={profile.name}
+							image={profile.image}
+							themeId={theme.active}
+							size="md"
+						/>
+						<div class="space-y-3">
+							<h1 class="text-3xl sm:text-4xl font-bold tracking-tight">{profile.name}</h1>
+							<p class="text-lg sm:text-xl opacity-90 max-w-xl leading-relaxed">{profile.subtitle}</p>
 						</div>
-					</header>
+					</div>
+				</header>
 
-					<main class="flex flex-col gap-12">
+				<main class="flex flex-col gap-12">
+					<LinkGrid
+						client:load
+						links={links}
+						accentColor={currentTheme.colors.accent}
+						variant="primary"
+					/>
+
+					{secondaryLinks && secondaryLinks.length > 0 && (
 						<LinkGrid
 							client:load
-							links={links}
+							links={secondaryLinks}
 							accentColor={currentTheme.colors.accent}
-							variant="primary"
+							variant="secondary"
 						/>
+					)}
+				</main>
 
-						{secondaryLinks && secondaryLinks.length > 0 && (
-							<LinkGrid
-								client:load
-								links={secondaryLinks}
-								accentColor={currentTheme.colors.accent}
-								variant="secondary"
-							/>
-						)}
-					</main>
-
-					<footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
-						<SocialIcons 
-							client:load
-							socialLinks={social}
-						/>
-					</footer>
-				</div>
-			</ThemeTransitionWrapper>
+				<footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+					<SocialIcons 
+						client:load
+						socialLinks={social}
+					/>
+				</footer>
+			</div>
 		</div>
 	</body>
 </html>
@@ -109,5 +107,34 @@ dataLogger('Layout initialized with theme:', theme.active);
 
 	.dark ::selection {
 		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	/* Page content animation */
+	.page-content {
+		animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Reduced motion */
+	@media (prefers-reduced-motion: reduce) {
+		.page-content {
+			animation: none;
+		}
+		* {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
 	}
 </style>

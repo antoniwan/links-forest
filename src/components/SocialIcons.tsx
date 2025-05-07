@@ -1,42 +1,38 @@
 import { motion } from "framer-motion";
 import type { FC } from "react";
-import type { SocialLink, SocialPlatform } from "../data/types";
+import type { SocialLink } from "../data/types";
 import { emojiMap } from "../data/emojis";
+import { variants, interactions, transitions } from "../config/animations";
 
 interface SocialIconsProps {
   socialLinks: SocialLink[];
   className?: string;
 }
 
-// Group social platforms by category for better organization
-const platformCategories: Record<string, SocialPlatform[]> = {
-  professional: ["linkedin", "github"],
-  social: ["twitter", "instagram", "facebook", "reddit", "tiktok"],
-  communication: ["whatsapp", "telegram", "discord", "slack"],
-  media: ["youtube"],
-  contact: ["email", "website"],
-} as const;
-
 export const SocialIcons: FC<SocialIconsProps> = ({
   socialLinks,
   className = "",
 }) => {
-  // Group links by category
-  const groupedLinks = socialLinks.reduce((acc, link) => {
-    const category =
-      Object.entries(platformCategories).find(([_, platforms]) =>
-        platforms.includes(link.platform)
-      )?.[0] || "other";
-
-    if (!acc[category]) {
-      acc[category] = [];
-    }
-    acc[category].push(link);
-    return acc;
-  }, {} as Record<string, SocialLink[]>);
+  // Group social links by category
+  const groupedLinks = socialLinks.reduce<Record<string, SocialLink[]>>(
+    (acc, link) => {
+      const category = link.platform;
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(link);
+      return acc;
+    },
+    {}
+  );
 
   return (
-    <div className={`w-full max-w-2xl mx-auto ${className}`}>
+    <motion.div
+      className={`w-full max-w-2xl mx-auto ${className}`}
+      variants={variants.staggerContainer}
+      initial="initial"
+      animate="animate"
+    >
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
         {Object.entries(groupedLinks).map(([category, links]) => (
           <div key={category} className="flex flex-col items-center space-y-3">
@@ -48,21 +44,24 @@ export const SocialIcons: FC<SocialIconsProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit ${item.platform}`}
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
+                variants={variants.staggerItem}
+                whileHover={interactions.playfulHover}
+                whileTap={interactions.active}
+                transition={transitions.smooth}
               >
                 <span className="sr-only">{item.platform}</span>
-                <span className="text-2xl sm:text-3xl transform transition-transform duration-300 hover:scale-110">
+                <motion.span
+                  className="text-2xl sm:text-3xl"
+                  whileHover={{ scale: 1.1 }}
+                  transition={transitions.quick}
+                >
                   {emojiMap[item.icon as keyof typeof emojiMap]}
-                </span>
+                </motion.span>
               </motion.a>
             ))}
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
