@@ -77,7 +77,23 @@ export type SocialPlatform =
   | "tiktok"
   | "email"
   | "website"
-  | "lastfm";
+  | "lastfm"
+  | "spotify"
+  | "medium"
+  | "devto"
+  | "stackoverflow"
+  | "behance"
+  | "dribbble"
+  | "pinterest"
+  | "twitch"
+  | "soundcloud"
+  | "apple"
+  | "android"
+  | "windows"
+  | "linux"
+  | "mastodon"
+  | "threads"
+  | "bluesky";
 
 /**
  * Social media link structure
@@ -136,6 +152,22 @@ export function isValidSocialPlatform(
     "email",
     "website",
     "lastfm",
+    "spotify",
+    "medium",
+    "devto",
+    "stackoverflow",
+    "behance",
+    "dribbble",
+    "pinterest",
+    "twitch",
+    "soundcloud",
+    "apple",
+    "android",
+    "windows",
+    "linux",
+    "mastodon",
+    "threads",
+    "bluesky",
   ];
   return validPlatforms.includes(platform as SocialPlatform);
 }

@@ -29,6 +29,7 @@ export type EmojiName =
   | "reddit"
   | "tiktok"
   | "lastfm"
+  | "spotify"
   // Media & Content
   | "video"
   | "image"
@@ -90,6 +91,7 @@ export const emojiMap: Record<EmojiName, string> = {
   reddit: "📱",
   tiktok: "🎵",
   lastfm: "🎵",
+  spotify: "🎧",
   // Media & Content
   video: "🎥",
   image: "🖼️",

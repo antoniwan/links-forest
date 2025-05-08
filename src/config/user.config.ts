@@ -254,6 +254,16 @@ export const userConfig: UserConfig = {
       ),
       icon: "lastfm",
     },
+    {
+      platform: "spotify",
+      url: addUtmParams(
+        "https://open.spotify.com/user/antoniwan",
+        "links-forest",
+        "link",
+        "social-spotify"
+      ),
+      icon: "spotify",
+    },
   ],
 };
 

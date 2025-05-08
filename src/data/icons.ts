@@ -13,7 +13,22 @@ import {
   FaTiktok,
   FaEnvelope,
   FaLastfm,
+  FaSpotify,
+  FaMedium,
+  FaDev,
+  FaStackOverflow,
+  FaBehance,
+  FaDribbble,
+  FaPinterest,
+  FaTwitch,
+  FaSoundcloud,
+  FaApple,
+  FaAndroid,
+  FaWindows,
+  FaLinux,
+  FaMastodon,
 } from "react-icons/fa";
+import { SiBluesky, SiThreads } from "react-icons/si";
 
 export const socialIconMap = {
   twitter: FaTwitter,
@@ -30,6 +45,22 @@ export const socialIconMap = {
   tiktok: FaTiktok,
   email: FaEnvelope,
   lastfm: FaLastfm,
+  spotify: FaSpotify,
+  medium: FaMedium,
+  devto: FaDev,
+  stackoverflow: FaStackOverflow,
+  behance: FaBehance,
+  dribbble: FaDribbble,
+  pinterest: FaPinterest,
+  twitch: FaTwitch,
+  soundcloud: FaSoundcloud,
+  apple: FaApple,
+  android: FaAndroid,
+  windows: FaWindows,
+  linux: FaLinux,
+  mastodon: FaMastodon,
+  threads: SiThreads,
+  bluesky: SiBluesky,
 } as const;
 
 export type SocialIconName = keyof typeof socialIconMap;
