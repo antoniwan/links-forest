@@ -154,16 +154,16 @@ Each archetype in LinksForest is intentionally:
 
 ## 🔧 Tech Stack
 
-| Tool             | Purpose                        |
-| ---------------- | ------------------------------ |
-| Astro            | Static site generator          |
-| Tailwind CSS     | Utility-first styling          |
-| React            | Interactive components         |
-| Framer Motion    | Animations + transitions       |
-| TypeScript       | Type-safe development          |
-| Vercel Analytics | Usage tracking and insights    |
-| Vercel / Netlify | Fast, free deployment          |
-| Namecheap        | DNS routing for custom domains |
+| Tool             | Version | Purpose                        |
+| ---------------- | ------- | ------------------------------ |
+| Astro            | v5.7.10 | Static site generator          |
+| React            | v19.1.0 | Interactive components         |
+| Tailwind CSS     | v3.4.17 | Utility-first styling          |
+| Framer Motion    | v12.9.4 | Animations + transitions       |
+| TypeScript       | Latest  | Type-safe development          |
+| Vercel Analytics | v1.5.0  | Usage tracking and insights    |
+| Vercel / Netlify | Latest  | Fast, free deployment          |
+| Namecheap        | Latest  | DNS routing for custom domains |
 
 ## 🗺️ Project Structure
 
