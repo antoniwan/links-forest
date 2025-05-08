@@ -12,6 +12,7 @@ import {
   FaReddit,
   FaTiktok,
   FaEnvelope,
+  FaLastfm,
 } from "react-icons/fa";
 
 export const socialIconMap = {
@@ -28,6 +29,7 @@ export const socialIconMap = {
   reddit: FaReddit,
   tiktok: FaTiktok,
   email: FaEnvelope,
+  lastfm: FaLastfm,
 } as const;
 
 export type SocialIconName = keyof typeof socialIconMap;

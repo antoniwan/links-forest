@@ -244,6 +244,16 @@ export const userConfig: UserConfig = {
       ),
       icon: "email",
     },
+    {
+      platform: "lastfm",
+      url: addUtmParams(
+        "https://www.last.fm/user/antoniwan",
+        "links-forest",
+        "link",
+        "social-lastfm"
+      ),
+      icon: "lastfm",
+    },
   ],
 };
 

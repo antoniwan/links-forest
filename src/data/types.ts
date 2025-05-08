@@ -76,7 +76,8 @@ export type SocialPlatform =
   | "reddit"
   | "tiktok"
   | "email"
-  | "website";
+  | "website"
+  | "lastfm";
 
 /**
  * Social media link structure
@@ -134,6 +135,7 @@ export function isValidSocialPlatform(
     "tiktok",
     "email",
     "website",
+    "lastfm",
   ];
   return validPlatforms.includes(platform as SocialPlatform);
 }
