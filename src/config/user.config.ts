@@ -59,17 +59,6 @@ export const userConfig: UserConfig = {
   },
   links: [
     {
-      title: "The Strong Vault",
-      url: addUtmParams(
-        "https://blog.antoniwan.online",
-        "links-forest",
-        "link",
-        "main-blog"
-      ),
-      description: "A blog— my core writing hub and personal thoughts",
-      category: "book",
-    },
-    {
       title: "Builds.Software",
       url: addUtmParams(
         "https://builds.software",
@@ -81,15 +70,15 @@ export const userConfig: UserConfig = {
       category: "work",
     },
     {
-      title: "BlueSky",
+      title: "The Strong Vault",
       url: addUtmParams(
-        "https://bsky.antoniwan.online",
+        "https://blog.antoniwan.online",
         "links-forest",
         "link",
-        "main-social"
+        "main-blog"
       ),
-      description: "Stream of consciousness and public identity",
-      category: "lifestyle",
+      description: "A blog— my core writing hub and personal thoughts",
+      category: "book",
     },
     {
       title: "Strong Hands, Soft Heart",
@@ -101,6 +90,17 @@ export const userConfig: UserConfig = {
       ),
       description: "Core brand site and business presence",
       category: "art",
+    },
+    {
+      title: "BlueSky",
+      url: addUtmParams(
+        "https://bsky.app/profile/antoniwan.online",
+        "links-forest",
+        "link",
+        "main-social"
+      ),
+      description: "Stream of consciousness and public identity",
+      category: "lifestyle",
     },
   ],
   secondaryLinks: [
