@@ -205,9 +205,19 @@ export const userConfig: UserConfig = {
       icon: "linkedin",
     },
     {
+      platform: "threads",
+      url: addUtmParams(
+        "https://www.threads.com/@_antoniwan",
+        "links-forest",
+        "link",
+        "social-threads"
+      ),
+      icon: "threads",
+    },
+    {
       platform: "instagram",
       url: addUtmParams(
-        "https://www.instagram.com/antoniwan777",
+        "https://www.instagram.com/_antoniwan",
         "links-forest",
         "link",
         "social-instagram"
@@ -217,7 +227,7 @@ export const userConfig: UserConfig = {
     {
       platform: "facebook",
       url: addUtmParams(
-        "https://www.facebook.com/antoniwan777",
+        "https://www.facebook.com/antoniwan",
         "links-forest",
         "link",
         "social-facebook"
