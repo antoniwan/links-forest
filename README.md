@@ -66,6 +66,7 @@ Built to express your full self — in all your evolving forms.
      - `platform`: The name of the platform
      - `url`: Your profile URL
      - `icon`: The icon to use (see `src/data/emojis.ts` for available icons)
+   - Supported platforms include: Twitter, GitHub, LinkedIn, Instagram, Facebook, YouTube, WhatsApp, Telegram, Discord, Slack, Reddit, TikTok, Last.fm, Spotify, and Threads
 
 7. **Configure SEO and Meta Tags**
 
