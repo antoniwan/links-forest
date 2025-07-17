@@ -70,7 +70,7 @@ export const userConfig: UserConfig = {
       category: "work",
     },
     {
-      title: "The Strong Vault",
+      title: "Curious Chaos Journal",
       url: addUtmParams(
         "https://blog.antoniwan.online",
         "links-forest",
