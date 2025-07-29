@@ -7,6 +7,7 @@ import type { ThemeName } from '../data/theme.types';
 import { ProfilePicture } from '../components/ProfilePicture';
 import { LinkGrid } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
+import { Footer } from '../components/Footer';
 import { dataLogger } from '../utils/logger';
 import { cssTransitions } from '../config/animations';
 import { Hero } from '../components/Hero';
@@ -106,6 +107,7 @@ dataLogger('Layout initialized with theme:', theme.active);
 						client:load
 						socialLinks={social}
 					/>
+					<Footer client:load />
 				</footer>
 			</div>
 		</div>

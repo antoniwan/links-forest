@@ -17,7 +17,7 @@ Ditch Linktree. Own your links. Here's how to self-host your **LinksForest** pag
 
 ### 1. Fork the Repo
 
-Click "Fork" on [GitHub](https://github.com/YOUR_REPO) to create your copy.
+Click "Fork" on [GitHub](https://github.com/antoniwan/links-forest) to create your copy.
 
 ### 2. Deploy on Vercel
 

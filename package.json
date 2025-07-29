@@ -2,6 +2,26 @@
   "name": "links-forest",
   "type": "module",
   "version": "1.2.0",
+  "description": "A minimalist, themed link-sharing platform powered by Astro, Tailwind, and Framer Motion",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antoniwan/links-forest.git"
+  },
+  "homepage": "https://github.com/antoniwan/links-forest#readme",
+  "bugs": {
+    "url": "https://github.com/antoniwan/links-forest/issues"
+  },
+  "keywords": [
+    "astro",
+    "linktree",
+    "personal-links",
+    "portfolio",
+    "themes",
+    "tailwind",
+    "framer-motion"
+  ],
+  "author": "antoniwan",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,11 +29,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.7",
+    "@astrojs/react": "^4.3.0",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vercel/analytics": "^1.5.0",
-    "astro": "^5.7.10",
+    "astro": "^5.12.5",
     "framer-motion": "^12.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
