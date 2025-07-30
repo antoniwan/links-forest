@@ -1,7 +1,7 @@
 ---
 import { pageLogger } from '../utils/logger';
 import Layout from '../layouts/Layout.astro';
-import { userConfig } from '../config/user.config';
+import { userConfig } from '../config/settings.loader';
 import { ProfilePicture } from '../components/ProfilePicture';
 
 const { profile, links, social } = userConfig;

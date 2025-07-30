@@ -33,9 +33,9 @@ export const SocialIcons: FC<SocialIconsProps> = ({
       initial="initial"
       animate="animate"
     >
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
         {Object.entries(groupedLinks).map(([category, links]) => (
-          <div key={category} className="flex flex-col items-center space-y-3">
+          <div key={category} className="flex flex-col items-center space-y-4">
             {links.map((item) => {
               const Icon =
                 socialIconMap[item.icon as keyof typeof socialIconMap];

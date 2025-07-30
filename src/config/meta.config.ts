@@ -1,55 +1,22 @@
 import type { Profile } from "../data/types";
+import { userSettings } from "./user-settings";
 
 /** Base URL configuration for the site */
 export const siteConfig = {
   /** The canonical base URL of the site */
-  baseUrl: "https://antoniwan.online",
+  baseUrl: userSettings.site.baseUrl,
   /** The site name */
-  siteName: "LinkForest",
+  siteName: userSettings.site.siteName,
   /** Default locale */
-  locale: "en_US",
+  locale: userSettings.site.locale,
   /** Default theme color */
-  themeColor: "#ffffff",
+  themeColor: userSettings.site.themeColor,
   /** Default image path */
-  defaultImage: "/default-share.jpg",
+  defaultImage: userSettings.site.defaultImage,
   /** Default social media handles */
-  social: {
-    twitter: "@antoniwan",
-    linkedin: "antoniwan",
-    instagram: "antoniwan777",
-    facebook: "antoniwan777",
-  },
+  social: userSettings.site.social,
   /** SEO Configuration */
-  seo: {
-    /** Default meta description */
-    defaultDescription:
-      "Personal digital garden and link hub by Antonio Rodríguez Martínez - Systems Thinker, Builder, and Father",
-    /** Default meta keywords */
-    defaultKeywords: [
-      "Antonio Rodríguez Martínez",
-      "Systems Thinker",
-      "Builder",
-      "Father",
-      "Software Development",
-      "Consulting",
-      "Digital Garden",
-      "Link Hub",
-      "Personal Brand",
-      "Professional Profile",
-    ],
-    /** Default robots meta */
-    robots:
-      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-    /** Default language */
-    language: "en",
-    /** Default content type */
-    contentType: "website",
-    /** Default image dimensions */
-    imageDimensions: {
-      width: 1200,
-      height: 630,
-    },
-  },
+  seo: userSettings.site.seo,
 } as const;
 
 export type SiteConfig = typeof siteConfig;

@@ -8,13 +8,13 @@ Built to express your full self — in all your evolving forms.
 
 1. **Edit Your Profile**
 
-   - Open `src/config/user.config.ts`
-   - Update your name, subtitle, and profile picture
+   - Open `src/config/user-settings.ts`
+   - Update your name, subtitle, and profile picture in the `profile` section
    - If no profile picture is set, your initials will be shown with a themed background
 
 2. **Choose Your Theme**
 
-   - In `src/config/user.config.ts`, find the `theme.active` property
+   - In `src/config/user-settings.ts`, find the `theme.active` property
    - Set it to one of these archetypal themes:
      - `builder`: 🏗️ - Creation, systems, form
      - `wolf`: 🐺 - Instinct, loyalty, protection
@@ -27,53 +27,40 @@ Built to express your full self — in all your evolving forms.
      - `strategist`: 🧠 - Mind, planning, clarity
      - `steward`: 🌱 - Legacy, care, generational vision
 
-3. **Add Your Links**
+3. **Configure Site Settings**
 
-   - In `src/config/user.config.ts`, edit the `links` array
+   - In `src/config/user-settings.ts`, edit the `site` section
+   - Update your base URL, site name, and social media handles
+   - Customize SEO settings like description, keywords, and meta tags
+
+4. **Add Your Links**
+
+   - In `src/config/user-settings.ts`, edit the `links` array
    - Each link needs:
      - `title`: The name of your link
      - `url`: The destination URL
      - `description`: A short description
      - `category`: Optional category for grouping (e.g., "book", "work", "lifestyle")
 
-4. **Add UTM Parameters (Optional)**
-
-   - In `src/config/user.config.ts`, you can add UTM parameters to your links
-   - Add a `utm` object to your link configuration:
-     ```typescript
-     {
-       title: "My Link",
-       url: "https://example.com",
-       utm: {
-         source: "linksforest",
-         medium: "profile",
-         campaign: "my-campaign"
-       }
-     }
-     ```
-   - These parameters will be automatically appended to your URLs for tracking
-
 5. **Add Secondary Links**
 
-   - In `src/config/user.config.ts`, edit the `secondaryLinks` array
+   - In `src/config/user-settings.ts`, edit the `secondaryLinks` array
    - These links appear in a separate section below your main links
    - Same structure as main links
 
 6. **Add Social Media**
 
-   - In `src/config/user.config.ts`, edit the `social` array
+   - In `src/config/user-settings.ts`, edit the `social` array
    - Each social link needs:
      - `platform`: The name of the platform
      - `url`: Your profile URL
      - `icon`: The icon to use (see `src/data/emojis.ts` for available icons)
    - Supported platforms include: Twitter, GitHub, LinkedIn, Instagram, Facebook, YouTube, WhatsApp, Telegram, Discord, Slack, Reddit, TikTok, Last.fm, Spotify, and Threads
 
-7. **Configure SEO and Meta Tags**
+7. **Automatic UTM Parameters**
 
-   - The project automatically generates comprehensive meta tags
-   - OpenGraph, Twitter Cards, and structured data are included
-   - Mobile and app-specific meta tags are configured
-   - All meta tags are generated from your profile information
+   - UTM parameters are automatically added to all your links for tracking
+   - No manual configuration needed - the system handles this automatically
 
 8. **Preview Your Changes**
 
@@ -182,7 +169,7 @@ Each archetype in LinksForest is intentionally:
 │   │   └── index.astro   # Main page
 │   ├── config/           # Configuration files
 │   │   ├── theme.config.ts
-│   │   ├── user.config.ts
+   │   │   ├── user-settings.ts
 │   │   └── meta.config.ts
 │   ├── data/             # Type definitions and data
 │   │   ├── theme.types.ts

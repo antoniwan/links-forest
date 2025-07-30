@@ -1,6 +1,6 @@
 ---
 import Analytics from '@vercel/analytics/astro'
-import { userConfig } from '../config/user.config';
+import { userConfig } from '../config/settings.loader';
 import { themeConfig } from '../config/theme.config';
 import { generateMetaConfig } from '../config/meta.config';
 import type { ThemeName } from '../data/theme.types';
@@ -80,11 +80,11 @@ dataLogger('Layout initialized with theme:', theme.active);
 	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}>
 		<div class={`${currentTheme.colors.background} min-h-screen relative z-10 ${cssTransitions.smooth}`}>
 			<div class="page-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-				<header class="mb-8 lg:mb-16">
+				<header class="mb-12 lg:mb-20">
 					<Hero name={profile.name} image={profile.image} subtitle={profile.subtitle} />
 				</header>
 
-				<main class="flex flex-col gap-12">
+				<main class="flex flex-col gap-16">
 					<LinkGrid
 						client:load
 						links={links}
@@ -102,12 +102,14 @@ dataLogger('Layout initialized with theme:', theme.active);
 					)}
 				</main>
 
-				<footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
-					<SocialIcons 
-						client:load
-						socialLinks={social}
-					/>
-					<Footer client:load />
+				<footer class="mt-20 pt-12 border-t border-gray-200 dark:border-gray-800">
+					<div class="space-y-12">
+						<SocialIcons 
+							client:load
+							socialLinks={social}
+						/>
+						<Footer client:load />
+					</div>
 				</footer>
 			</div>
 		</div>

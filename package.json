@@ -1,7 +1,7 @@
 {
   "name": "links-forest",
   "type": "module",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "A minimalist, themed link-sharing platform powered by Astro, Tailwind, and Framer Motion",
   "repository": {
     "type": "git",

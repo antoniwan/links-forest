@@ -1,5 +1,5 @@
 /** @jsxImportSource react */
-import { userConfig } from "../config/user.config";
+import { userConfig } from "../config/settings.loader";
 import type { ThemeName } from "../data/theme.types";
 import type { Size } from "../config/ui";
 
