@@ -3,6 +3,8 @@ import type { FC } from "react";
 import type { SocialLink } from "../data/types";
 import { socialIconMap } from "../data/icons";
 import { variants, interactions, transitions } from "../config/animations";
+import { userConfig } from "../config/settings.loader";
+import { themeConfig } from "../config/theme.config";
 
 interface SocialIconsProps {
   socialLinks: SocialLink[];
@@ -13,6 +15,8 @@ export const SocialIcons: FC<SocialIconsProps> = ({
   socialLinks,
   className = "",
 }) => {
+  const currentTheme = themeConfig[userConfig.theme.active];
+
   // Group social links by category
   const groupedLinks = socialLinks.reduce<Record<string, SocialLink[]>>(
     (acc, link) => {
@@ -43,7 +47,7 @@ export const SocialIcons: FC<SocialIconsProps> = ({
                 <motion.a
                   key={item.platform}
                   href={item.url}
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-800"
+                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 ${currentTheme.styles.card} ${currentTheme.styles.border} ${currentTheme.colors.text} hover:opacity-100 opacity-80`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit ${item.platform}`}

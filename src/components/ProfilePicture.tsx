@@ -33,7 +33,7 @@ export const ProfilePicture = ({
 
   const width = size === "sm" ? 64 : size === "md" ? 160 : 256;
   const height = size === "sm" ? 64 : size === "md" ? 160 : 256;
-  const baseClass = `${sizeClasses[size]} rounded-full transition-all duration-500 ease-in-out`;
+  const baseClass = `${sizeClasses[size]} rounded-full transition-transform transition-shadow duration-700 ease-out`;
 
   return (
     <div
@@ -45,14 +45,14 @@ export const ProfilePicture = ({
         <img
           src={image}
           alt={`Profile picture of ${name}`}
-          className={`${baseClass} object-cover ${theme.styles.border} border-2 hover:scale-105 hover:shadow-lg`}
+          className={`${baseClass} object-cover ${theme.styles.border} border-2 hover:scale-110 hover:shadow-xl transform-gpu`}
           width={width}
           height={height}
           loading="lazy"
         />
       ) : (
         <div
-          className={`${baseClass} flex items-center justify-center ${theme.styles.border} border-2 bg-white dark:bg-gray-800 hover:scale-105 hover:shadow-lg`}
+          className={`${baseClass} flex items-center justify-center ${theme.styles.border} border-2 bg-white dark:bg-gray-800 hover:scale-110 hover:shadow-xl transform-gpu`}
           aria-hidden="true"
         >
           <span className="font-bold">{initials}</span>

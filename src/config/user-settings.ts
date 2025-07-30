@@ -49,7 +49,7 @@ export const userSettings: UserSettings = {
     image: "profile-picture.avif",
   },
   theme: {
-    active: "steward",
+    active: "strategist",
   },
   site: {
     baseUrl: "https://antoniwan.online",
@@ -60,8 +60,8 @@ export const userSettings: UserSettings = {
     social: {
       twitter: "@antoniwan",
       linkedin: "antoniwan",
-      instagram: "antoniwan777",
-      facebook: "antoniwan777",
+      instagram: "_antoniwan",
+      facebook: "antoniwan",
     },
     seo: {
       defaultDescription:

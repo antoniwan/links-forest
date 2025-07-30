@@ -102,7 +102,7 @@ dataLogger('Layout initialized with theme:', theme.active);
 					)}
 				</main>
 
-				<footer class="mt-20 pt-12 border-t border-gray-200 dark:border-gray-800">
+				<footer class={`mt-20 pt-12 border-t ${currentTheme.styles.border}`}>
 					<div class="space-y-12">
 						<SocialIcons 
 							client:load

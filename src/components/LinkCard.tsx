@@ -3,6 +3,8 @@ import React, { type FC } from "react";
 import type { Link } from "../data/types";
 import { variants, interactions, transitions } from "../config/animations";
 import { categoryIconMap, getCategoryIcon } from "../data/categoryIcons";
+import { userConfig } from "../config/settings.loader";
+import { themeConfig } from "../config/theme.config";
 
 interface LinkCardProps {
   link: Link;
@@ -16,13 +18,14 @@ export const LinkCard: FC<LinkCardProps> = ({
   variant = "primary",
 }) => {
   const { url, title, description, category } = link;
+  const currentTheme = themeConfig[userConfig.theme.active];
 
   return (
     <motion.a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`block p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-opacity-100 ${accentColor}`}
+      className={`block p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 ${currentTheme.styles.card} ${currentTheme.styles.border} ${accentColor}`}
       variants={variants.fadeInUp}
       whileHover={interactions.subtleHover}
       whileTap={interactions.active}
@@ -30,17 +33,23 @@ export const LinkCard: FC<LinkCardProps> = ({
     >
       <div className="flex flex-col gap-3">
         <div className="flex items-start justify-between gap-4">
-          <h3 className="text-xl sm:text-2xl font-serif font-semibold tracking-tight">
+          <h3
+            className={`text-xl sm:text-2xl font-semibold tracking-tight ${currentTheme.colors.text}`}
+          >
             {title}
           </h3>
           {category && (
-            <div className="flex items-center justify-center w-8 h-8 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors duration-200">
+            <div
+              className={`flex items-center justify-center w-8 h-8 transition-colors duration-200 ${currentTheme.colors.text} opacity-60 hover:opacity-100`}
+            >
               {React.createElement(categoryIconMap[getCategoryIcon(category)])}
             </div>
           )}
         </div>
         {description && (
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p
+            className={`leading-relaxed ${currentTheme.colors.text} opacity-80`}
+          >
             {description}
           </p>
         )}

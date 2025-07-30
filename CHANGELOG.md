@@ -5,6 +5,50 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2025-01-XX
+
+### 🎨 Enhanced
+
+- **Theme Typography System**: Complete overhaul of theme typography for better archetypal expression
+
+  - **Distinctive Font Styling**: Each theme now has unique font weights, tracking, and special effects
+  - **Builder Theme**: Roboto Mono with medium weight for technical, systematic feel
+  - **Wolf Theme**: Montserrat with semibold weight for instinctual, loyal energy
+  - **Mystic Theme**: Cormorant Garamond with italic styling for spiritual elegance
+  - **Dragon Theme**: Cinzel with bold weight and wide tracking for power and force
+  - **Artist Theme**: Playfair Display with semibold weight for creative expression
+  - **Warrior Theme**: Bebas Neue with bold weight, wide tracking, and uppercase for action
+  - **Healer Theme**: Quicksand with medium weight and wide tracking for soothing energy
+  - **Alchemist Theme**: EB Garamond with semibold weight for transformation energy
+  - **Strategist Theme**: Raleway with medium weight and wide tracking for mental clarity
+  - **Steward Theme**: Lora with medium weight and wide tracking for legacy and care
+
+- **Font Application Fixes**: Resolved font inheritance issues across components
+
+  - **LinkCard Component**: Removed hardcoded font-serif override to properly inherit theme fonts
+  - **Button Typography**: Enhanced button styling with theme-appropriate font weights
+  - **Link Typography**: Improved link styling with appropriate font characteristics
+  - **Font Loading**: Ensured proper font loading and fallback handling
+
+- **Visual Distinction**: Enhanced theme differentiation while maintaining legibility
+  - **Letter Spacing**: Added appropriate tracking for each archetype's character
+  - **Font Weights**: Strategic use of medium, semibold, and bold weights
+  - **Special Effects**: Italic for mystic, uppercase for warrior, etc.
+  - **Color Harmony**: Maintained existing color schemes while enhancing typography
+
+### 🔧 Fixed
+
+- **Font Inheritance**: Fixed issue where LinkCard titles were overriding theme fonts
+- **Theme Application**: Ensured theme fonts are properly applied to all text elements
+- **Typography Consistency**: Improved consistency between theme fonts and component styling
+
+### Technical
+
+- **Theme Configuration**: Enhanced theme.config.ts with more sophisticated typography rules
+- **Component Updates**: Updated LinkCard component to properly inherit theme fonts
+- **Font Loading**: Verified proper Google Fonts loading for all theme fonts
+- **Backward Compatibility**: All changes maintain existing functionality while enhancing visual appeal
+
 ## [2.0.0] - 2025-01-XX
 
 ### 🔄 Architecture Changes

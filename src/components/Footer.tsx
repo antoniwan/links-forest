@@ -1,4 +1,5 @@
 import React from "react";
+import packageJson from "../../package.json";
 
 interface FooterProps {
   className?: string;
@@ -7,19 +8,20 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ className = "" }) => {
   return (
     <footer className={`text-center py-8 ${className}`}>
-      <div className="max-w-md mx-auto space-y-4">
-        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+      {/* Footer metadata section */}
+      <div className="max-w-md mx-auto mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 space-y-2">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
           Want your own LinksForest?
         </p>
         <a
           href="https://github.com/antoniwan/links-forest/blob/main/SELF-HOSTING.md"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20"
+          className="inline-flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
         >
           <span>Get it for free →</span>
           <svg
-            className="w-4 h-4"
+            className="w-3 h-3"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -32,6 +34,9 @@ export const Footer: React.FC<FooterProps> = ({ className = "" }) => {
             />
           </svg>
         </a>
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          v{packageJson.version}
+        </p>
       </div>
     </footer>
   );
