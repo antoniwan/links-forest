@@ -113,7 +113,7 @@ export const userSettings: UserSettings = {
     image: "profile-picture.avif",
   },
   theme: {
-    active: "strategist",
+    active: "warrior",
   },
   site: {
     baseUrl: "https://antoniwan.online",
