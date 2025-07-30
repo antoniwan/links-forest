@@ -5,6 +5,70 @@
  * Edit the values below to customize your profile, links, theme, and site configuration.
  */
 
+/**
+ * 🎨 Available Themes
+ *
+ * Choose from 10 unique archetypal themes that reflect different modes of being.
+ * Each theme comes with its own typography, colors, and visual characteristics.
+ *
+ * To change your theme, update the `theme.active` property below with one of these values:
+ *
+ * 🏗️  "builder"    - The Builder: Creation, systems, form
+ *                    Typography: Roboto Mono (monospace) with medium weight
+ *                    Colors: Stone and amber tones
+ *                    Energy: Technical, systematic, structured
+ *
+ * 🐺  "wolf"       - The Wolf: Instinct, loyalty, protection
+ *                    Typography: Montserrat (sans-serif) with semibold weight
+ *                    Colors: Slate and blue tones
+ *                    Energy: Instinctual, loyal, protective
+ *
+ * 🔮  "mystic"     - The Mystic: Spirituality, vision, cosmic threads
+ *                    Typography: Cormorant Garamond (serif) with italic styling
+ *                    Colors: Deep purples and indigos
+ *                    Energy: Spiritual, visionary, mystical
+ *
+ * 🐉  "dragon"     - The Dragon: Power, force, will
+ *                    Typography: Cinzel (serif) with bold weight and wide tracking
+ *                    Colors: Rich reds and oranges
+ *                    Energy: Powerful, forceful, transformative
+ *
+ * 🎨  "artist"     - The Artist: Expression, creativity, truth
+ *                    Typography: Playfair Display (serif) with semibold weight
+ *                    Colors: Pink and rose tones
+ *                    Energy: Creative, expressive, beautiful
+ *
+ * ⚔️  "warrior"    - The Warrior: Action, discipline, focus
+ *                    Typography: Bebas Neue (sans-serif) with bold weight, wide tracking, uppercase
+ *                    Colors: Gray and zinc tones
+ *                    Energy: Action-oriented, disciplined, focused
+ *
+ * 💫  "healer"     - The Healer: Regeneration, soothing, connection
+ *                    Typography: Quicksand (sans-serif) with medium weight and wide tracking
+ *                    Colors: Emerald and teal tones
+ *                    Energy: Soothing, nurturing, connecting
+ *
+ * 🧪  "alchemist"  - The Alchemist: Transformation, elements, ritual
+ *                    Typography: EB Garamond (serif) with semibold weight and wide tracking
+ *                    Colors: Violet and purple tones
+ *                    Energy: Transformative, elemental, ritualistic
+ *
+ * 🧠  "strategist" - The Strategist: Mind, planning, clarity
+ *                    Typography: Raleway (sans-serif) with medium weight and wide tracking
+ *                    Colors: Blue and cyan tones
+ *                    Energy: Strategic, clear, analytical
+ *
+ * 🌱  "steward"    - The Steward: Legacy, care, generational vision
+ *                    Typography: Lora (serif) with medium weight and wide tracking
+ *                    Colors: Green and lime tones
+ *                    Energy: Nurturing, legacy-focused, caring
+ *
+ * Example usage:
+ *   theme: {
+ *     active: "strategist", // Change this to any theme name above
+ *   }
+ */
+
 import type { ThemeName } from "../data/theme.types";
 import type { Profile, Link, SocialLink, SecondaryLink } from "../data/types";
 
@@ -37,9 +101,9 @@ export interface UserSettings {
       };
     };
   };
-  links: Omit<Link, "url"> & { url: string };
-  secondaryLinks: Omit<SecondaryLink, "url"> & { url: string };
-  social: Omit<SocialLink, "url"> & { url: string };
+  links: (Omit<Link, "url"> & { url: string })[];
+  secondaryLinks: (Omit<SecondaryLink, "url"> & { url: string })[];
+  social: (Omit<SocialLink, "url"> & { url: string })[];
 }
 
 export const userSettings: UserSettings = {
@@ -49,7 +113,7 @@ export const userSettings: UserSettings = {
     image: "profile-picture.avif",
   },
   theme: {
-    active: "strategist",
+    active: "artist",
   },
   site: {
     baseUrl: "https://antoniwan.online",
