@@ -38,10 +38,10 @@
  *                    Colors: Pink and rose tones
  *                    Energy: Creative, expressive, beautiful
  *
- * ⚔️  "warrior"    - The Warrior: Action, discipline, focus
- *                    Typography: Bebas Neue (sans-serif) with bold weight, wide tracking, uppercase
- *                    Colors: Gray and zinc tones
- *                    Energy: Action-oriented, disciplined, focused
+ * ⚔️  "warrior"    - The Warrior: Prestige, precision, cleanliness
+ *                    Typography: Inter (sans-serif) with medium weight and wide tracking
+ *                    Colors: Slate and amber tones
+ *                    Energy: Prestigious, precise, clean
  *
  * 💫  "healer"     - The Healer: Regeneration, soothing, connection
  *                    Typography: Quicksand (sans-serif) with medium weight and wide tracking
@@ -113,7 +113,7 @@ export const userSettings: UserSettings = {
     image: "profile-picture.avif",
   },
   theme: {
-    active: "artist",
+    active: "strategist",
   },
   site: {
     baseUrl: "https://antoniwan.online",

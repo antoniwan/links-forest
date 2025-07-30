@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        warrior: ['"Bebas Neue"', "sans-serif"],
+        warrior: ['"Inter"', "sans-serif"],
         mystic: ['"Cormorant Garamond"', "serif"],
         builder: ['"Roboto Mono"', "monospace"],
         wolf: ['"Montserrat"', "sans-serif"],
