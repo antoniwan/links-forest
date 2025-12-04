@@ -154,16 +154,16 @@ export const userSettings: UserSettings = {
   },
   links: [
     {
+      title: "Notes (Blog)",
+      url: "https://notes.antoniwan.online/",
+      description: "A working notebook in a season of becoming — choosing honesty over performance, precision over showmanship",
+      category: "book",
+    },
+    {
       title: "Builds.Software",
       url: "https://builds.software",
       description: "Freelance, consulting, and development services",
       category: "work",
-    },
-    {
-      title: "Notes",
-      url: "https://notes.antoniwan.online/",
-      description: "Notes and thoughts (valuable) for you",
-      category: "book",
     },
     {
       title: "Strong Hands, Soft Heart",
