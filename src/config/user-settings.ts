@@ -160,9 +160,9 @@ export const userSettings: UserSettings = {
       category: "work",
     },
     {
-      title: "Curious Chaos Journal",
-      url: "https://blog.antoniwan.online",
-      description: "A blog— my core writing hub and personal thoughts",
+      title: "Notes",
+      url: "https://notes.antoniwan.online/",
+      description: "Notes and thoughts (valuable) for you",
       category: "book",
     },
     {
@@ -208,6 +208,12 @@ export const userSettings: UserSettings = {
       url: "https://mia-the-sun-and-the-moon.antoniorodriguez.us",
       description: "The Sun and the Moon - Legacy project",
       category: "book",
+    },
+    {
+      title: "Work Clock",
+      url: "https://work-clock.builds.software/",
+      description: "Configure your work schedule including days, start time, end time, and display preferences",
+      category: "work",
     },
     {
       title: "YouTube: StrongWizards",
