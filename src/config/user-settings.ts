@@ -160,6 +160,12 @@ export const userSettings: UserSettings = {
       category: "book",
     },
     {
+      title: "Strong Hands, Soft Heart Consulting",
+      url: "https://consulting.stronghandssoftheart.com/",
+      description: "AI & engineering consulting for founders, product leaders, and ICs",
+      category: "work",
+    },
+    {
       title: "Builds.Software",
       url: "https://builds.software",
       description: "Freelance, consulting, and development services",
@@ -170,12 +176,6 @@ export const userSettings: UserSettings = {
       url: "https://www.stronghandssoftheart.com",
       description: "Core brand site and business presence",
       category: "art",
-    },
-    {
-      title: "Strong Hands, Soft Heart Consulting",
-      url: "https://consulting.stronghandssoftheart.com/",
-      description: "AI & engineering consulting for founders, product leaders, and ICs",
-      category: "work",
     },
     {
       title: "BlueSky",
