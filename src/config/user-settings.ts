@@ -172,6 +172,12 @@ export const userSettings: UserSettings = {
       category: "art",
     },
     {
+      title: "Strong Hands, Soft Heart Consulting",
+      url: "https://consulting.stronghandssoftheart.com/",
+      description: "AI & engineering consulting for founders, product leaders, and ICs",
+      category: "work",
+    },
+    {
       title: "BlueSky",
       url: "https://bsky.app/profile/antoniwan.online",
       description: "Stream of consciousness and public identity",
