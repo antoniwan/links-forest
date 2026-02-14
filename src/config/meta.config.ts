@@ -133,8 +133,10 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
 
     twitter: {
       card: "summary_large_image",
-      title: `${profile.name} - ${siteConfig.siteName}`,
-      description: profile.subtitle || siteConfig.seo.defaultDescription,
+      title: og?.title ?? `${profile.name} - ${siteConfig.siteName}`,
+      description:
+        og?.description ??
+        (profile.subtitle || siteConfig.seo.defaultDescription),
       image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       creator: siteConfig.social.twitter,
       site: siteConfig.social.twitter,
