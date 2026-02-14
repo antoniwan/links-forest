@@ -1,7 +1,7 @@
 {
   "name": "links-forest",
   "type": "module",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A minimalist, themed link-sharing platform powered by Astro, Tailwind, and Framer Motion",
   "repository": {
     "type": "git",
@@ -29,12 +29,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.3.0",
+    "@astrojs/react": "4.4.2",
     "@astrojs/sitemap": "^3.7.0",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vercel/analytics": "^1.5.0",
-    "astro": "^5.12.5",
+    "astro": "^5.17.2",
     "framer-motion": "^12.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
