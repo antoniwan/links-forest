@@ -48,6 +48,9 @@ export interface MetaConfig {
     seeAlso: string[];
     imageWidth: number;
     imageHeight: number;
+    profileFirstName?: string;
+    profileLastName?: string;
+    profileUsername?: string;
   };
 
   /** Twitter Card meta tags */
@@ -72,16 +75,8 @@ export interface MetaConfig {
     viewport: string;
   };
 
-  /** Structured Data */
-  structuredData: {
-    "@context": string;
-    "@type": string;
-    name: string;
-    description: string;
-    url: string;
-    image: string;
-    sameAs: string[];
-  };
+  /** Structured Data (Person schema or custom JSON-LD) */
+  structuredData: Record<string, unknown>;
 }
 
 /**
@@ -99,9 +94,14 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
     `https://twitter.com/${siteConfig.social.twitter.replace("@", "")}`,
   ];
 
+  const og = siteConfig.seo.openGraph;
+  const profileMeta = siteConfig.seo.profile;
+
   return {
     seo: {
-      description: profile.subtitle || siteConfig.seo.defaultDescription,
+      description:
+        siteConfig.seo.metaDescription ??
+        (profile.subtitle || siteConfig.seo.defaultDescription),
       keywords: [...siteConfig.seo.defaultKeywords],
       robots: siteConfig.seo.robots,
       canonical: canonicalUrl,
@@ -114,16 +114,21 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
     },
 
     openGraph: {
-      title: `${profile.name} - ${siteConfig.siteName}`,
-      description: profile.subtitle || siteConfig.seo.defaultDescription,
-      type: siteConfig.seo.contentType,
+      title: og?.title ?? `${profile.name} - ${siteConfig.siteName}`,
+      description:
+        og?.description ??
+        (profile.subtitle || siteConfig.seo.defaultDescription),
+      type: og?.type ?? siteConfig.seo.contentType,
       image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       url: canonicalUrl,
-      siteName: siteConfig.siteName,
+      siteName: og?.siteName ?? siteConfig.siteName,
       locale: siteConfig.locale,
       seeAlso: socialLinks,
       imageWidth: siteConfig.seo.imageDimensions.width,
       imageHeight: siteConfig.seo.imageDimensions.height,
+      profileFirstName: profileMeta?.firstName,
+      profileLastName: profileMeta?.lastName,
+      profileUsername: profileMeta?.username,
     },
 
     twitter: {
@@ -146,7 +151,7 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       viewport: "width=device-width, initial-scale=1.0, viewport-fit=cover",
     },
 
-    structuredData: {
+    structuredData: siteConfig.seo.personStructuredData ?? {
       "@context": "https://schema.org",
       "@type": "Person",
       name: profile.name,

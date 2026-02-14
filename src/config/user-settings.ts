@@ -99,6 +99,23 @@ export interface UserSettings {
         width: number;
         height: number;
       };
+      /** Optional meta description override (for SEO; page can still show subtitle as tagline) */
+      metaDescription?: string;
+      /** Optional OpenGraph overrides (e.g. type=profile, siteName) */
+      openGraph?: {
+        type: string;
+        siteName: string;
+        title: string;
+        description: string;
+      };
+      /** Optional profile meta (profile:first_name, profile:last_name, profile:username) */
+      profile?: {
+        firstName: string;
+        lastName: string;
+        username: string;
+      };
+      /** Optional full Person JSON-LD; when set, replaces generated structured data */
+      personStructuredData?: Record<string, unknown>;
     };
   };
   links: (Omit<Link, "url"> & { url: string })[];
@@ -129,7 +146,7 @@ export const userSettings: UserSettings = {
     },
     seo: {
       defaultDescription:
-        "Personal digital garden and link hub by Antonio Rodríguez Martínez - Systems Thinker, Builder, and Father",
+        "Antonio Rodríguez Martínez (antoniwan) — Technical Program Manager at Stanley Black & Decker, full-stack developer, and founder of Strong Hands, Soft Heart LLC. Puerto Rico-born builder of digital systems, cultural storytelling projects, and human-centered teams based in Central Florida.",
       defaultKeywords: [
         "Antonio Rodríguez Martínez",
         "Systems Thinker",
@@ -142,6 +159,8 @@ export const userSettings: UserSettings = {
         "Personal Brand",
         "Professional Profile",
       ],
+      metaDescription:
+        "Antonio Rodríguez Martínez (antoniwan) — Technical Program Manager at Stanley Black & Decker, full-stack developer, and founder of Strong Hands, Soft Heart LLC. Puerto Rico-born builder of digital systems, cultural storytelling projects, and human-centered teams based in Central Florida.",
       robots:
         "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       language: "en",
@@ -149,6 +168,83 @@ export const userSettings: UserSettings = {
       imageDimensions: {
         width: 1200,
         height: 630,
+      },
+      /** OpenGraph overrides for personal profile page (og:type=profile, etc.) */
+      openGraph: {
+        type: "profile",
+        siteName: "antoniwan",
+        title: "Antonio Rodríguez Martínez (antoniwan)",
+        description:
+          "Technical Program Manager at Stanley Black & Decker, full-stack developer, and founder of Strong Hands, Soft Heart LLC.",
+      },
+      /** Profile meta tags for og:type=profile (profile:first_name, etc.) */
+      profile: {
+        firstName: "Antonio",
+        lastName: "Rodríguez Martínez",
+        username: "antoniwan",
+      },
+      /** Expanded Person schema for JSON-LD (replaces generated schema when set) */
+      personStructuredData: {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Antonio Rodríguez Martínez",
+        alternateName: ["antoniwan", "Antonio Rodriguez Martinez"],
+        description:
+          "Technical Program Manager, full-stack developer, and founder of Strong Hands, Soft Heart LLC. Builder of digital systems, cultural storytelling projects, and human-centered teams.",
+        url: "https://antoniwan.online",
+        image: "https://antoniwan.online/default-share.jpg",
+        jobTitle: "Technical Program Manager",
+        worksFor: {
+          "@type": "Organization",
+          name: "Stanley Black & Decker",
+          url: "https://www.stanleyblackanddecker.com",
+        },
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "University of Puerto Rico, Río Piedras",
+          url: "https://www.uprrp.edu",
+        },
+        knowsAbout: [
+          "Technical Program Management",
+          "Full-Stack Web Development",
+          "React",
+          "Node.js",
+          "GraphQL",
+          "NextJS",
+          "Astro",
+          "Design Systems",
+          "Microservices Architecture",
+          "Digital Transformation",
+          "AI Integration",
+          "Team Leadership",
+          "Mentorship",
+        ],
+        knowsLanguage: ["en", "es"],
+        nationality: {
+          "@type": "Country",
+          name: "Puerto Rico",
+        },
+        sameAs: [
+          "https://www.linkedin.com/in/antoniwan",
+          "https://github.com/antoniwan",
+          "https://medium.com/@wizards777",
+          "https://codepen.io/antoniwan",
+          "https://notes.antoniwan.online",
+          "https://blog.antoniwan.online",
+          "https://builds.software",
+          "https://www.stronghandssoftheart.com",
+          "https://consulting.stronghandssoftheart.com",
+          "https://bsky.app/profile/antoniwan.online",
+          "https://www.youtube.com/@Antoniwan777",
+          "https://www.goodreads.com/antoniwan",
+          "https://patreon.com/antoniwan",
+          "https://www.instagram.com/_antoniwan",
+          "https://www.facebook.com/antoniwan",
+          "https://www.threads.com/@_antoniwan",
+          "https://open.spotify.com/user/antoniwan",
+          "https://www.last.fm/user/antoniwan",
+          "https://www.antoniorodriguez.us",
+        ],
       },
     },
   },

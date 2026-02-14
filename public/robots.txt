@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://antoniwan.online/sitemap-index.xml

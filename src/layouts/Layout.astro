@@ -47,6 +47,15 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<meta property="og:url" content={meta.openGraph.url} />
 		<meta property="og:site_name" content={meta.openGraph.siteName} />
 		<meta property="og:locale" content={meta.openGraph.locale} />
+		{meta.openGraph.profileFirstName && (
+			<meta property="profile:first_name" content={meta.openGraph.profileFirstName} />
+		)}
+		{meta.openGraph.profileLastName && (
+			<meta property="profile:last_name" content={meta.openGraph.profileLastName} />
+		)}
+		{meta.openGraph.profileUsername && (
+			<meta property="profile:username" content={meta.openGraph.profileUsername} />
+		)}
 		{meta.openGraph.seeAlso.map(url => (
 			<meta property="og:see_also" content={url} />
 		))}
