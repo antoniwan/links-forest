@@ -279,6 +279,13 @@ export const userSettings: UserSettings = {
       description: "Stream of consciousness and public identity",
       category: "lifestyle",
     },
+    {
+      title: "React Hooks Explorer",
+      url: "https://myreacthooks.antoniwan.online/",
+      description:
+        "Personal workspace for React hooks, custom hooks, and patterns used for learning and POCs.",
+      category: "code",
+    },
   ],
   secondaryLinks: [
     {
