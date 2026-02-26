@@ -256,7 +256,7 @@ export const userSettings: UserSettings = {
     },
     {
       title: 'React Hooks Explorer',
-      url: 'https://myreacthooks.antoniwan.online/',
+      url: 'https://my-react-hooks.antoniwan.online/',
       description:
         'Personal workspace for React hooks, custom hooks, and patterns used for learning and POCs.',
       category: 'code',
