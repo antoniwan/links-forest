@@ -235,7 +235,6 @@ export const userSettings: UserSettings = {
           "https://www.stronghandssoftheart.com",
           "https://consulting.stronghandssoftheart.com",
           "https://bsky.app/profile/antoniwan.online",
-          "https://www.youtube.com/@Antoniwan777",
           "https://www.goodreads.com/antoniwan",
           "https://patreon.com/antoniwan",
           "https://www.instagram.com/_antoniwan",
@@ -325,12 +324,6 @@ export const userSettings: UserSettings = {
       category: "work",
     },
     {
-      title: "YouTube: StrongWizards",
-      url: "https://www.youtube.com/@Antoniwan777",
-      description: "Mythic, fun, and raw content",
-      category: "video",
-    },
-    {
       title: "Goodreads",
       url: "https://www.goodreads.com/antoniwan",
       description: "Reading bookshelf and recommendations",
@@ -344,6 +337,11 @@ export const userSettings: UserSettings = {
     },
   ],
   social: [
+    {
+      platform: "twitter",
+      url: "https://x.com/antoniwan",
+      icon: "twitter",
+    },
     {
       platform: "linkedin",
       url: "https://www.linkedin.com/in/antoniwan",
@@ -363,11 +361,6 @@ export const userSettings: UserSettings = {
       platform: "facebook",
       url: "https://www.facebook.com/antoniwan",
       icon: "facebook",
-    },
-    {
-      platform: "discord",
-      url: "https://discord.gg/y63NbbYK",
-      icon: "discord",
     },
     {
       platform: "email",
