@@ -144,12 +144,12 @@ Each archetype in LinksForest is intentionally:
 
 | Tool             | Version | Purpose                        |
 | ---------------- | ------- | ------------------------------ |
-| Astro            | v5.7.10 | Static site generator          |
-| React            | v19.1.0 | Interactive components         |
-| Tailwind CSS     | v3.4.17 | Utility-first styling          |
-| Framer Motion    | v12.9.4 | Animations + transitions       |
+| Astro            | 5       | Static site generator          |
+| React            | 18      | Interactive components         |
+| Tailwind CSS     | 3       | Utility-first styling          |
+| Framer Motion    | 12      | Animations and transitions     |
 | TypeScript       | Latest  | Type-safe development          |
-| Vercel Analytics | v1.5.0  | Usage tracking and insights    |
+| Vercel Analytics | 1       | Usage tracking and insights    |
 | Vercel / Netlify | Latest  | Fast, free deployment          |
 | Namecheap        | Latest  | DNS routing for custom domains |
 
@@ -169,7 +169,7 @@ Each archetype in LinksForest is intentionally:
 │   │   └── index.astro   # Main page
 │   ├── config/           # Configuration files
 │   │   ├── theme.config.ts
-   │   │   ├── user-settings.ts
+│   │   ├── user-settings.ts
 │   │   └── meta.config.ts
 │   ├── data/             # Type definitions and data
 │   │   ├── theme.types.ts
@@ -179,7 +179,7 @@ Each archetype in LinksForest is intentionally:
 │       └── logger.ts
 ├── public/               # Static assets
 │   ├── favicon.svg
-│   └── images/
+│   └── sw.js             # Service worker (registered by default)
 ├── astro.config.mjs      # Astro configuration
 ├── tailwind.config.mjs   # Tailwind configuration
 └── tsconfig.json         # TypeScript configuration
@@ -189,12 +189,22 @@ Each archetype in LinksForest is intentionally:
 
 All commands are run from the root of the project, from a terminal:
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:4321`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+| Command           | Action                                          |
+| :---------------- | :---------------------------------------------- |
+| `npm install`     | Installs dependencies                           |
+| `npm run dev`     | Starts local dev server at `localhost:4321`     |
+| `npm run build`   | Build your production site to `./dist/`         |
+| `npm run preview` | Preview your build locally, before deploying    |
+| `npm run lint`    | Run ESLint on source files                      |
+| `npm run lint:fix`| Run ESLint and try to fix problems automatically|
+| `npm run format`  | Format files with Prettier                      |
+
+## 🛠️ Service worker
+
+- The file `public/sw.js` is a simple service worker and is **registered by default** from the main layout.
+- It caches the favicon and the pages you visit while you are online.
+- When you are offline, it can serve cached pages and assets from the browser cache.
+- It only handles `GET` requests on the same origin.
 
 ## 🔍 Debugging and Logging
 

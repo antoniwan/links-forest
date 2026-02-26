@@ -126,6 +126,13 @@ dataLogger("Layout initialized with theme:", theme.active);
 				</footer>
 			</div>
 		</div>
+		<script is:inline>
+			if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+				window.addEventListener('load', function () {
+					navigator.serviceWorker.register('/sw.js').catch(function () {});
+				});
+			}
+		</script>
 	</body>
 </html>
 
