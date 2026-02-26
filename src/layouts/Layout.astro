@@ -1,30 +1,29 @@
 ---
-import Analytics from '@vercel/analytics/astro'
-import { userConfig } from '../config/settings.loader';
-import { themeConfig } from '../config/theme.config';
-import { generateMetaConfig } from '../config/meta.config';
-import type { ThemeName } from '../data/theme.types';
-import { ProfilePicture } from '../components/ProfilePicture';
-import { LinkGrid } from '../components/LinkCard';
-import { SocialIcons } from '../components/SocialIcons';
-import { Footer } from '../components/Footer';
-import { dataLogger } from '../utils/logger';
-import { cssTransitions } from '../config/animations';
-import { Hero } from '../components/Hero';
+import Analytics from "@vercel/analytics/astro";
+import { userConfig } from "../config/settings.loader";
+import { themeConfig } from "../config/theme.config";
+import { generateMetaConfig } from "../config/meta.config";
+import type { ThemeName } from "../data/theme.types";
+import { ProfilePicture } from "../components/ProfilePicture";
+import { LinkGrid } from "../components/LinkCard";
+import { SocialIcons } from "../components/SocialIcons";
+import { Footer } from "../components/Footer";
+import { dataLogger } from "../utils/logger";
+import { cssTransitions } from "../config/animations";
+import { Hero } from "../components/Hero";
 
 const { profile, theme, links, secondaryLinks, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
-const meta = generateMetaConfig(profile, Astro.url.href);
+const meta = generateMetaConfig(profile, Astro.url.pathname);
 
 // Log the current theme
-dataLogger('Layout initialized with theme:', theme.active);
+dataLogger("Layout initialized with theme:", theme.active);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={meta.seo.language}>
 	<head>
 		<meta charset={meta.seo.charset} />
-		<meta name="viewport" content={meta.seo.viewport} />
 		<title>{meta.openGraph.title}</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		
@@ -42,6 +41,7 @@ dataLogger('Layout initialized with theme:', theme.active);
 		<meta property="og:description" content={meta.openGraph.description} />
 		<meta property="og:type" content={meta.openGraph.type} />
 		<meta property="og:image" content={meta.openGraph.image} />
+		<meta property="og:image:alt" content={meta.twitter.imageAlt} />
 		<meta property="og:image:width" content={meta.openGraph.imageWidth.toString()} />
 		<meta property="og:image:height" content={meta.openGraph.imageHeight.toString()} />
 		<meta property="og:url" content={meta.openGraph.url} />

@@ -78,6 +78,11 @@ ${cleanEmail ? `📬 ${cleanEmail}` : ''}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Signature - {profile.name}</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta
+      name="description"
+      content={`Personal email signature generator for ${profile.name}.`}
+    />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -242,33 +247,29 @@ ${cleanEmail ? `📬 ${cleanEmail}` : ''}
     <div id="toast" class="toast"></div>
 
     <script>
-        const htmlEditor = document.getElementById('htmlEditor') as HTMLTextAreaElement;
-        const signature = document.getElementById('signature') as HTMLDivElement;
-        const toast = document.getElementById('toast') as HTMLDivElement;
-        
-        if (!htmlEditor || !signature || !toast) throw new Error('Required elements not found');
-
-        // Initial preview
-        updatePreview();
-
-        // Update preview on editor change
-        htmlEditor.addEventListener('input', updatePreview);
+        // @ts-nocheck
+        const htmlEditor = document.getElementById('htmlEditor');
+        const signature = document.getElementById('signature');
+        const toast = document.getElementById('toast');
 
         function updatePreview() {
+            if (!htmlEditor || !signature) return;
             signature.innerHTML = htmlEditor.value;
         }
 
-        function showToast(message: string, type: 'success' | 'error' = 'success') {
+        function showToast(message, type = 'success') {
+            if (!toast) return;
             toast.textContent = message;
             toast.className = `toast ${type}`;
             toast.classList.add('show');
-            
+
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
         }
 
         async function copySignature() {
+            if (!htmlEditor) return;
             try {
                 await navigator.clipboard.writeText(htmlEditor.value);
                 showToast('Signature copied to clipboard!');
@@ -279,9 +280,17 @@ ${cleanEmail ? `📬 ${cleanEmail}` : ''}
         }
 
         function resetSignature() {
-            htmlEditor.value = `{initialSignature}`;
+            if (!htmlEditor) return;
+            htmlEditor.value = htmlEditor.defaultValue;
             updatePreview();
             showToast('Signature reset to default');
+        }
+
+        if (htmlEditor) {
+            // Initial preview
+            updatePreview();
+            // Update preview on editor change
+            htmlEditor.addEventListener('input', updatePreview);
         }
     </script>
 </body>
