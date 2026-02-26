@@ -27,8 +27,8 @@ import {
   FaWindows,
   FaLinux,
   FaMastodon,
-} from "react-icons/fa";
-import { SiBluesky, SiThreads } from "react-icons/si";
+} from 'react-icons/fa';
+import { SiBluesky, SiThreads } from 'react-icons/si';
 
 export const socialIconMap = {
   twitter: FaTwitter,

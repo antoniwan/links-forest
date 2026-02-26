@@ -7,13 +7,11 @@ Built to express your full self — in all your evolving forms.
 ## 🚀 Quick Start: Personalize Your Page
 
 1. **Edit Your Profile**
-
    - Open `src/config/user-settings.ts`
    - Update your name, subtitle, and profile picture in the `profile` section
    - If no profile picture is set, your initials will be shown with a themed background
 
 2. **Choose Your Theme**
-
    - In `src/config/user-settings.ts`, find the `theme.active` property
    - Set it to one of these archetypal themes:
      - `builder`: 🏗️ - Creation, systems, form
@@ -28,13 +26,11 @@ Built to express your full self — in all your evolving forms.
      - `steward`: 🌱 - Legacy, care, generational vision
 
 3. **Configure Site Settings**
-
    - In `src/config/user-settings.ts`, edit the `site` section
    - Update your base URL, site name, and social media handles
    - Customize SEO settings like description, keywords, and meta tags
 
 4. **Add Your Links**
-
    - In `src/config/user-settings.ts`, edit the `links` array
    - Each link needs:
      - `title`: The name of your link
@@ -43,13 +39,11 @@ Built to express your full self — in all your evolving forms.
      - `category`: Optional category for grouping (e.g., "book", "work", "lifestyle")
 
 5. **Add Secondary Links**
-
    - In `src/config/user-settings.ts`, edit the `secondaryLinks` array
    - These links appear in a separate section below your main links
    - Same structure as main links
 
 6. **Add Social Media**
-
    - In `src/config/user-settings.ts`, edit the `social` array
    - Each social link needs:
      - `platform`: The name of the platform
@@ -58,21 +52,20 @@ Built to express your full self — in all your evolving forms.
    - Supported platforms include: Twitter, GitHub, LinkedIn, Instagram, Facebook, YouTube, WhatsApp, Telegram, Discord, Slack, Reddit, TikTok, Last.fm, Spotify, and Threads
 
 7. **Automatic UTM Parameters**
-
    - UTM parameters are automatically added to all your links for tracking
    - No manual configuration needed - the system handles this automatically
 
 8. **Preview Your Changes**
 
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
    Visit `http://localhost:4321` to see your changes
 
 9. **Deploy**
    ```bash
-   npm run build
+   pnpm run build
    ```
    Deploy the `dist` folder to your hosting provider
 
@@ -142,16 +135,7 @@ Each archetype in LinksForest is intentionally:
 
 ## 🔧 Tech Stack
 
-| Tool             | Version | Purpose                        |
-| ---------------- | ------- | ------------------------------ |
-| Astro            | 5       | Static site generator          |
-| React            | 18      | Interactive components         |
-| Tailwind CSS     | 3       | Utility-first styling          |
-| Framer Motion    | 12      | Animations and transitions     |
-| TypeScript       | Latest  | Type-safe development          |
-| Vercel Analytics | 1       | Usage tracking and insights    |
-| Vercel / Netlify | Latest  | Fast, free deployment          |
-| Namecheap        | Latest  | DNS routing for custom domains |
+Astro, React, Tailwind CSS, Framer Motion, and TypeScript. Vercel Analytics for tracking; deploy to Vercel or Netlify. See `package.json` for current versions.
 
 ## 🗺️ Project Structure
 
@@ -189,15 +173,15 @@ Each archetype in LinksForest is intentionally:
 
 All commands are run from the root of the project, from a terminal:
 
-| Command           | Action                                          |
-| :---------------- | :---------------------------------------------- |
-| `npm install`     | Installs dependencies                           |
-| `npm run dev`     | Starts local dev server at `localhost:4321`     |
-| `npm run build`   | Build your production site to `./dist/`         |
-| `npm run preview` | Preview your build locally, before deploying    |
-| `npm run lint`    | Run ESLint on source files                      |
-| `npm run lint:fix`| Run ESLint and try to fix problems automatically|
-| `npm run format`  | Format files with Prettier                      |
+| Command             | Action                                           |
+| :------------------ | :----------------------------------------------- |
+| `pnpm install`      | Installs dependencies                            |
+| `pnpm run dev`      | Starts local dev server at `localhost:4321`      |
+| `pnpm run build`    | Build your production site to `./dist/`          |
+| `pnpm run preview`  | Preview your build locally, before deploying     |
+| `pnpm run lint`     | Run ESLint on source files                       |
+| `pnpm run lint:fix` | Run ESLint and try to fix problems automatically |
+| `pnpm run format`   | Format files with Prettier                       |
 
 ## 🛠️ Service worker
 
@@ -224,10 +208,10 @@ In development mode, all logs are enabled by default. To enable specific namespa
 
 ```bash
 # Enable all logs
-DEBUG=links-forest:* npm run dev
+DEBUG=links-forest:* pnpm run dev
 
 # Enable specific namespaces
-DEBUG=links-forest:config,links-forest:component npm run dev
+DEBUG=links-forest:config,links-forest:component pnpm run dev
 ```
 
 ### Viewing Logs

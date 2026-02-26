@@ -4,7 +4,7 @@
  * This file contains development-specific configuration and utilities.
  */
 
-import { dataLogger } from "../utils/logger";
+import { dataLogger } from '../utils/logger';
 
 /**
  * Development environment configuration
@@ -34,17 +34,17 @@ export const devConfig: DevConfig = {
   logging: {
     enabled: isDev,
     namespaces: [
-      "links-forest:config",
-      "links-forest:layout",
-      "links-forest:page",
-      "links-forest:component",
-      "links-forest:data",
+      'links-forest:config',
+      'links-forest:layout',
+      'links-forest:page',
+      'links-forest:component',
+      'links-forest:data',
     ],
   },
 };
 
 // Log the current dev config settings
-dataLogger("Development configuration loaded:", {
+dataLogger('Development configuration loaded:', {
   logging: {
     enabled: devConfig.logging.enabled,
     namespaces: devConfig.logging.namespaces,

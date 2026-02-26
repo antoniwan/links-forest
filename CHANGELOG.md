@@ -10,7 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 🎨 Enhanced
 
 - **Theme Typography System**: Complete overhaul of theme typography for better archetypal expression
-
   - **Distinctive Font Styling**: Each theme now has unique font weights, tracking, and special effects
   - **Builder Theme**: Roboto Mono with medium weight for technical, systematic feel
   - **Wolf Theme**: Montserrat with semibold weight for instinctual, loyal energy
@@ -24,7 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **Steward Theme**: Lora with medium weight and wide tracking for legacy and care
 
 - **Font Application Fixes**: Resolved font inheritance issues across components
-
   - **LinkCard Component**: Removed hardcoded font-serif override to properly inherit theme fonts
   - **Button Typography**: Enhanced button styling with theme-appropriate font weights
   - **Link Typography**: Improved link styling with appropriate font characteristics
@@ -62,21 +60,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Enhanced
 
 - **Layout Spacing**: Improved vertical spacing throughout the application for better legibility and visual hierarchy
-
   - Increased header spacing for better separation from content
   - Enhanced main content gaps between sections
   - Improved footer spacing with proper separation between social icons and footer content
   - Added consistent spacing wrapper for footer components
 
 - **Footer Component**: Enhanced the "footer's footer" section for better user experience
-
   - Increased padding for more breathing room
   - Added better internal spacing between text and link elements
   - Enhanced typography with improved line height
   - Added hover background effects for better interactivity
 
 - **Social Icons**: Improved spacing and visual organization
-
   - Increased grid gaps for better icon separation
   - Enhanced group spacing within icon categories
   - Better visual hierarchy in the social icons section
@@ -99,21 +94,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Enhanced
 
 - **Layout Spacing**: Improved vertical spacing throughout the application for better legibility and visual hierarchy
-
   - Increased header spacing for better separation from content
   - Enhanced main content gaps between sections
   - Improved footer spacing with proper separation between social icons and footer content
   - Added consistent spacing wrapper for footer components
 
 - **Footer Component**: Enhanced the "footer's footer" section for better user experience
-
   - Increased padding for more breathing room
   - Added better internal spacing between text and link elements
   - Enhanced typography with improved line height
   - Added hover background effects for better interactivity
 
 - **Social Icons**: Improved spacing and visual organization
-
   - Increased grid gaps for better icon separation
   - Enhanced group spacing within icon categories
   - Better visual hierarchy in the social icons section

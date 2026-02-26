@@ -129,28 +129,24 @@ Same as Vercel — fork it on GitHub.
 ### Common Issues
 
 1. **Build Fails**
-
    - Check Node.js version (use 18+ LTS version)
    - Run `npm install` locally to verify dependencies
    - Check build logs in your hosting platform
    - Ensure all TypeScript types are correct
 
 2. **Domain Not Working**
-
    - Verify DNS settings
    - Wait for DNS propagation (can take up to 48 hours)
    - Check SSL certificate status
    - Ensure domain is properly configured in hosting platform
 
 3. **Analytics Not Working**
-
    - Verify Vercel Analytics integration
    - Check for ad blockers
    - Ensure proper environment variables
    - Check browser console for errors
 
 4. **Theme Not Loading**
-
    - Verify theme name in `user-settings.ts` matches available themes
    - Check browser console for JavaScript errors
    - Ensure all theme assets are properly referenced

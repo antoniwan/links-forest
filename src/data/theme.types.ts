@@ -10,16 +10,16 @@
  * Each theme represents a different archetypal energy and visual style.
  */
 export type ThemeName =
-  | "builder"
-  | "wolf"
-  | "mystic"
-  | "dragon"
-  | "artist"
-  | "warrior"
-  | "healer"
-  | "alchemist"
-  | "strategist"
-  | "steward";
+  | 'builder'
+  | 'wolf'
+  | 'mystic'
+  | 'dragon'
+  | 'artist'
+  | 'warrior'
+  | 'healer'
+  | 'alchemist'
+  | 'strategist'
+  | 'steward';
 
 /**
  * Tailwind color gradient configuration
@@ -121,16 +121,16 @@ export interface ThemeContext {
  */
 export function isValidThemeName(name: string): name is ThemeName {
   const validThemes: ThemeName[] = [
-    "builder",
-    "wolf",
-    "mystic",
-    "dragon",
-    "artist",
-    "warrior",
-    "healer",
-    "alchemist",
-    "strategist",
-    "steward",
+    'builder',
+    'wolf',
+    'mystic',
+    'dragon',
+    'artist',
+    'warrior',
+    'healer',
+    'alchemist',
+    'strategist',
+    'steward',
   ];
   return validThemes.includes(name as ThemeName);
 }

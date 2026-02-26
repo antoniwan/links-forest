@@ -1,5 +1,5 @@
-import type { EmojiName } from "./emojis";
-import type { ThemeName, ThemeConfig as ThemeConfigType } from "./theme.types";
+import type { EmojiName } from './emojis';
+import type { ThemeName, ThemeConfig as ThemeConfigType } from './theme.types';
 
 /**
  * Core Types
@@ -15,7 +15,7 @@ import type { ThemeName, ThemeConfig as ThemeConfigType } from "./theme.types";
 /**
  * Profile picture fallback options
  */
-export type ProfilePictureFallback = "initials" | "avatar";
+export type ProfilePictureFallback = 'initials' | 'avatar';
 
 /**
  * User profile information
@@ -63,37 +63,37 @@ export interface Link {
  * Social media platform types
  */
 export type SocialPlatform =
-  | "twitter"
-  | "github"
-  | "linkedin"
-  | "instagram"
-  | "facebook"
-  | "youtube"
-  | "whatsapp"
-  | "telegram"
-  | "discord"
-  | "slack"
-  | "reddit"
-  | "tiktok"
-  | "email"
-  | "website"
-  | "lastfm"
-  | "spotify"
-  | "medium"
-  | "devto"
-  | "stackoverflow"
-  | "behance"
-  | "dribbble"
-  | "pinterest"
-  | "twitch"
-  | "soundcloud"
-  | "apple"
-  | "android"
-  | "windows"
-  | "linux"
-  | "mastodon"
-  | "threads"
-  | "bluesky";
+  | 'twitter'
+  | 'github'
+  | 'linkedin'
+  | 'instagram'
+  | 'facebook'
+  | 'youtube'
+  | 'whatsapp'
+  | 'telegram'
+  | 'discord'
+  | 'slack'
+  | 'reddit'
+  | 'tiktok'
+  | 'email'
+  | 'website'
+  | 'lastfm'
+  | 'spotify'
+  | 'medium'
+  | 'devto'
+  | 'stackoverflow'
+  | 'behance'
+  | 'dribbble'
+  | 'pinterest'
+  | 'twitch'
+  | 'soundcloud'
+  | 'apple'
+  | 'android'
+  | 'windows'
+  | 'linux'
+  | 'mastodon'
+  | 'threads'
+  | 'bluesky';
 
 /**
  * Social media link structure
@@ -133,41 +133,39 @@ export interface LinksData {
 /**
  * Type guard to check if a string is a valid SocialPlatform
  */
-export function isValidSocialPlatform(
-  platform: string
-): platform is SocialPlatform {
+export function isValidSocialPlatform(platform: string): platform is SocialPlatform {
   const validPlatforms: SocialPlatform[] = [
-    "twitter",
-    "github",
-    "linkedin",
-    "instagram",
-    "facebook",
-    "youtube",
-    "whatsapp",
-    "telegram",
-    "discord",
-    "slack",
-    "reddit",
-    "tiktok",
-    "email",
-    "website",
-    "lastfm",
-    "spotify",
-    "medium",
-    "devto",
-    "stackoverflow",
-    "behance",
-    "dribbble",
-    "pinterest",
-    "twitch",
-    "soundcloud",
-    "apple",
-    "android",
-    "windows",
-    "linux",
-    "mastodon",
-    "threads",
-    "bluesky",
+    'twitter',
+    'github',
+    'linkedin',
+    'instagram',
+    'facebook',
+    'youtube',
+    'whatsapp',
+    'telegram',
+    'discord',
+    'slack',
+    'reddit',
+    'tiktok',
+    'email',
+    'website',
+    'lastfm',
+    'spotify',
+    'medium',
+    'devto',
+    'stackoverflow',
+    'behance',
+    'dribbble',
+    'pinterest',
+    'twitch',
+    'soundcloud',
+    'apple',
+    'android',
+    'windows',
+    'linux',
+    'mastodon',
+    'threads',
+    'bluesky',
   ];
   return validPlatforms.includes(platform as SocialPlatform);
 }
@@ -176,12 +174,12 @@ export function isValidSocialPlatform(
  * Validates a Link object
  */
 export function isValidLink(link: unknown): link is Link {
-  if (!link || typeof link !== "object") return false;
+  if (!link || typeof link !== 'object') return false;
   const l = link as Link;
   return (
-    typeof l.title === "string" &&
-    typeof l.url === "string" &&
-    typeof l.description === "string" &&
+    typeof l.title === 'string' &&
+    typeof l.url === 'string' &&
+    typeof l.description === 'string' &&
     isValidUrl(l.url)
   );
 }
@@ -190,12 +188,12 @@ export function isValidLink(link: unknown): link is Link {
  * Validates a SocialLink object
  */
 export function isValidSocialLink(link: unknown): link is SocialLink {
-  if (!link || typeof link !== "object") return false;
+  if (!link || typeof link !== 'object') return false;
   const l = link as SocialLink;
   return (
-    typeof l.platform === "string" &&
-    typeof l.url === "string" &&
-    typeof l.icon === "string" &&
+    typeof l.platform === 'string' &&
+    typeof l.url === 'string' &&
+    typeof l.icon === 'string' &&
     isValidSocialPlatform(l.platform) &&
     isValidUrl(l.url)
   );

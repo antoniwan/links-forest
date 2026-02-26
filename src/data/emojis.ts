@@ -2,140 +2,140 @@
  * Categories of emojis available in the system
  */
 export type EmojiCategory =
-  | "social"
-  | "media"
-  | "business"
-  | "navigation"
-  | "status"
-  | "weather"
-  | "communication"
-  | "organization";
+  | 'social'
+  | 'media'
+  | 'business'
+  | 'navigation'
+  | 'status'
+  | 'weather'
+  | 'communication'
+  | 'organization';
 
 /**
  * All available emoji names in the system
  */
 export type EmojiName =
   // Social & Communication
-  | "twitter"
-  | "github"
-  | "linkedin"
-  | "instagram"
-  | "facebook"
-  | "youtube"
-  | "whatsapp"
-  | "telegram"
-  | "discord"
-  | "slack"
-  | "reddit"
-  | "tiktok"
-  | "lastfm"
-  | "spotify"
-  | "threads"
+  | 'twitter'
+  | 'github'
+  | 'linkedin'
+  | 'instagram'
+  | 'facebook'
+  | 'youtube'
+  | 'whatsapp'
+  | 'telegram'
+  | 'discord'
+  | 'slack'
+  | 'reddit'
+  | 'tiktok'
+  | 'lastfm'
+  | 'spotify'
+  | 'threads'
   // Media & Content
-  | "video"
-  | "image"
-  | "music"
-  | "podcast"
-  | "stream"
+  | 'video'
+  | 'image'
+  | 'music'
+  | 'podcast'
+  | 'stream'
   // Business & Work
-  | "briefcase"
-  | "meeting"
-  | "project"
-  | "task"
-  | "deadline"
+  | 'briefcase'
+  | 'meeting'
+  | 'project'
+  | 'task'
+  | 'deadline'
   // Navigation & UI
-  | "home"
-  | "back"
-  | "forward"
-  | "up"
-  | "down"
-  | "menu"
-  | "website"
-  | "search"
-  | "settings"
+  | 'home'
+  | 'back'
+  | 'forward'
+  | 'up'
+  | 'down'
+  | 'menu'
+  | 'website'
+  | 'search'
+  | 'settings'
   // Status & Feedback
-  | "success"
-  | "error"
-  | "warning"
-  | "info"
-  | "loading"
+  | 'success'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | 'loading'
   // Weather & Time
-  | "sun"
-  | "cloud"
-  | "rain"
-  | "snow"
-  | "clock"
+  | 'sun'
+  | 'cloud'
+  | 'rain'
+  | 'snow'
+  | 'clock'
   // Communication
-  | "email"
-  | "phone"
-  | "location"
+  | 'email'
+  | 'phone'
+  | 'location'
   // Organization
-  | "calendar"
-  | "document"
-  | "folder";
+  | 'calendar'
+  | 'document'
+  | 'folder';
 
 /**
  * Mapping of emoji names to their corresponding Unicode characters
  */
 export const emojiMap: Record<EmojiName, string> = {
   // Social & Communication
-  twitter: "𝕏",
-  github: "⌨️",
-  linkedin: "🔗",
-  instagram: "📸",
-  facebook: "📱",
-  youtube: "▶️",
-  whatsapp: "💬",
-  telegram: "📨",
-  discord: "🎮",
-  slack: "💬",
-  reddit: "📱",
-  tiktok: "🎵",
-  lastfm: "🎵",
-  spotify: "🎧",
-  threads: "🧵",
+  twitter: '𝕏',
+  github: '⌨️',
+  linkedin: '🔗',
+  instagram: '📸',
+  facebook: '📱',
+  youtube: '▶️',
+  whatsapp: '💬',
+  telegram: '📨',
+  discord: '🎮',
+  slack: '💬',
+  reddit: '📱',
+  tiktok: '🎵',
+  lastfm: '🎵',
+  spotify: '🎧',
+  threads: '🧵',
   // Media & Content
-  video: "🎥",
-  image: "🖼️",
-  music: "🎵",
-  podcast: "🎙️",
-  stream: "📺",
+  video: '🎥',
+  image: '🖼️',
+  music: '🎵',
+  podcast: '🎙️',
+  stream: '📺',
   // Business & Work
-  briefcase: "💼",
-  meeting: "👥",
-  project: "📊",
-  task: "✅",
-  deadline: "⏰",
+  briefcase: '💼',
+  meeting: '👥',
+  project: '📊',
+  task: '✅',
+  deadline: '⏰',
   // Navigation & UI
-  home: "🏠",
-  back: "⬅️",
-  forward: "➡️",
-  up: "⬆️",
-  down: "⬇️",
-  menu: "☰",
-  website: "🌐",
-  search: "🔍",
-  settings: "⚙️",
+  home: '🏠',
+  back: '⬅️',
+  forward: '➡️',
+  up: '⬆️',
+  down: '⬇️',
+  menu: '☰',
+  website: '🌐',
+  search: '🔍',
+  settings: '⚙️',
   // Status & Feedback
-  success: "✅",
-  error: "❌",
-  warning: "⚠️",
-  info: "ℹ️",
-  loading: "⏳",
+  success: '✅',
+  error: '❌',
+  warning: '⚠️',
+  info: 'ℹ️',
+  loading: '⏳',
   // Weather & Time
-  sun: "☀️",
-  cloud: "☁️",
-  rain: "🌧️",
-  snow: "❄️",
-  clock: "🕒",
+  sun: '☀️',
+  cloud: '☁️',
+  rain: '🌧️',
+  snow: '❄️',
+  clock: '🕒',
   // Communication
-  email: "📧",
-  phone: "📞",
-  location: "📍",
+  email: '📧',
+  phone: '📞',
+  location: '📍',
   // Organization
-  calendar: "📅",
-  document: "📄",
-  folder: "📁",
+  calendar: '📅',
+  document: '📄',
+  folder: '📁',
 } as const;
 
 /**

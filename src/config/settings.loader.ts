@@ -1,19 +1,19 @@
 /**
  * Settings Loader
- * 
+ *
  * Loads user-centric settings from the JSON file and applies necessary transformations.
  */
 
-import type { ThemeName, ThemeConfig } from "../data/theme.types";
-import type { Profile, Link, SocialLink, SecondaryLink } from "../data/types";
-import { logDataLoading } from "../utils/logger";
-import { themeConfig } from "./theme.config";
-import { addUtmParams } from "../utils/url";
+import type { ThemeName, ThemeConfig } from '../data/theme.types';
+import type { Profile, Link, SocialLink, SecondaryLink } from '../data/types';
+import { logDataLoading } from '../utils/logger';
+import { themeConfig } from './theme.config';
+import { addUtmParams } from '../utils/url';
 
-const logSettingsLoader = logDataLoading("settings.loader");
+const logSettingsLoader = logDataLoading('settings.loader');
 
 // Import the user settings
-import { userSettings } from "./user-settings";
+import { userSettings } from './user-settings';
 
 export interface UserSettings {
   profile: Profile;
@@ -92,32 +92,22 @@ export function loadUserConfig(): UserConfig {
   // Apply UTM parameters to all links
   const processedLinks: Link[] = settings.links.map((link, index) => ({
     ...link,
-    url: addUtmParams(
-      link.url,
-      "links-forest",
-      "link",
-      `main-${link.category || `link-${index}`}`
-    ),
+    url: addUtmParams(link.url, 'links-forest', 'link', `main-${link.category || `link-${index}`}`),
   }));
 
   const processedSecondaryLinks: SecondaryLink[] = settings.secondaryLinks.map((link, index) => ({
     ...link,
     url: addUtmParams(
       link.url,
-      "links-forest",
-      "link",
-      `secondary-${link.category || `link-${index}`}`
+      'links-forest',
+      'link',
+      `secondary-${link.category || `link-${index}`}`,
     ),
   }));
 
   const processedSocialLinks: SocialLink[] = settings.social.map((link) => ({
     ...link,
-    url: addUtmParams(
-      link.url,
-      "links-forest",
-      "link",
-      `social-${link.platform}`
-    ),
+    url: addUtmParams(link.url, 'links-forest', 'link', `social-${link.platform}`),
   }));
 
   const userConfig: UserConfig = {
@@ -138,4 +128,4 @@ export function loadUserConfig(): UserConfig {
 }
 
 // Export the loaded config for backward compatibility
-export const userConfig = loadUserConfig(); 
+export const userConfig = loadUserConfig();

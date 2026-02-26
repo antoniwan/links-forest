@@ -8,27 +8,27 @@
  * - Accessible
  */
 
-import type { Variants } from "framer-motion";
+import type { Variants } from 'framer-motion';
 
 // Common transition configurations
 export const transitions = {
   // Quick, subtle interactions
   quick: {
-    type: "spring",
+    type: 'spring',
     stiffness: 400,
     damping: 30,
     duration: 0.2,
   },
   // Smooth, natural movements
   smooth: {
-    type: "spring",
+    type: 'spring',
     stiffness: 300,
     damping: 25,
     duration: 0.3,
   },
   // Deliberate, attention-grabbing
   deliberate: {
-    type: "spring",
+    type: 'spring',
     stiffness: 200,
     damping: 20,
     duration: 0.4,
@@ -92,18 +92,18 @@ export const interactions = {
 
 // Page transitions
 export const pageTransitions = {
-  initial: { opacity: 0, filter: "blur(10px)" },
-  animate: { opacity: 1, filter: "blur(0px)" },
-  exit: { opacity: 0, filter: "blur(10px)" },
+  initial: { opacity: 0, filter: 'blur(10px)' },
+  animate: { opacity: 1, filter: 'blur(0px)' },
+  exit: { opacity: 0, filter: 'blur(10px)' },
   transition: transitions.smooth,
 } as const;
 
 // CSS classes for non-Framer Motion animations
 export const cssTransitions = {
   // Quick transitions
-  quick: "transition-all duration-200 ease-out",
+  quick: 'transition-all duration-200 ease-out',
   // Smooth transitions
-  smooth: "transition-all duration-300 ease-in-out",
+  smooth: 'transition-all duration-300 ease-in-out',
   // Deliberate transitions
-  deliberate: "transition-all duration-400 ease-in-out",
+  deliberate: 'transition-all duration-400 ease-in-out',
 } as const;

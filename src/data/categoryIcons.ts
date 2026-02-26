@@ -179,7 +179,7 @@ import {
 
   // Default
   FaQuestion,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 export const categoryIconMap = {
   // Content & Media
@@ -370,6 +370,6 @@ export type CategoryIconName = keyof typeof categoryIconMap;
 export function getCategoryIcon(category: string): CategoryIconName {
   const normalizedCategory = category.toLowerCase().trim();
   return (
-    normalizedCategory in categoryIconMap ? normalizedCategory : "default"
+    normalizedCategory in categoryIconMap ? normalizedCategory : 'default'
   ) as CategoryIconName;
 }

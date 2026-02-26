@@ -1,4 +1,14 @@
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import eslintPluginAstro from 'eslint-plugin-astro';
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
+import importPlugin from 'eslint-plugin-import';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -15,10 +25,10 @@ export default [
   {
     files: ['src/**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
-      parser: '@typescript-eslint/parser',
+      parser: tsParser,
       parserOptions: {
         project: './tsconfig.json',
-        tsconfigRootDir: new URL('.', import.meta.url).pathname,
+        tsconfigRootDir: __dirname,
         ecmaVersion: 'latest',
         sourceType: 'module',
         ecmaFeatures: {
@@ -27,19 +37,13 @@ export default [
       },
     },
     plugins: {
-      '@typescript-eslint': await import('@typescript-eslint/eslint-plugin'),
-      react: await import('eslint-plugin-react'),
-      'react-hooks': await import('eslint-plugin-react-hooks'),
-      'jsx-a11y': await import('eslint-plugin-jsx-a11y'),
-      import: await import('eslint-plugin-import'),
+      '@typescript-eslint': tsPlugin,
+      react: reactPlugin,
+      'react-hooks': reactHooksPlugin,
+      'jsx-a11y': jsxA11yPlugin,
+      import: importPlugin,
     },
     rules: {
-      ...(
-        await import('@typescript-eslint/eslint-plugin')
-      ).configs.recommended.rules,
-      ...(
-        await import('eslint-plugin-react')
-      ).configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
       'react-hooks/rules-of-hooks': 'error',

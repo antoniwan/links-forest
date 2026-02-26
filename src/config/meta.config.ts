@@ -1,6 +1,6 @@
-import type { Profile } from "../data/types";
-import { stripHtml } from "../utils/html";
-import { userSettings } from "./user-settings";
+import type { Profile } from '../data/types';
+import { stripHtml } from '../utils/html';
+import { userSettings } from './user-settings';
 
 /** Base URL configuration for the site */
 export const siteConfig = {
@@ -85,14 +85,12 @@ export interface MetaConfig {
  */
 export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
   // Ensure the URL is absolute by using the base URL if it's relative
-  const canonicalUrl = url.startsWith("http")
-    ? url
-    : `${siteConfig.baseUrl}${url}`;
+  const canonicalUrl = url.startsWith('http') ? url : `${siteConfig.baseUrl}${url}`;
   const socialLinks = [
     `https://www.linkedin.com/in/${siteConfig.social.linkedin}`,
     `https://www.instagram.com/${siteConfig.social.instagram}`,
     `https://www.facebook.com/${siteConfig.social.facebook}`,
-    `https://twitter.com/${siteConfig.social.twitter.replace("@", "")}`,
+    `https://twitter.com/${siteConfig.social.twitter.replace('@', '')}`,
   ];
 
   const og = siteConfig.seo.openGraph;
@@ -109,16 +107,15 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       language: siteConfig.seo.language,
       contentType: siteConfig.seo.contentType,
       author: profile.name,
-      generator: "LinkForest",
-      viewport: "width=device-width, initial-scale=1.0",
-      charset: "UTF-8",
+      generator: 'LinkForest',
+      viewport: 'width=device-width, initial-scale=1.0',
+      charset: 'UTF-8',
     },
 
     openGraph: {
       title: og?.title ?? `${profile.name} - ${siteConfig.siteName}`,
       description:
-        og?.description ??
-        (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription),
+        og?.description ?? (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription),
       type: og?.type ?? siteConfig.seo.contentType,
       image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       url: canonicalUrl,
@@ -133,11 +130,10 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
     },
 
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: og?.title ?? `${profile.name} - ${siteConfig.siteName}`,
       description:
-        og?.description ??
-        (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription),
+        og?.description ?? (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription),
       image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       creator: siteConfig.social.twitter,
       site: siteConfig.social.twitter,
@@ -148,15 +144,15 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       themeColor: siteConfig.themeColor,
       webAppCapable: true,
       appleWebAppCapable: true,
-      appleWebAppStatusBarStyle: "default",
+      appleWebAppStatusBarStyle: 'default',
       appleWebAppTitle: profile.name,
-      formatDetection: "telephone=no",
-      viewport: "width=device-width, initial-scale=1.0, viewport-fit=cover",
+      formatDetection: 'telephone=no',
+      viewport: 'width=device-width, initial-scale=1.0, viewport-fit=cover',
     },
 
     structuredData: siteConfig.seo.personStructuredData ?? {
-      "@context": "https://schema.org",
-      "@type": "Person",
+      '@context': 'https://schema.org',
+      '@type': 'Person',
       name: profile.name,
       description: stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription,
       url: canonicalUrl,

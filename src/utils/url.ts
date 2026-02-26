@@ -10,14 +10,14 @@ export function addUtmParams(
   url: string,
   source: string,
   medium: string,
-  campaign?: string
+  campaign?: string,
 ): string {
   try {
     const urlObj = new URL(url);
-    urlObj.searchParams.set("utm_source", source);
-    urlObj.searchParams.set("utm_medium", medium);
+    urlObj.searchParams.set('utm_source', source);
+    urlObj.searchParams.set('utm_medium', medium);
     if (campaign) {
-      urlObj.searchParams.set("utm_campaign", campaign);
+      urlObj.searchParams.set('utm_campaign', campaign);
     }
     return urlObj.toString();
   } catch (e) {

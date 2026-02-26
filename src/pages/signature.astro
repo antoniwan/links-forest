@@ -8,7 +8,7 @@ const { profile, links, social } = userConfig;
 const signatureLinks = links.slice(0, 2);
 
 // Get email from social links if available
-const emailLink = social.find(link => link.platform === 'email');
+const emailLink = social.find((link) => link.platform === 'email');
 const email = emailLink?.url.replace('mailto:', '') || '';
 
 // Function to clean email address (remove any UTM parameters)
@@ -16,9 +16,9 @@ function getCleanEmail(email: string): string {
   try {
     const urlObj = new URL(`mailto:${email}`);
     // Remove UTM parameters for display
-    urlObj.searchParams.delete("utm_source");
-    urlObj.searchParams.delete("utm_medium");
-    urlObj.searchParams.delete("utm_campaign");
+    urlObj.searchParams.delete('utm_source');
+    urlObj.searchParams.delete('utm_medium');
+    urlObj.searchParams.delete('utm_campaign');
     return urlObj.pathname.slice(1); // Remove leading slash
   } catch (e) {
     // If URL parsing fails, return original email
@@ -35,9 +35,9 @@ const emailUtmParams = 'utm_source=email&utm_medium=signature&utm_campaign=Perso
 function addEmailUtmParams(url: string): string {
   try {
     const urlObj = new URL(url);
-    urlObj.searchParams.set("utm_source", "email");
-    urlObj.searchParams.set("utm_medium", "signature");
-    urlObj.searchParams.set("utm_campaign", "PersonalEmail2025");
+    urlObj.searchParams.set('utm_source', 'email');
+    urlObj.searchParams.set('utm_medium', 'signature');
+    urlObj.searchParams.set('utm_campaign', 'PersonalEmail2025');
     return urlObj.toString();
   } catch (e) {
     // If URL parsing fails, return original URL
@@ -50,9 +50,9 @@ function getCleanDisplayUrl(url: string): string {
   try {
     const urlObj = new URL(url);
     // Remove UTM parameters for display
-    urlObj.searchParams.delete("utm_source");
-    urlObj.searchParams.delete("utm_medium");
-    urlObj.searchParams.delete("utm_campaign");
+    urlObj.searchParams.delete('utm_source');
+    urlObj.searchParams.delete('utm_medium');
+    urlObj.searchParams.delete('utm_campaign');
     return urlObj.hostname + urlObj.pathname;
   } catch (e) {
     // If URL parsing fails, return original URL without protocol
@@ -64,235 +64,236 @@ function getCleanDisplayUrl(url: string): string {
 const initialSignature = `
 <strong>${profile.name}</strong><br>
 <span style="font-size: 80%;">${stripHtml(profile.subtitle)}</span><br>
-${signatureLinks.map((link, index) => {
+${signatureLinks
+  .map((link, index) => {
     const emailUrl = addEmailUtmParams(link.url);
     const displayUrl = getCleanDisplayUrl(link.url);
     return `<a href="${emailUrl}" target="_blank">🌐 ${displayUrl}</a>${index < signatureLinks.length - 1 ? ' | ' : ''}`;
-}).join('')}<br>
+  })
+  .join('')}<br>
 ${cleanEmail ? `📬 ${cleanEmail}` : ''}
 `.trim();
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Email Signature - {profile.name}</title>
-    <meta name="robots" content="noindex, nofollow">
-    <meta
-      name="description"
-      content={`Personal email signature generator for ${profile.name}.`}
-    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content={`Personal email signature generator for ${profile.name}.`} />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-        .signature-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .signature-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .editor-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin: 32px 0;
+      }
+      .editor-section {
+        display: flex;
+        flex-direction: column;
+      }
+      .editor-section h3 {
+        margin: 0 0 16px 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #374151;
+      }
+      .html-editor {
+        width: 100%;
+        height: 150px;
+        font-family: 'Courier New', monospace;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        resize: vertical;
+      }
+      .signature-preview {
+        border: 1px solid #ddd;
+        padding: 24px;
+        background: white;
+        min-height: 120px;
+        font-family: Arial, sans-serif;
+        line-height: 1.7;
+        color: #333;
+        border-radius: 8px;
+      }
+      .signature-preview a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+      .signature-preview a:hover {
+        text-decoration: underline;
+      }
+      .button-group {
+        display: flex;
+        gap: 16px;
+        margin: 32px 0;
+      }
+      .button {
+        background: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.2s;
+      }
+      .button:hover {
+        background: #45a049;
+      }
+      .button.secondary {
+        background: #2196f3;
+      }
+      .button.secondary:hover {
+        background: #1976d2;
+      }
+      .instructions {
+        margin-top: 32px;
+        padding: 24px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        line-height: 1.6;
+      }
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 24px;
+        background: #333;
+        color: white;
+        border-radius: 4px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 1000;
+      }
+      .toast.show {
+        opacity: 1;
+      }
+      .toast.error {
+        background: #f44336;
+      }
+      .toast.success {
+        background: #4caf50;
+      }
+      @media (max-width: 768px) {
         .editor-container {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            margin: 32px 0;
-        }
-        .editor-section {
-            display: flex;
-            flex-direction: column;
-        }
-        .editor-section h3 {
-            margin: 0 0 16px 0;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #374151;
-        }
-        .html-editor {
-            width: 100%;
-            height: 150px;
-            font-family: 'Courier New', monospace;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            resize: vertical;
-        }
-        .signature-preview {
-            border: 1px solid #ddd;
-            padding: 24px;
-            background: white;
-            min-height: 120px;
-            font-family: Arial, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            border-radius: 8px;
-        }
-        .signature-preview a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        .signature-preview a:hover {
-            text-decoration: underline;
+          gap: 24px;
         }
         .button-group {
-            display: flex;
-            gap: 16px;
-            margin: 32px 0;
-        }
-        .button {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.2s;
-        }
-        .button:hover {
-            background: #45a049;
-        }
-        .button.secondary {
-            background: #2196F3;
-        }
-        .button.secondary:hover {
-            background: #1976D2;
+          flex-direction: column;
+          gap: 12px;
         }
         .instructions {
-            margin-top: 32px;
-            padding: 24px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            line-height: 1.6;
+          padding: 20px;
         }
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 12px 24px;
-            background: #333;
-            color: white;
-            border-radius: 4px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1000;
-        }
-        .toast.show {
-            opacity: 1;
-        }
-        .toast.error {
-            background: #f44336;
-        }
-        .toast.success {
-            background: #4CAF50;
-        }
-        @media (max-width: 768px) {
-            .editor-container {
-                gap: 24px;
-            }
-            .button-group {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .instructions {
-                padding: 20px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="signature-container">
-        <h1>Email Signature Generator</h1>
-        
-        <div class="editor-container">
-            <div class="editor-section">
-                <h3>HTML Editor</h3>
-                <textarea 
-                    id="htmlEditor" 
-                    class="html-editor" 
-                    spellcheck="false"
-                >{initialSignature}</textarea>
-            </div>
-            <div class="editor-section">
-                <h3>Preview</h3>
-                <div id="signature" class="signature-preview"></div>
-            </div>
-        </div>
+      <h1>Email Signature Generator</h1>
 
-        <div class="button-group">
-            <button class="button" onclick="copySignature()">Copy Signature</button>
-            <button class="button secondary" onclick="resetSignature()">Reset to Default</button>
+      <div class="editor-container">
+        <div class="editor-section">
+          <h3>HTML Editor</h3>
+          <textarea id="htmlEditor" class="html-editor" spellcheck="false"
+            >{initialSignature}</textarea
+          >
         </div>
+        <div class="editor-section">
+          <h3>Preview</h3>
+          <div id="signature" class="signature-preview"></div>
+        </div>
+      </div>
 
-        <div class="instructions">
-            <h3>Instructions:</h3>
-            <ol>
-                <li>Edit the HTML in the editor to customize your signature</li>
-                <li>See the preview update in real-time</li>
-                <li>Click "Copy Signature" to copy the HTML</li>
-                <li>Paste the signature into your email client's HTML editor</li>
-                <li>Save your signature</li>
-            </ol>
-            <p><strong>Note:</strong> Links automatically include email signature tracking parameters (utm_source=email&utm_medium=signature&utm_campaign=PersonalEmail2025) for analytics purposes.</p>
-        </div>
+      <div class="button-group">
+        <button class="button" onclick="copySignature()">Copy Signature</button>
+        <button class="button secondary" onclick="resetSignature()">Reset to Default</button>
+      </div>
+
+      <div class="instructions">
+        <h3>Instructions:</h3>
+        <ol>
+          <li>Edit the HTML in the editor to customize your signature</li>
+          <li>See the preview update in real-time</li>
+          <li>Click "Copy Signature" to copy the HTML</li>
+          <li>Paste the signature into your email client's HTML editor</li>
+          <li>Save your signature</li>
+        </ol>
+        <p>
+          <strong>Note:</strong> Links automatically include email signature tracking parameters (utm_source=email&utm_medium=signature&utm_campaign=PersonalEmail2025)
+          for analytics purposes.
+        </p>
+      </div>
     </div>
 
     <div id="toast" class="toast"></div>
 
     <script>
-        // @ts-nocheck
-        const htmlEditor = document.getElementById('htmlEditor');
-        const signature = document.getElementById('signature');
-        const toast = document.getElementById('toast');
+      // @ts-nocheck
+      const htmlEditor = document.getElementById('htmlEditor');
+      const signature = document.getElementById('signature');
+      const toast = document.getElementById('toast');
 
-        function updatePreview() {
-            if (!htmlEditor || !signature) return;
-            signature.innerHTML = htmlEditor.value;
+      function updatePreview() {
+        if (!htmlEditor || !signature) return;
+        signature.innerHTML = htmlEditor.value;
+      }
+
+      function showToast(message, type = 'success') {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.className = `toast ${type}`;
+        toast.classList.add('show');
+
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+
+      async function copySignature() {
+        if (!htmlEditor) return;
+        try {
+          await navigator.clipboard.writeText(htmlEditor.value);
+          showToast('Signature copied to clipboard!');
+        } catch (err) {
+          showToast('Failed to copy signature. Please try again.', 'error');
+          console.error('Copy failed:', err);
         }
+      }
 
-        function showToast(message, type = 'success') {
-            if (!toast) return;
-            toast.textContent = message;
-            toast.className = `toast ${type}`;
-            toast.classList.add('show');
+      function resetSignature() {
+        if (!htmlEditor) return;
+        htmlEditor.value = htmlEditor.defaultValue;
+        updatePreview();
+        showToast('Signature reset to default');
+      }
 
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        async function copySignature() {
-            if (!htmlEditor) return;
-            try {
-                await navigator.clipboard.writeText(htmlEditor.value);
-                showToast('Signature copied to clipboard!');
-            } catch (err) {
-                showToast('Failed to copy signature. Please try again.', 'error');
-                console.error('Copy failed:', err);
-            }
-        }
-
-        function resetSignature() {
-            if (!htmlEditor) return;
-            htmlEditor.value = htmlEditor.defaultValue;
-            updatePreview();
-            showToast('Signature reset to default');
-        }
-
-        if (htmlEditor) {
-            // Initial preview
-            updatePreview();
-            // Update preview on editor change
-            htmlEditor.addEventListener('input', updatePreview);
-        }
+      if (htmlEditor) {
+        // Initial preview
+        updatePreview();
+        // Update preview on editor change
+        htmlEditor.addEventListener('input', updatePreview);
+      }
     </script>
-</body>
-</html> 
+  </body>
+</html>
+

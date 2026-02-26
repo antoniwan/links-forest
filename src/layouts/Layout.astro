@@ -1,202 +1,214 @@
 ---
-import Analytics from "@vercel/analytics/astro";
-import { userConfig } from "../config/settings.loader";
-import { themeConfig } from "../config/theme.config";
-import { generateMetaConfig } from "../config/meta.config";
-import type { ThemeName } from "../data/theme.types";
-import { ProfilePicture } from "../components/ProfilePicture";
-import { LinkGrid } from "../components/LinkCard";
-import { SocialIcons } from "../components/SocialIcons";
-import { Footer } from "../components/Footer";
-import { dataLogger } from "../utils/logger";
-import { cssTransitions } from "../config/animations";
-import { Hero } from "../components/Hero";
+import Analytics from '@vercel/analytics/astro';
+import { userConfig } from '../config/settings.loader';
+import { themeConfig } from '../config/theme.config';
+import { generateMetaConfig } from '../config/meta.config';
+import type { ThemeName } from '../data/theme.types';
+import { ProfilePicture } from '../components/ProfilePicture';
+import { LinkGrid } from '../components/LinkCard';
+import { SocialIcons } from '../components/SocialIcons';
+import { Footer } from '../components/Footer';
+import { dataLogger } from '../utils/logger';
+import { cssTransitions } from '../config/animations';
+import { Hero } from '../components/Hero';
 
 const { profile, theme, links, secondaryLinks, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
 const meta = generateMetaConfig(profile, Astro.url.pathname);
 
 // Log the current theme
-dataLogger("Layout initialized with theme:", theme.active);
+dataLogger('Layout initialized with theme:', theme.active);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={meta.seo.language}>
-	<head>
-		<meta charset={meta.seo.charset} />
-		<title>{meta.openGraph.title}</title>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		
-		<!-- SEO Meta Tags -->
-		<meta name="description" content={meta.seo.description} />
-		<meta name="author" content={meta.seo.author} />
-		<meta name="keywords" content={meta.seo.keywords.join(', ')} />
-		<meta name="robots" content={meta.seo.robots} />
-		<meta name="language" content={meta.seo.language} />
-		<meta name="generator" content={meta.seo.generator} />
-		<link rel="canonical" href={meta.seo.canonical} />
-		
-		<!-- OpenGraph Meta Tags -->
-		<meta property="og:title" content={meta.openGraph.title} />
-		<meta property="og:description" content={meta.openGraph.description} />
-		<meta property="og:type" content={meta.openGraph.type} />
-		<meta property="og:image" content={meta.openGraph.image} />
-		<meta property="og:image:alt" content={meta.twitter.imageAlt} />
-		<meta property="og:image:width" content={meta.openGraph.imageWidth.toString()} />
-		<meta property="og:image:height" content={meta.openGraph.imageHeight.toString()} />
-		<meta property="og:url" content={meta.openGraph.url} />
-		<meta property="og:site_name" content={meta.openGraph.siteName} />
-		<meta property="og:locale" content={meta.openGraph.locale} />
-		{meta.openGraph.profileFirstName && (
-			<meta property="profile:first_name" content={meta.openGraph.profileFirstName} />
-		)}
-		{meta.openGraph.profileLastName && (
-			<meta property="profile:last_name" content={meta.openGraph.profileLastName} />
-		)}
-		{meta.openGraph.profileUsername && (
-			<meta property="profile:username" content={meta.openGraph.profileUsername} />
-		)}
-		{meta.openGraph.seeAlso.map(url => (
-			<meta property="og:see_also" content={url} />
-		))}
-		
-		<!-- Twitter Card Meta Tags -->
-		<meta name="twitter:card" content={meta.twitter.card} />
-		<meta name="twitter:title" content={meta.twitter.title} />
-		<meta name="twitter:description" content={meta.twitter.description} />
-		<meta name="twitter:image" content={meta.twitter.image} />
-		<meta name="twitter:image:alt" content={meta.twitter.imageAlt} />
-		<meta name="twitter:creator" content={meta.twitter.creator} />
-		<meta name="twitter:site" content={meta.twitter.site} />
-		
-		<!-- Mobile/App Meta Tags -->
-		<meta name="theme-color" content={meta.mobile.themeColor} />
-		<meta name="mobile-web-app-capable" content={meta.mobile.webAppCapable ? 'yes' : 'no'} />
-		<meta name="apple-mobile-web-app-capable" content={meta.mobile.appleWebAppCapable ? 'yes' : 'no'} />
-		<meta name="apple-mobile-web-app-status-bar-style" content={meta.mobile.appleWebAppStatusBarStyle} />
-		<meta name="apple-mobile-web-app-title" content={meta.mobile.appleWebAppTitle} />
-		<meta name="format-detection" content={meta.mobile.formatDetection} />
-		<meta name="viewport" content={meta.mobile.viewport} />
-		
-		<!-- Structured Data -->
-		<script type="application/ld+json" set:html={JSON.stringify(meta.structuredData)} />
-		
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-			<Analytics />
-	</head>
-	<body class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}>
-		<div class={`${currentTheme.colors.background} min-h-screen relative z-10 ${cssTransitions.smooth}`}>
-			<div class="page-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-				<header class="mb-12 lg:mb-20">
-					<Hero
-						name={profile.name}
-						image={profile.image}
-						subtitle={profile.subtitle}
-					/>
-				</header>
+  <head>
+    <meta charset={meta.seo.charset} />
+    <title>{meta.openGraph.title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-				<main class="flex flex-col gap-16">
-					<LinkGrid
-						client:load
-						links={links}
-						accentColor={currentTheme.colors.accent}
-						variant="primary"
-					/>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content={meta.seo.description} />
+    <meta name="author" content={meta.seo.author} />
+    <meta name="keywords" content={meta.seo.keywords.join(', ')} />
+    <meta name="robots" content={meta.seo.robots} />
+    <meta name="language" content={meta.seo.language} />
+    <meta name="generator" content={meta.seo.generator} />
+    <link rel="canonical" href={meta.seo.canonical} />
 
-					{secondaryLinks && secondaryLinks.length > 0 && (
-						<LinkGrid
-							client:load
-							links={secondaryLinks}
-							accentColor={currentTheme.colors.accent}
-							variant="secondary"
-						/>
-					)}
-				</main>
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content={meta.openGraph.title} />
+    <meta property="og:description" content={meta.openGraph.description} />
+    <meta property="og:type" content={meta.openGraph.type} />
+    <meta property="og:image" content={meta.openGraph.image} />
+    <meta property="og:image:alt" content={meta.twitter.imageAlt} />
+    <meta property="og:image:width" content={meta.openGraph.imageWidth.toString()} />
+    <meta property="og:image:height" content={meta.openGraph.imageHeight.toString()} />
+    <meta property="og:url" content={meta.openGraph.url} />
+    <meta property="og:site_name" content={meta.openGraph.siteName} />
+    <meta property="og:locale" content={meta.openGraph.locale} />
+    {
+      meta.openGraph.profileFirstName && (
+        <meta property="profile:first_name" content={meta.openGraph.profileFirstName} />
+      )
+    }
+    {
+      meta.openGraph.profileLastName && (
+        <meta property="profile:last_name" content={meta.openGraph.profileLastName} />
+      )
+    }
+    {
+      meta.openGraph.profileUsername && (
+        <meta property="profile:username" content={meta.openGraph.profileUsername} />
+      )
+    }
+    {meta.openGraph.seeAlso.map((url) => <meta property="og:see_also" content={url} />)}
 
-				<footer class={`mt-20 pt-12 border-t ${currentTheme.styles.border}`}>
-					<div class="space-y-12">
-						<SocialIcons 
-							client:load
-							socialLinks={social}
-						/>
-						<Footer client:load />
-					</div>
-				</footer>
-			</div>
-		</div>
-		<script is:inline>
-			if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
-				window.addEventListener('load', function () {
-					navigator.serviceWorker.register('/sw.js').catch(function () {});
-				});
-			}
-		</script>
-	</body>
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content={meta.twitter.card} />
+    <meta name="twitter:title" content={meta.twitter.title} />
+    <meta name="twitter:description" content={meta.twitter.description} />
+    <meta name="twitter:image" content={meta.twitter.image} />
+    <meta name="twitter:image:alt" content={meta.twitter.imageAlt} />
+    <meta name="twitter:creator" content={meta.twitter.creator} />
+    <meta name="twitter:site" content={meta.twitter.site} />
+
+    <!-- Mobile/App Meta Tags -->
+    <meta name="theme-color" content={meta.mobile.themeColor} />
+    <meta name="mobile-web-app-capable" content={meta.mobile.webAppCapable ? 'yes' : 'no'} />
+    <meta
+      name="apple-mobile-web-app-capable"
+      content={meta.mobile.appleWebAppCapable ? 'yes' : 'no'}
+    />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content={meta.mobile.appleWebAppStatusBarStyle}
+    />
+    <meta name="apple-mobile-web-app-title" content={meta.mobile.appleWebAppTitle} />
+    <meta name="format-detection" content={meta.mobile.formatDetection} />
+    <meta name="viewport" content={meta.mobile.viewport} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(meta.structuredData)} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <Analytics />
+  </head>
+  <body
+    class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}
+  >
+    <div
+      class={`${currentTheme.colors.background} min-h-screen relative z-10 ${cssTransitions.smooth}`}
+    >
+      <div class="page-content mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+        <header class="mb-12 lg:mb-20">
+          <Hero name={profile.name} image={profile.image} subtitle={profile.subtitle} />
+        </header>
+
+        <main class="flex flex-col gap-16">
+          <LinkGrid
+            client:load
+            links={links}
+            accentColor={currentTheme.colors.accent}
+            variant="primary"
+          />
+
+          {
+            secondaryLinks && secondaryLinks.length > 0 && (
+              <LinkGrid
+                client:load
+                links={secondaryLinks}
+                accentColor={currentTheme.colors.accent}
+                variant="secondary"
+              />
+            )
+          }
+        </main>
+
+        <footer class={`mt-20 pt-12 border-t ${currentTheme.styles.border}`}>
+          <div class="space-y-12">
+            <SocialIcons client:load socialLinks={social} />
+            <Footer client:load />
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script is:inline>
+      if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').catch(function () {});
+        });
+      }
+    </script>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-	/* Smooth scrolling */
-	html {
-		scroll-behavior: smooth;
-	}
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
 
-	/* Better text rendering */
-	body {
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		text-rendering: optimizeLegibility;
-	}
+  /* Better text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
 
-	/* Improved focus styles */
-	:focus-visible {
-		outline: 2px solid currentColor;
-		outline-offset: 2px;
-	}
+  /* Improved focus styles */
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
 
-	/* Improved selection styles */
-	::selection {
-		background-color: rgba(0, 0, 0, 0.1);
-	}
+  /* Improved selection styles */
+  ::selection {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 
-	.dark ::selection {
-		background-color: rgba(255, 255, 255, 0.1);
-	}
+  .dark ::selection {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 
-	/* Page content animation */
-	.page-content {
-		animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-	}
+  /* Page content animation */
+  .page-content {
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-			transform: translateY(10px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-	/* Reduced motion */
-	@media (prefers-reduced-motion: reduce) {
-		.page-content {
-			animation: none;
-		}
-		* {
-			animation-duration: 0.01ms !important;
-			animation-iteration-count: 1 !important;
-			transition-duration: 0.01ms !important;
-			scroll-behavior: auto !important;
-		}
-	}
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .page-content {
+      animation: none;
+    }
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>

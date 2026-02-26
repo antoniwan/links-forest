@@ -7,15 +7,15 @@
 /**
  * Available size options for UI components
  */
-export type Size = "sm" | "md" | "lg";
+export type Size = 'sm' | 'md' | 'lg';
 
 /**
  * Size configuration for UI components
  */
 export const sizeClasses = {
-  sm: "w-16 h-16 text-lg",
-  md: "w-32 h-32 text-2xl",
-  lg: "w-48 h-48 text-4xl",
+  sm: 'w-16 h-16 text-lg',
+  md: 'w-32 h-32 text-2xl',
+  lg: 'w-48 h-48 text-4xl',
 } as const;
 
 /**
@@ -44,17 +44,17 @@ export const sizeConfig: Record<Size, SizeConfig> = {
   sm: {
     width: 64,
     height: 64,
-    fontSize: "text-lg",
+    fontSize: 'text-lg',
   },
   md: {
     width: 128,
     height: 128,
-    fontSize: "text-2xl",
+    fontSize: 'text-2xl',
   },
   lg: {
     width: 192,
     height: 192,
-    fontSize: "text-4xl",
+    fontSize: 'text-4xl',
   },
 } as const;
 
@@ -81,7 +81,7 @@ export const defaultAnimation: AnimationConfig = {
   whileTap: { scale: 0.95 },
   transition: {
     duration: 0.3,
-    type: "spring",
+    type: 'spring',
     stiffness: 400,
     damping: 10,
   },
