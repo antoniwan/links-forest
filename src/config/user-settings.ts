@@ -256,6 +256,13 @@ export const userSettings: UserSettings = {
       category: "book",
     },
     {
+      title: "React Hooks Explorer",
+      url: "https://myreacthooks.antoniwan.online/",
+      description:
+        "Personal workspace for React hooks, custom hooks, and patterns used for learning and POCs.",
+      category: "code",
+    },
+    {
       title: "Strong Hands, Soft Heart Consulting",
       url: "https://consulting.stronghandssoftheart.com/",
       description: "AI & engineering consulting for founders, product leaders, and ICs",
@@ -278,13 +285,6 @@ export const userSettings: UserSettings = {
       url: "https://bsky.app/profile/antoniwan.online",
       description: "Stream of consciousness and public identity",
       category: "lifestyle",
-    },
-    {
-      title: "React Hooks Explorer",
-      url: "https://myreacthooks.antoniwan.online/",
-      description:
-        "Personal workspace for React hooks, custom hooks, and patterns used for learning and POCs.",
-      category: "code",
     },
   ],
   secondaryLinks: [
