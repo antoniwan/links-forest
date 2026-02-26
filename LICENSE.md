@@ -8,24 +8,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 
 ---
 
-## 🌿 LinksForest Licensing Intent
+## Intent
 
-This project is not just open-source — it's open-soul.
-
-You are _encouraged_ to:
-
-- Fork it, remix it, and publish your own version
-- Replace Linktree, Carrd, or any proprietary link page builder
-- Share it freely, teach others to host it, or build niche themes on top of it
-
-The only request is this:
-
-> Don't resell or gatekeep this project behind paywalls without credit.  
-> Make it better — and keep it free.
-
-LinksForest is a gift for digital sovereignty, for the collective.  
-Join the forest 🌲
+You may fork, modify, and use this project for personal or commercial use under the MIT license. The author encourages sharing and building on it. Please do not resell or redistribute it as a paid product without clear credit to the original project.
 
 ---
 
-[← Go back to README](./README.md)
+[Back to README](./README.md)

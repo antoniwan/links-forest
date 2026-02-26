@@ -1,10 +1,8 @@
-# 🌐 How to Self-Host LinksForest
+# Self-hosting LinksForest
 
-Ditch Linktree. Own your links. Here's how to self-host your **LinksForest** page on Vercel or Netlify in 5 minutes.
+How to build and deploy LinksForest on Vercel or Netlify.
 
----
-
-## ⚙️ Prerequisites
+## Prerequisites
 
 - A GitHub account
 - A free [Vercel](https://vercel.com/) or [Netlify](https://netlify.com/) account
@@ -13,9 +11,9 @@ Ditch Linktree. Own your links. Here's how to self-host your **LinksForest** pag
 
 ---
 
-## 🚀 Option 1: Vercel (Recommended)
+## Option 1: Vercel
 
-### 1. Fork the Repo
+### 1. Fork the repo
 
 Click "Fork" on [GitHub](https://github.com/antoniwan/links-forest) to create your copy.
 
@@ -23,13 +21,10 @@ Click "Fork" on [GitHub](https://github.com/antoniwan/links-forest) to create yo
 
 - Go to [vercel.com/new](https://vercel.com/new)
 - Connect your GitHub repo
-- Vercel will automatically detect Astro and configure the build settings:
-  - **Framework Preset**: Astro
-  - **Build Command**: `npm run build`
-  - **Output Directory**: `dist`
-- Click "Deploy"
+- Vercel usually detects Astro. Set build command to `pnpm run build` and output directory to `dist`.
+- Click Deploy.
 
-### 3. Add Your Domain
+### 3. Add a custom domain (optional)
 
 - Go to your project dashboard
 - Navigate to Settings → Domains
@@ -38,22 +33,20 @@ Click "Fork" on [GitHub](https://github.com/antoniwan/links-forest) to create yo
 
 ---
 
-## 🌍 Option 2: Netlify
+## Option 2: Netlify
 
-### 1. Fork the Repo
+### 1. Fork the repo
 
-Same as Vercel — fork it on GitHub.
+Fork the repo on GitHub (same as for Vercel).
 
 ### 2. Deploy on Netlify
 
 - Go to [app.netlify.com/start](https://app.netlify.com/start)
-- Connect your GitHub account and select your LinksForest repo
-- Configure build settings:
-  - **Build command**: `npm run build`
-  - **Publish directory**: `dist`
-- Click "Deploy site"
+- Connect GitHub and select your LinksForest repo
+- Build command: `pnpm run build`. Publish directory: `dist`.
+- Click Deploy site.
 
-### 3. Add Custom Domain
+### 3. Add a custom domain (optional)
 
 - Go to Site Settings → Domain management
 - Click "Add custom domain"
@@ -61,132 +54,67 @@ Same as Vercel — fork it on GitHub.
 
 ---
 
-## ✨ Customize Your Forest
+## Customize after deploy
 
-### 1. **Update Configuration**
+### 1. Update configuration
 
 - Open `src/config/user-settings.ts`
 - Customize your profile, links, theme, and site settings
 - All UTM parameters are automatically added to your links
 - Commit and push your changes
 
-### 2. **Add Your Assets**
+### 2. Add assets
 
 - Place your profile picture in `public/` (referenced as `profile-picture.avif`)
 - Add a default share image as `public/default-share.jpg`
 - Update the favicon at `public/favicon.svg`
 
-### 3. **Configure Environment (Optional)**
+### 3. Environment variables (optional)
 
 - Add environment variables in your hosting platform
 - Common variables:
   - `DEBUG`: Enable logging (e.g., `links-forest:*`)
   - `ANALYTICS_ID`: Your Vercel Analytics ID
 
-### 4. **Test Your Changes**
+### 4. Test locally
 
-- Run `npm run dev` locally
-- Visit `http://localhost:4321`
-- Test the email signature generator at `http://localhost:4321/signature`
-- Verify all features work as expected
+Run `pnpm run dev`, open `http://localhost:4321`, and check the main page and `/signature` before pushing.
 
----
-
-## 🌟 Features Included
-
-### **Core Features**
-
-- ✅ 10 archetypal themes (Builder, Wolf, Mystic, Dragon, Artist, Warrior, Healer, Alchemist, Strategist, Steward)
-- ✅ Responsive design with mobile-first approach
-- ✅ Framer Motion animations and transitions
-- ✅ Automatic UTM parameter tracking
-- ✅ Comprehensive SEO meta tags
-- ✅ OpenGraph and Twitter Card support
-- ✅ Vercel Analytics integration
-
-### **Advanced Features**
-
-- ✅ Email signature generator (`/signature`)
-- ✅ Secondary links section
-- ✅ Social media icons with hover effects
-- ✅ Link categorization
-- ✅ Reduced motion support
-- ✅ Comprehensive logging system
-- ✅ TypeScript support
-
-### **SEO & Performance**
-
-- ✅ Structured data for better search results
-- ✅ Mobile and app-specific meta tags
-- ✅ Fast static builds with no server cost
-- ✅ Optimized images and assets
-- ✅ Accessibility features
-
----
-
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
-1. **Build Fails**
-   - Check Node.js version (use 18+ LTS version)
-   - Run `npm install` locally to verify dependencies
-   - Check build logs in your hosting platform
-   - Ensure all TypeScript types are correct
+1. **Build fails**
+   - Use Node.js 18 or newer (LTS recommended)
+   - Run `pnpm install` locally and then `pnpm run build` to reproduce
+   - Check the build logs on Vercel or Netlify
 
-2. **Domain Not Working**
-   - Verify DNS settings
-   - Wait for DNS propagation (can take up to 48 hours)
-   - Check SSL certificate status
-   - Ensure domain is properly configured in hosting platform
+2. **Domain not working** — Check DNS and domain settings in the host dashboard. Propagation can take up to 48 hours.
 
-3. **Analytics Not Working**
-   - Verify Vercel Analytics integration
-   - Check for ad blockers
-   - Ensure proper environment variables
-   - Check browser console for errors
+3. **Analytics not working** — Confirm Vercel Analytics is enabled and that ad blockers or privacy settings are not blocking it.
 
-4. **Theme Not Loading**
-   - Verify theme name in `user-settings.ts` matches available themes
-   - Check browser console for JavaScript errors
-   - Ensure all theme assets are properly referenced
+4. **Theme not loading** — Ensure `theme.active` in `user-settings.ts` matches one of the theme names (e.g. `builder`, `wolf`, `mystic`).
 
-5. **Email Signature Generator Issues**
-   - Verify you have at least 2 links configured
-   - Check that email is properly configured in social links
-   - Ensure clipboard API is supported in your browser
+5. **Signature page** — Needs at least two links and (optionally) an email in the social links. Clipboard works in secure contexts (HTTPS or localhost).
 
-### **Local Development**
+### Local commands
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+pnpm install
+pnpm run dev
+pnpm run build
+pnpm run preview
 ```
 
-### **Debugging**
-
-Enable detailed logging for troubleshooting:
+### Logging
 
 ```bash
-# Enable all logs
-DEBUG=links-forest:* npm run dev
-
-# Enable specific namespaces
-DEBUG=links-forest:config,links-forest:component npm run dev
+DEBUG=links-forest:* pnpm run dev
+# Or specific namespaces:
+DEBUG=links-forest:config,links-forest:component pnpm run dev
 ```
 
----
-
-## 📁 Project Structure
+## Project structure
 
 ```
 links-forest/
@@ -205,13 +133,11 @@ links-forest/
 └── tailwind.config.mjs   # Tailwind configuration
 ```
 
----
+## Customization
 
-## 🎨 Customization Options
+### Themes
 
-### **Themes**
-
-Choose from 10 archetypal themes, each with unique colors and characteristics:
+Ten themes are available; each has its own colors and typography:
 
 - **Builder**: Stone and amber tones
 - **Wolf**: Cool grays and blues
@@ -224,23 +150,10 @@ Choose from 10 archetypal themes, each with unique colors and characteristics:
 - **Strategist**: Blue and cyan tones
 - **Steward**: Green and lime tones
 
-### **Configuration**
+### Configuration
 
-- Profile information (name, subtitle, image)
-- Main and secondary links with categories
-- Social media links with icons
-- Site settings (SEO, meta tags, social handles)
-- Automatic UTM parameter handling
+All editing is done in `src/config/user-settings.ts`: profile (name, subtitle, image), main and secondary links, social links, site/SEO settings. UTM parameters are added automatically to links.
 
 ---
 
-## 🤝 Support Sovereignty
-
-This project is intentionally open-source. Please don't hoard it.  
-**Teach others. Fork it. Theme it. Share it.**
-
-> Let the forest grow 🌱
-
----
-
-[← Go back to README](./README.md)
+[Back to README](./README.md)

@@ -1,10 +1,8 @@
-# 🌲 LinksForest
+# LinksForest
 
-**A sovereign, archetypal digital interface**  
-A minimalist, themed link-sharing platform powered by Astro, Tailwind, and Framer Motion.  
-Built to express your full self — in all your evolving forms.
+A minimalist, themed link-sharing platform. Built with Astro, Tailwind CSS, and Framer Motion. You edit one config file to set your profile, links, theme, and socials; the site builds as static HTML.
 
-## 🚀 Quick Start: Personalize Your Page
+## Quick Start
 
 1. **Edit Your Profile**
    - Open `src/config/user-settings.ts`
@@ -69,27 +67,7 @@ Built to express your full self — in all your evolving forms.
    ```
    Deploy the `dist` folder to your hosting provider
 
-## 🔥 The Vision
-
-LinksForest isn't just a tool. It's a **living, personal interface** that shifts with your energy.  
-Choose from 10 unique archetypes that reflect different modes of being — from builder to mystic to steward.
-
-Each archetype comes with its own **themed UI** and micro-interactions.
-
-## ✊ Inclusivity Statement
-
-We believe in building technology that reflects the **whole spectrum of humanity**.
-
-Each archetype in LinksForest is intentionally:
-
-- **Gender-neutral** (these are energies, not identities)
-- **Culturally flexible** (symbols, not stereotypes)
-- **Accessible to all** (through design, code, and intention)
-
-> LinksForest is a sacred space for authentic expression.  
-> Everyone is welcome in this forest.
-
-## 🧠 Archetypes (Themes)
+## Themes
 
 | Archetype      | Energetic Mode | Description                    | Colors & Characteristics |
 | -------------- | -------------- | ------------------------------ | ------------------------ |
@@ -104,7 +82,7 @@ Each archetype in LinksForest is intentionally:
 | The Strategist | Mind           | Planning, clarity, vision      | Blue and cyan tones      |
 | The Steward    | Legacy         | Care, generational vision      | Green and lime tones     |
 
-## 🚀 Features
+## Features
 
 - [x] Themed layout engine via config
 - [x] Archetype-based Tailwind presets
@@ -133,11 +111,11 @@ Each archetype in LinksForest is intentionally:
 - [ ] Optional: dynamic link metrics
 - [x] Supports self-hosting via Netlify or Vercel (see [Self-Hosting Guide](./SELF-HOSTING.md))
 
-## 🔧 Tech Stack
+## Tech Stack
 
 Astro, React, Tailwind CSS, Framer Motion, and TypeScript. Vercel Analytics for tracking; deploy to Vercel or Netlify. See `package.json` for current versions.
 
-## 🗺️ Project Structure
+## Project Structure
 
 ```txt
 /
@@ -169,7 +147,7 @@ Astro, React, Tailwind CSS, Framer Motion, and TypeScript. Vercel Analytics for 
 └── tsconfig.json         # TypeScript configuration
 ```
 
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -183,26 +161,20 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm run lint:fix` | Run ESLint and try to fix problems automatically |
 | `pnpm run format`   | Format files with Prettier                       |
 
-## 🛠️ Service worker
+## Service worker
 
 - The file `public/sw.js` is a simple service worker and is **registered by default** from the main layout.
 - It caches the favicon and the pages you visit while you are online.
 - When you are offline, it can serve cached pages and assets from the browser cache.
 - It only handles `GET` requests on the same origin.
 
-## 🔍 Debugging and Logging
+## Debugging and logging
 
-LinksForest includes a comprehensive logging system to help with development and debugging. Logs are automatically enabled in development mode.
+A logging system is included for development. Logs are on in dev by default.
 
-### Available Log Namespaces
+Log namespaces: `links-forest:config`, `links-forest:layout`, `links-forest:page`, `links-forest:component`, `links-forest:data`.
 
-- `links-forest:config` - Configuration loading and changes
-- `links-forest:layout` - Layout rendering and updates
-- `links-forest:page` - Page loading and rendering
-- `links-forest:component` - Component lifecycle events
-- `links-forest:data` - Data loading and processing
-
-### Enabling Logs
+To turn on logs (e.g. in production):
 
 In development mode, all logs are enabled by default. To enable specific namespaces in production:
 
@@ -214,29 +186,18 @@ DEBUG=links-forest:* pnpm run dev
 DEBUG=links-forest:config,links-forest:component pnpm run dev
 ```
 
-### Viewing Logs
+Logs show in the browser console and in the terminal when the dev server is running.
 
-Logs will appear in your browser's console and terminal when running the development server.
+## Documentation
 
-## 📚 Documentation
+- [Self-Hosting Guide](./SELF-HOSTING.md) — deploy on Vercel or Netlify
+- [License](./LICENSE.md) — MIT license and project intent
+- [Astro](https://docs.astro.build) · [Tailwind CSS](https://tailwindcss.com/docs) · [TypeScript](https://www.typescriptlang.org/docs/)
 
-- [Self-Hosting Guide](./SELF-HOSTING.md) — kill Linktree and go sovereign
-- [License](./LICENSE.md) — open-source + open-intent
-- [Astro Documentation](https://docs.astro.build)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+## Contributing
 
-## 🤝 Contributing
+Issues and pull requests are welcome. Useful contributions include new themes, accessibility fixes, and clearer docs.
 
-Feel free to submit issues and enhancement requests!
+## License
 
-We especially welcome:
-
-- New themes and archetypes
-- Accessibility improvements
-- Guides and tutorials for non-technical creators
-
-## 📄 License
-
-This project is licensed under the MIT License.  
-See [`LICENSE.md`](./LICENSE.md) for more details and our community values.
+MIT. See [LICENSE.md](./LICENSE.md) for the full text and project intent.
