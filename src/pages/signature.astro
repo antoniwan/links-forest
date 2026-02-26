@@ -1,5 +1,6 @@
 ---
 import { userConfig } from '../config/settings.loader';
+import { stripHtml } from '../utils/html';
 
 const { profile, links, social } = userConfig;
 
@@ -62,7 +63,7 @@ function getCleanDisplayUrl(url: string): string {
 // Generate initial signature HTML
 const initialSignature = `
 <strong>${profile.name}</strong><br>
-<span style="font-size: 80%;">${profile.subtitle}</span><br>
+<span style="font-size: 80%;">${stripHtml(profile.subtitle)}</span><br>
 ${signatureLinks.map((link, index) => {
     const emailUrl = addEmailUtmParams(link.url);
     const displayUrl = getCleanDisplayUrl(link.url);

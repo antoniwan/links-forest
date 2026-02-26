@@ -1,4 +1,5 @@
 import type { Profile } from "../data/types";
+import { stripHtml } from "../utils/html";
 import { userSettings } from "./user-settings";
 
 /** Base URL configuration for the site */
@@ -101,7 +102,7 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
     seo: {
       description:
         siteConfig.seo.metaDescription ??
-        (profile.subtitle || siteConfig.seo.defaultDescription),
+        (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription),
       keywords: [...siteConfig.seo.defaultKeywords],
       robots: siteConfig.seo.robots,
       canonical: canonicalUrl,
@@ -117,7 +118,7 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       title: og?.title ?? `${profile.name} - ${siteConfig.siteName}`,
       description:
         og?.description ??
-        (profile.subtitle || siteConfig.seo.defaultDescription),
+        (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription),
       type: og?.type ?? siteConfig.seo.contentType,
       image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       url: canonicalUrl,
@@ -136,7 +137,7 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       title: og?.title ?? `${profile.name} - ${siteConfig.siteName}`,
       description:
         og?.description ??
-        (profile.subtitle || siteConfig.seo.defaultDescription),
+        (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription),
       image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       creator: siteConfig.social.twitter,
       site: siteConfig.social.twitter,
@@ -157,7 +158,7 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       "@context": "https://schema.org",
       "@type": "Person",
       name: profile.name,
-      description: profile.subtitle || siteConfig.seo.defaultDescription,
+      description: stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription,
       url: canonicalUrl,
       image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
       sameAs: socialLinks,

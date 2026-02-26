@@ -6,6 +6,7 @@ import { themeConfig } from "../config/theme.config";
 interface HeroProps {
   name: string;
   image?: string;
+  /** Subtitle/tagline; may contain simple HTML (e.g. <sup>4</sup>) */
   subtitle?: string;
 }
 
@@ -38,9 +39,8 @@ export const Hero: React.FC<HeroProps> = ({ name, image, subtitle }) => {
         {subtitle && (
           <p
             className={`text-lg sm:text-xl lg:text-2xl max-w-2xl leading-relaxed animate-fade-in-up delay-100 ${currentTheme.colors.text} opacity-80`}
-          >
-            {subtitle}
-          </p>
+            dangerouslySetInnerHTML={{ __html: subtitle }}
+          />
         )}
       </div>
       {/* Animation styles moved to global.css */}

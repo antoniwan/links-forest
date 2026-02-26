@@ -90,7 +90,11 @@ dataLogger("Layout initialized with theme:", theme.active);
 		<div class={`${currentTheme.colors.background} min-h-screen relative z-10 ${cssTransitions.smooth}`}>
 			<div class="page-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
 				<header class="mb-12 lg:mb-20">
-					<Hero name={profile.name} image={profile.image} subtitle={profile.subtitle} />
+					<Hero
+						name={profile.name}
+						image={profile.image}
+						subtitle={profile.subtitle}
+					/>
 				</header>
 
 				<main class="flex flex-col gap-16">

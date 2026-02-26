@@ -23,7 +23,7 @@ export type ProfilePictureFallback = "initials" | "avatar";
 export interface Profile {
   /** User's full name */
   name: string;
-  /** Short subtitle or tagline */
+  /** Short subtitle or tagline; may contain simple HTML (e.g. <sup>, <em>). Plain text is used for SEO and signature. */
   subtitle: string;
   /** Optional profile picture filename */
   image?: string;

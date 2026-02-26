@@ -126,7 +126,7 @@ export interface UserSettings {
 export const userSettings: UserSettings = {
   profile: {
     name: "Antonio Rodríguez Martínez",
-    subtitle: "Father ✨ Builder 🧠 Systems Thinker",
+    subtitle: "Father<sup>4</sup> ✨ Builder 🧠 Systems Thinker",
     image: "profile-picture.avif",
   },
   theme: {
