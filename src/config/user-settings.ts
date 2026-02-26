@@ -255,6 +255,13 @@ export const userSettings: UserSettings = {
       category: 'book',
     },
     {
+      title: 'My Prompt Library',
+      url: 'https://mpl.antoniwan.online/',
+      description:
+        'Plain-text prompts in Markdown, stored in Git. Easy to read, copy, and adapt in your own tools. No lock-in.',
+      category: 'book',
+    },
+    {
       title: 'React Hooks Explorer',
       url: 'https://my-react-hooks.antoniwan.online/',
       description:
