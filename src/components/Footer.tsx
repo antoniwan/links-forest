@@ -1,13 +1,14 @@
 import packageJson from '../../package.json';
-import { userConfig } from '../config/settings.loader';
 import { themeConfig } from '../config/theme.config';
+import type { ThemeName } from '../data/theme.types';
 
 interface FooterProps {
   className?: string;
+  themeName: ThemeName;
 }
 
-export const Footer = ({ className = '' }: FooterProps) => {
-  const currentTheme = themeConfig[userConfig.theme.active];
+export const Footer = ({ className = '', themeName }: FooterProps) => {
+  const currentTheme = themeConfig[themeName];
 
   return (
     <div className={`pt-2 text-center ${className}`}>

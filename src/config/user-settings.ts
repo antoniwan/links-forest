@@ -8,65 +8,38 @@
 /**
  * 🎨 Available Themes
  *
- * Choose from 10 unique archetypal themes that reflect different modes of being.
- * Each theme comes with its own typography, colors, and visual characteristics.
+ * Shared system (white + zinc) with drama in motion, accent rails, and type.
  *
- * To change your theme, update the `theme.active` property below with one of these values:
+ * Type pairings:
+ *   IBM Plex Sans + JetBrains Mono  — builder, forge
+ *   Space Grotesk                   — wolf
+ *   Fraunces                        — mystic
+ *   DM Sans                         — dragon, warrior
+ *   Newsreader                      — artist, poet
+ *   Manrope                         — healer, monk
+ *   EB Garamond                     — alchemist
+ *   Outfit                          — strategist
+ *   Literata                        — steward
  *
- * 🏗️  "builder"    - The Builder: Creation, systems, form
- *                    Typography: JetBrains Mono (monospace)
- *                    Colors: Stone and amber tones
- *                    Energy: Technical, systematic, structured
+ * Motion personalities: snap, stalk, drift, strike, flourish, lock,
+ * breathe, transmute, align, rise
  *
- * 🐺  "wolf"       - The Wolf: Instinct, loyalty, protection
- *                    Typography: Space Grotesk (sans-serif)
- *                    Colors: Slate and blue tones
- *                    Energy: Instinctual, loyal, protective
+ * ◇  "builder"    — amber · systems · snap / left rail
+ * ○  "wolf"       — blue · instinct · stalk / slash
+ * ✧  "mystic"     — indigo · depth · drift / glow
+ * ▣  "dragon"     — orange · force · strike / frame
+ * ◻  "artist"     — rose · expression · flourish / bottom
+ * ▪  "warrior"    — bronze · precision · lock / left
+ * ◌  "healer"     — teal · care · breathe / glow
+ * ◈  "alchemist"  — violet · change · transmute / slash
+ * ▢  "strategist" — sky · clarity · align / bottom
+ * ◎  "steward"    — green · legacy · rise / frame
+ * ¶  "poet"       — stone · language · drift / glow
+ * ·  "monk"       — zinc · restraint · breathe / glow
+ * ⌁  "forge"      — ember · making · snap / left
  *
- * 🔮  "mystic"     - The Mystic: Spirituality, vision, cosmic threads
- *                    Typography: Fraunces (serif, italic)
- *                    Colors: Deep purples and indigos
- *                    Energy: Spiritual, visionary, mystical
- *
- * 🐉  "dragon"     - The Dragon: Power, force, will
- *                    Typography: Cinzel (serif)
- *                    Colors: Rich reds and oranges
- *                    Energy: Powerful, forceful, transformative
- *
- * 🎨  "artist"     - The Artist: Expression, creativity, truth
- *                    Typography: Playfair Display (serif)
- *                    Colors: Pink and rose tones
- *                    Energy: Creative, expressive, beautiful
- *
- * ⚔️  "warrior"    - The Warrior: Prestige, precision, cleanliness
- *                    Typography: DM Sans + Bebas Neue display
- *                    Colors: Slate and bronze tones
- *                    Energy: Prestigious, precise, clean
- *
- * 💫  "healer"     - The Healer: Regeneration, soothing, connection
- *                    Typography: Nunito (sans-serif)
- *                    Colors: Emerald and teal tones
- *                    Energy: Soothing, nurturing, connecting
- *
- * 🧪  "alchemist"  - The Alchemist: Transformation, elements, ritual
- *                    Typography: EB Garamond (serif)
- *                    Colors: Violet and purple tones
- *                    Energy: Transformative, elemental, ritualistic
- *
- * 🧠  "strategist" - The Strategist: Mind, planning, clarity
- *                    Typography: Outfit (sans-serif)
- *                    Colors: Blue and cyan tones
- *                    Energy: Strategic, clear, analytical
- *
- * 🌱  "steward"    - The Steward: Legacy, care, generational vision
- *                    Typography: Literata (serif)
- *                    Colors: Green and lime tones
- *                    Energy: Nurturing, legacy-focused, caring
- *
- * Example usage:
- *   theme: {
- *     active: "strategist", // Change this to any theme name above
- *   }
+ * Example:
+ *   theme: { active: "warrior" }
  */
 
 import type { ThemeName } from '../data/theme.types';

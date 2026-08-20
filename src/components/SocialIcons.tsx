@@ -2,17 +2,22 @@ import { motion } from 'framer-motion';
 import type { FC } from 'react';
 import type { SocialLink } from '../data/types';
 import { socialIconMap } from '../data/icons';
-import { interactions, transitions } from '../config/animations';
-import { userConfig } from '../config/settings.loader';
 import { themeConfig } from '../config/theme.config';
+import type { ThemeName } from '../data/theme.types';
 
 interface SocialIconsProps {
   socialLinks: SocialLink[];
   className?: string;
+  themeName: ThemeName;
 }
 
-export const SocialIcons: FC<SocialIconsProps> = ({ socialLinks, className = '' }) => {
-  const currentTheme = themeConfig[userConfig.theme.active];
+export const SocialIcons: FC<SocialIconsProps> = ({
+  socialLinks,
+  className = '',
+  themeName,
+}) => {
+  const currentTheme = themeConfig[themeName];
+  const { motion: themeMotion } = currentTheme;
 
   return (
     <motion.div
@@ -21,7 +26,7 @@ export const SocialIcons: FC<SocialIconsProps> = ({ socialLinks, className = '' 
       animate="show"
       variants={{
         hidden: {},
-        show: { transition: { staggerChildren: 0.04 } },
+        show: { transition: { staggerChildren: themeMotion.stagger } },
       }}
     >
       {socialLinks.map((item) => {
@@ -35,12 +40,12 @@ export const SocialIcons: FC<SocialIconsProps> = ({ socialLinks, className = '' 
             rel="noopener noreferrer"
             aria-label={`Visit ${item.platform}`}
             variants={{
-              hidden: { opacity: 0, y: 10 },
-              show: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, ...themeMotion.cardEntrance },
+              show: { opacity: 1, x: 0, y: 0, scale: 1, filter: 'blur(0px)', rotate: 0 },
             }}
-            whileHover={interactions.playfulHover}
-            whileTap={interactions.active}
-            transition={transitions.smooth}
+            whileHover={themeMotion.socialHover}
+            whileTap={themeMotion.cardTap}
+            transition={themeMotion.cardTransition}
           >
             {Icon && <Icon />}
           </motion.a>

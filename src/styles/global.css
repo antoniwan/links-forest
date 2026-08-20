@@ -5,17 +5,26 @@
   Map those into Tailwind font-* utilities used by each theme.
 */
 @theme inline {
-  --font-builder: var(--astro-font-builder);
+  /* Tech / industrial */
+  --font-builder: var(--astro-font-tech);
+  --font-builder-display: var(--astro-font-mono);
+  --font-forge: var(--astro-font-tech);
+  --font-forge-display: var(--astro-font-mono);
+
+  /* Character sans */
   --font-wolf: var(--astro-font-wolf);
+  --font-dragon: var(--astro-font-sans);
+  --font-warrior: var(--astro-font-sans);
+  --font-healer: var(--astro-font-soft);
+  --font-strategist: var(--astro-font-outfit);
+  --font-monk: var(--astro-font-soft);
+
+  /* Editorial serif */
   --font-mystic: var(--astro-font-mystic);
-  --font-dragon: var(--astro-font-dragon);
-  --font-artist: var(--astro-font-artist);
-  --font-warrior: var(--astro-font-warrior);
-  --font-warrior-display: var(--astro-font-warrior-display);
-  --font-healer: var(--astro-font-healer);
-  --font-alchemist: var(--astro-font-alchemist);
-  --font-strategist: var(--astro-font-strategist);
-  --font-steward: var(--astro-font-steward);
+  --font-artist: var(--astro-font-editorial);
+  --font-poet: var(--astro-font-editorial);
+  --font-alchemist: var(--astro-font-garamond);
+  --font-steward: var(--astro-font-literata);
 }
 
 @layer base {

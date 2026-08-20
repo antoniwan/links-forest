@@ -2,12 +2,11 @@
 import { themeConfig } from '../config/theme.config';
 import type { ThemeName } from '../data/theme.types';
 import type { Size } from '../config/ui';
-import { userConfig } from '../config/settings.loader';
 
 interface ProfilePictureProps {
   name: string;
   image?: string;
-  themeId?: ThemeName;
+  themeId: ThemeName;
   size?: Size;
 }
 
@@ -20,7 +19,7 @@ const sizeClasses = {
 export const ProfilePicture = ({
   name,
   image,
-  themeId = userConfig.theme.active,
+  themeId,
   size = 'md',
 }: ProfilePictureProps) => {
   const theme = themeConfig[themeId];

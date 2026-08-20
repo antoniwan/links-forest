@@ -2,50 +2,51 @@
 import { Font } from 'astro:assets';
 import Analytics from '@vercel/analytics/astro';
 import { userConfig } from '../config/settings.loader';
-import { themeConfig } from '../config/theme.config';
 import { generateMetaConfig } from '../config/meta.config';
-import { LinkGrid } from '../components/LinkCard';
-import { SocialIcons } from '../components/SocialIcons';
-import { Footer } from '../components/Footer';
+import { PageShell } from '../components/PageShell';
 import { dataLogger } from '../utils/logger';
-import { cssTransitions } from '../config/animations';
-import { Hero } from '../components/Hero';
 import type { ThemeName } from '../data/theme.types';
 import '../styles/global.css';
 
 const { profile, theme, links, secondaryLinks, social } = userConfig;
-const currentTheme = themeConfig[theme.active];
+const configuredTheme = theme.active;
 const meta = generateMetaConfig(profile, Astro.url.pathname);
+const showThemePreview = import.meta.env.DEV;
 
 type ThemeFontVariable =
-  | '--astro-font-builder'
+  | '--astro-font-tech'
+  | '--astro-font-mono'
   | '--astro-font-wolf'
   | '--astro-font-mystic'
-  | '--astro-font-dragon'
-  | '--astro-font-artist'
-  | '--astro-font-warrior'
-  | '--astro-font-warrior-display'
-  | '--astro-font-healer'
-  | '--astro-font-alchemist'
-  | '--astro-font-strategist'
-  | '--astro-font-steward';
+  | '--astro-font-sans'
+  | '--astro-font-editorial'
+  | '--astro-font-soft'
+  | '--astro-font-garamond'
+  | '--astro-font-outfit'
+  | '--astro-font-literata';
 
 const themeFontVariables: Record<ThemeName, ThemeFontVariable[]> = {
-  builder: ['--astro-font-builder'],
+  builder: ['--astro-font-tech', '--astro-font-mono'],
+  forge: ['--astro-font-tech', '--astro-font-mono'],
   wolf: ['--astro-font-wolf'],
   mystic: ['--astro-font-mystic'],
-  dragon: ['--astro-font-dragon'],
-  artist: ['--astro-font-artist'],
-  warrior: ['--astro-font-warrior', '--astro-font-warrior-display'],
-  healer: ['--astro-font-healer'],
-  alchemist: ['--astro-font-alchemist'],
-  strategist: ['--astro-font-strategist'],
-  steward: ['--astro-font-steward'],
+  dragon: ['--astro-font-sans'],
+  warrior: ['--astro-font-sans'],
+  healer: ['--astro-font-soft'],
+  monk: ['--astro-font-soft'],
+  artist: ['--astro-font-editorial'],
+  poet: ['--astro-font-editorial'],
+  alchemist: ['--astro-font-garamond'],
+  strategist: ['--astro-font-outfit'],
+  steward: ['--astro-font-literata'],
 };
 
-const activeFonts = themeFontVariables[theme.active];
+const configuredFonts = themeFontVariables[configuredTheme];
+const fontsToLoad = showThemePreview
+  ? [...new Set(Object.values(themeFontVariables).flat())]
+  : configuredFonts;
 
-dataLogger('Layout initialized with theme:', theme.active);
+dataLogger('Layout initialized with theme:', configuredTheme);
 ---
 
 <!doctype html>
@@ -59,8 +60,8 @@ dataLogger('Layout initialized with theme:', theme.active);
     <link rel="canonical" href={meta.seo.canonical} />
 
     {
-      activeFonts.map((cssVariable) => (
-        <Font cssVariable={cssVariable} preload />
+      fontsToLoad.map((cssVariable) => (
+        <Font cssVariable={cssVariable} preload={configuredFonts.includes(cssVariable)} />
       ))
     }
 
@@ -130,53 +131,17 @@ dataLogger('Layout initialized with theme:', theme.active);
 
     {import.meta.env.PROD && <Analytics />}
   </head>
-  <body
-    class={`${currentTheme.colors.text} ${currentTheme.styles.font} relative min-h-screen antialiased`}
-  >
-    <div
-      class={`${currentTheme.colors.background} relative z-10 min-h-screen overflow-hidden ${cssTransitions.smooth}`}
-    >
-      <div
-        class={`pointer-events-none absolute inset-0 ${currentTheme.styles.atmosphere}`}
-        aria-hidden="true"
-      />
+  <body class="min-h-screen antialiased">
+    <PageShell
+      client:load
+      profile={profile}
+      links={links}
+      secondaryLinks={secondaryLinks}
+      social={social}
+      configuredTheme={configuredTheme}
+      showThemePreview={showThemePreview}
+    />
 
-      <div
-        class="page-content relative z-10 mx-auto max-w-2xl px-5 py-10 sm:px-6 sm:py-14 lg:max-w-3xl lg:px-8 lg:py-20"
-      >
-        <header class="mb-12 sm:mb-16">
-          <Hero name={profile.name} image={profile.image} subtitle={profile.subtitle} />
-        </header>
-
-        <main class="flex flex-col gap-12 sm:gap-14">
-          <section aria-label="Featured links">
-            <LinkGrid client:load links={links} variant="primary" />
-          </section>
-
-          {
-            secondaryLinks && secondaryLinks.length > 0 && (
-              <section aria-label="More links" class="space-y-5">
-                <div class="flex items-center gap-3">
-                  <div class={`h-px flex-1 border-t opacity-60 ${currentTheme.styles.border}`} />
-                  <h2
-                    class={`text-[11px] font-medium tracking-[0.2em] uppercase opacity-45 ${currentTheme.colors.text}`}
-                  >
-                    More
-                  </h2>
-                  <div class={`h-px flex-1 border-t opacity-60 ${currentTheme.styles.border}`} />
-                </div>
-                <LinkGrid client:load links={secondaryLinks} variant="secondary" />
-              </section>
-            )
-          }
-        </main>
-
-        <footer class={`mt-16 space-y-8 border-t pt-10 sm:mt-20 ${currentTheme.styles.border}`}>
-          <SocialIcons client:load socialLinks={social} />
-          <Footer client:load />
-        </footer>
-      </div>
-    </div>
     <script>
       if (import.meta.env.PROD) {
         if ('serviceWorker' in navigator) {
