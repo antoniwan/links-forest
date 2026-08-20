@@ -14,52 +14,52 @@
  * To change your theme, update the `theme.active` property below with one of these values:
  *
  * 🏗️  "builder"    - The Builder: Creation, systems, form
- *                    Typography: Roboto Mono (monospace) with medium weight
+ *                    Typography: JetBrains Mono (monospace)
  *                    Colors: Stone and amber tones
  *                    Energy: Technical, systematic, structured
  *
  * 🐺  "wolf"       - The Wolf: Instinct, loyalty, protection
- *                    Typography: Montserrat (sans-serif) with semibold weight
+ *                    Typography: Space Grotesk (sans-serif)
  *                    Colors: Slate and blue tones
  *                    Energy: Instinctual, loyal, protective
  *
  * 🔮  "mystic"     - The Mystic: Spirituality, vision, cosmic threads
- *                    Typography: Cormorant Garamond (serif) with italic styling
+ *                    Typography: Fraunces (serif, italic)
  *                    Colors: Deep purples and indigos
  *                    Energy: Spiritual, visionary, mystical
  *
  * 🐉  "dragon"     - The Dragon: Power, force, will
- *                    Typography: Cinzel (serif) with bold weight and wide tracking
+ *                    Typography: Cinzel (serif)
  *                    Colors: Rich reds and oranges
  *                    Energy: Powerful, forceful, transformative
  *
  * 🎨  "artist"     - The Artist: Expression, creativity, truth
- *                    Typography: Playfair Display (serif) with semibold weight
+ *                    Typography: Playfair Display (serif)
  *                    Colors: Pink and rose tones
  *                    Energy: Creative, expressive, beautiful
  *
  * ⚔️  "warrior"    - The Warrior: Prestige, precision, cleanliness
- *                    Typography: Inter (sans-serif) with medium weight and wide tracking
- *                    Colors: Slate and amber tones
+ *                    Typography: DM Sans + Bebas Neue display
+ *                    Colors: Slate and bronze tones
  *                    Energy: Prestigious, precise, clean
  *
  * 💫  "healer"     - The Healer: Regeneration, soothing, connection
- *                    Typography: Quicksand (sans-serif) with medium weight and wide tracking
+ *                    Typography: Nunito (sans-serif)
  *                    Colors: Emerald and teal tones
  *                    Energy: Soothing, nurturing, connecting
  *
  * 🧪  "alchemist"  - The Alchemist: Transformation, elements, ritual
- *                    Typography: EB Garamond (serif) with semibold weight and wide tracking
+ *                    Typography: EB Garamond (serif)
  *                    Colors: Violet and purple tones
  *                    Energy: Transformative, elemental, ritualistic
  *
  * 🧠  "strategist" - The Strategist: Mind, planning, clarity
- *                    Typography: Raleway (sans-serif) with medium weight and wide tracking
+ *                    Typography: Outfit (sans-serif)
  *                    Colors: Blue and cyan tones
  *                    Energy: Strategic, clear, analytical
  *
  * 🌱  "steward"    - The Steward: Legacy, care, generational vision
- *                    Typography: Lora (serif) with medium weight and wide tracking
+ *                    Typography: Literata (serif)
  *                    Colors: Green and lime tones
  *                    Energy: Nurturing, legacy-focused, caring
  *
@@ -126,7 +126,7 @@ export interface UserSettings {
 export const userSettings: UserSettings = {
   profile: {
     name: 'Antonio Rodríguez Martínez',
-    subtitle: 'Father<sup>4</sup> ✨ Builder 🧠 Systems Thinker',
+    subtitle: 'Builder. Father. Boricua 🇵🇷',
     image: 'profile-picture.avif',
   },
   theme: {

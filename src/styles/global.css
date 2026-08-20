@@ -1,17 +1,21 @@
 @import 'tailwindcss';
 
-@theme {
-  --font-warrior: 'Montserrat', sans-serif;
-  --font-warrior-display: 'Bebas Neue', sans-serif;
-  --font-mystic: 'Cormorant Garamond', serif;
-  --font-builder: 'Roboto Mono', monospace;
-  --font-wolf: 'Montserrat', sans-serif;
-  --font-dragon: 'Cinzel', serif;
-  --font-artist: 'Playfair Display', serif;
-  --font-healer: 'Quicksand', sans-serif;
-  --font-alchemist: 'EB Garamond', serif;
-  --font-strategist: 'Raleway', sans-serif;
-  --font-steward: 'Lora', serif;
+/*
+  Astro Fonts API injects --astro-font-* variables via <Font />.
+  Map those into Tailwind font-* utilities used by each theme.
+*/
+@theme inline {
+  --font-builder: var(--astro-font-builder);
+  --font-wolf: var(--astro-font-wolf);
+  --font-mystic: var(--astro-font-mystic);
+  --font-dragon: var(--astro-font-dragon);
+  --font-artist: var(--astro-font-artist);
+  --font-warrior: var(--astro-font-warrior);
+  --font-warrior-display: var(--astro-font-warrior-display);
+  --font-healer: var(--astro-font-healer);
+  --font-alchemist: var(--astro-font-alchemist);
+  --font-strategist: var(--astro-font-strategist);
+  --font-steward: var(--astro-font-steward);
 }
 
 @layer base {

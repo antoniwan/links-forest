@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import Analytics from '@vercel/analytics/astro';
 import { userConfig } from '../config/settings.loader';
 import { themeConfig } from '../config/theme.config';
@@ -9,13 +10,41 @@ import { Footer } from '../components/Footer';
 import { dataLogger } from '../utils/logger';
 import { cssTransitions } from '../config/animations';
 import { Hero } from '../components/Hero';
+import type { ThemeName } from '../data/theme.types';
 import '../styles/global.css';
 
 const { profile, theme, links, secondaryLinks, social } = userConfig;
 const currentTheme = themeConfig[theme.active];
 const meta = generateMetaConfig(profile, Astro.url.pathname);
 
-// Log the current theme
+type ThemeFontVariable =
+  | '--astro-font-builder'
+  | '--astro-font-wolf'
+  | '--astro-font-mystic'
+  | '--astro-font-dragon'
+  | '--astro-font-artist'
+  | '--astro-font-warrior'
+  | '--astro-font-warrior-display'
+  | '--astro-font-healer'
+  | '--astro-font-alchemist'
+  | '--astro-font-strategist'
+  | '--astro-font-steward';
+
+const themeFontVariables: Record<ThemeName, ThemeFontVariable[]> = {
+  builder: ['--astro-font-builder'],
+  wolf: ['--astro-font-wolf'],
+  mystic: ['--astro-font-mystic'],
+  dragon: ['--astro-font-dragon'],
+  artist: ['--astro-font-artist'],
+  warrior: ['--astro-font-warrior', '--astro-font-warrior-display'],
+  healer: ['--astro-font-healer'],
+  alchemist: ['--astro-font-alchemist'],
+  strategist: ['--astro-font-strategist'],
+  steward: ['--astro-font-steward'],
+};
+
+const activeFonts = themeFontVariables[theme.active];
+
 dataLogger('Layout initialized with theme:', theme.active);
 ---
 
@@ -28,6 +57,12 @@ dataLogger('Layout initialized with theme:', theme.active);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={meta.seo.canonical} />
+
+    {
+      activeFonts.map((cssVariable) => (
+        <Font cssVariable={cssVariable} preload />
+      ))
+    }
 
     <!-- SEO Meta Tags -->
     <meta name="description" content={meta.seo.description} />
@@ -93,12 +128,6 @@ dataLogger('Layout initialized with theme:', theme.active);
     <!-- Structured Data -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.structuredData)} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     {import.meta.env.PROD && <Analytics />}
   </head>
   <body
@@ -112,7 +141,9 @@ dataLogger('Layout initialized with theme:', theme.active);
         aria-hidden="true"
       />
 
-      <div class="page-content relative z-10 mx-auto max-w-2xl px-5 py-10 sm:px-6 sm:py-14 lg:max-w-3xl lg:px-8 lg:py-20">
+      <div
+        class="page-content relative z-10 mx-auto max-w-2xl px-5 py-10 sm:px-6 sm:py-14 lg:max-w-3xl lg:px-8 lg:py-20"
+      >
         <header class="mb-12 sm:mb-16">
           <Hero name={profile.name} image={profile.image} subtitle={profile.subtitle} />
         </header>
@@ -126,13 +157,13 @@ dataLogger('Layout initialized with theme:', theme.active);
             secondaryLinks && secondaryLinks.length > 0 && (
               <section aria-label="More links" class="space-y-5">
                 <div class="flex items-center gap-3">
-                  <div class={`h-px flex-1 ${currentTheme.styles.border} border-t opacity-60`} />
+                  <div class={`h-px flex-1 border-t opacity-60 ${currentTheme.styles.border}`} />
                   <h2
                     class={`text-[11px] font-medium tracking-[0.2em] uppercase opacity-45 ${currentTheme.colors.text}`}
                   >
                     More
                   </h2>
-                  <div class={`h-px flex-1 ${currentTheme.styles.border} border-t opacity-60`} />
+                  <div class={`h-px flex-1 border-t opacity-60 ${currentTheme.styles.border}`} />
                 </div>
                 <LinkGrid client:load links={secondaryLinks} variant="secondary" />
               </section>
