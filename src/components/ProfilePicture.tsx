@@ -1,7 +1,8 @@
 /** @jsxImportSource react */
-import { userConfig } from '../config/settings.loader';
+import { themeConfig } from '../config/theme.config';
 import type { ThemeName } from '../data/theme.types';
 import type { Size } from '../config/ui';
+import { userConfig } from '../config/settings.loader';
 
 interface ProfilePictureProps {
   name: string;
@@ -22,7 +23,7 @@ export const ProfilePicture = ({
   themeId = userConfig.theme.active,
   size = 'md',
 }: ProfilePictureProps) => {
-  const theme = userConfig.theme.config;
+  const theme = themeConfig[themeId];
 
   const initials = name
     .split(' ')

@@ -44,9 +44,9 @@ export interface UserSettings {
       };
     };
   };
-  links: Omit<Link, 'url'> & { url: string };
-  secondaryLinks: Omit<SecondaryLink, 'url'> & { url: string };
-  social: Omit<SocialLink, 'url'> & { url: string };
+  links: (Omit<Link, 'url'> & { url: string })[];
+  secondaryLinks: (Omit<SecondaryLink, 'url'> & { url: string })[];
+  social: (Omit<SocialLink, 'url'> & { url: string })[];
 }
 
 export interface UserConfig {

@@ -5,8 +5,8 @@ export const configLogger = debug('links-forest:config');
 export const pageLogger = debug('links-forest:page');
 export const dataLogger = debug('links-forest:data');
 
-// Enable debug logging in development
-if (import.meta.env.DEV) {
+// Enable debug logging in the terminal during `astro dev`, not in the browser.
+if (import.meta.env.DEV && import.meta.env.SSR) {
   debug.enable('links-forest:*');
 }
 

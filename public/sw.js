@@ -1,5 +1,5 @@
 // Service worker for links-forest: offline-friendly caching.
-const CACHE_NAME = 'links-forest-v1';
+const CACHE_NAME = 'links-forest-v2';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -20,9 +20,21 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.method !== 'GET') return;
+  if (request.headers.get('upgrade') === 'websocket') return;
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+
+  // Never intercept Vite/dev tooling or hashed query cache-busters.
+  if (
+    url.pathname.startsWith('/@') ||
+    url.pathname.startsWith('/src/') ||
+    url.pathname.startsWith('/node_modules/') ||
+    url.searchParams.has('token') ||
+    url.searchParams.has('v')
+  ) {
+    return;
+  }
 
   // Navigation (HTML): try network first, fall back to cache for offline.
   if (request.mode === 'navigate') {

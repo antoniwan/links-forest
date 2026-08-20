@@ -40,7 +40,7 @@ export const SocialIcons: FC<SocialIconsProps> = ({ socialLinks, className = '' 
                 <motion.a
                   key={item.platform}
                   href={item.url}
-                  className={`flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm transition-all duration-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 sm:h-16 sm:w-16 ${currentTheme.styles.card} ${currentTheme.styles.border} ${currentTheme.colors.text} opacity-80 hover:opacity-100`}
+                  className={`flex h-14 w-14 items-center justify-center rounded-2xl shadow-xs transition-all duration-300 hover:shadow-md focus:outline-hidden focus:ring-2 focus:ring-offset-2 sm:h-16 sm:w-16 ${currentTheme.styles.card} ${currentTheme.styles.border} ${currentTheme.colors.text} opacity-80 hover:opacity-100`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit ${item.platform}`}

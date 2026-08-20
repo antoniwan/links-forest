@@ -8,8 +8,6 @@
  * - Accessible
  */
 
-import type { Variants } from 'framer-motion';
-
 // Common transition configurations
 export const transitions = {
   // Quick, subtle interactions

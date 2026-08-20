@@ -1,11 +1,10 @@
-import React from 'react';
 import packageJson from '../../package.json';
 
 interface FooterProps {
   className?: string;
 }
 
-export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
+export const Footer = ({ className = '' }: FooterProps) => {
   return (
     <footer className={`py-8 text-center ${className}`}>
       {/* Footer metadata section */}

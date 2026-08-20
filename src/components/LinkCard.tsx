@@ -9,10 +9,9 @@ import { themeConfig } from '../config/theme.config';
 interface LinkCardProps {
   link: Link;
   accentColor: string;
-  variant?: 'primary' | 'secondary';
 }
 
-export const LinkCard: FC<LinkCardProps> = ({ link, accentColor, variant = 'primary' }) => {
+export const LinkCard: FC<LinkCardProps> = ({ link, accentColor }) => {
   const { url, title, description, category } = link;
   const currentTheme = themeConfig[userConfig.theme.active];
 
@@ -21,7 +20,7 @@ export const LinkCard: FC<LinkCardProps> = ({ link, accentColor, variant = 'prim
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`block rounded-lg p-6 shadow-sm transition-all duration-300 hover:shadow-md sm:p-8 ${currentTheme.styles.card} ${currentTheme.styles.border} ${accentColor}`}
+      className={`block rounded-lg p-6 shadow-xs transition-all duration-300 hover:shadow-md sm:p-8 ${currentTheme.styles.card} ${currentTheme.styles.border} ${accentColor}`}
       variants={variants.fadeInUp}
       whileHover={interactions.subtleHover}
       whileTap={interactions.active}
@@ -69,7 +68,7 @@ export const LinkGrid: FC<LinkGridProps> = ({ links, accentColor, variant = 'pri
       transition={{ duration: 0.3 }}
     >
       {links.map((link) => (
-        <LinkCard key={link.title} link={link} accentColor={accentColor} variant={variant} />
+        <LinkCard key={link.title} link={link} accentColor={accentColor} />
       ))}
     </motion.div>
   );

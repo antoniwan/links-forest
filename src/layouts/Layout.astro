@@ -3,8 +3,6 @@ import Analytics from '@vercel/analytics/astro';
 import { userConfig } from '../config/settings.loader';
 import { themeConfig } from '../config/theme.config';
 import { generateMetaConfig } from '../config/meta.config';
-import type { ThemeName } from '../data/theme.types';
-import { ProfilePicture } from '../components/ProfilePicture';
 import { LinkGrid } from '../components/LinkCard';
 import { SocialIcons } from '../components/SocialIcons';
 import { Footer } from '../components/Footer';
@@ -93,7 +91,7 @@ dataLogger('Layout initialized with theme:', theme.active);
     <meta name="format-detection" content={meta.mobile.formatDetection} />
 
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(meta.structuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.structuredData)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -101,7 +99,7 @@ dataLogger('Layout initialized with theme:', theme.active);
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <Analytics />
+    {import.meta.env.PROD && <Analytics />}
   </head>
   <body
     class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}
@@ -142,11 +140,22 @@ dataLogger('Layout initialized with theme:', theme.active);
         </footer>
       </div>
     </div>
-    <script is:inline>
-      if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
-        window.addEventListener('load', function () {
-          navigator.serviceWorker.register('/sw.js').catch(function () {});
+    <script>
+      if (import.meta.env.PROD) {
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(() => {});
+          });
+        }
+      } else if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          for (const registration of registrations) {
+            void registration.unregister();
+          }
         });
+        if ('caches' in window) {
+          caches.keys().then((keys) => Promise.all(keys.map((key) => caches.delete(key))));
+        }
       }
     </script>
   </body>

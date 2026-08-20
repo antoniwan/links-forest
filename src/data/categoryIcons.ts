@@ -111,7 +111,6 @@ import {
   FaBroadcastTower,
   FaSignal,
   FaBluetooth,
-  FaBluetoothB,
 
   // Nature & Environment
   FaSun,
@@ -131,7 +130,6 @@ import {
   FaCat,
   FaPaw,
   FaFeather,
-  FaFeatherAlt,
 
   // Food & Drink
   FaCoffee,

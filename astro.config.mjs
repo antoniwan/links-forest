@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 const SITE = 'https://antoniwan.online';
 
@@ -22,4 +23,16 @@ export default defineConfig({
       },
     }),
   ],
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      dedupe: ['react', 'react-dom'],
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-dom/client', 'react/jsx-runtime', 'framer-motion'],
+    },
+    ssr: {
+      noExternal: ['framer-motion'],
+    },
+  },
 });

@@ -1,5 +1,5 @@
 import type { EmojiName } from './emojis';
-import type { ThemeName, ThemeConfig as ThemeConfigType } from './theme.types';
+import type { ThemeConfig as ThemeConfigType } from './theme.types';
 
 /**
  * Core Types
