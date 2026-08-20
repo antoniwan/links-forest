@@ -243,6 +243,12 @@ export const userSettings: UserSettings = {
           'https://www.last.fm/user/antoniwan',
           'https://www.antoniorodriguez.us',
         ],
+        workExample: {
+          '@type': 'Book',
+          name: 'Mia, the Sun, and the Moon',
+          url: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
+          inLanguage: 'en',
+        },
       },
     },
   },
@@ -320,7 +326,7 @@ export const userSettings: UserSettings = {
     },
     {
       title: 'Mia Luna E-Book',
-      url: 'https://mia-the-sun-and-the-moon.antoniorodriguez.us',
+      url: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
       description: 'The Sun and the Moon - Legacy project',
       category: 'book',
     },

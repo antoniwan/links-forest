@@ -81,6 +81,64 @@ export interface MetaConfig {
 }
 
 /**
+ * Build ProfilePage + WebSite + Person JSON-LD for richer search results.
+ */
+function buildStructuredData(
+  profile: Profile,
+  canonicalUrl: string,
+  socialLinks: string[],
+): Record<string, unknown> {
+  const personId = `${siteConfig.baseUrl}/#person`;
+  const websiteId = `${siteConfig.baseUrl}/#website`;
+  const pageId = `${canonicalUrl.replace(/#.*$/, '')}#webpage`;
+  const description = stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription;
+
+  const personSource = siteConfig.seo.personStructuredData ?? {
+    '@type': 'Person',
+    name: profile.name,
+    description,
+    url: canonicalUrl,
+    image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
+    sameAs: socialLinks,
+  };
+
+  const personRest = { ...personSource };
+  delete personRest['@context'];
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'ProfilePage',
+        '@id': pageId,
+        url: canonicalUrl,
+        name: siteConfig.seo.openGraph?.title ?? profile.name,
+        description: siteConfig.seo.metaDescription ?? description,
+        isPartOf: { '@id': websiteId },
+        about: { '@id': personId },
+        mainEntity: { '@id': personId },
+        inLanguage: siteConfig.seo.language,
+      },
+      {
+        '@type': 'WebSite',
+        '@id': websiteId,
+        url: siteConfig.baseUrl,
+        name: siteConfig.seo.openGraph?.siteName ?? siteConfig.siteName,
+        description: siteConfig.seo.defaultDescription,
+        publisher: { '@id': personId },
+        inLanguage: siteConfig.seo.language,
+      },
+      {
+        ...personRest,
+        '@type': 'Person',
+        '@id': personId,
+        url: typeof personRest.url === 'string' ? personRest.url : canonicalUrl,
+      },
+    ],
+  };
+}
+
+/**
  * Generate meta configuration based on user profile
  */
 export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
@@ -95,6 +153,10 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
 
   const og = siteConfig.seo.openGraph;
   const profileMeta = siteConfig.seo.profile;
+  const shareImage = `${siteConfig.baseUrl}${siteConfig.defaultImage}`;
+  const title = og?.title ?? `${profile.name} - ${siteConfig.siteName}`;
+  const description =
+    og?.description ?? (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription);
 
   return {
     seo: {
@@ -113,11 +175,10 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
     },
 
     openGraph: {
-      title: og?.title ?? `${profile.name} - ${siteConfig.siteName}`,
-      description:
-        og?.description ?? (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription),
+      title,
+      description,
       type: og?.type ?? siteConfig.seo.contentType,
-      image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
+      image: shareImage,
       url: canonicalUrl,
       siteName: og?.siteName ?? siteConfig.siteName,
       locale: siteConfig.locale,
@@ -131,10 +192,9 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
 
     twitter: {
       card: 'summary_large_image',
-      title: og?.title ?? `${profile.name} - ${siteConfig.siteName}`,
-      description:
-        og?.description ?? (stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription),
-      image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
+      title,
+      description,
+      image: shareImage,
       creator: siteConfig.social.twitter,
       site: siteConfig.social.twitter,
       imageAlt: `${profile.name}'s profile image`,
@@ -150,14 +210,6 @@ export function generateMetaConfig(profile: Profile, url: string): MetaConfig {
       viewport: 'width=device-width, initial-scale=1.0, viewport-fit=cover',
     },
 
-    structuredData: siteConfig.seo.personStructuredData ?? {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: profile.name,
-      description: stripHtml(profile.subtitle) || siteConfig.seo.defaultDescription,
-      url: canonicalUrl,
-      image: `${siteConfig.baseUrl}${siteConfig.defaultImage}`,
-      sameAs: socialLinks,
-    },
+    structuredData: buildStructuredData(profile, canonicalUrl, socialLinks),
   };
 }

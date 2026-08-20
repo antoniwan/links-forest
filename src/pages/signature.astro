@@ -1,78 +1,18 @@
 ---
 import { userConfig } from '../config/settings.loader';
-import { stripHtml } from '../utils/html';
+import { siteConfig } from '../config/meta.config';
+import { buildSignatureHtml, getCleanEmail } from '../utils/signature';
 
 const { profile, links, social } = userConfig;
-
-// Get the first two links for the signature
 const signatureLinks = links.slice(0, 2);
-
-// Get email from social links if available
 const emailLink = social.find((link) => link.platform === 'email');
-const email = emailLink?.url.replace('mailto:', '') || '';
-
-// Function to clean email address (remove any UTM parameters)
-function getCleanEmail(email: string): string {
-  try {
-    const urlObj = new URL(`mailto:${email}`);
-    // Remove UTM parameters for display
-    urlObj.searchParams.delete('utm_source');
-    urlObj.searchParams.delete('utm_medium');
-    urlObj.searchParams.delete('utm_campaign');
-    return urlObj.pathname.slice(1); // Remove leading slash
-  } catch (e) {
-    // If URL parsing fails, return original email
-    return email;
-  }
-}
-
-const cleanEmail = getCleanEmail(email);
-
-// Generate UTM parameters for email signature tracking
-const emailUtmParams = 'utm_source=email&utm_medium=signature&utm_campaign=PersonalEmail2025';
-
-// Function to add email UTM parameters to existing URLs
-function addEmailUtmParams(url: string): string {
-  try {
-    const urlObj = new URL(url);
-    urlObj.searchParams.set('utm_source', 'email');
-    urlObj.searchParams.set('utm_medium', 'signature');
-    urlObj.searchParams.set('utm_campaign', 'PersonalEmail2025');
-    return urlObj.toString();
-  } catch (e) {
-    // If URL parsing fails, return original URL
-    return url;
-  }
-}
-
-// Function to get clean display URL (without protocol and UTM params)
-function getCleanDisplayUrl(url: string): string {
-  try {
-    const urlObj = new URL(url);
-    // Remove UTM parameters for display
-    urlObj.searchParams.delete('utm_source');
-    urlObj.searchParams.delete('utm_medium');
-    urlObj.searchParams.delete('utm_campaign');
-    return urlObj.hostname + urlObj.pathname;
-  } catch (e) {
-    // If URL parsing fails, return original URL without protocol
-    return url.replace(/^https?:\/\//, '');
-  }
-}
-
-// Generate initial signature HTML
-const initialSignature = `
-<strong>${profile.name}</strong><br>
-<span style="font-size: 80%;">${stripHtml(profile.subtitle)}</span><br>
-${signatureLinks
-  .map((link, index) => {
-    const emailUrl = addEmailUtmParams(link.url);
-    const displayUrl = getCleanDisplayUrl(link.url);
-    return `<a href="${emailUrl}" target="_blank">🌐 ${displayUrl}</a>${index < signatureLinks.length - 1 ? ' | ' : ''}`;
-  })
-  .join('')}<br>
-${cleanEmail ? `📬 ${cleanEmail}` : ''}
-`.trim();
+const cleanEmail = getCleanEmail(emailLink?.url.replace('mailto:', '') || '');
+const initialSignature = buildSignatureHtml(
+  profile.name,
+  profile.subtitle,
+  signatureLinks,
+  cleanEmail,
+);
 ---
 
 <!doctype html>
@@ -83,6 +23,7 @@ ${cleanEmail ? `📬 ${cleanEmail}` : ''}
     <title>Email Signature - {profile.name}</title>
     <meta name="robots" content="noindex, nofollow" />
     <meta name="description" content={`Personal email signature generator for ${profile.name}.`} />
+    <link rel="canonical" href={`${siteConfig.baseUrl}/signature`} />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -296,4 +237,3 @@ ${cleanEmail ? `📬 ${cleanEmail}` : ''}
     </script>
   </body>
 </html>
-
