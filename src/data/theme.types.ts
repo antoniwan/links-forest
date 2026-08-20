@@ -75,6 +75,12 @@ export interface ThemeStyles {
   border: string;
   /** Font family for the theme */
   font: string;
+  /** Soft ambient page glow (absolute decorative layer) */
+  atmosphere: string;
+  /** Profile picture accent ring */
+  ring: string;
+  /** Soft accent color for icons and cues */
+  accentSoft: string;
 }
 
 /**

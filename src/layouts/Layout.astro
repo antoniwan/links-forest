@@ -102,41 +102,47 @@ dataLogger('Layout initialized with theme:', theme.active);
     {import.meta.env.PROD && <Analytics />}
   </head>
   <body
-    class={`${currentTheme.colors.text} ${currentTheme.styles.font} min-h-screen relative antialiased`}
+    class={`${currentTheme.colors.text} ${currentTheme.styles.font} relative min-h-screen antialiased`}
   >
     <div
-      class={`${currentTheme.colors.background} min-h-screen relative z-10 ${cssTransitions.smooth}`}
+      class={`${currentTheme.colors.background} relative z-10 min-h-screen overflow-hidden ${cssTransitions.smooth}`}
     >
-      <div class="page-content mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-        <header class="mb-12 lg:mb-20">
+      <div
+        class={`pointer-events-none absolute inset-0 ${currentTheme.styles.atmosphere}`}
+        aria-hidden="true"
+      />
+
+      <div class="page-content relative z-10 mx-auto max-w-2xl px-5 py-10 sm:px-6 sm:py-14 lg:max-w-3xl lg:px-8 lg:py-20">
+        <header class="mb-12 sm:mb-16">
           <Hero name={profile.name} image={profile.image} subtitle={profile.subtitle} />
         </header>
 
-        <main class="flex flex-col gap-16">
-          <LinkGrid
-            client:load
-            links={links}
-            accentColor={currentTheme.colors.accent}
-            variant="primary"
-          />
+        <main class="flex flex-col gap-12 sm:gap-14">
+          <section aria-label="Featured links">
+            <LinkGrid client:load links={links} variant="primary" />
+          </section>
 
           {
             secondaryLinks && secondaryLinks.length > 0 && (
-              <LinkGrid
-                client:load
-                links={secondaryLinks}
-                accentColor={currentTheme.colors.accent}
-                variant="secondary"
-              />
+              <section aria-label="More links" class="space-y-5">
+                <div class="flex items-center gap-3">
+                  <div class={`h-px flex-1 ${currentTheme.styles.border} border-t opacity-60`} />
+                  <h2
+                    class={`text-[11px] font-medium tracking-[0.2em] uppercase opacity-45 ${currentTheme.colors.text}`}
+                  >
+                    More
+                  </h2>
+                  <div class={`h-px flex-1 ${currentTheme.styles.border} border-t opacity-60`} />
+                </div>
+                <LinkGrid client:load links={secondaryLinks} variant="secondary" />
+              </section>
             )
           }
         </main>
 
-        <footer class={`mt-20 pt-12 border-t ${currentTheme.styles.border}`}>
-          <div class="space-y-12">
-            <SocialIcons client:load socialLinks={social} />
-            <Footer client:load />
-          </div>
+        <footer class={`mt-16 space-y-8 border-t pt-10 sm:mt-20 ${currentTheme.styles.border}`}>
+          <SocialIcons client:load socialLinks={social} />
+          <Footer client:load />
         </footer>
       </div>
     </div>
@@ -160,68 +166,3 @@ dataLogger('Layout initialized with theme:', theme.active);
     </script>
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Better text rendering */
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
-
-  /* Improved focus styles */
-  :focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
-  }
-
-  /* Improved selection styles */
-  ::selection {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-
-  .dark ::selection {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  /* Page content animation */
-  .page-content {
-    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .page-content {
-      animation: none;
-    }
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-</style>

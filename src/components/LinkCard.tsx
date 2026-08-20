@@ -1,49 +1,69 @@
 import { motion } from 'framer-motion';
-import React, { type FC } from 'react';
+import { createElement, type FC } from 'react';
 import type { Link } from '../data/types';
-import { variants, interactions, transitions } from '../config/animations';
+import { interactions, transitions } from '../config/animations';
 import { categoryIconMap, getCategoryIcon } from '../data/categoryIcons';
 import { userConfig } from '../config/settings.loader';
 import { themeConfig } from '../config/theme.config';
 
 interface LinkCardProps {
   link: Link;
-  accentColor: string;
+  index: number;
 }
 
-export const LinkCard: FC<LinkCardProps> = ({ link, accentColor }) => {
+export const LinkCard: FC<LinkCardProps> = ({ link, index }) => {
   const { url, title, description, category } = link;
   const currentTheme = themeConfig[userConfig.theme.active];
+  const Icon = category ? categoryIconMap[getCategoryIcon(category)] : null;
 
   return (
     <motion.a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`block rounded-lg p-6 shadow-xs transition-all duration-300 hover:shadow-md sm:p-8 ${currentTheme.styles.card} ${currentTheme.styles.border} ${accentColor}`}
-      variants={variants.fadeInUp}
+      className={`group relative block overflow-hidden p-5 sm:p-6 ${currentTheme.styles.card}`}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ ...transitions.smooth, delay: index * 0.05 }}
       whileHover={interactions.subtleHover}
       whileTap={interactions.active}
-      transition={transitions.smooth}
     >
-      <div className="flex flex-col gap-3">
-        <div className="flex items-start justify-between gap-4">
-          <h3
-            className={`text-xl font-semibold tracking-tight sm:text-2xl ${currentTheme.colors.text}`}
-          >
-            {title}
-          </h3>
-          {category && (
-            <div
-              className={`flex h-8 w-8 items-center justify-center transition-colors duration-200 ${currentTheme.colors.text} opacity-60 hover:opacity-100`}
+      <div
+        className={`pointer-events-none absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-linear-to-b opacity-0 transition-all duration-300 group-hover:scale-y-100 group-hover:opacity-100 ${currentTheme.colors.accent}`}
+        aria-hidden="true"
+      />
+
+      <div className="flex items-start justify-between gap-4">
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-3">
+            {Icon && (
+              <span
+                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-black/4 text-base opacity-70 transition-opacity group-hover:opacity-100 dark:bg-white/8 ${currentTheme.styles.accentSoft}`}
+              >
+                {createElement(Icon)}
+              </span>
+            )}
+            <h3
+              className={`truncate text-lg font-semibold tracking-tight sm:text-xl ${currentTheme.colors.text}`}
             >
-              {React.createElement(categoryIconMap[getCategoryIcon(category)])}
-            </div>
+              {title}
+            </h3>
+          </div>
+          {description && (
+            <p
+              className={`mt-2 text-sm leading-relaxed opacity-65 transition-opacity group-hover:opacity-80 sm:text-[0.95rem] ${currentTheme.colors.text}`}
+            >
+              {description}
+            </p>
           )}
         </div>
-        {description && (
-          <p className={`leading-relaxed ${currentTheme.colors.text} opacity-80`}>{description}</p>
-        )}
+
+        <span
+          className={`mt-1 shrink-0 text-lg opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-70 ${currentTheme.styles.accentSoft}`}
+          aria-hidden="true"
+        >
+          →
+        </span>
       </div>
     </motion.a>
   );
@@ -51,25 +71,22 @@ export const LinkCard: FC<LinkCardProps> = ({ link, accentColor }) => {
 
 interface LinkGridProps {
   links: Link[];
-  accentColor: string;
+  accentColor?: string;
   variant?: 'primary' | 'secondary';
 }
 
-export const LinkGrid: FC<LinkGridProps> = ({ links, accentColor, variant = 'primary' }) => {
+export const LinkGrid: FC<LinkGridProps> = ({ links, variant = 'primary' }) => {
   return (
-    <motion.div
+    <div
       className={
         variant === 'primary'
-          ? 'flex flex-col gap-6'
-          : 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'
+          ? 'flex flex-col gap-3 sm:gap-4'
+          : 'grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4'
       }
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
     >
-      {links.map((link) => (
-        <LinkCard key={link.title} link={link} accentColor={accentColor} />
+      {links.map((link, index) => (
+        <LinkCard key={link.title} link={link} index={index} />
       ))}
-    </motion.div>
+    </div>
   );
 };

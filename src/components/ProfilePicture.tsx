@@ -14,7 +14,7 @@ interface ProfilePictureProps {
 const sizeClasses = {
   sm: 'w-16 h-16 text-lg',
   md: 'w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 text-xl sm:text-2xl',
-  lg: 'w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 text-2xl sm:text-4xl',
+  lg: 'w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 text-2xl sm:text-4xl',
 } as const;
 
 export const ProfilePicture = ({
@@ -32,13 +32,13 @@ export const ProfilePicture = ({
     .toUpperCase()
     .slice(0, 2);
 
-  const width = size === 'sm' ? 64 : size === 'md' ? 160 : 256;
-  const height = size === 'sm' ? 64 : size === 'md' ? 160 : 256;
-  const baseClass = `${sizeClasses[size]} rounded-full transition-transform transition-shadow duration-700 ease-out`;
+  const width = size === 'sm' ? 64 : size === 'md' ? 160 : 208;
+  const height = size === 'sm' ? 64 : size === 'md' ? 160 : 208;
+  const baseClass = `${sizeClasses[size]} rounded-full object-cover transition-transform duration-500 ease-out hover:scale-[1.03]`;
 
   return (
     <div
-      className="flex items-center justify-center"
+      className={`relative flex items-center justify-center ${theme.styles.ring}`}
       role="img"
       aria-label={`Profile picture of ${name}`}
     >
@@ -46,14 +46,15 @@ export const ProfilePicture = ({
         <img
           src={image}
           alt={`Profile picture of ${name}`}
-          className={`${baseClass} object-cover ${theme.styles.border} transform-gpu border-2 hover:scale-110 hover:shadow-xl`}
+          className={`${baseClass} shadow-lg`}
           width={width}
           height={height}
-          loading="lazy"
+          loading="eager"
+          decoding="async"
         />
       ) : (
         <div
-          className={`${baseClass} flex items-center justify-center ${theme.styles.border} transform-gpu border-2 bg-white hover:scale-110 hover:shadow-xl dark:bg-gray-800`}
+          className={`${baseClass} flex items-center justify-center border border-black/5 bg-white shadow-lg dark:border-white/10 dark:bg-slate-800`}
           aria-hidden="true"
         >
           <span className="font-bold">{initials}</span>

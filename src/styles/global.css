@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-warrior: 'Inter', sans-serif;
+  --font-warrior: 'Montserrat', sans-serif;
+  --font-warrior-display: 'Bebas Neue', sans-serif;
   --font-mystic: 'Cormorant Garamond', serif;
   --font-builder: 'Roboto Mono', monospace;
   --font-wolf: 'Montserrat', sans-serif;
@@ -13,14 +14,6 @@
   --font-steward: 'Lora', serif;
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -29,21 +22,79 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, currentColor 12%, transparent);
+  }
 }
 
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-.animate-fade-in-up {
-  animation: fade-in-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .delay-100 {
-  animation-delay: 0.1s;
+  animation-delay: 0.12s;
+}
+
+.delay-200 {
+  animation-delay: 0.22s;
+}
+
+.animate-soft-float {
+  animation: soft-float 6s ease-in-out infinite;
+}
+
+.page-content {
+  animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-content,
+  .animate-fade-in-up,
+  .animate-soft-float {
+    animation: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
