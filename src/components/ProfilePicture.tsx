@@ -38,7 +38,7 @@ export const ProfilePicture = ({
 
   return (
     <div
-      className={`relative flex items-center justify-center ${theme.styles.ring}`}
+      className={`relative flex items-center justify-center rounded-full ${theme.styles.ring}`}
       role="img"
       aria-label={`Profile picture of ${name}`}
     >
