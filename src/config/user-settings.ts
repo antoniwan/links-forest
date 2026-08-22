@@ -216,36 +216,61 @@ export const userSettings: UserSettings = {
           'https://www.last.fm/user/antoniwan',
           'https://www.antoniorodriguez.us',
         ],
-        workExample: {
-          '@type': 'Book',
-          name: 'Mia, the Sun, and the Moon',
-          url: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
-          inLanguage: 'en',
-        },
+        workExample: [
+          {
+            '@type': 'Book',
+            name: 'The Bent One',
+            url: 'https://the-bent-one-book.stronghandssoftheart.com',
+            inLanguage: 'en',
+          },
+          {
+            '@type': 'Book',
+            name: 'Mia, the Sun, and the Moon',
+            url: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
+            inLanguage: 'en',
+          },
+        ],
       },
     },
   },
   links: [
     {
+      title: 'The Bent One',
+      url: 'https://the-bent-one-book.stronghandssoftheart.com',
+      description: 'An interactive children\'s story from Strong Hands, Soft Heart',
+      category: 'childrens-books',
+    },
+    {
+      title: 'Mia, the Sun and the Moon',
+      url: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
+      description: 'A legacy children\'s story about love, light, and the rhythm of day and night',
+      category: 'childrens-books',
+    },
+    {
       title: 'Notes (Blog)',
       url: 'https://notes.antoniwan.online/',
       description:
         'A working notebook in a season of becoming — choosing honesty over performance, precision over showmanship',
-      category: 'book',
+      category: 'writing',
+    },
+    {
+      title: 'Medium',
+      url: 'https://medium.com/@wizards777',
+      description: 'Wizard essays and deeper thoughts',
+      category: 'writing',
+    },
+    {
+      title: 'Goodreads',
+      url: 'https://www.goodreads.com/antoniwan',
+      description: 'Reading bookshelf and recommendations',
+      category: 'writing',
     },
     {
       title: 'My Prompt Library',
       url: 'https://mpl.antoniwan.online/',
       description:
         'Plain-text prompts in Markdown, stored in Git. Easy to read, copy, and adapt in your own tools. No lock-in.',
-      category: 'book',
-    },
-    {
-      title: 'React Hooks Explorer',
-      url: 'https://my-react-hooks.antoniwan.online/',
-      description:
-        'Personal workspace for React hooks, custom hooks, and patterns used for learning and POCs.',
-      category: 'code',
+      category: 'writing',
     },
     {
       title: 'Strong Hands, Soft Heart Consulting',
@@ -260,24 +285,18 @@ export const userSettings: UserSettings = {
       category: 'work',
     },
     {
-      title: 'Strong Hands, Soft Heart',
-      url: 'https://www.stronghandssoftheart.com',
-      description: 'Core brand site and business presence',
-      category: 'art',
+      title: 'Work Clock',
+      url: 'https://work-clock.builds.software/',
+      description:
+        'Configure your work schedule including days, start time, end time, and display preferences',
+      category: 'work',
     },
     {
-      title: 'BlueSky',
-      url: 'https://bsky.app/profile/antoniwan.online',
-      description: 'Stream of consciousness and public identity',
-      category: 'lifestyle',
-    },
-  ],
-  secondaryLinks: [
-    {
-      title: 'Medium',
-      url: 'https://medium.com/@wizards777',
-      description: 'Wizard essays and deeper thoughts',
-      category: 'book',
+      title: 'React Hooks Explorer',
+      url: 'https://my-react-hooks.antoniwan.online/',
+      description:
+        'Personal workspace for React hooks, custom hooks, and patterns used for learning and POCs.',
+      category: 'code',
     },
     {
       title: 'GitHub (Personal)',
@@ -298,31 +317,25 @@ export const userSettings: UserSettings = {
       category: 'code',
     },
     {
-      title: 'Mia Luna E-Book',
-      url: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
-      description: 'The Sun and the Moon - Legacy project',
-      category: 'book',
+      title: 'Strong Hands, Soft Heart',
+      url: 'https://www.stronghandssoftheart.com',
+      description: 'Core brand site and business presence',
+      category: 'brand',
     },
     {
-      title: 'Work Clock',
-      url: 'https://work-clock.builds.software/',
-      description:
-        'Configure your work schedule including days, start time, end time, and display preferences',
-      category: 'work',
-    },
-    {
-      title: 'Goodreads',
-      url: 'https://www.goodreads.com/antoniwan',
-      description: 'Reading bookshelf and recommendations',
-      category: 'book',
+      title: 'BlueSky',
+      url: 'https://bsky.app/profile/antoniwan.online',
+      description: 'Stream of consciousness and public identity',
+      category: 'connect',
     },
     {
       title: 'Patreon',
       url: 'https://patreon.com/antoniwan',
       description: 'Support the mission and back the builder',
-      category: 'lifestyle',
+      category: 'connect',
     },
   ],
+  secondaryLinks: [],
   social: [
     {
       platform: 'twitter',

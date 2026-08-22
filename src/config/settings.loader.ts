@@ -96,6 +96,8 @@ export function loadUserConfig(): UserConfig {
     ),
   }));
 
+  const allLinks = [...processedLinks, ...processedSecondaryLinks];
+
   const processedSocialLinks: SocialLink[] = settings.social.map((link) => ({
     ...link,
     url: addUtmParams(link.url, 'links-forest', 'link', `social-${link.platform}`),
@@ -107,7 +109,7 @@ export function loadUserConfig(): UserConfig {
       active: settings.theme.active,
       config: themeConfig[settings.theme.active],
     },
-    links: processedLinks,
+    links: allLinks,
     secondaryLinks: processedSecondaryLinks,
     social: processedSocialLinks,
   };

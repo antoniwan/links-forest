@@ -126,9 +126,15 @@ interface LinkGridProps {
   accentColor?: string;
   variant?: 'primary' | 'secondary';
   themeName: ThemeName;
+  startIndex?: number;
 }
 
-export const LinkGrid: FC<LinkGridProps> = ({ links, variant = 'primary', themeName }) => {
+export const LinkGrid: FC<LinkGridProps> = ({
+  links,
+  variant = 'primary',
+  themeName,
+  startIndex = 0,
+}) => {
   return (
     <div
       className={
@@ -138,7 +144,12 @@ export const LinkGrid: FC<LinkGridProps> = ({ links, variant = 'primary', themeN
       }
     >
       {links.map((link, index) => (
-        <LinkCard key={link.title} link={link} index={index} themeName={themeName} />
+        <LinkCard
+          key={link.title}
+          link={link}
+          index={startIndex + index}
+          themeName={themeName}
+        />
       ))}
     </div>
   );

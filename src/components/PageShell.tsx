@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import type { Link, Profile, SecondaryLink, SocialLink } from '../data/types';
+import type { Link, Profile, SocialLink } from '../data/types';
 import type { ThemeName } from '../data/theme.types';
 import { isValidThemeName } from '../data/theme.types';
 import { themeConfig } from '../config/theme.config';
 import { cssTransitions } from '../config/animations';
 import { Hero } from './Hero';
-import { LinkGrid } from './LinkCard';
+import { LinkSections } from './LinkSections';
 import { SocialIcons } from './SocialIcons';
 import { Footer } from './Footer';
 import { ThemePreviewer } from './ThemePreviewer';
@@ -13,7 +13,6 @@ import { ThemePreviewer } from './ThemePreviewer';
 interface PageShellProps {
   profile: Profile;
   links: Link[];
-  secondaryLinks: SecondaryLink[];
   social: SocialLink[];
   configuredTheme: ThemeName;
   showThemePreview?: boolean;
@@ -39,7 +38,6 @@ function writePreviewTheme(name: ThemeName | null, configured: ThemeName) {
 export const PageShell = ({
   profile,
   links,
-  secondaryLinks,
   social,
   configuredTheme,
   showThemePreview = false,
@@ -81,29 +79,8 @@ export const PageShell = ({
               />
             </header>
 
-            <main className="flex flex-col gap-12 sm:gap-14">
-              <section aria-label="Featured links">
-                <LinkGrid links={links} variant="primary" themeName={themeName} />
-              </section>
-
-              {secondaryLinks.length > 0 && (
-                <section aria-label="More links" className="space-y-5">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`h-px flex-1 border-t opacity-60 ${currentTheme.styles.border}`}
-                    />
-                    <h2
-                      className={`text-[11px] font-medium tracking-[0.2em] uppercase opacity-45 ${currentTheme.colors.text}`}
-                    >
-                      More
-                    </h2>
-                    <div
-                      className={`h-px flex-1 border-t opacity-60 ${currentTheme.styles.border}`}
-                    />
-                  </div>
-                  <LinkGrid links={secondaryLinks} variant="secondary" themeName={themeName} />
-                </section>
-              )}
+            <main>
+              <LinkSections links={links} themeName={themeName} />
             </main>
 
             <footer

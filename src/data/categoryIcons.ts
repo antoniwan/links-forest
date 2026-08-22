@@ -367,6 +367,18 @@ export type CategoryIconName = keyof typeof categoryIconMap;
 // Helper function to get the appropriate icon for a category
 export function getCategoryIcon(category: string): CategoryIconName {
   const normalizedCategory = category.toLowerCase().trim();
+
+  const sectionAliases: Record<string, CategoryIconName> = {
+    'childrens-books': 'reading',
+    writing: 'pen',
+    brand: 'art',
+    connect: 'lifestyle',
+  };
+
+  if (normalizedCategory in sectionAliases) {
+    return sectionAliases[normalizedCategory];
+  }
+
   return (
     normalizedCategory in categoryIconMap ? normalizedCategory : 'default'
   ) as CategoryIconName;

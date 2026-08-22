@@ -2,6 +2,12 @@
 
 Notable changes are listed here. The project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.4.0] - 2026-08-22
+
+- Added categorized link sections: links group by `category` into labeled sections (Children's Books, Writing & Reading, Work & Consulting, Code & Projects, Brand, Connect & Support).
+- Added The Bent One children's book link and reorganized all profile links into the new section layout.
+- Person JSON-LD `workExample` now lists both children's books.
+
 ## [2.7.0] - 2026-02-26
 
 - ESLint: removed `.eslintignore` (ESLint 9 uses `ignores` in config only). Switched to static imports for parser and plugins so lint runs correctly. Version bump for consistency.

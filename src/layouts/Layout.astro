@@ -8,7 +8,7 @@ import { dataLogger } from '../utils/logger';
 import type { ThemeName } from '../data/theme.types';
 import '../styles/global.css';
 
-const { profile, theme, links, secondaryLinks, social } = userConfig;
+const { profile, theme, links, social } = userConfig;
 const configuredTheme = theme.active;
 const meta = generateMetaConfig(profile, Astro.url.pathname);
 const showThemePreview = import.meta.env.DEV;
@@ -136,7 +136,6 @@ dataLogger('Layout initialized with theme:', configuredTheme);
       client:load
       profile={profile}
       links={links}
-      secondaryLinks={secondaryLinks}
       social={social}
       configuredTheme={configuredTheme}
       showThemePreview={showThemePreview}
