@@ -2,6 +2,8 @@
 
 How to fork this **template**, put your identity in `src/config/user-settings.ts`, and deploy to Vercel or Netlify.
 
+**Not sure yet?** Poke the live demo first: **[links-forest-phi.vercel.app](https://links-forest-phi.vercel.app)** (Rowan Hollow — fictional demo identity).
+
 The live site [antoniwan.online](https://antoniwan.online) is a separate repo. Do not treat this repository as that site.
 
 ## Prerequisites

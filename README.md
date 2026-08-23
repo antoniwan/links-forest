@@ -4,6 +4,12 @@ A minimalist, themed link-sharing page. Built with Astro, Tailwind CSS, and Fram
 
 **This repo is the template.** Forks get a finished demo page for a fictional person (Rowan Hollow), not a live personal site. [antoniwan.online](https://antoniwan.online) is a separate repo that tracks this one as `upstream`.
 
+## Try the demo
+
+**[links-forest-phi.vercel.app](https://links-forest-phi.vercel.app)** — walk through Rowan Hollow’s page before you fork.
+
+When you’re ready: fork → edit `src/config/user-settings.ts` → deploy. Step-by-step in the **[self-hosting guide](./SELF-HOSTING.md)** (Vercel, Netlify, custom domain).
+
 ## Quick start
 
 ```bash
