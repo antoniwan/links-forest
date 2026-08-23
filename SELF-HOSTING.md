@@ -2,7 +2,7 @@
 
 How to fork this **template**, put your identity in `src/config/user-settings.ts`, and deploy to Vercel or Netlify.
 
-**Not sure yet?** Poke the live demo first: **[links-forest-phi.vercel.app](https://links-forest-phi.vercel.app)** (Rowan Hollow — fictional demo identity).
+**Not sure yet?** Poke the live demo first: **[links-forest-phi.vercel.app](https://links-forest-phi.vercel.app)** (Rowan Hollow, fictional demo identity).
 
 The live site [antoniwan.online](https://antoniwan.online) is a separate repo. Do not treat this repository as that site.
 
@@ -94,13 +94,13 @@ Run `pnpm install && pnpm run dev`, open `http://localhost:4321`, and check the 
    - Run `pnpm install` locally and then `pnpm run build` to reproduce
    - Check the build logs on Vercel or Netlify
 
-2. **Domain not working** — Check DNS and domain settings in the host dashboard. Propagation can take up to 48 hours.
+2. **Domain not working:** Check DNS and domain settings in the host dashboard. Propagation can take up to 48 hours.
 
-3. **Analytics not working** — Confirm Vercel Analytics is enabled and that ad blockers or privacy settings are not blocking it.
+3. **Analytics not working:** Confirm Vercel Analytics is enabled and that ad blockers or privacy settings are not blocking it.
 
-4. **Theme not loading** — Ensure `theme.active` in `user-settings.ts` matches one of the theme names (e.g. `builder`, `wolf`, `mystic`).
+4. **Theme not loading:** Ensure `theme.active` in `user-settings.ts` matches one of the theme names (e.g. `builder`, `wolf`, `mystic`).
 
-5. **Signature page** — Needs at least two links and (optionally) an email in the social links. Clipboard works in secure contexts (HTTPS or localhost).
+5. **Signature page:** Needs at least two links and (optionally) an email in the social links. Clipboard works in secure contexts (HTTPS or localhost).
 
 ### Local commands
 

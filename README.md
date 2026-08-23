@@ -6,7 +6,7 @@ A minimalist, themed link-sharing page. Built with Astro, Tailwind CSS, and Fram
 
 ## Try the demo
 
-**[links-forest-phi.vercel.app](https://links-forest-phi.vercel.app)** — walk through Rowan Hollow’s page before you fork.
+**[links-forest-phi.vercel.app](https://links-forest-phi.vercel.app)**: walk through Rowan Hollow's page before you fork.
 
 When you’re ready: fork → edit `src/config/user-settings.ts` → deploy. Step-by-step in the **[self-hosting guide](./SELF-HOSTING.md)** (Vercel, Netlify, custom domain).
 
@@ -21,9 +21,9 @@ pnpm dev
 
 Open `http://localhost:4321`. Then edit `src/config/user-settings.ts`, in this order:
 
-1. **`profile`** — name, handle, subtitle. Leave `image` unset to use initials.
-2. **`site.baseUrl`** — your real URL (SEO, canonical, share cards).
-3. **`links` and `social`** — your destinations.
+1. **`profile`**: name, handle, subtitle. Leave `image` unset to use initials.
+2. **`site.baseUrl`**: your real URL (SEO, canonical, share cards).
+3. **`links` and `social`**: your destinations.
 
 Pick a theme with `theme.active` (`builder`, `wolf`, `mystic`, and the rest listed in that file). Deploy with the [self-hosting guide](./SELF-HOSTING.md).
 
@@ -150,8 +150,8 @@ Logs show in the browser console and in the terminal when the dev server is runn
 
 ## Documentation
 
-- [Self-Hosting Guide](./SELF-HOSTING.md) — deploy on Vercel or Netlify
-- [License](./LICENSE.md) — MIT license and project intent
+- [Self-Hosting Guide](./SELF-HOSTING.md): deploy on Vercel or Netlify
+- [License](./LICENSE.md): MIT license and project intent
 - [Astro](https://docs.astro.build) · [Tailwind CSS](https://tailwindcss.com/docs) · [TypeScript](https://www.typescriptlang.org/docs/)
 
 ## Contributing
