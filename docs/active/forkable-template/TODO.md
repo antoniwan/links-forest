@@ -7,26 +7,26 @@ Work in order. Check items off in the same PR/session that does them.
 - [x] Branch `feat/forkable-template`
 - [x] Project folder + inventory + decisions
 
-## 1. Split the settings file
+## 1. Demo identity for the template (do not merge to main yet)
 
-- [ ] Add `src/config/user-settings.example.ts` with fictional demo content (typed, builds, looks complete)
-- [ ] Gitignore `src/config/user-settings.ts`
-- [ ] Add `pnpm setup` (copy example → settings if missing)
-- [ ] Point `settings.loader.ts` at `user-settings.ts` only; fail with a clear message if it is missing
-- [ ] Keep a local `user-settings.ts` on this machine so `antoniwan.online` still works in dev
+- [ ] Write fictional demo `user-settings.ts` content ready to swap onto template `main` in Phase 3
+- [ ] README: this repo is the template; live site is a separate repo
+- [ ] SELF-HOSTING.md: clone template, edit `user-settings.ts`, deploy; do not assume the live site is this repo
 
 ## 2. Docs for forkers
 
-- [ ] README: clone → `pnpm setup` → edit `user-settings.ts` → `pnpm dev`
-- [ ] SELF-HOSTING.md: same bootstrap; say the committed file is the example, not the live site
-- [ ] Example file header: what to change first (profile, `site.baseUrl`, links)
+- [ ] README: clone → `pnpm install` → `pnpm dev` → edit `user-settings.ts`
+- [ ] Point people at profile / `site.baseUrl` / links first
 
-## 3. Production overlay
+## 3. Two-repo cutover (see MIGRATION.md)
 
-- [ ] Decide D3 for real: private fork vs `site` branch
-- [ ] Move the current `user-settings.ts` into that overlay
-- [ ] Point Vercel production at the overlay
-- [ ] Confirm `antoniwan.online` still renders the real profile after `main` is template-only
+- [x] Decide D3: public downstream `antoniwan.online-web` (same-account git push + `upstream`, not private, not Fork button)
+- [ ] Phase 0: demo settings prepared on this branch (do not merge to `main` yet)
+- [ ] Phase 1: create public `antoniwan/antoniwan.online-web`, push current `main`
+- [ ] Phase 2: clone it, add `upstream`, switch Vercel Git source, verify antoniwan.online
+- [ ] Phase 3: put demo `user-settings.ts` on template `main`
+- [ ] Phase 4: first `git merge upstream/main` on the site clone; keep your settings
+- [ ] Phase 5: use WORKFLOW.md as the runbook
 
 ## 4. Template polish (after the split works)
 

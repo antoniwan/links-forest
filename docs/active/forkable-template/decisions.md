@@ -4,9 +4,9 @@ Update this file when a call is made. Defaults below are what we will implement 
 
 ## D1. Content vs engine
 
-**Default: yes.** One real settings file, one committed example, loader unchanged.
+**Default: yes.** One settings file path, two committed versions (demo on the template, Antonio on the site). Loader unchanged.
 
-Do not introduce JSON, CMS, or env-var identity. The TypeScript settings file is the product.
+Do not introduce JSON, CMS, or env-var identity. Do not gitignore for secrecy: identity is allowed to stay public. The TypeScript settings file is the product.
 
 ## D2. Demo person on `main`
 
@@ -18,15 +18,19 @@ Suggested: a clearly fake forest-themed person (e.g. name + handle that cannot b
 
 ## D3. Where production content lives
 
-**Default: private overlay repo/fork**, Vercel production pointed at that.
+**Decided: public downstream repo** `antoniwan/antoniwan.online-web`. Privacy is not a goal; identity can stay in git.
 
-`main` on `antoniwan/links-forest` becomes the template people fork.
+You cannot use GitHub’s Fork button onto the same account. Create a second public repo, push current `main`, add `upstream` → `antoniwan/links-forest`. That is fork maintenance: you own upstream and downstream.
 
-Fallback if we want to stay on one GitHub repo: `site` branch with the real `user-settings.ts`. Know that the file stays public.
+Vercel production points at `antoniwan.online-web`. Template `main` is what other people fork.
 
-## D4. First-run copy
+Rejected: private repo (unnecessary). Rejected: `site` branch on this repo (weaker practice than two remotes).
 
-**Default: `pnpm setup` copies example → `user-settings.ts` if missing.** Wire it in README and SELF-HOSTING.md. Optional postinstall is easy to hate; a named script is enough.
+## D4. How forkers get a working page
+
+**Default: template commits a demo `user-settings.ts`.** Clone, `pnpm install`, `pnpm dev`. Edit the file. No setup copy step required.
+
+An extra `.example.ts` is optional reference, not the live path.
 
 ## D5. Git history rewrite
 

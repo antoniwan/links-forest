@@ -8,25 +8,21 @@ This repo currently does two jobs: it is the public template, and it is the prod
 
 ## How we get personal info out
 
-Keep the **engine** in git. Keep **identity** in a content pack that the template does not commit.
+Keep the **engine** in the template repo. Keep **your identity** in a second public repo that tracks the template as `upstream`. Same file path, different content. Both committed. Public is fine.
 
-| Layer | What it is | Lives in git on `main`? |
+| Layer | What it is | Where |
 | --- | --- | --- |
-| Engine | Themes, components, loader, docs | Yes |
-| Template content | Fictional demo profile, placeholder links | Yes (`user-settings.example.ts`) |
-| Personal content | Antonio’s profile, links, SEO, photos | No (overlay used only for the live deploy) |
+| Engine | Themes, components, loader, docs | both repos (site pulls from template) |
+| Template identity | Fictional demo in `user-settings.ts` | `antoniwan/links-forest` `main` |
+| Your identity | Antonio in `user-settings.ts` | `antoniwan/antoniwan.online-web` `main` |
 
-`user-settings.ts` already is the content pack. The loader (`src/config/settings.loader.ts`) stays the engine. We do not scatter identity into new files; we stop committing the real one.
+You cannot Fork this repo onto the same GitHub account. We `git push` this history into `antoniwan.online-web` and add `upstream`. That *is* fork maintenance: you own both sides. Details: [MIGRATION.md](./MIGRATION.md).
 
 ### Recommended model
 
-1. Commit `src/config/user-settings.example.ts` with a clearly fake demo person (not `YOUR_NAME`, not Antonio).
-2. Gitignore `src/config/user-settings.ts`. First-run copies the example (`pnpm setup` or a postinstall that only copies if missing).
-3. Point Vercel production at a **private overlay**, not at the public `main` content:
-   - **Preferred:** private repo or private fork that contains the real `user-settings.ts` + `public/` photos, and pulls this template as upstream.
-   - **Fallback:** a `site` branch on this repo. Forks still default to `main`, but the personal file remains public on that branch.
-
-Vercel builds from git. A gitignored file on `main` will not appear in production unless we overlay it. That is the whole point of the private fork / `site` branch.
+1. Second public repo `antoniwan/antoniwan.online-web` with `upstream` → this template. Vercel builds that.
+2. Template `main` gets a fictional demo in `user-settings.ts` (after Vercel has moved).
+3. Site `main` keeps your `user-settings.ts`. Merges from upstream: keep yours when that file conflicts.
 
 ### What this is not
 
@@ -41,6 +37,8 @@ Vercel builds from git. A gitignored file on `main` will not appear in productio
 
 ## Working files
 
+- [MIGRATION.md](./MIGRATION.md) — cutover: site repo, Vercel, then demo on template `main`
+- [WORKFLOW.md](./WORKFLOW.md) — daily git after go-live
 - [inventory.md](./inventory.md) — every personal artifact
 - [TODO.md](./TODO.md) — implementation checklist
-- [decisions.md](./decisions.md) — open calls and defaults
+- [decisions.md](./decisions.md) — calls and defaults
