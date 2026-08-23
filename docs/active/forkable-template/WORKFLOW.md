@@ -55,6 +55,8 @@ Use **merge**, not rebase. The merge commit means “I took template main today.
 
 If `user-settings.ts` conflicts: keep **ours** (your file). Engine files: take **upstream**, unless you are about to send that engine fix back to `links-forest`.
 
+`.gitattributes` `merge=ours` is not enough by itself. Git may still text-merge that file. After every upstream merge, open `user-settings.ts` and confirm it is still you. If it is the demo person: `git checkout ORIG_HEAD -- src/config/user-settings.ts`.
+
 Do not grow a second engine on the site clone. Fix UI in the template, merge upstream afterward.
 
 ### Never

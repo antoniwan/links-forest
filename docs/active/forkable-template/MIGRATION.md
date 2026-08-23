@@ -1,6 +1,6 @@
 # Migration plan: template + public site
 
-**Status:** ready to execute  
+**Status:** done  
 **Decision:** D3 — public downstream `antoniwan/antoniwan.online-web`  
 **Live site:** [antoniwan.online](https://antoniwan.online) must not switch to the demo person.
 
@@ -116,5 +116,5 @@ Template work in `links-forest`. Identity work in `antoniwan.online-web`. Never 
 - [x] `antoniwan/antoniwan.online-web` exists (public)
 - [x] Vercel production Git source is that repo
 - [x] antoniwan.online still shows Antonio
-- [ ] `links-forest` `main` shows the demo person
-- [ ] One `git merge upstream/main` on the site clone kept your settings
+- [x] `links-forest` `main` shows the demo person
+- [x] One `git merge upstream/main` on the site clone kept your settings

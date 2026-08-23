@@ -1,7 +1,7 @@
 # Make LinksForest forkable
 
-**Status:** executing — demo identity is on this branch; Vercel already points at the site repo  
-**Branch:** `feat/forkable-template`  
+**Status:** done — template `main` is the demo; production is `antoniwan.online-web`  
+**Branch:** `main`  
 **Goal:** A fork should open as a blank template, not as Antonio’s site.
 
 This repo currently does two jobs: it is the public template, and it is the production site for [antoniwan.online](https://antoniwan.online). Those jobs conflict. Forks copy `src/config/user-settings.ts`, so they ship with Antonio’s name, links, socials, and SEO.

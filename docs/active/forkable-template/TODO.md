@@ -24,9 +24,9 @@ Work in order. Check items off in the same PR/session that does them.
 - [x] Phase 0: demo settings prepared on this branch (do not merge to `main` yet)
 - [x] Phase 1: create public `antoniwan/antoniwan.online-web`, push current `main`
 - [x] Phase 2: clone it, add `upstream`, switch Vercel Git source, verify antoniwan.online
-- [ ] Phase 3: put demo `user-settings.ts` on template `main`
-- [ ] Phase 4: first `git merge upstream/main` on the site clone; keep your settings
-- [ ] Phase 5: use WORKFLOW.md as the runbook
+- [x] Phase 3: put demo `user-settings.ts` on template `main`
+- [x] Phase 4: first `git merge upstream/main` on the site clone; keep your settings
+- [x] Phase 5: use WORKFLOW.md as the runbook
 
 ## 4. Template polish (after the split works)
 
