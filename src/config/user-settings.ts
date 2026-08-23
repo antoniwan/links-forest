@@ -123,7 +123,7 @@ export const userSettings: UserSettings = {
     },
     seo: {
       defaultDescription:
-        'Antonio Rodríguez Martínez (antoniwan) — Technical Program Manager at Stanley Black & Decker, full-stack developer, and founder of Strong Hands, Soft Heart LLC. Puerto Rico-born builder of digital systems, cultural storytelling projects, and human-centered teams based in Central Florida.',
+        'Antonio Rodríguez Martínez (antoniwan), Technical Program Manager at Stanley Black & Decker, full-stack developer, and founder of Strong Hands, Soft Heart LLC. Puerto Rico-born builder of digital systems, cultural storytelling projects, and human-centered teams based in Central Florida.',
       defaultKeywords: [
         'Antonio Rodríguez Martínez',
         'Systems Thinker',
@@ -137,7 +137,7 @@ export const userSettings: UserSettings = {
         'Professional Profile',
       ],
       metaDescription:
-        'Antonio Rodríguez Martínez (antoniwan) — Technical Program Manager at Stanley Black & Decker, full-stack developer, and founder of Strong Hands, Soft Heart LLC. Puerto Rico-born builder of digital systems, cultural storytelling projects, and human-centered teams based in Central Florida.',
+        'Antonio Rodríguez Martínez (antoniwan), Technical Program Manager at Stanley Black & Decker, full-stack developer, and founder of Strong Hands, Soft Heart LLC. Puerto Rico-born builder of digital systems, cultural storytelling projects, and human-centered teams based in Central Florida.',
       robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
       language: 'en',
       contentType: 'website',
@@ -242,7 +242,7 @@ export const userSettings: UserSettings = {
     {
       title: 'Notes',
       url: 'https://notes.antoniwan.online/',
-      description: 'Fatherhood, masculinity, and modern life — thinking out loud.',
+      description: 'Thinking out loud on fatherhood, masculinity, and modern life',
       category: 'writing',
       icon: 'notebook',
       featured: true,
