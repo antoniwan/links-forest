@@ -1,21 +1,8 @@
 /**
- * Categories of emojis available in the system
- */
-export type EmojiCategory =
-  | 'social'
-  | 'media'
-  | 'business'
-  | 'navigation'
-  | 'status'
-  | 'weather'
-  | 'communication'
-  | 'organization';
-
-/**
- * All available emoji names in the system
+ * Emoji icons for links and social profiles.
  */
 export type EmojiName =
-  // Social & Communication
+  // Social
   | 'twitter'
   | 'github'
   | 'linkedin'
@@ -31,116 +18,65 @@ export type EmojiName =
   | 'lastfm'
   | 'spotify'
   | 'threads'
-  // Media & Content
-  | 'video'
-  | 'image'
-  | 'music'
-  | 'podcast'
-  | 'stream'
-  // Business & Work
-  | 'briefcase'
-  | 'meeting'
-  | 'project'
-  | 'task'
-  | 'deadline'
-  // Navigation & UI
-  | 'home'
-  | 'back'
-  | 'forward'
-  | 'up'
-  | 'down'
-  | 'menu'
-  | 'website'
-  | 'search'
-  | 'settings'
-  // Status & Feedback
-  | 'success'
-  | 'error'
-  | 'warning'
-  | 'info'
-  | 'loading'
-  // Weather & Time
-  | 'sun'
-  | 'cloud'
-  | 'rain'
-  | 'snow'
-  | 'clock'
-  // Communication
+  | 'medium'
+  | 'bluesky'
   | 'email'
-  | 'phone'
-  | 'location'
-  // Organization
-  | 'calendar'
-  | 'document'
+  // Writing & media
+  | 'notebook'
+  | 'storybook'
+  | 'pen'
+  | 'books'
+  // Work
+  | 'briefcase'
+  | 'handshake'
+  | 'code'
+  | 'heart'
+  // Elsewhere
+  | 'website'
+  | 'paint'
+  | 'gift'
   | 'folder';
 
-/**
- * Mapping of emoji names to their corresponding Unicode characters
- */
 export const emojiMap: Record<EmojiName, string> = {
-  // Social & Communication
   twitter: '𝕏',
-  github: '⌨️',
-  linkedin: '🔗',
+  github: '🐙',
+  linkedin: '💼',
   instagram: '📸',
-  facebook: '📱',
+  facebook: '📘',
   youtube: '▶️',
   whatsapp: '💬',
   telegram: '📨',
   discord: '🎮',
   slack: '💬',
-  reddit: '📱',
+  reddit: '👽',
   tiktok: '🎵',
   lastfm: '🎵',
   spotify: '🎧',
   threads: '🧵',
-  // Media & Content
-  video: '🎥',
-  image: '🖼️',
-  music: '🎵',
-  podcast: '🎙️',
-  stream: '📺',
-  // Business & Work
-  briefcase: '💼',
-  meeting: '👥',
-  project: '📊',
-  task: '✅',
-  deadline: '⏰',
-  // Navigation & UI
-  home: '🏠',
-  back: '⬅️',
-  forward: '➡️',
-  up: '⬆️',
-  down: '⬇️',
-  menu: '☰',
-  website: '🌐',
-  search: '🔍',
-  settings: '⚙️',
-  // Status & Feedback
-  success: '✅',
-  error: '❌',
-  warning: '⚠️',
-  info: 'ℹ️',
-  loading: '⏳',
-  // Weather & Time
-  sun: '☀️',
-  cloud: '☁️',
-  rain: '🌧️',
-  snow: '❄️',
-  clock: '🕒',
-  // Communication
+  medium: '✍️',
+  bluesky: '🦋',
   email: '📧',
-  phone: '📞',
-  location: '📍',
-  // Organization
-  calendar: '📅',
-  document: '📄',
+  notebook: '📝',
+  storybook: '📖',
+  pen: '✍️',
+  books: '📚',
+  briefcase: '💼',
+  handshake: '🤝',
+  code: '💻',
+  heart: '❤️',
+  website: '🌐',
+  paint: '🎨',
+  gift: '🎁',
   folder: '📁',
-} as const;
+};
 
-/**
- * Type guard to check if a string is a valid EmojiName
- */
 export function isValidEmojiName(name: string): name is EmojiName {
   return name in emojiMap;
 }
+
+/** Default emoji when a link has a section but no explicit icon */
+export const sectionDefaultEmoji: Partial<Record<string, EmojiName>> = {
+  writing: 'pen',
+  work: 'briefcase',
+  elsewhere: 'website',
+};

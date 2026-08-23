@@ -55,8 +55,10 @@ export interface Link {
   url: string;
   /** Short description of the link */
   description: string;
-  /** Category or group this link belongs to */
+  /** Section grouping for layout */
   category?: string;
+  /** Optional emoji icon override */
+  icon?: EmojiName;
 }
 
 /**

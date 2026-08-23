@@ -1,7 +1,7 @@
 {
   "name": "links-forest",
   "type": "module",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "description": "A minimalist, themed link-sharing platform powered by Astro, Tailwind, and Framer Motion",
   "repository": {
     "type": "git",
@@ -44,8 +44,7 @@
     "astro": "^7.2.4",
     "framer-motion": "^12.23.25",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.7.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",

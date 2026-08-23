@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import type { FC } from 'react';
 import type { SocialLink } from '../data/types';
-import { socialIconMap } from '../data/icons';
+import { emojiMap } from '../data/emojis';
 import { themeConfig } from '../config/theme.config';
 import type { ThemeName } from '../data/theme.types';
 
@@ -30,7 +30,7 @@ export const SocialIcons: FC<SocialIconsProps> = ({
       }}
     >
       {socialLinks.map((item) => {
-        const Icon = socialIconMap[item.icon as keyof typeof socialIconMap];
+        const emoji = emojiMap[item.icon];
         return (
           <motion.a
             key={item.platform}
@@ -47,7 +47,7 @@ export const SocialIcons: FC<SocialIconsProps> = ({
             whileTap={themeMotion.cardTap}
             transition={themeMotion.cardTransition}
           >
-            {Icon && <Icon />}
+            <span aria-hidden="true">{emoji}</span>
           </motion.a>
         );
       })}

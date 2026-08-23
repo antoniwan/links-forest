@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { createElement, type FC } from 'react';
+import type { FC } from 'react';
 import type { Link } from '../data/types';
-import { categoryIconMap, getCategoryIcon } from '../data/categoryIcons';
+import { resolveLinkEmoji } from '../data/linkIcons';
 import { themeConfig } from '../config/theme.config';
 import type { ThemeName, ThemeRail } from '../data/theme.types';
 
@@ -62,10 +62,10 @@ function AccentRail({
 }
 
 export const LinkCard: FC<LinkCardProps> = ({ link, index, themeName }) => {
-  const { url, title, description, category } = link;
+  const { url, title, description } = link;
   const currentTheme = themeConfig[themeName];
   const { motion: themeMotion } = currentTheme;
-  const Icon = category ? categoryIconMap[getCategoryIcon(category)] : null;
+  const emoji = resolveLinkEmoji(link);
 
   return (
     <motion.a
@@ -88,11 +88,9 @@ export const LinkCard: FC<LinkCardProps> = ({ link, index, themeName }) => {
       <div className="relative flex items-start justify-between gap-4">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-3">
-            {Icon && (
-              <span
-                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-black/4 text-base opacity-70 transition-opacity group-hover:opacity-100 dark:bg-white/8 ${currentTheme.styles.accentSoft}`}
-              >
-                {createElement(Icon)}
+            {emoji && (
+              <span className="shrink-0 text-xl leading-none" aria-hidden="true">
+                {emoji}
               </span>
             )}
             <h3

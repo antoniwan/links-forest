@@ -234,105 +234,87 @@ export const userSettings: UserSettings = {
     },
   },
   links: [
+    // Writing — stories, books, and the notebook
+    {
+      title: 'Notes (Blog)',
+      url: 'https://notes.antoniwan.online/',
+      description:
+        'Raw thoughts on fatherhood, masculinity, and modern life — no filter, some philosophy, occasional beauty. Where I think out loud about the hard questions.',
+      category: 'writing',
+      icon: 'notebook',
+    },
     {
       title: 'The Bent One',
       url: 'https://the-bent-one-book.stronghandssoftheart.com',
-      description: 'An interactive children\'s story from Strong Hands, Soft Heart',
-      category: 'childrens-books',
+      description:
+        'A cozy children\'s story about bent branches, soft roots, and finding home in your own shape',
+      category: 'writing',
+      icon: 'storybook',
     },
     {
       title: 'Mia, the Sun and the Moon',
       url: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
       description: 'A legacy children\'s story about love, light, and the rhythm of day and night',
-      category: 'childrens-books',
-    },
-    {
-      title: 'Notes (Blog)',
-      url: 'https://notes.antoniwan.online/',
-      description:
-        'A working notebook in a season of becoming — choosing honesty over performance, precision over showmanship',
       category: 'writing',
+      icon: 'storybook',
     },
-    {
-      title: 'Medium',
-      url: 'https://medium.com/@wizards777',
-      description: 'Wizard essays and deeper thoughts',
-      category: 'writing',
-    },
-    {
-      title: 'Goodreads',
-      url: 'https://www.goodreads.com/antoniwan',
-      description: 'Reading bookshelf and recommendations',
-      category: 'writing',
-    },
-    {
-      title: 'My Prompt Library',
-      url: 'https://mpl.antoniwan.online/',
-      description:
-        'Plain-text prompts in Markdown, stored in Git. Easy to read, copy, and adapt in your own tools. No lock-in.',
-      category: 'writing',
-    },
+    // Work — hire me or learn about the business
     {
       title: 'Strong Hands, Soft Heart Consulting',
       url: 'https://consulting.stronghandssoftheart.com/',
       description: 'AI & engineering consulting for founders, product leaders, and ICs',
       category: 'work',
+      icon: 'handshake',
     },
     {
       title: 'Builds.Software',
       url: 'https://builds.software',
       description: 'Freelance, consulting, and development services',
       category: 'work',
-    },
-    {
-      title: 'Work Clock',
-      url: 'https://work-clock.builds.software/',
-      description:
-        'Configure your work schedule including days, start time, end time, and display preferences',
-      category: 'work',
-    },
-    {
-      title: 'React Hooks Explorer',
-      url: 'https://my-react-hooks.antoniwan.online/',
-      description:
-        'Personal workspace for React hooks, custom hooks, and patterns used for learning and POCs.',
-      category: 'code',
-    },
-    {
-      title: 'GitHub (Personal)',
-      url: 'https://github.com/antoniwan',
-      description: 'Open source projects and tools',
-      category: 'code',
-    },
-    {
-      title: 'GitHub (SHSH Org)',
-      url: 'https://github.com/Strong-Hands-Soft-Heart',
-      description: 'Strong Hands, Soft Heart brand repositories',
-      category: 'code',
-    },
-    {
-      title: 'CodePen',
-      url: 'https://codepen.io/antoniwan',
-      description: 'Creative experiments and UI demos',
-      category: 'code',
+      icon: 'code',
     },
     {
       title: 'Strong Hands, Soft Heart',
       url: 'https://www.stronghandssoftheart.com',
       description: 'Core brand site and business presence',
-      category: 'brand',
+      category: 'work',
+      icon: 'heart',
+    },
+    // Elsewhere — find me on other platforms
+    {
+      title: 'GitHub (Personal)',
+      url: 'https://github.com/antoniwan',
+      description: 'Open source projects and tools',
+      category: 'elsewhere',
+      icon: 'github',
     },
     {
-      title: 'BlueSky',
-      url: 'https://bsky.app/profile/antoniwan.online',
-      description: 'Stream of consciousness and public identity',
-      category: 'connect',
+      title: 'GitHub (SHSH Org)',
+      url: 'https://github.com/Strong-Hands-Soft-Heart',
+      description: 'Strong Hands, Soft Heart brand repositories',
+      category: 'elsewhere',
+      icon: 'folder',
+    },
+    {
+      title: 'CodePen',
+      url: 'https://codepen.io/antoniwan',
+      description: 'Creative experiments and UI demos',
+      category: 'elsewhere',
+      icon: 'paint',
+    },
+    {
+      title: 'Goodreads',
+      url: 'https://www.goodreads.com/antoniwan',
+      description: 'Reading bookshelf and recommendations',
+      category: 'elsewhere',
+      icon: 'books',
     },
     {
       title: 'Patreon',
       url: 'https://patreon.com/antoniwan',
       description: 'Support the mission and back the builder',
-      category: 'connect',
+      category: 'elsewhere',
+      icon: 'gift',
     },
   ],
   secondaryLinks: [],
@@ -348,9 +330,19 @@ export const userSettings: UserSettings = {
       icon: 'linkedin',
     },
     {
+      platform: 'medium',
+      url: 'https://medium.com/@wizards777',
+      icon: 'medium',
+    },
+    {
       platform: 'threads',
       url: 'https://www.threads.com/@_antoniwan',
       icon: 'threads',
+    },
+    {
+      platform: 'bluesky',
+      url: 'https://bsky.app/profile/antoniwan.online',
+      icon: 'bluesky',
     },
     {
       platform: 'instagram',

@@ -2,6 +2,12 @@
 
 Notable changes are listed here. The project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0] - 2026-08-23
+
+- Reorganized links into visitor-intent sections: Writing, Work, and Elsewhere.
+- Replaced react-icons with emoji for all link and social icons; removed the react-icons dependency.
+- Updated profile links: Notes leads Writing, removed obsolete projects, Medium and BlueSky moved to social icons.
+
 ## [3.4.0] - 2026-08-22
 
 - Added categorized link sections: links group by `category` into labeled sections (Children's Books, Writing & Reading, Work & Consulting, Code & Projects, Brand, Connect & Support).
