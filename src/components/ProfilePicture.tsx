@@ -11,10 +11,23 @@ interface ProfilePictureProps {
 }
 
 const sizeClasses = {
-  sm: 'w-16 h-16 text-lg',
-  md: 'w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 text-xl sm:text-2xl',
-  lg: 'w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 text-2xl sm:text-4xl',
+  sm: 'h-16 w-16 text-lg',
+  md: 'h-[4.5rem] w-[4.5rem] text-xl sm:h-24 sm:w-24 sm:text-2xl',
+  lg: 'h-24 w-24 text-2xl sm:h-32 sm:w-32 sm:text-3xl lg:h-36 lg:w-36',
 } as const;
+
+const pixelSize = {
+  sm: 64,
+  md: 96,
+  lg: 144,
+} as const;
+
+function imageSrc(image: string) {
+  if (image.startsWith('http') || image.startsWith('/') || image.startsWith('data:')) {
+    return image;
+  }
+  return `/${image}`;
+}
 
 export const ProfilePicture = ({
   name,
@@ -31,8 +44,7 @@ export const ProfilePicture = ({
     .toUpperCase()
     .slice(0, 2);
 
-  const width = size === 'sm' ? 64 : size === 'md' ? 160 : 208;
-  const height = size === 'sm' ? 64 : size === 'md' ? 160 : 208;
+  const dim = pixelSize[size];
   const baseClass = `${sizeClasses[size]} rounded-full object-cover transition-transform duration-500 ease-out hover:scale-[1.03]`;
 
   return (
@@ -43,17 +55,17 @@ export const ProfilePicture = ({
     >
       {image ? (
         <img
-          src={image}
+          src={imageSrc(image)}
           alt={`Profile picture of ${name}`}
-          className={`${baseClass} shadow-lg`}
-          width={width}
-          height={height}
+          className={`${baseClass} shadow-md`}
+          width={dim}
+          height={dim}
           loading="eager"
           decoding="async"
         />
       ) : (
         <div
-          className={`${baseClass} flex items-center justify-center border border-black/5 bg-white shadow-lg dark:border-white/10 dark:bg-slate-800`}
+          className={`${baseClass} flex items-center justify-center border border-black/5 bg-white shadow-md dark:border-white/10 dark:bg-slate-800`}
           aria-hidden="true"
         >
           <span className="font-bold">{initials}</span>

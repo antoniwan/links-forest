@@ -8,7 +8,10 @@
 /**
  * 🎨 Available Themes
  *
- * Shared system (white + zinc) with drama in motion, accent rails, and type.
+ * Shared calling-card system (white + zinc) with drama in motion, rails, wells, and type.
+ *
+ * Each theme now owns radius, icon wells, hover hints, atmosphere, and label voice
+ * so the compact identity layout feels native in every archetype.
  *
  * Type pairings:
  *   IBM Plex Sans + JetBrains Mono  — builder, forge
@@ -99,6 +102,7 @@ export interface UserSettings {
 export const userSettings: UserSettings = {
   profile: {
     name: 'Antonio Rodríguez Martínez',
+    handle: 'antoniwan',
     subtitle: 'Builder. Father. Boricua 🇵🇷',
     image: 'profile-picture.avif',
   },
@@ -236,12 +240,12 @@ export const userSettings: UserSettings = {
   links: [
     // Writing — stories, books, and the notebook
     {
-      title: 'Notes (Blog)',
+      title: 'Notes',
       url: 'https://notes.antoniwan.online/',
-      description:
-        'Raw thoughts on fatherhood, masculinity, and modern life — no filter, some philosophy, occasional beauty. Where I think out loud about the hard questions.',
+      description: 'Fatherhood, masculinity, and modern life — thinking out loud.',
       category: 'writing',
       icon: 'notebook',
+      featured: true,
     },
     {
       title: 'The Bent One',
@@ -320,14 +324,28 @@ export const userSettings: UserSettings = {
   secondaryLinks: [],
   social: [
     {
-      platform: 'twitter',
-      url: 'https://x.com/antoniwan',
-      icon: 'twitter',
-    },
-    {
       platform: 'linkedin',
       url: 'https://www.linkedin.com/in/antoniwan',
       icon: 'linkedin',
+      primary: true,
+    },
+    {
+      platform: 'twitter',
+      url: 'https://x.com/antoniwan',
+      icon: 'twitter',
+      primary: true,
+    },
+    {
+      platform: 'instagram',
+      url: 'https://www.instagram.com/_antoniwan',
+      icon: 'instagram',
+      primary: true,
+    },
+    {
+      platform: 'email',
+      url: 'mailto:antonio@builds.software',
+      icon: 'email',
+      primary: true,
     },
     {
       platform: 'medium',
@@ -345,29 +363,19 @@ export const userSettings: UserSettings = {
       icon: 'bluesky',
     },
     {
-      platform: 'instagram',
-      url: 'https://www.instagram.com/_antoniwan',
-      icon: 'instagram',
-    },
-    {
       platform: 'facebook',
       url: 'https://www.facebook.com/antoniwan',
       icon: 'facebook',
     },
     {
-      platform: 'email',
-      url: 'mailto:antonio@builds.software',
-      icon: 'email',
+      platform: 'spotify',
+      url: 'https://open.spotify.com/user/antoniwan',
+      icon: 'spotify',
     },
     {
       platform: 'lastfm',
       url: 'https://www.last.fm/user/antoniwan',
       icon: 'lastfm',
-    },
-    {
-      platform: 'spotify',
-      url: 'https://open.spotify.com/user/antoniwan',
-      icon: 'spotify',
     },
   ],
 };

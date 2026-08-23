@@ -16,21 +16,20 @@ export const LinkSections: FC<LinkSectionsProps> = ({ links, themeName }) => {
   let linkIndex = 0;
 
   return (
-    <div className="flex flex-col gap-12 sm:gap-14">
+    <div className="flex flex-col gap-10 sm:gap-12">
       {sections.map((section) => {
         const startIndex = linkIndex;
         linkIndex += section.links.length;
 
         return (
-          <section key={section.id} aria-label={section.label} className="space-y-5">
+          <section key={section.id} aria-label={section.label} className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className={`h-px flex-1 border-t opacity-60 ${currentTheme.styles.border}`} />
               <h2
-                className={`text-[11px] font-medium tracking-[0.2em] uppercase opacity-45 ${currentTheme.colors.text}`}
+                className={`text-[11px] font-medium uppercase opacity-80 ${currentTheme.styles.kicker} ${currentTheme.styles.accentSoft}`}
               >
                 {section.label}
               </h2>
-              <div className={`h-px flex-1 border-t opacity-60 ${currentTheme.styles.border}`} />
+              <div className={`h-px flex-1 border-t opacity-50 ${currentTheme.styles.border}`} />
             </div>
             <LinkGrid
               links={section.links}

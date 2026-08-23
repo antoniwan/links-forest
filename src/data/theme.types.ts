@@ -83,6 +83,20 @@ export interface ThemeStyles {
   atmosphere: string;
   ring: string;
   accentSoft: string;
+  /** Card / control corner radius */
+  radius: string;
+  /** Icon well surface on link cards */
+  well: string;
+  /** Hover fill for ghost socials */
+  wellHover: string;
+  /** Tooltip chip surface */
+  hint: string;
+  /** Tooltip chip type */
+  hintText: string;
+  /** Extra classes for featured cards */
+  featured: string;
+  /** Handle and section-label tracking / voice */
+  kicker: string;
 }
 
 export interface ThemeMeta {

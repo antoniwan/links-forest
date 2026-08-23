@@ -2,6 +2,18 @@
 
 Notable changes are listed here. The project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.7.0] - 2026-08-23
+
+- Each of the 13 themes now owns calling-card chrome: radius, icon wells, featured borders, hover hints, atmosphere, and section/handle voice.
+- Social tooltips pick up the active theme’s color and spring, so switching archetypes changes the whole page, not just the typeface.
+- Fixed the dev theme picker: it sat under the page stacking layer, so clicks never reached the list. It now lives in the same root, above the Astro toolbar.
+
+## [3.6.0] - 2026-08-23
+
+- Redesigned the page as a compact calling card: smaller portrait, handle, and primary socials sit with the identity so the first links show without scrolling.
+- Added optional `handle` on the profile, `featured` on links, and `primary` on socials. Notes is featured; LinkedIn, X, Instagram, and email lead; remaining socials move to the footer.
+- Editorial section headers, icon wells on cards, tighter type and spacing, and zinc tray surfaces so the layout scans as a brand page instead of a link list.
+
 ## [3.5.0] - 2026-08-23
 
 - Reorganized links into visitor-intent sections: Writing, Work, and Elsewhere.

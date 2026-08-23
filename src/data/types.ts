@@ -23,6 +23,8 @@ export type ProfilePictureFallback = 'initials' | 'avatar';
 export interface Profile {
   /** User's full name */
   name: string;
+  /** Public handle or short name shown above the display name */
+  handle?: string;
   /** Short subtitle or tagline; may contain simple HTML (e.g. <sup>, <em>). Plain text is used for SEO and signature. */
   subtitle: string;
   /** Optional profile picture filename */
@@ -59,6 +61,8 @@ export interface Link {
   category?: string;
   /** Optional emoji icon override */
   icon?: EmojiName;
+  /** Visually emphasize this link as a lead destination */
+  featured?: boolean;
 }
 
 /**
@@ -107,6 +111,8 @@ export interface SocialLink {
   url: string;
   /** Icon identifier from emojiMap */
   icon: EmojiName;
+  /** Shown beside the profile; unmarked links appear in the footer */
+  primary?: boolean;
 }
 
 /**
