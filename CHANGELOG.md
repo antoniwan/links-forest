@@ -2,6 +2,11 @@
 
 Notable changes are listed here. The project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.8.0] - 2026-08-23
+
+- This repo is now a forkable template with a fictional demo identity (Rowan Hollow) in `user-settings.ts`. A fresh clone renders a complete page without a photo.
+- README and SELF-HOSTING lead with clone → `pnpm install` → `pnpm dev` → edit profile, `site.baseUrl`, and links. The live antoniwan.online site lives in a separate downstream repo.
+
 ## [3.7.0] - 2026-08-23
 
 - Each of the 13 themes now owns calling-card chrome: radius, icon wells, featured borders, hover hints, atmosphere, and section/handle voice.

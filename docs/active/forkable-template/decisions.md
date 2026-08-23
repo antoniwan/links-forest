@@ -40,4 +40,4 @@ An extra `.example.ts` is optional reference, not the live path.
 
 **Default: change after the split**, once a demo URL exists or we are comfortable pointing at GitHub.
 
-Until then it can stay. Not a blocker for the settings extract.
+Done: `package.json` `homepage` now points at `https://github.com/antoniwan/links-forest`.

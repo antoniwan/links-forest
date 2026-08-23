@@ -113,8 +113,8 @@ Template work in `links-forest`. Identity work in `antoniwan.online-web`. Never 
 
 ## Done when
 
-- [ ] `antoniwan/antoniwan.online-web` exists (public)
-- [ ] Vercel production Git source is that repo
-- [ ] antoniwan.online still shows Antonio
+- [x] `antoniwan/antoniwan.online-web` exists (public)
+- [x] Vercel production Git source is that repo
+- [x] antoniwan.online still shows Antonio
 - [ ] `links-forest` `main` shows the demo person
 - [ ] One `git merge upstream/main` on the site clone kept your settings

@@ -1,6 +1,6 @@
 # Make LinksForest forkable
 
-**Status:** active  
+**Status:** executing — demo identity is on this branch; Vercel already points at the site repo  
 **Branch:** `feat/forkable-template`  
 **Goal:** A fork should open as a blank template, not as Antonio’s site.
 

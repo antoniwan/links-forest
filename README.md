@@ -1,71 +1,25 @@
 # LinksForest
 
-A minimalist, themed link-sharing platform. Built with Astro, Tailwind CSS, and Framer Motion. You edit one config file to set your profile, links, theme, and socials; the site builds as static HTML.
+A minimalist, themed link-sharing page. Built with Astro, Tailwind CSS, and Framer Motion. You edit one config file to set your profile, links, theme, and socials; the site builds as static HTML.
 
-## Quick Start
+**This repo is the template.** Forks get a finished demo page for a fictional person (Rowan Hollow), not a live personal site. [antoniwan.online](https://antoniwan.online) is a separate repo that tracks this one as `upstream`.
 
-1. **Edit Your Profile**
-   - Open `src/config/user-settings.ts`
-   - Update your name, subtitle, and profile picture in the `profile` section
-   - If no profile picture is set, your initials will be shown with a themed background
+## Quick start
 
-2. **Choose Your Theme**
-   - In `src/config/user-settings.ts`, find the `theme.active` property
-   - Set it to one of these archetypal themes:
-     - `builder`: 🏗️ - Creation, systems, form
-     - `wolf`: 🐺 - Instinct, loyalty, protection
-     - `mystic`: 🔮 - Spirituality, vision, cosmic threads
-     - `dragon`: 🐉 - Power, force, will
-     - `artist`: 🎨 - Expression, creativity, truth
-     - `warrior`: ⚔️ - Action, discipline, focus
-     - `healer`: 💫 - Regeneration, soothing, connection
-     - `alchemist`: 🧪 - Transformation, elements, ritual
-     - `strategist`: 🧠 - Mind, planning, clarity
-     - `steward`: 🌱 - Legacy, care, generational vision
+```bash
+git clone https://github.com/antoniwan/links-forest.git
+cd links-forest
+pnpm install
+pnpm dev
+```
 
-3. **Configure Site Settings**
-   - In `src/config/user-settings.ts`, edit the `site` section
-   - Update your base URL, site name, and social media handles
-   - Customize SEO settings like description, keywords, and meta tags
+Open `http://localhost:4321`. Then edit `src/config/user-settings.ts`, in this order:
 
-4. **Add Your Links**
-   - In `src/config/user-settings.ts`, edit the `links` array
-   - Each link needs:
-     - `title`: The name of your link
-     - `url`: The destination URL
-     - `description`: A short description
-     - `category`: Optional category for grouping (e.g., "book", "work", "lifestyle")
+1. **`profile`** — name, handle, subtitle. Leave `image` unset to use initials.
+2. **`site.baseUrl`** — your real URL (SEO, canonical, share cards).
+3. **`links` and `social`** — your destinations.
 
-5. **Add Secondary Links**
-   - In `src/config/user-settings.ts`, edit the `secondaryLinks` array
-   - These links appear in a separate section below your main links
-   - Same structure as main links
-
-6. **Add Social Media**
-   - In `src/config/user-settings.ts`, edit the `social` array
-   - Each social link needs:
-     - `platform`: The name of the platform
-     - `url`: Your profile URL
-     - `icon`: The icon to use (see `src/data/emojis.ts` for available icons)
-   - Supported platforms include: Twitter, GitHub, LinkedIn, Instagram, Facebook, YouTube, WhatsApp, Telegram, Discord, Slack, Reddit, TikTok, Last.fm, Spotify, and Threads
-
-7. **Automatic UTM Parameters**
-   - UTM parameters are automatically added to all your links for tracking
-   - No manual configuration needed - the system handles this automatically
-
-8. **Preview Your Changes**
-
-   ```bash
-   pnpm run dev
-   ```
-
-   Visit `http://localhost:4321` to see your changes
-
-9. **Deploy**
-   ```bash
-   pnpm run build
-   ```
-   Deploy the `dist` folder to your hosting provider
+Pick a theme with `theme.active` (`builder`, `wolf`, `mystic`, and the rest listed in that file). Deploy with the [self-hosting guide](./SELF-HOSTING.md).
 
 ## Themes
 

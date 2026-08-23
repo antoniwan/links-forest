@@ -1,19 +1,21 @@
 # Self-hosting LinksForest
 
-How to build and deploy LinksForest on Vercel or Netlify.
+How to fork this **template**, put your identity in `src/config/user-settings.ts`, and deploy to Vercel or Netlify.
+
+The live site [antoniwan.online](https://antoniwan.online) is a separate repo. Do not treat this repository as that site.
 
 ## Prerequisites
 
 - A GitHub account
 - A free [Vercel](https://vercel.com/) or [Netlify](https://netlify.com/) account
-- (Optional) A custom domain (e.g. from Namecheap)
-- Node.js 18+ (LTS version recommended)
+- (Optional) A custom domain
+- Node.js 22.12+ (see `package.json` `engines`)
 
 ---
 
 ## Option 1: Vercel
 
-### 1. Fork the repo
+### 1. Fork the template
 
 Click "Fork" on [GitHub](https://github.com/antoniwan/links-forest) to create your copy.
 
@@ -35,7 +37,7 @@ Click "Fork" on [GitHub](https://github.com/antoniwan/links-forest) to create yo
 
 ## Option 2: Netlify
 
-### 1. Fork the repo
+### 1. Fork the template
 
 Fork the repo on GitHub (same as for Vercel).
 
@@ -59,13 +61,14 @@ Fork the repo on GitHub (same as for Vercel).
 ### 1. Update configuration
 
 - Open `src/config/user-settings.ts`
-- Customize your profile, links, theme, and site settings
+- Start with **profile**, **`site.baseUrl`**, then **links** and **social**
+- Leave `profile.image` unset if you do not have a photo; initials are used instead
 - All UTM parameters are automatically added to your links
 - Commit and push your changes
 
-### 2. Add assets
+### 2. Add assets (optional)
 
-- Place your profile picture in `public/` (referenced as `profile-picture.avif`)
+- Place your profile picture in `public/` and set `profile.image` to the filename
 - Add a default share image as `public/default-share.jpg`
 - Update the favicon at `public/favicon.svg`
 
@@ -78,14 +81,14 @@ Fork the repo on GitHub (same as for Vercel).
 
 ### 4. Test locally
 
-Run `pnpm run dev`, open `http://localhost:4321`, and check the main page and `/signature` before pushing.
+Run `pnpm install && pnpm run dev`, open `http://localhost:4321`, and check the main page and `/signature` before pushing.
 
 ## Troubleshooting
 
 ### Common Issues
 
 1. **Build fails**
-   - Use Node.js 18 or newer (LTS recommended)
+   - Use Node.js 22.12 or newer
    - Run `pnpm install` locally and then `pnpm run build` to reproduce
    - Check the build logs on Vercel or Netlify
 
