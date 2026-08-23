@@ -2,7 +2,7 @@
 
 A minimalist, themed link-sharing page. Built with Astro, Tailwind CSS, and Framer Motion. You edit one config file to set your profile, links, theme, and socials; the site builds as static HTML.
 
-**This repo is the template.** Forks get a finished demo page for a fictional person (Rowan Hollow), not a live personal site. [antoniwan.online](https://antoniwan.online) is a separate repo that tracks this one as `upstream`.
+**This repo is the template.** Forks get a finished demo page for a fictional person (Rowan Hollow).
 
 ## Try the demo
 

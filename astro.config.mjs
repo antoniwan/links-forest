@@ -4,7 +4,9 @@ import react from '@astrojs/react';
 import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-const SITE = 'https://antoniwan.online';
+import { userSettings } from './src/config/user-settings.ts';
+
+const SITE = userSettings.site.baseUrl;
 const fontsource = fontProviders.fontsource();
 
 // https://astro.build/config

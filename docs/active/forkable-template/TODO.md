@@ -34,6 +34,7 @@ Work in order. Check items off in the same PR/session that does them.
 - [x] Confirm initials avatar path (no photo required)
 - [x] Footer / homepage URL still make sense for a template
 - [x] CHANGELOG + semver when this ships (minor: 3.8.0)
+- [x] Remove antoniwan.online from template `astro.config.mjs`, README, and SELF-HOSTING
 
 ## 5. Out of scope unless we reopen it
 

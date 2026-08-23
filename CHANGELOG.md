@@ -5,7 +5,8 @@ Notable changes are listed here. The project uses [Semantic Versioning](https://
 ## [3.8.0] - 2026-08-23
 
 - This repo is now a forkable template with a fictional demo identity (Rowan Hollow) in `user-settings.ts`. A fresh clone renders a complete page without a photo.
-- README and SELF-HOSTING lead with clone → `pnpm install` → `pnpm dev` → edit profile, `site.baseUrl`, and links. The live antoniwan.online site lives in a separate downstream repo.
+- README and SELF-HOSTING lead with clone → `pnpm install` → `pnpm dev` → edit profile, `site.baseUrl`, and links.
+- Astro `site` (sitemap/robots) follows `site.baseUrl` in `user-settings.ts`, so the template does not hardcode a personal domain.
 
 ## [3.7.0] - 2026-08-23
 
