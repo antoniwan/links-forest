@@ -1,0 +1,17 @@
+---
+description: Follow the active project folder for the forkable-template work
+alwaysApply: true
+---
+
+# Active project
+
+There is an active project at `docs/active/forkable-template/`.
+
+Before changing `user-settings.ts`, `settings.loader.ts`, README / SELF-HOSTING.md fork flow, or gitignore around config:
+
+1. Read `docs/active/forkable-template/README.md` and `TODO.md`
+2. Follow `decisions.md` defaults unless the user overrides them
+3. Check off TODO items you complete
+4. Do not commit Antonio’s real `user-settings.ts` onto `main` once it is gitignored
+
+This repo is becoming a clean template. The live site content is an overlay, not the default fork experience.
