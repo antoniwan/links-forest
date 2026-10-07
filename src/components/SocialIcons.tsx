@@ -1,43 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState, type FC, type PointerEvent } from 'react';
-import type { SocialLink, SocialPlatform } from '../data/types';
+import type { SocialLink } from '../data/types';
 import { emojiMap } from '../data/emojis';
+import { platformLabel } from '../data/platform-labels';
 import { themeConfig } from '../config/theme.config';
 import type { ThemeName, ThemeMotion } from '../data/theme.types';
-
-const platformLabel: Record<SocialPlatform, string> = {
-  twitter: 'X',
-  github: 'GitHub',
-  linkedin: 'LinkedIn',
-  instagram: 'Instagram',
-  facebook: 'Facebook',
-  youtube: 'YouTube',
-  whatsapp: 'WhatsApp',
-  telegram: 'Telegram',
-  discord: 'Discord',
-  slack: 'Slack',
-  reddit: 'Reddit',
-  tiktok: 'TikTok',
-  email: 'Email',
-  website: 'Website',
-  lastfm: 'Last.fm',
-  spotify: 'Spotify',
-  medium: 'Medium',
-  devto: 'Dev.to',
-  stackoverflow: 'Stack Overflow',
-  behance: 'Behance',
-  dribbble: 'Dribbble',
-  pinterest: 'Pinterest',
-  twitch: 'Twitch',
-  soundcloud: 'SoundCloud',
-  apple: 'Apple',
-  android: 'Android',
-  windows: 'Windows',
-  linux: 'Linux',
-  mastodon: 'Mastodon',
-  threads: 'Threads',
-  bluesky: 'Bluesky',
-};
 
 const tooltipMotion = {
   initial: { opacity: 0, y: 8, scale: 0.92, x: '-50%' },

@@ -107,7 +107,10 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) => !page.includes('/signature') && !page.endsWith('/robots.txt'),
+      filter: (page) =>
+        !page.includes('/signature') &&
+        !page.endsWith('/robots.txt') &&
+        !page.endsWith('/llms.txt'),
       changefreq: ChangeFreqEnum.WEEKLY,
       lastmod: new Date(),
       priority: 1,

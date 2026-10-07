@@ -2,6 +2,12 @@
 
 Notable changes are listed here. The project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.9.0] - 2026-10-07
+
+- Added `/llms.txt` (https://llmstxt.org): the page as markdown for AI agents. It is built from `user-settings.ts`, so a fork gets its own file with no extra step. It lists the profile, each link section in page order, and the social profiles, without the UTM tags the page adds.
+- Every page links it with `<link rel="describedby" href="/llms.txt">`. The sitemap leaves it out.
+- Social platform labels moved to `src/data/platform-labels.ts`, so the tooltips and `llms.txt` share one list.
+
 ## [3.8.0] - 2026-08-23
 
 - This repo is now a forkable template with a fictional demo identity (Rowan Hollow) in `user-settings.ts`. A fresh clone renders a complete page without a photo.
